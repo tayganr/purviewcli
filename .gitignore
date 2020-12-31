@@ -1,0 +1,9 @@
+__pycache__
+.env/
+env/
+.vscode/
+output/
+config.ini
+*.pyc
+.DS_Store
+*.egg-info/
