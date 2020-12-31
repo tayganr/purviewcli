@@ -1,11 +1,58 @@
 import os
+import configparser
 import json
 import requests
 from datetime import datetime
 from pandas import json_normalize
 
-def http_get(endpoint, params, config):
-    base_uri = config['purview_account']['atlas_endpoint']
+def update_config(args):
+    config = configparser.ConfigParser()
+    config_filepath = os.path.dirname(os.path.abspath(__file__)) + '/../config.ini'
+    
+    if os.path.exists(config_filepath):
+        config.read(config_filepath)
+
+    if args['--clientId']:
+        if 'service_principal' in config:
+            config.set('service_principal','client_id',args['--clientId'])
+        else:
+            config.add_section('service_principal')
+            config.set('service_principal','client_id',args['--clientId'])
+
+    if args['--clientName']:
+        if 'service_principal' in config:
+            config.set('service_principal','client_name',args['--clientName'])
+        else:
+            config.add_section('service_principal')
+            config.set('service_principal','client_name',args['--clientName'])
+
+    if args['--clientSecret']:
+        if 'service_principal' in config:
+            config.set('service_principal','client_secret',args['--clientSecret'])
+        else:
+            config.add_section('service_principal')
+            config.set('service_principal','client_secret',args['--clientSecret'])
+
+    if args['--tenantId']:
+        if 'service_principal' in config:
+            config.set('service_principal','tenant_id',args['--tenantId'])
+        else:
+            config.add_section('service_principal')
+            config.set('service_principal','tenant_id',args['--tenantId'])
+
+    if args['--accountName']:
+        if 'purview_account' in config:
+            config.set('purview_account','account_name',args['--accountName'])
+        else:
+            config.add_section('purview_account')
+            config.set('purview_account','account_name',args['--accountName'])
+
+
+    with open(config_filepath, 'w') as configfile:
+        config.write(configfile)
+
+def http_get_catalog(endpoint, params, config):
+    base_uri = 'https://%s.catalog.purview.azure.com' % config['purview_account']['account_name']
     headers = {"Authorization": "Bearer {0}".format(config['service_principal']['access_token'])}
     response = requests.get(base_uri + endpoint, params=params, headers=headers)
     print(response.url)

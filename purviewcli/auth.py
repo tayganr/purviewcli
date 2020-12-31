@@ -27,13 +27,18 @@ def is_token_valid(config):
 def set_token():
     # Read config.ini
     config = configparser.ConfigParser()
-    config_path = os.path.dirname(os.path.abspath(__file__)) + '/../config.ini'
-    config.read(config_path)
+    config_filepath = os.path.dirname(os.path.abspath(__file__)) + '/../config.ini'
+    config.read(config_filepath)
 
     # Refresh access token
-    if is_token_valid(config) == False:
-        config['service_principal']['access_token'] = get_token(config)
-        with open(config_path, 'w') as configfile:    # save
+    if not config.has_option('service_principal', 'access_token'):
+        token = get_token(config)
+        config.set('service_principal', 'access_token', token)
+        with open(config_filepath, 'w') as configfile:
             config.write(configfile)
     else:
-        pass
+        if is_token_valid(config) == False:
+            config['service_principal']['access_token'] = get_token(config)
+            with open(config_filepath, 'w') as configfile:    # save
+                config.write(configfile)
+

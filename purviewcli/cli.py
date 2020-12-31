@@ -2,6 +2,7 @@
 """purviewcli
 
 Usage:
+  purviewcli config [--clientId=<clientId> --clientName=<clientName> --clientSecret=<clientSecret> --tenantId=<tenantId> --accountName=<accountName>]
   purviewcli [csv | json] getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
   purviewcli [csv | json] getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
   purviewcli [csv | json] getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
@@ -41,6 +42,11 @@ Usage:
 Options:
   -h --help                                   Show this screen.
   -v --version                                Show version.
+  --clientId=<clientId>                       Client ID (aka Application ID) uniquely identifies your application in the Microsoft identity platform.
+  --clientName=<clientName>                   Client Name (aka Application Name)
+  --clientSecret=<clientSecret>               Client Secret to prove the applications identity when requesting a token.
+  --tenantId=<tenantId>                       Azure Active Directory > Properties > Directory ID.
+  --accountName=<accountName>                 Azure Purview Account Name.
   --limit=<limit>                             Page size, by default there is no paging [default: -1].
   --offset=<offset>                           Offset for pagination purpose [default: 0].
   --sort=<sort>                               ASC or DESC [default: ASC].
@@ -65,57 +71,66 @@ import purviewcli.relationship as relationship
 import purviewcli.typedefs as typedefs
 
 def main():
-  # Set Access Token
-  auth.set_token()
+  # Docopt
   args = docopt(__doc__, version='1.0')
+  
+  if args['config']:
+    common.update_config(args)
+  else:
+    # Function Map
+    function_map = {
+      'config': common.update_config,
+      'getEntityAudit': entity.getEntityAudit,
+      'getEntityBulk': entity.getEntityBulk,
+      'getEntityBulkHeaders': entity.getEntityBulkHeaders,
+      'getEntityBulkUniqueAttributeType': entity.getEntityBulkUniqueAttributeType,
+      'getEntityBusinessmetadataImportTemplate': entity.getEntityBusinessmetadataImportTemplate,
+      'getEntityGuid': entity.getEntityGuid,
+      'getEntityGuidClassification': entity.getEntityGuidClassification,
+      'getEntityGuidClassifications': entity.getEntityGuidClassifications,
+      'getEntityGuidHeader': entity.getEntityGuidHeader,
+      'getEntityUniqueAttributeType': entity.getEntityUniqueAttributeType,
+      'getEntityUniqueAttributeTypeHeader': entity.getEntityUniqueAttributeTypeHeader,
+      'getGlossary': glossary.getGlossary,
+      'getGlossaryCategories': glossary.getGlossaryCategories,
+      'getGlossaryCategoriesHeaders': glossary.getGlossaryCategoriesHeaders,
+      'getGlossaryCategory': glossary.getGlossaryCategory,
+      'getGlossaryCategoryRelated': glossary.getGlossaryCategoryRelated,
+      'getGlossaryCategoryTerms': glossary.getGlossaryCategoryTerms,
+      'getGlossaryDetailed': glossary.getGlossaryDetailed,
+      'getGlossaryTerm': glossary.getGlossaryTerm,
+      'getGlossaryTerms': glossary.getGlossaryTerms,
+      'getGlossaryTermsAssignedEntities': glossary.getGlossaryTermsAssignedEntities,
+      'getGlossaryTermsHeaders': glossary.getGlossaryTermsHeaders,
+      'getGlossaryTermsRelated': glossary.getGlossaryTermsRelated,
+      'getLineage': lineage.getLineage,
+      'getLineageUniqueAttributeType': lineage.getLineageUniqueAttributeType,
+      'getRelationshipGuid': relationship.getRelationshipGuid,
+      'getTypesBusinessmetadatadef': typedefs.getTypesBusinessmetadatadef,
+      'getTypesClassificationdef': typedefs.getTypesClassificationdef,
+      'getTypesEntitydef': typedefs.getTypesEntitydef,
+      'getTypesEnumdef': typedefs.getTypesEnumdef,
+      'getTypesRelationshipdef': typedefs.getTypesRelationshipdef,
+      'getTypesStructdef': typedefs.getTypesStructdef,
+      'getTypesTypedef': typedefs.getTypesTypedef,
+      'getTypesTypedefs': typedefs.getTypesTypedefs,
+      'getTypesTypedefsHeaders': typedefs.getTypesTypedefsHeaders
+    }
 
-  # Function Map
-  FUNCTION_MAP = {
-    'getEntityAudit': entity.getEntityAudit,
-    'getEntityBulk': entity.getEntityBulk,
-    'getEntityBulkHeaders': entity.getEntityBulkHeaders,
-    'getEntityBulkUniqueAttributeType': entity.getEntityBulkUniqueAttributeType,
-    'getEntityBusinessmetadataImportTemplate': entity.getEntityBusinessmetadataImportTemplate,
-    'getEntityGuid': entity.getEntityGuid,
-    'getEntityGuidClassification': entity.getEntityGuidClassification,
-    'getEntityGuidClassifications': entity.getEntityGuidClassifications,
-    'getEntityGuidHeader': entity.getEntityGuidHeader,
-    'getEntityUniqueAttributeType': entity.getEntityUniqueAttributeType,
-    'getEntityUniqueAttributeTypeHeader': entity.getEntityUniqueAttributeTypeHeader,
-    'getGlossary': glossary.getGlossary,
-    'getGlossaryCategories': glossary.getGlossaryCategories,
-    'getGlossaryCategoriesHeaders': glossary.getGlossaryCategoriesHeaders,
-    'getGlossaryCategory': glossary.getGlossaryCategory,
-    'getGlossaryCategoryRelated': glossary.getGlossaryCategoryRelated,
-    'getGlossaryCategoryTerms': glossary.getGlossaryCategoryTerms,
-    'getGlossaryDetailed': glossary.getGlossaryDetailed,
-    'getGlossaryTerm': glossary.getGlossaryTerm,
-    'getGlossaryTerms': glossary.getGlossaryTerms,
-    'getGlossaryTermsAssignedEntities': glossary.getGlossaryTermsAssignedEntities,
-    'getGlossaryTermsHeaders': glossary.getGlossaryTermsHeaders,
-    'getGlossaryTermsRelated': glossary.getGlossaryTermsRelated,
-    'getLineage': lineage.getLineage,
-    'getLineageUniqueAttributeType': lineage.getLineageUniqueAttributeType,
-    'getRelationshipGuid': relationship.getRelationshipGuid,
-    'getTypesBusinessmetadatadef': typedefs.getTypesBusinessmetadatadef,
-    'getTypesClassificationdef': typedefs.getTypesClassificationdef,
-    'getTypesEntitydef': typedefs.getTypesEntitydef,
-    'getTypesEnumdef': typedefs.getTypesEnumdef,
-    'getTypesRelationshipdef': typedefs.getTypesRelationshipdef,
-    'getTypesStructdef': typedefs.getTypesStructdef,
-    'getTypesTypedef': typedefs.getTypesTypedef,
-    'getTypesTypedefs': typedefs.getTypesTypedefs,
-    'getTypesTypedefsHeaders': typedefs.getTypesTypedefsHeaders
-  }
-
-  # Call function
-  interface = common.selected_arg(args, FUNCTION_MAP.keys())
-  fileformat = common.selected_arg(args, ['csv','json'])
-  func = FUNCTION_MAP[interface]
-  config = configparser.ConfigParser()
-  config.read(os.path.dirname(os.path.abspath(__file__)) + '/../config.ini')
-  data = func(config, args)
-  common.export_data(data,interface,fileformat)
+    #Config.ini
+    config = configparser.ConfigParser()
+    config_filepath = os.path.dirname(os.path.abspath(__file__)) + '/../config.ini'
+    
+    if os.path.exists(config_filepath):
+        auth.set_token()
+        config.read(config_filepath)
+        interface = common.selected_arg(args, function_map.keys())
+        func = function_map[interface]
+        data = func(config, args)
+        fileformat = common.selected_arg(args, ['csv','json'])
+        common.export_data(data,interface,fileformat)
+    else:
+      print('Configuration file missing. Run the following command: purviewcli config [--clientId=<clientId> --clientName=<clientName> --clientSecret=<clientSecret> --tenantId=<tenantId> --accountName=<accountName>]')
 
 if __name__ == '__main__':
   main()
