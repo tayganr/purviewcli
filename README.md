@@ -1,6 +1,6 @@
 # Azure Purview CLI
 This package provides a command line interface to Azure Purview's REST API.  
-![Kiku](doc/image/purviewcli_example.png)
+![purviewcli](doc/image/purviewcli_example.png)
 
 ## Pre-Requisites
 1. An [Azure Purview](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal) account.
@@ -24,6 +24,7 @@ To initiate the configuration, execute the following command.
 ```
 purviewcli config
 ```
+![config](doc/image/purviewcli_config.png)
 
 ## Usage
 ```
