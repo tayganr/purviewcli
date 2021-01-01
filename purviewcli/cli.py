@@ -55,6 +55,7 @@ Options:
 
 """
 from docopt import docopt
+from purviewcli import __version__
 import purviewcli.common as common
 import purviewcli.glossary as glossary
 import purviewcli.entity as entity
@@ -64,7 +65,7 @@ import purviewcli.typedefs as typedefs
 
 def main():
   # Initialise Arguments (docopt)
-  args = docopt(__doc__, version='1.0')
+  args = docopt(__doc__, version=__version__)
   
   # Special Argument: config
   if args['config']:

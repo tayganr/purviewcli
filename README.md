@@ -1,9 +1,10 @@
 # Azure Purview CLI
-This package provides a command line interface to Azure Purview's underlying REST API.
+This package provides a command line interface to Azure Purview's REST API.
 
 ## Pre-Requisites
 1. An [Azure Purview](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal) account.
 2. A [Service Principal](https://docs.microsoft.com/en-us/azure/purview/tutorial-using-rest-apis#create-a-service-principal-application) (Azure AD application). 
+3. Grant Service Principal [role assignment](https://docs.microsoft.com/en-us/azure/purview/tutorial-using-rest-apis#configure-your-catalog-to-trust-the-service-principal-application) *(Azure Purview > Access Control (IAM) > Add role assignment > Purview Data Curator)*.
 
 ## Installation
 ```
@@ -11,14 +12,14 @@ pip install purviewcli
 ```
 
 ## Configuration
-You will need the following pieces of information:
+You will need the following pieces of information to initialise the configuration file:
 * Client ID *(aka Application ID)*
 * Client Secret
 * Tenant ID *(aka Directory ID)*
 * Azure Purview Account Name
 * Output Path *(e.g. Windows: C:/Users/username/Desktop Mac: /Users/username/Desktop)*
 
-To initialise the configuration file, execute the following command:
+To initiate the configuration, execute the following command.
 ```
 purviewcli config
 ```
