@@ -12,7 +12,7 @@ pip install purviewcli
 ```
 
 ## Configuration
-You will need the following pieces of information to initialise the configuration file:
+You will need the following to initialise the configuration file:
 * Client ID *(aka Application ID)*
 * Client Secret
 * Tenant ID *(aka Directory ID)*
@@ -81,7 +81,7 @@ Options:
 | --tagUpdateStartTime=&lt;tagUpdateStartTime&gt;   | DataType long. |
 | --depth=&lt;depth&gt;               | Number of hops for lineage [default: 3]. |
 | --width=&lt;width&gt;               | Custom to Azure Purview [default: 6]. |
-| --direction=&lt;direction&gt;       | Offset for pagination purpose [default: BOTH]. |
+| --direction=&lt;direction&gt;       | INPUT or OUTPUT or BOTH [default: BOTH]. |
 
 
 ## Export to JSON
