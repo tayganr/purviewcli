@@ -89,7 +89,7 @@ def export_data(data, interface, fileformat, config):
         df.to_csv(file_path, sep=',', encoding='utf-8', index=False)
         print('[INFO] Successfully exported to: %s' % file_path)
     else:
-        print(data_object) if len(data_object) > 0 else print('No data found for %s.' % (interface))
+        print(json.dumps(data_object, indent=4, sort_keys=True)) if len(data_object) > 0 else print('No data found for %s.' % (interface))
 
 def selected_arg(args, arg_list):
     selection = None
