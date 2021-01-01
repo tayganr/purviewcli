@@ -42,11 +42,6 @@ Usage:
 Options:
   -h --help                                   Show this screen.
   -v --version                                Show version.
-  --clientId=<clientId>                       Client ID (aka Application ID) uniquely identifies your application in the Microsoft identity platform.
-  --clientName=<clientName>                   Client Name (aka Application Name)
-  --clientSecret=<clientSecret>               Client Secret to prove the applications identity when requesting a token.
-  --tenantId=<tenantId>                       Azure Active Directory > Properties > Directory ID.
-  --accountName=<accountName>                 Azure Purview Account Name.
   --limit=<limit>                             Page size, by default there is no paging [default: -1].
   --offset=<offset>                           Offset for pagination purpose [default: 0].
   --sort=<sort>                               ASC or DESC [default: ASC].
