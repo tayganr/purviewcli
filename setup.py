@@ -13,7 +13,7 @@ setuptools.setup(
     description="This package provides a command line interface to Azure Purview's REST API.",
     long_description=long_description,
     long_description_content_type='text/markdown'
-    url='https://github.com/tayganr/pypurview-cli',
+    url='https://github.com/tayganr/purviewcli',
     author='Taygan Rifat',
     author_email='contact@taygan.co',
     license='MIT',
