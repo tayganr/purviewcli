@@ -2,7 +2,7 @@
 """purviewcli
 
 Usage:
-  purviewcli config [--clientId=<clientId> --clientName=<clientName> --clientSecret=<clientSecret> --tenantId=<tenantId> --accountName=<accountName>]
+  purviewcli config
   purviewcli [csv | json] getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
   purviewcli [csv | json] getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
   purviewcli [csv | json] getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
@@ -59,10 +59,7 @@ Options:
   --direction=<direction>                     Offset for pagination purpose [default: BOTH].
 
 """
-import os
-import configparser
 from docopt import docopt
-import purviewcli.auth as auth
 import purviewcli.common as common
 import purviewcli.glossary as glossary
 import purviewcli.entity as entity
@@ -71,66 +68,61 @@ import purviewcli.relationship as relationship
 import purviewcli.typedefs as typedefs
 
 def main():
-  # Docopt
+  # Initialise Arguments (docopt)
   args = docopt(__doc__, version='1.0')
   
+  # Special Argument: config
   if args['config']:
-    common.update_config(args)
+    common.init_config()
   else:
-    # Function Map
-    function_map = {
-      'config': common.update_config,
-      'getEntityAudit': entity.getEntityAudit,
-      'getEntityBulk': entity.getEntityBulk,
-      'getEntityBulkHeaders': entity.getEntityBulkHeaders,
-      'getEntityBulkUniqueAttributeType': entity.getEntityBulkUniqueAttributeType,
-      'getEntityBusinessmetadataImportTemplate': entity.getEntityBusinessmetadataImportTemplate,
-      'getEntityGuid': entity.getEntityGuid,
-      'getEntityGuidClassification': entity.getEntityGuidClassification,
-      'getEntityGuidClassifications': entity.getEntityGuidClassifications,
-      'getEntityGuidHeader': entity.getEntityGuidHeader,
-      'getEntityUniqueAttributeType': entity.getEntityUniqueAttributeType,
-      'getEntityUniqueAttributeTypeHeader': entity.getEntityUniqueAttributeTypeHeader,
-      'getGlossary': glossary.getGlossary,
-      'getGlossaryCategories': glossary.getGlossaryCategories,
-      'getGlossaryCategoriesHeaders': glossary.getGlossaryCategoriesHeaders,
-      'getGlossaryCategory': glossary.getGlossaryCategory,
-      'getGlossaryCategoryRelated': glossary.getGlossaryCategoryRelated,
-      'getGlossaryCategoryTerms': glossary.getGlossaryCategoryTerms,
-      'getGlossaryDetailed': glossary.getGlossaryDetailed,
-      'getGlossaryTerm': glossary.getGlossaryTerm,
-      'getGlossaryTerms': glossary.getGlossaryTerms,
-      'getGlossaryTermsAssignedEntities': glossary.getGlossaryTermsAssignedEntities,
-      'getGlossaryTermsHeaders': glossary.getGlossaryTermsHeaders,
-      'getGlossaryTermsRelated': glossary.getGlossaryTermsRelated,
-      'getLineage': lineage.getLineage,
-      'getLineageUniqueAttributeType': lineage.getLineageUniqueAttributeType,
-      'getRelationshipGuid': relationship.getRelationshipGuid,
-      'getTypesBusinessmetadatadef': typedefs.getTypesBusinessmetadatadef,
-      'getTypesClassificationdef': typedefs.getTypesClassificationdef,
-      'getTypesEntitydef': typedefs.getTypesEntitydef,
-      'getTypesEnumdef': typedefs.getTypesEnumdef,
-      'getTypesRelationshipdef': typedefs.getTypesRelationshipdef,
-      'getTypesStructdef': typedefs.getTypesStructdef,
-      'getTypesTypedef': typedefs.getTypesTypedef,
-      'getTypesTypedefs': typedefs.getTypesTypedefs,
-      'getTypesTypedefsHeaders': typedefs.getTypesTypedefsHeaders
-    }
+    purview_api(args)
 
-    #Config.ini
-    config = configparser.ConfigParser()
-    config_filepath = os.path.dirname(os.path.abspath(__file__)) + '/../config.ini'
-    
-    if os.path.exists(config_filepath):
-        auth.set_token()
-        config.read(config_filepath)
-        interface = common.selected_arg(args, function_map.keys())
-        func = function_map[interface]
-        data = func(config, args)
-        fileformat = common.selected_arg(args, ['csv','json'])
-        common.export_data(data,interface,fileformat)
-    else:
-      print('Configuration file missing. Run the following command: purviewcli config [--clientId=<clientId> --clientName=<clientName> --clientSecret=<clientSecret> --tenantId=<tenantId> --accountName=<accountName>]')
+def purview_api(args):
+  # Function Map
+  function_map = {
+    'getEntityAudit': entity.getEntityAudit,
+    'getEntityBulk': entity.getEntityBulk,
+    'getEntityBulkHeaders': entity.getEntityBulkHeaders,
+    'getEntityBulkUniqueAttributeType': entity.getEntityBulkUniqueAttributeType,
+    'getEntityBusinessmetadataImportTemplate': entity.getEntityBusinessmetadataImportTemplate,
+    'getEntityGuid': entity.getEntityGuid,
+    'getEntityGuidClassification': entity.getEntityGuidClassification,
+    'getEntityGuidClassifications': entity.getEntityGuidClassifications,
+    'getEntityGuidHeader': entity.getEntityGuidHeader,
+    'getEntityUniqueAttributeType': entity.getEntityUniqueAttributeType,
+    'getEntityUniqueAttributeTypeHeader': entity.getEntityUniqueAttributeTypeHeader,
+    'getGlossary': glossary.getGlossary,
+    'getGlossaryCategories': glossary.getGlossaryCategories,
+    'getGlossaryCategoriesHeaders': glossary.getGlossaryCategoriesHeaders,
+    'getGlossaryCategory': glossary.getGlossaryCategory,
+    'getGlossaryCategoryRelated': glossary.getGlossaryCategoryRelated,
+    'getGlossaryCategoryTerms': glossary.getGlossaryCategoryTerms,
+    'getGlossaryDetailed': glossary.getGlossaryDetailed,
+    'getGlossaryTerm': glossary.getGlossaryTerm,
+    'getGlossaryTerms': glossary.getGlossaryTerms,
+    'getGlossaryTermsAssignedEntities': glossary.getGlossaryTermsAssignedEntities,
+    'getGlossaryTermsHeaders': glossary.getGlossaryTermsHeaders,
+    'getGlossaryTermsRelated': glossary.getGlossaryTermsRelated,
+    'getLineage': lineage.getLineage,
+    'getLineageUniqueAttributeType': lineage.getLineageUniqueAttributeType,
+    'getRelationshipGuid': relationship.getRelationshipGuid,
+    'getTypesBusinessmetadatadef': typedefs.getTypesBusinessmetadatadef,
+    'getTypesClassificationdef': typedefs.getTypesClassificationdef,
+    'getTypesEntitydef': typedefs.getTypesEntitydef,
+    'getTypesEnumdef': typedefs.getTypesEnumdef,
+    'getTypesRelationshipdef': typedefs.getTypesRelationshipdef,
+    'getTypesStructdef': typedefs.getTypesStructdef,
+    'getTypesTypedef': typedefs.getTypesTypedef,
+    'getTypesTypedefs': typedefs.getTypesTypedefs,
+    'getTypesTypedefsHeaders': typedefs.getTypesTypedefsHeaders
+  }
+
+  config = common.read_config()
+  command = common.selected_arg(args, function_map.keys())
+  func = function_map[command]
+  data = func(config, args)
+  fileformat = common.selected_arg(args, ['csv','json'])
+  common.export_data(data,command,fileformat,config)
 
 if __name__ == '__main__':
   main()
