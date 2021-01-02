@@ -48,22 +48,33 @@ Usage:
   purviewcli [csv | json] getSystemScanRulesets
   purviewcli [csv | json] getSystemScanRulesetsSettings
   purviewcli [csv | json] getScanRulesets
+  purviewcli [csv | json] getAssetDistributionByDataSource [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
+  purviewcli [csv | json] getAssetDistributionByTopPaths (--datasource=<datasource>) [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
+  purviewcli [csv | json] getFileTypeSizeTimeSeries (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
+  purviewcli [csv | json] getFileTypeSizeTrendByDataSource (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
+  purviewcli [csv | json] getTopFileTypesBySize [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
+  purviewcli [csv | json] getTopLevelSummary [--registeredSourceGroup=<registeredSourceGroup>]
+  purviewcli [csv | json] getRegisteredSourceGroupsWithAssets
 
 Options:
-  -h --help                                   Show this screen.
-  -v --version                                Show version.
-  --limit=<limit>                             Page size, by default there is no paging [default: -1].
-  --offset=<offset>                           Offset for pagination purpose [default: 0].
-  --sort=<sort>                               ASC or DESC [default: ASC].
-  --auditAction=<auditAction>                 BUSINESS_ATTRIBUTE_UPDATE or CLASSIFICATION_ADD or CLASSIFICATION_DELETE or CLASSIFICATION_UPDATE or ENTITY_CREATE or ENTITY_DELETE or ENTITY_IMPORT_CREATE or ENTITY_IMPORT_DELETE or ENTITY_IMPORT_UPDATE or ENTITY_PURGE or ENTITY_UPDATE or LABEL_ADD or LABEL_DELETE or PROPAGATED_CLASSIFICATION_ADD or PROPAGATED_CLASSIFICATION_DELETE or PROPAGATED_CLASSIFICATION_UPDATE or TERM_ADD or TERM_DELETE.
-  --count=<count>                             Number of events required	[default: 100].
-  --startKey=<startKey>                       Used for pagination. Startkey is inclusive, the returned results contain the event with the given startkey.
-  --tagUpdateStartTime=<tagUpdateStartTime>   DataType long.
-  --depth=<depth>                             Number of hops for lineage [default: 3].
-  --width=<width>                             Custom to Azure Purview [default: 6].
-  --direction=<direction>                     Offset for pagination purpose [default: BOTH].
-  --scanLevel=<scanLevel>                     Incremental or Full.
-
+  -h --help                                         Show this screen.
+  -v --version                                      Show version.
+  --limit=<limit>                                   Page size, by default there is no paging [default: -1].
+  --offset=<offset>                                 Offset for pagination purpose [default: 0].
+  --sort=<sort>                                     ASC or DESC [default: ASC].
+  --auditAction=<auditAction>                       BUSINESS_ATTRIBUTE_UPDATE or CLASSIFICATION_ADD or CLASSIFICATION_DELETE or CLASSIFICATION_UPDATE or ENTITY_CREATE or ENTITY_DELETE or ENTITY_IMPORT_CREATE or ENTITY_IMPORT_DELETE or ENTITY_IMPORT_UPDATE or ENTITY_PURGE or ENTITY_UPDATE or LABEL_ADD or LABEL_DELETE or PROPAGATED_CLASSIFICATION_ADD or PROPAGATED_CLASSIFICATION_DELETE or PROPAGATED_CLASSIFICATION_UPDATE or TERM_ADD or TERM_DELETE.
+  --count=<count>                                   Number of events required	[default: 100].
+  --startKey=<startKey>                             Used for pagination. Startkey is inclusive, the returned results contain the event with the given startkey.
+  --tagUpdateStartTime=<tagUpdateStartTime>         DataType long.
+  --depth=<depth>                                   Number of hops for lineage [default: 3].
+  --width=<width>                                   Custom to Azure Purview [default: 6].
+  --direction=<direction>                           Offset for pagination purpose [default: BOTH].
+  --scanLevel=<scanLevel>                           Incremental or Full.
+  --registeredSourceGroup=<registeredSourceGroup>   Guardian.
+  --classificationCategory=<classificationCategory> Guardian.
+  --classificationName=<classificationName>         Guardian.
+  --fileType=<fileType>                             png or json or csv or xlsx.
+  --window=<window>                                 7d or 30d.
 
 """
 from docopt import docopt
@@ -75,11 +86,12 @@ import purviewcli.lineage as lineage
 import purviewcli.relationship as relationship
 import purviewcli.typedefs as typedefs
 import purviewcli.scan as scan
+import purviewcli.guardian as guardian
 
 def main():
   # Initialise Arguments (docopt)
   args = docopt(__doc__, version=__version__)
-  
+  # print(args)
   # Special Argument: config
   if args['config']:
     common.init_config()
@@ -133,7 +145,14 @@ def purview_api(args):
     'runScan': scan.runScan,
     'getSystemScanRulesets': scan.getSystemScanRulesets,
     'getSystemScanRulesetsSettings': scan.getSystemScanRulesetsSettings,
-    'getScanRulesets': scan.getScanRulesets
+    'getScanRulesets': scan.getScanRulesets,
+    'getAssetDistributionByDataSource': guardian.getAssetDistributionByDataSource,
+    'getAssetDistributionByTopPaths': guardian.getAssetDistributionByTopPaths,
+    'getFileTypeSizeTimeSeries': guardian.getFileTypeSizeTimeSeries,
+    'getFileTypeSizeTrendByDataSource': guardian.getFileTypeSizeTrendByDataSource,
+    'getTopFileTypesBySize': guardian.getTopFileTypesBySize,
+    'getTopLevelSummary': guardian.getTopLevelSummary,
+    'getRegisteredSourceGroupsWithAssets': guardian.getRegisteredSourceGroupsWithAssets
   }
 
   config = common.read_config()
