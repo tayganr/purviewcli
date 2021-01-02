@@ -20,13 +20,38 @@ def getScan(config, args):
     data = http_get('scan', 'GET', endpoint, None, None, config)
     return data
 
-def getScanListHistory(config, args):
+def getScanHistory(config, args):
     endpoint = '/datasources/%s/scans/%s/listHistory' % (args['--datasource'], args['--scanName'])
+    data = http_get('scan', 'GET', endpoint, None, None, config)
+    return data
+
+def getScanFilters(config, args):
+    endpoint = '/datasources/%s/scans/%s/filters' % (args['--datasource'], args['--scanName'])
     data = http_get('scan', 'GET', endpoint, None, None, config)
     return data
 
 def runScan(config, args):
     endpoint = '/datasources/%s/scans/%s/run' % (args['--datasource'], args['--scanName'])
-    payload = {"scanLevel":scanlevel}
+
+    if args['--scanLevel']:
+        payload = {'scanLevel': args['--scanLevel']}
+    else:
+        payload = None
+    
     data = http_get('scan', 'POST', endpoint, None, payload, config)
+    return data
+
+def getScanRulesets(config, args):
+    endpoint = '/scanrulesets'
+    data = http_get('scan', 'GET', endpoint, None, None, config)
+    return data
+
+def getSystemScanRulesets(config, args):
+    endpoint = '/systemScanRulesets'
+    data = http_get('scan', 'GET', endpoint, None, None, config)
+    return data
+
+def getSystemScanRulesetsSettings(config, args):
+    endpoint = '/systemScanRulesets/settings'
+    data = http_get('scan', 'GET', endpoint, None, None, config)
     return data

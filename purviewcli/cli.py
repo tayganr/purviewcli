@@ -42,8 +42,12 @@ Usage:
   purviewcli [csv | json] getDatasource (--datasource=<datasource>)
   purviewcli [csv | json] getScans (--datasource=<datasource>)
   purviewcli [csv | json] getScan (--datasource=<datasource> --scanName=<scanName>)
-  purviewcli [csv | json] getScanListHistory (--datasource=<datasource> --scanName=<scanName>)
-  purviewcli [csv | json] runScan (--datasource=<datasource> --scanName=<scanName>)
+  purviewcli [csv | json] getScanHistory (--datasource=<datasource> --scanName=<scanName>)
+  purviewcli [csv | json] getScanFilters (--datasource=<datasource> --scanName=<scanName>)
+  purviewcli [csv | json] runScan (--datasource=<datasource> --scanName=<scanName>) [--scanLevel=<scanLevel>]
+  purviewcli [csv | json] getSystemScanRulesets
+  purviewcli [csv | json] getSystemScanRulesetsSettings
+  purviewcli [csv | json] getScanRulesets
 
 Options:
   -h --help                                   Show this screen.
@@ -58,6 +62,8 @@ Options:
   --depth=<depth>                             Number of hops for lineage [default: 3].
   --width=<width>                             Custom to Azure Purview [default: 6].
   --direction=<direction>                     Offset for pagination purpose [default: BOTH].
+  --scanLevel=<scanLevel>                     Incremental or Full.
+
 
 """
 from docopt import docopt
@@ -122,8 +128,12 @@ def purview_api(args):
     'getDatasource': scan.getDatasource,
     'getScans': scan.getScans,
     'getScan': scan.getScan,
-    'getScanListHistory': scan.getScanListHistory,
-    'runScan': scan.runScan
+    'getScanHistory': scan.getScanHistory,
+    'getScanFilters': scan.getScanFilters,
+    'runScan': scan.runScan,
+    'getSystemScanRulesets': scan.getSystemScanRulesets,
+    'getSystemScanRulesetsSettings': scan.getSystemScanRulesetsSettings,
+    'getScanRulesets': scan.getScanRulesets
   }
 
   config = common.read_config()
