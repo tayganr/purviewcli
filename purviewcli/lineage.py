@@ -1,4 +1,4 @@
-from purviewcli.common import http_get_catalog
+from purviewcli.common import http_get
 
 def getLineage(config, args):
   endpoint = '/api/atlas/v2/lineage/%s' %  args['--guid'][0]
@@ -10,12 +10,12 @@ def getLineage(config, args):
     'includeParent': args['--includeParent'],
     'getDerivedLineage': args['--getDerivedLineage']
   }
-  data = http_get_catalog(endpoint, params, config)
+  data = http_get('catalog', 'GET', endpoint, params, None, config)
   return data
 
 # Request URI not found
 def getLineageUniqueAttributeType(config, args):
   endpoint = '/api/atlas/v2/lineage/uniqueAttribute/type/%s' % args['--typeName']
   params = {'depth': args['--depth'], 'direction': args['--direction']}  
-  data = http_get_catalog(endpoint, params, config)
+  data = http_get('catalog', 'GET', endpoint, params, None, config)
   return data

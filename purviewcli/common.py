@@ -54,19 +54,35 @@ def init_config():
     with open(CONFIG_FILEPATH, 'w') as configfile:
         config.write(configfile)
 
-def http_get_catalog(endpoint, params, config):
-    base_uri = 'https://%s.catalog.purview.azure.com' % config['purview_account']['account_name']
+def http_get(app, method, endpoint, params, payload, config):
+    # Endpoint
+    base_uri = 'https://%s.%s.purview.azure.com' % (config['purview_account']['account_name'], app)
+    uri = base_uri + endpoint
+
+    # HTTP Header (with existing token)
     headers = {"Authorization": "Bearer {0}".format(config['service_principal']['access_token'])}
-    response = requests.get(base_uri + endpoint, params=params, headers=headers)
+
+    # HTTP Attempt #1
+    if method == 'GET':
+        response = requests.get(uri, params=params, headers=headers)
+    elif method == 'POST':
+        response = requests.post(uri, params=params, json=payload, headers=headers)
+    else:
+        pass
     
-    # Refresh access token and retry if HTTP status is unauthorised
+    # HTTP Attempt #2
     if response.status_code == 401:
         tenant_id = config['service_principal']['tenant_id']
         client_id = config['service_principal']['client_id']
         client_secret = config['service_principal']['client_secret']
         token = get_token(tenant_id, client_id, client_secret)
         headers = {"Authorization": "Bearer %s" % token}
-        response = requests.get(base_uri + endpoint, params=params, headers=headers)
+        if method == 'GET':
+            response = requests.get(uri, params=params, headers=headers)
+        elif method == 'POST':
+            response = requests.post(uri, params=params, json=payload, headers=headers)
+        else:
+            pass
 
     data = response.content
     return data

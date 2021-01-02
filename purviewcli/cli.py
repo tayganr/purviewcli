@@ -38,6 +38,12 @@ Usage:
   purviewcli [csv | json] getTypesTypedef (--guid=<guid> | --name=<name>)
   purviewcli [csv | json] getTypesTypedefs
   purviewcli [csv | json] getTypesTypedefsHeaders
+  purviewcli [csv | json] getDatasources
+  purviewcli [csv | json] getDatasource (--datasource=<datasource>)
+  purviewcli [csv | json] getScans (--datasource=<datasource>)
+  purviewcli [csv | json] getScan (--datasource=<datasource> --scanName=<scanName>)
+  purviewcli [csv | json] getScanListHistory (--datasource=<datasource> --scanName=<scanName>)
+  purviewcli [csv | json] runScan (--datasource=<datasource> --scanName=<scanName>)
 
 Options:
   -h --help                                   Show this screen.
@@ -62,6 +68,7 @@ import purviewcli.entity as entity
 import purviewcli.lineage as lineage
 import purviewcli.relationship as relationship
 import purviewcli.typedefs as typedefs
+import purviewcli.scan as scan
 
 def main():
   # Initialise Arguments (docopt)
@@ -110,7 +117,13 @@ def purview_api(args):
     'getTypesStructdef': typedefs.getTypesStructdef,
     'getTypesTypedef': typedefs.getTypesTypedef,
     'getTypesTypedefs': typedefs.getTypesTypedefs,
-    'getTypesTypedefsHeaders': typedefs.getTypesTypedefsHeaders
+    'getTypesTypedefsHeaders': typedefs.getTypesTypedefsHeaders,
+    'getDatasources': scan.getDatasources,
+    'getDatasource': scan.getDatasource,
+    'getScans': scan.getScans,
+    'getScan': scan.getScan,
+    'getScanListHistory': scan.getScanListHistory,
+    'runScan': scan.runScan
   }
 
   config = common.read_config()
