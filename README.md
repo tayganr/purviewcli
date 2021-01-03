@@ -32,9 +32,12 @@ purviewcli command (mandatory parameters) [optional parameters]
 ```
 
 ## Commands
+### Search
 ```
-config
 search (--keywords=<keywords>) [--limit=<limit> --offset=<offset>]
+```
+### Entity
+```
 getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
 getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
 getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
@@ -46,6 +49,9 @@ getEntityGuidClassifications (--guid=<guid>)
 getEntityGuidHeader (--guid=<guid>)
 getEntityUniqueAttributeType (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>) [--ignoreRelationships --minExtInfo]
 getEntityUniqueAttributeTypeHeader (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>)
+```
+### Glossary
+```
 getGlossary [--glossaryGuid=<glossaryGuid>] [--limit=<limit> --offset=<offset> --sort=<sort>]
 getGlossaryCategories (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
 getGlossaryCategoriesHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
@@ -58,9 +64,18 @@ getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offs
 getGlossaryTermsAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
 getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
 getGlossaryTermsRelated (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+```
+### Lineage
+```
 getLineage (--guid=<guid>) [--depth=<depth> --width=<width> --direction=<direction> --forceNewApi --includeParent --getDerivedLineage]
 getLineageUniqueAttributeType (--typeName=<typeName>) [--depth=<depth> --direction=<direction>]
+```
+### Relationship
+```
 getRelationshipGuid (--guid=<guid>) [--extendedInfo]
+```
+### Types
+```
 getTypesBusinessmetadatadef (--guid=<guid> | --name=<name>)
 getTypesClassificationdef (--guid=<guid> | --name=<name>)
 getTypesEntitydef (--guid=<guid> | --name=<name>)
@@ -70,6 +85,9 @@ getTypesStructdef (--guid=<guid> | --name=<name>)
 getTypesTypedef (--guid=<guid> | --name=<name>)
 getTypesTypedefs
 getTypesTypedefsHeaders
+```
+### Scan
+```
 getDatasources
 getDatasource (--datasource=<datasource>)
 getScans (--datasource=<datasource>)
@@ -80,6 +98,9 @@ runScan (--datasource=<datasource> --scanName=<scanName>) [--scanLevel=<scanLeve
 getSystemScanRulesets
 getSystemScanRulesetsSettings
 getScanRulesets
+```
+### Guardian (Insights)
+```
 getAssetDistributionByDataSource [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
 getAssetDistributionByTopPaths (--datasource=<datasource>) [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
 getFileTypeSizeTimeSeries (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
