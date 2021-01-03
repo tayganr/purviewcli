@@ -76,15 +76,15 @@ getRelationshipGuid (--guid=<guid>) [--extendedInfo]
 ```
 ### Types
 ```
-getTypesBusinessmetadatadef (--guid=<guid> | --name=<name>)
-getTypesClassificationdef (--guid=<guid> | --name=<name>)
-getTypesEntitydef (--guid=<guid> | --name=<name>)
-getTypesEnumdef (--guid=<guid> | --name=<name>)
-getTypesRelationshipdef (--guid=<guid> | --name=<name>)
-getTypesStructdef (--guid=<guid> | --name=<name>)
-getTypesTypedef (--guid=<guid> | --name=<name>)
-getTypesTypedefs
-getTypesTypedefsHeaders
+getBusinessmetadatadef (--guid=<guid> | --name=<name>)
+getClassificationdef (--guid=<guid> | --name=<name>)
+getEntitydef (--guid=<guid> | --name=<name>)
+getEnumdef (--guid=<guid> | --name=<name>)
+getRelationshipdef (--guid=<guid> | --name=<name>)
+getStructdef (--guid=<guid> | --name=<name>)
+getTypedef (--guid=<guid> | --name=<name>)
+getTypedefs
+getTypedefsHeaders
 ```
 ### Scan
 ```

@@ -30,15 +30,15 @@ Usage:
   purviewcli [csv | json] getLineage (--guid=<guid>) [--depth=<depth> --width=<width> --direction=<direction> --forceNewApi --includeParent --getDerivedLineage]
   purviewcli [csv | json] getLineageUniqueAttributeType (--typeName=<typeName>) [--depth=<depth> --direction=<direction>]
   purviewcli [csv | json] getRelationshipGuid (--guid=<guid>) [--extendedInfo]
-  purviewcli [csv | json] getTypesBusinessmetadatadef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getTypesClassificationdef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getTypesEntitydef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getTypesEnumdef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getTypesRelationshipdef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getTypesStructdef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getTypesTypedef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getTypesTypedefs
-  purviewcli [csv | json] getTypesTypedefsHeaders
+  purviewcli [csv | json] getBusinessmetadatadef (--guid=<guid> | --name=<name>)
+  purviewcli [csv | json] getClassificationdef (--guid=<guid> | --name=<name>)
+  purviewcli [csv | json] getEntitydef (--guid=<guid> | --name=<name>)
+  purviewcli [csv | json] getEnumdef (--guid=<guid> | --name=<name>)
+  purviewcli [csv | json] getRelationshipdef (--guid=<guid> | --name=<name>)
+  purviewcli [csv | json] getStructdef (--guid=<guid> | --name=<name>)
+  purviewcli [csv | json] getTypedef (--guid=<guid> | --name=<name>)
+  purviewcli [csv | json] getTypedefs
+  purviewcli [csv | json] getTypedefsHeaders
   purviewcli [csv | json] getDatasources
   purviewcli [csv | json] getDatasource (--datasource=<datasource>)
   purviewcli [csv | json] getScans (--datasource=<datasource>)
@@ -130,15 +130,15 @@ def purview_api(args):
     'getLineage': lineage.getLineage,
     'getLineageUniqueAttributeType': lineage.getLineageUniqueAttributeType,
     'getRelationshipGuid': relationship.getRelationshipGuid,
-    'getTypesBusinessmetadatadef': typedefs.getTypesBusinessmetadatadef,
-    'getTypesClassificationdef': typedefs.getTypesClassificationdef,
-    'getTypesEntitydef': typedefs.getTypesEntitydef,
-    'getTypesEnumdef': typedefs.getTypesEnumdef,
-    'getTypesRelationshipdef': typedefs.getTypesRelationshipdef,
-    'getTypesStructdef': typedefs.getTypesStructdef,
-    'getTypesTypedef': typedefs.getTypesTypedef,
-    'getTypesTypedefs': typedefs.getTypesTypedefs,
-    'getTypesTypedefsHeaders': typedefs.getTypesTypedefsHeaders,
+    'getBusinessmetadatadef': typedefs.getBusinessmetadatadef,
+    'getClassificationdef': typedefs.getClassificationdef,
+    'getEntitydef': typedefs.getEntitydef,
+    'getEnumdef': typedefs.getEnumdef,
+    'getRelationshipdef': typedefs.getRelationshipdef,
+    'getStructdef': typedefs.getStructdef,
+    'getTypedef': typedefs.getTypedef,
+    'getTypedefs': typedefs.getTypedefs,
+    'getTypedefsHeaders': typedefs.getTypedefsHeaders,
     'search': search.search,
     'getDatasources': scan.getDatasources,
     'getDatasource': scan.getDatasource,
