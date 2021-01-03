@@ -3,6 +3,7 @@
 
 Usage:
   purviewcli config
+  purviewcli [csv | json] search (--keywords=<keywords>) [--limit=<limit> --offset=<offset>]
   purviewcli [csv | json] getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
   purviewcli [csv | json] getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
   purviewcli [csv | json] getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
@@ -59,7 +60,7 @@ Usage:
 Options:
   -h --help                                         Show this screen.
   -v --version                                      Show version.
-  --limit=<limit>                                   Page size, by default there is no paging [default: -1].
+  --limit=<limit>                                   By default there is no paging [default: -1].
   --offset=<offset>                                 Offset for pagination purpose [default: 0].
   --sort=<sort>                                     ASC or DESC [default: ASC].
   --auditAction=<auditAction>                       BUSINESS_ATTRIBUTE_UPDATE or CLASSIFICATION_ADD or CLASSIFICATION_DELETE or CLASSIFICATION_UPDATE or ENTITY_CREATE or ENTITY_DELETE or ENTITY_IMPORT_CREATE or ENTITY_IMPORT_DELETE or ENTITY_IMPORT_UPDATE or ENTITY_PURGE or ENTITY_UPDATE or LABEL_ADD or LABEL_DELETE or PROPAGATED_CLASSIFICATION_ADD or PROPAGATED_CLASSIFICATION_DELETE or PROPAGATED_CLASSIFICATION_UPDATE or TERM_ADD or TERM_DELETE.
@@ -68,7 +69,7 @@ Options:
   --tagUpdateStartTime=<tagUpdateStartTime>         DataType long.
   --depth=<depth>                                   Number of hops for lineage [default: 3].
   --width=<width>                                   Custom to Azure Purview [default: 6].
-  --direction=<direction>                           Offset for pagination purpose [default: BOTH].
+  --direction=<direction>                           INPUT or OUTPUT or BOTH [default: BOTH].
   --scanLevel=<scanLevel>                           Incremental or Full.
   --registeredSourceGroup=<registeredSourceGroup>   Guardian.
   --classificationCategory=<classificationCategory> Guardian.
@@ -85,8 +86,10 @@ import purviewcli.entity as entity
 import purviewcli.lineage as lineage
 import purviewcli.relationship as relationship
 import purviewcli.typedefs as typedefs
+import purviewcli.search as search
 import purviewcli.scan as scan
 import purviewcli.guardian as guardian
+
 
 def main():
   # Initialise Arguments (docopt)
@@ -136,6 +139,7 @@ def purview_api(args):
     'getTypesTypedef': typedefs.getTypesTypedef,
     'getTypesTypedefs': typedefs.getTypesTypedefs,
     'getTypesTypedefsHeaders': typedefs.getTypesTypedefsHeaders,
+    'search': search.search,
     'getDatasources': scan.getDatasources,
     'getDatasource': scan.getDatasource,
     'getScans': scan.getScans,

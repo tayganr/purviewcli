@@ -32,59 +32,62 @@ purviewcli command (mandatory parameters) [optional parameters]
 ```
 
 ## Commands
-  config  
-  getEntityAudit (--guid=&lt;guid&gt;) [--auditAction=&lt;auditAction&gt; --count=&lt;count&gt; --startKey=&lt;startKey&gt;]  
-  getEntityBulk (--guid=&lt;guid&gt;...) [--ignoreRelationships --minExtInfo]  
-  getEntityBulkHeaders [--tagUpdateStartTime=&lt;tagUpdateStartTime&gt;]  
-  getEntityBulkUniqueAttributeType (--typeName=&lt;typeName&gt;) [--ignoreRelationships --minExtInfo]  
-  getEntityBusinessmetadataImportTemplate  
-  getEntityGuid (--guid=&lt;guid&gt;) [--ignoreRelationships --minExtInfo]  
-  getEntityGuidClassification (--guid=&lt;guid&gt; --classificationName=&lt;classificationName&gt;)  
-  getEntityGuidClassifications (--guid=&lt;guid&gt;)  
-  getEntityGuidHeader (--guid=&lt;guid&gt;)  
-  getEntityUniqueAttributeType (--typeName=&lt;typeName&gt; --attrKey=&lt;attrKey&gt; --attrVal=&lt;attrVal&gt;) [--ignoreRelationships --minExtInfo]  
-  getEntityUniqueAttributeTypeHeader (--typeName=&lt;typeName&gt; --attrKey=&lt;attrKey&gt; --attrVal=&lt;attrVal&gt;)  
-  getGlossary [--glossaryGuid=&lt;glossaryGuid&gt;] [--limit=&lt;limit&gt; --offset=&lt;offset&gt; --sort=&lt;sort&gt;]  
-  getGlossaryCategories (--glossaryGuid=&lt;glossaryGuid&gt;) [--limit=&lt;limit&gt; --offset=&lt;offset&gt; --sort=&lt;sort&gt;]  
-  getGlossaryCategoriesHeaders (--glossaryGuid=&lt;glossaryGuid&gt;) [--limit=&lt;limit&gt; --offset=&lt;offset&gt; --sort=&lt;sort&gt;]  
-  getGlossaryCategory (--categoryGuid=&lt;categoryGuid&gt;)  
-  getGlossaryCategoryRelated (--categoryGuid=&lt;categoryGuid&gt;) [--limit=&lt;limit&gt; --offset=&lt;offset&gt; --sort=&lt;sort&gt;]  
-  getGlossaryCategoryTerms (--categoryGuid=&lt;categoryGuid&gt;) [--limit=&lt;limit&gt; --offset=&lt;offset&gt; --sort=&lt;sort&gt;]  
-  getGlossaryDetailed (--glossaryGuid=&lt;glossaryGuid&gt;)  
-  getGlossaryTerm (--termGuid=&lt;termGuid&gt;)  
-  getGlossaryTerms (--glossaryGuid=&lt;glossaryGuid&gt;) [--limit=&lt;limit&gt; --offset=&lt;offset&gt; --sort=&lt;sort&gt;]  
-  getGlossaryTermsAssignedEntities (--termGuid=&lt;termGuid&gt;) [--limit=&lt;limit&gt; --offset=&lt;offset&gt; --sort=&lt;sort&gt;]  
-  getGlossaryTermsHeaders (--glossaryGuid=&lt;glossaryGuid&gt;) [--limit=&lt;limit&gt; --offset=&lt;offset&gt; --sort=&lt;sort&gt;]  
-  getGlossaryTermsRelated (--termGuid=&lt;termGuid&gt;) [--limit=&lt;limit&gt; --offset=&lt;offset&gt; --sort=&lt;sort&gt;]  
-  getLineage (--guid=&lt;guid&gt;) [--depth=&lt;depth&gt; --width=&lt;width&gt; --direction=&lt;direction&gt; --forceNewApi --includeParent --getDerivedLineage]  
-  getLineageUniqueAttributeType (--typeName=&lt;typeName&gt;) [--depth=&lt;depth&gt; --direction=&lt;direction&gt;]  
-  getRelationshipGuid (--guid=&lt;guid&gt;) [--extendedInfo]  
-  getTypesBusinessmetadatadef (--guid=&lt;guid&gt; | --name=&lt;name&gt;)  
-  getTypesClassificationdef (--guid=&lt;guid&gt; | --name=&lt;name&gt;)  
-  getTypesEntitydef (--guid=&lt;guid&gt; | --name=&lt;name&gt;)  
-  getTypesEnumdef (--guid=&lt;guid&gt; | --name=&lt;name&gt;)  
-  getTypesRelationshipdef (--guid=&lt;guid&gt; | --name=&lt;name&gt;)  
-  getTypesStructdef (--guid=&lt;guid&gt; | --name=&lt;name&gt;)  
-  getTypesTypedef (--guid=&lt;guid&gt; | --name=&lt;name&gt;)  
-  getTypesTypedefs  
-  getTypesTypedefsHeaders  
-
-Options:
-| Option        | Description   |
-| ------------- | ------------- |
-| -h --help                           | Show this screen. |
-| -v --version                        | Show version. |
-|--limit=&lt;limit&gt;                | Page size, by default there is no paging [default: -1]. |
-| --offset=&lt;offset&gt;             | Offset for pagination purpose [default: 0]. |
-| --sort=&lt;sort&gt;                 | ASC or DESC [default: ASC]. |
-| --auditAction=&lt;auditAction&gt;   | BUSINESS_ATTRIBUTE_UPDATE or CLASSIFICATION_ADD or  CLASSIFICATION_DELETE or C LASSIFICATION_UPDATE or ENTITY_CREATE or ENTITY_DELETE or ENTITY_IMPORT_CREATE or ENTITY_IMPORT_DELETE or ENTITY_IMPORT_UPDATE or ENTITY_PURGE or ENTITY_UPDATE or LABEL_ADD or LABEL_DELETE or PROPAGATED_CLASSIFICATION_ADD or PROPAGATED_CLASSIFICATION_DELETE or PROPAGATED_CLASSIFICATION_UPDATE or TERM_ADD or TERM_DELETE.|
-| --count=&lt;count&gt;               | Number of events required [default: 100]. |
-| --startKey=&lt;startKey&gt;         | Used for pagination. Startkey is inclusive, the returned results contain the event with the given startkey. |
-| --tagUpdateStartTime=&lt;tagUpdateStartTime&gt;   | DataType long. |
-| --depth=&lt;depth&gt;               | Number of hops for lineage [default: 3]. |
-| --width=&lt;width&gt;               | Custom to Azure Purview [default: 6]. |
-| --direction=&lt;direction&gt;       | INPUT or OUTPUT or BOTH [default: BOTH]. |
-
+```
+config
+search (--keywords=<keywords>) [--limit=<limit> --offset=<offset>]
+getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
+getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
+getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
+getEntityBulkUniqueAttributeType (--typeName=<typeName>) [--ignoreRelationships --minExtInfo]
+getEntityBusinessmetadataImportTemplate
+getEntityGuid (--guid=<guid>) [--ignoreRelationships --minExtInfo]
+getEntityGuidClassification (--guid=<guid> --classificationName=<classificationName>)
+getEntityGuidClassifications (--guid=<guid>)
+getEntityGuidHeader (--guid=<guid>)
+getEntityUniqueAttributeType (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>) [--ignoreRelationships --minExtInfo]
+getEntityUniqueAttributeTypeHeader (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>)
+getGlossary [--glossaryGuid=<glossaryGuid>] [--limit=<limit> --offset=<offset> --sort=<sort>]
+getGlossaryCategories (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+getGlossaryCategoriesHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+getGlossaryCategory (--categoryGuid=<categoryGuid>)
+getGlossaryCategoryRelated (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+getGlossaryCategoryTerms (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+getGlossaryDetailed (--glossaryGuid=<glossaryGuid>)
+getGlossaryTerm (--termGuid=<termGuid>)
+getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+getGlossaryTermsAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+getGlossaryTermsRelated (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+getLineage (--guid=<guid>) [--depth=<depth> --width=<width> --direction=<direction> --forceNewApi --includeParent --getDerivedLineage]
+getLineageUniqueAttributeType (--typeName=<typeName>) [--depth=<depth> --direction=<direction>]
+getRelationshipGuid (--guid=<guid>) [--extendedInfo]
+getTypesBusinessmetadatadef (--guid=<guid> | --name=<name>)
+getTypesClassificationdef (--guid=<guid> | --name=<name>)
+getTypesEntitydef (--guid=<guid> | --name=<name>)
+getTypesEnumdef (--guid=<guid> | --name=<name>)
+getTypesRelationshipdef (--guid=<guid> | --name=<name>)
+getTypesStructdef (--guid=<guid> | --name=<name>)
+getTypesTypedef (--guid=<guid> | --name=<name>)
+getTypesTypedefs
+getTypesTypedefsHeaders
+getDatasources
+getDatasource (--datasource=<datasource>)
+getScans (--datasource=<datasource>)
+getScan (--datasource=<datasource> --scanName=<scanName>)
+getScanHistory (--datasource=<datasource> --scanName=<scanName>)
+getScanFilters (--datasource=<datasource> --scanName=<scanName>)
+runScan (--datasource=<datasource> --scanName=<scanName>) [--scanLevel=<scanLevel>]
+getSystemScanRulesets
+getSystemScanRulesetsSettings
+getScanRulesets
+getAssetDistributionByDataSource [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
+getAssetDistributionByTopPaths (--datasource=<datasource>) [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
+getFileTypeSizeTimeSeries (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
+getFileTypeSizeTrendByDataSource (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
+getTopFileTypesBySize [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
+getTopLevelSummary [--registeredSourceGroup=<registeredSourceGroup>]
+getRegisteredSourceGroupsWithAssets
+```
 
 ## Export to JSON
 ```
