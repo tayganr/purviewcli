@@ -23,6 +23,7 @@ Usage:
   purviewcli [csv | json] getGlossaryCategoryTerms (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   purviewcli [csv | json] getGlossaryDetailed (--glossaryGuid=<glossaryGuid>)
   purviewcli [csv | json] getGlossaryTerm (--termGuid=<termGuid>)
+  purviewcli [csv | json] newGlossaryTerm (--termName=<termName> --termStatus=<termStatus>) [--termDescription=<termDescription> --termAcronym=<termAcronym> --synonym=<synonym>... --related=<related>...]
   purviewcli [csv | json] getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   purviewcli [csv | json] getGlossaryTermsAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   purviewcli [csv | json] getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
@@ -80,16 +81,15 @@ Options:
 """
 from docopt import docopt
 from purviewcli import __version__
-import purviewcli.common as common
-import purviewcli.glossary as glossary
-import purviewcli.entity as entity
-import purviewcli.lineage as lineage
-import purviewcli.relationship as relationship
-import purviewcli.typedefs as typedefs
-import purviewcli.search as search
-import purviewcli.scan as scan
-import purviewcli.guardian as guardian
-
+from purviewcli import common
+from purviewcli import entity
+from purviewcli import glossary
+from purviewcli import lineage
+from purviewcli import relationship
+from purviewcli import typedefs
+from purviewcli import search
+from purviewcli import scan
+from purviewcli import guardian
 
 def main():
   # Initialise Arguments (docopt)
@@ -123,6 +123,7 @@ def purview_api(args):
     'getGlossaryCategoryTerms': glossary.getGlossaryCategoryTerms,
     'getGlossaryDetailed': glossary.getGlossaryDetailed,
     'getGlossaryTerm': glossary.getGlossaryTerm,
+    'newGlossaryTerm': glossary.newGlossaryTerm,
     'getGlossaryTerms': glossary.getGlossaryTerms,
     'getGlossaryTermsAssignedEntities': glossary.getGlossaryTermsAssignedEntities,
     'getGlossaryTermsHeaders': glossary.getGlossaryTermsHeaders,
