@@ -18,7 +18,7 @@ setuptools.setup(
     author_email='contact@taygan.co',
     license='MIT',
     packages=setuptools.find_packages(),
-    install_requires = ['docopt','requests','pandas'],
+    install_requires = ['docopt','requests'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
@@ -26,7 +26,7 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            'purviewcli = purviewcli.cli:main'
+            'pv = purviewcli.cli:main'
         ],
     }
 )

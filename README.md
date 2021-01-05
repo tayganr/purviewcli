@@ -20,17 +20,16 @@ You will need the following to initialise the configuration file:
 * Client Secret
 * Tenant ID *(aka Directory ID)*
 * Azure Purview Account Name
-* Output Path *(e.g. Windows: C:/Users/username/Desktop Mac: /Users/username/Desktop)*
 
 To initiate the configuration, execute the following command.
 ```
-purviewcli config
+pv config
 ```
 ![config](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_config.png)
 
 ## Usage
 ```
-purviewcli command (mandatory parameters) [optional parameters]
+pv command (mandatory parameters) [optional parameters]
 ```
 
 ## Commands
@@ -111,14 +110,4 @@ getFileTypeSizeTrendByDataSource (--fileType=<fileType> --window=<window>) [--re
 getTopFileTypesBySize [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
 getTopLevelSummary [--registeredSourceGroup=<registeredSourceGroup>]
 getRegisteredSourceGroupsWithAssets
-```
-
-## Export to JSON
-```
-purviewcli json command (mandatory parameters) [optional parameters]
-```
-
-## Export to CSV
-```
-purviewcli csv command (mandatory parameters) [optional parameters]
 ```

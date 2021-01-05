@@ -3,8 +3,6 @@ import os
 import configparser
 import json
 import requests
-from datetime import datetime
-from pandas import json_normalize
 
 CONFIG_FILEPATH = os.path.dirname(os.path.abspath(__file__)) + '/../config.ini'
 
@@ -25,7 +23,7 @@ def get_token(tenant_id, client_id, client_secret):
 
 def read_config():
     if not os.path.exists(CONFIG_FILEPATH):
-        sys.exit("[ERROR] Configuration file needs to be initialised. Run 'purviewcli config'.")
+        sys.exit("[ERROR] Configuration file needs to be initialised. Run 'pv config'.")
     config = configparser.ConfigParser()
     config.read(CONFIG_FILEPATH)
     return config
@@ -44,15 +42,14 @@ def init_config():
 
     # Configure (other)
     account_name = input('Enter your Account Name: ')
-    output_path = input('Enter your Output Path: ')
     config.add_section('purview_account')
     config.set('purview_account', 'account_name', account_name)
-    config.add_section('output')
-    config.set('output', 'output_path', output_path)
 
     # Write config
     with open(CONFIG_FILEPATH, 'w') as configfile:
         config.write(configfile)
+    
+    print('[INFO] You have successfully configured purviewcli.')
 
 def http_get(app, method, endpoint, params, payload, config):
     # Endpoint
@@ -84,28 +81,8 @@ def http_get(app, method, endpoint, params, payload, config):
         else:
             pass
 
-    data = response.content
+    data = json.loads(response.content)
     return data
-
-def export_data(data, interface, fileformat, config):
-    output_path = config['output']['output_path']
-    if not os.path.exists(output_path):
-        sys.exit("[ERROR] Output path: '%s' does not exist." % output_path)
-    timestamp = datetime.today().strftime('%Y%m%d%H%M%S')
-    filename = '{0}_{1}.{2}'.format(interface,timestamp,fileformat)
-    file_path = '%s/%s' % (output_path, filename)
-    
-    data_object = json.loads(data)
-    if fileformat == 'json':
-        with open(file_path, 'w') as outfile:
-            json.dump(data_object, outfile, indent=4)
-        print('[INFO] Successfully exported to: %s' % file_path)
-    elif fileformat == 'csv':
-        df = json_normalize(data_object)
-        df.to_csv(file_path, sep=',', encoding='utf-8', index=False)
-        print('[INFO] Successfully exported to: %s' % file_path)
-    else:
-        print(json.dumps(data_object, indent=4, sort_keys=True)) if len(data_object) > 0 else print('No data found for %s.' % (interface))
 
 def selected_arg(args, arg_list):
     selection = None

@@ -2,61 +2,61 @@
 """purviewcli
 
 Usage:
-  purviewcli config
-  purviewcli [csv | json] search (--keywords=<keywords>) [--limit=<limit> --offset=<offset>]
-  purviewcli [csv | json] getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
-  purviewcli [csv | json] getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
-  purviewcli [csv | json] getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
-  purviewcli [csv | json] getEntityBulkUniqueAttributeType (--typeName=<typeName>) [--ignoreRelationships --minExtInfo]
-  purviewcli [csv | json] getEntityBusinessmetadataImportTemplate
-  purviewcli [csv | json] getEntityGuid (--guid=<guid>) [--ignoreRelationships --minExtInfo]
-  purviewcli [csv | json] getEntityGuidClassification (--guid=<guid> --classificationName=<classificationName>)
-  purviewcli [csv | json] getEntityGuidClassifications (--guid=<guid>)
-  purviewcli [csv | json] getEntityGuidHeader (--guid=<guid>)
-  purviewcli [csv | json] getEntityUniqueAttributeType (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>) [--ignoreRelationships --minExtInfo]
-  purviewcli [csv | json] getEntityUniqueAttributeTypeHeader (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>)
-  purviewcli [csv | json] getGlossary [--glossaryGuid=<glossaryGuid>] [--limit=<limit> --offset=<offset> --sort=<sort>]
-  purviewcli [csv | json] getGlossaryCategories (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-  purviewcli [csv | json] getGlossaryCategoriesHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-  purviewcli [csv | json] getGlossaryCategory (--categoryGuid=<categoryGuid>)
-  purviewcli [csv | json] getGlossaryCategoryRelated (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-  purviewcli [csv | json] getGlossaryCategoryTerms (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-  purviewcli [csv | json] getGlossaryDetailed (--glossaryGuid=<glossaryGuid>)
-  purviewcli [csv | json] getGlossaryTerm (--termGuid=<termGuid>)
-  purviewcli [csv | json] newGlossaryTerm (--termName=<termName> --termStatus=<termStatus>) [--termDescription=<termDescription> --termAcronym=<termAcronym> --synonym=<synonym>... --related=<related>...]
-  purviewcli [csv | json] getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-  purviewcli [csv | json] getGlossaryTermsAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-  purviewcli [csv | json] getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-  purviewcli [csv | json] getGlossaryTermsRelated (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-  purviewcli [csv | json] getLineage (--guid=<guid>) [--depth=<depth> --width=<width> --direction=<direction> --forceNewApi --includeParent --getDerivedLineage]
-  purviewcli [csv | json] getLineageUniqueAttributeType (--typeName=<typeName>) [--depth=<depth> --direction=<direction>]
-  purviewcli [csv | json] getRelationshipGuid (--guid=<guid>) [--extendedInfo]
-  purviewcli [csv | json] getBusinessmetadatadef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getClassificationdef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getEntitydef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getEnumdef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getRelationshipdef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getStructdef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getTypedef (--guid=<guid> | --name=<name>)
-  purviewcli [csv | json] getTypedefs
-  purviewcli [csv | json] getTypedefsHeaders
-  purviewcli [csv | json] getDatasources
-  purviewcli [csv | json] getDatasource (--datasource=<datasource>)
-  purviewcli [csv | json] getScans (--datasource=<datasource>)
-  purviewcli [csv | json] getScan (--datasource=<datasource> --scanName=<scanName>)
-  purviewcli [csv | json] getScanHistory (--datasource=<datasource> --scanName=<scanName>)
-  purviewcli [csv | json] getScanFilters (--datasource=<datasource> --scanName=<scanName>)
-  purviewcli [csv | json] runScan (--datasource=<datasource> --scanName=<scanName>) [--scanLevel=<scanLevel>]
-  purviewcli [csv | json] getSystemScanRulesets
-  purviewcli [csv | json] getSystemScanRulesetsSettings
-  purviewcli [csv | json] getScanRulesets
-  purviewcli [csv | json] getAssetDistributionByDataSource [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
-  purviewcli [csv | json] getAssetDistributionByTopPaths (--datasource=<datasource>) [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
-  purviewcli [csv | json] getFileTypeSizeTimeSeries (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
-  purviewcli [csv | json] getFileTypeSizeTrendByDataSource (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
-  purviewcli [csv | json] getTopFileTypesBySize [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
-  purviewcli [csv | json] getTopLevelSummary [--registeredSourceGroup=<registeredSourceGroup>]
-  purviewcli [csv | json] getRegisteredSourceGroupsWithAssets
+  pv config
+  pv search (--keywords=<keywords>) [--limit=<limit> --offset=<offset>]
+  pv getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
+  pv getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
+  pv getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
+  pv getEntityBulkUniqueAttributeType (--typeName=<typeName>) [--ignoreRelationships --minExtInfo]
+  pv getEntityBusinessmetadataImportTemplate
+  pv getEntityGuid (--guid=<guid>) [--ignoreRelationships --minExtInfo]
+  pv getEntityGuidClassification (--guid=<guid> --classificationName=<classificationName>)
+  pv getEntityGuidClassifications (--guid=<guid>)
+  pv getEntityGuidHeader (--guid=<guid>)
+  pv getEntityUniqueAttributeType (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>) [--ignoreRelationships --minExtInfo]
+  pv getEntityUniqueAttributeTypeHeader (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>)
+  pv getGlossary [--glossaryGuid=<glossaryGuid>] [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getGlossaryCategories (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getGlossaryCategoriesHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getGlossaryCategory (--categoryGuid=<categoryGuid>)
+  pv getGlossaryCategoryRelated (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getGlossaryCategoryTerms (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getGlossaryDetailed (--glossaryGuid=<glossaryGuid>)
+  pv getGlossaryTerm (--termGuid=<termGuid>)
+  pv newGlossaryTerm (--termName=<termName> --termStatus=<termStatus>) [--termDescription=<termDescription> --termAcronym=<termAcronym> --synonym=<synonym>... --related=<related>...]
+  pv getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getGlossaryTermsAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getGlossaryTermsRelated (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getLineage (--guid=<guid>) [--depth=<depth> --width=<width> --direction=<direction> --forceNewApi --includeParent --getDerivedLineage]
+  pv getLineageUniqueAttributeType (--typeName=<typeName>) [--depth=<depth> --direction=<direction>]
+  pv getRelationshipGuid (--guid=<guid>) [--extendedInfo]
+  pv getBusinessmetadatadef (--guid=<guid> | --name=<name>)
+  pv getClassificationdef (--guid=<guid> | --name=<name>)
+  pv getEntitydef (--guid=<guid> | --name=<name>)
+  pv getEnumdef (--guid=<guid> | --name=<name>)
+  pv getRelationshipdef (--guid=<guid> | --name=<name>)
+  pv getStructdef (--guid=<guid> | --name=<name>)
+  pv getTypedef (--guid=<guid> | --name=<name>)
+  pv getTypedefs
+  pv getTypedefsHeaders
+  pv getDatasources
+  pv getDatasource (--datasource=<datasource>)
+  pv getScans (--datasource=<datasource>)
+  pv getScan (--datasource=<datasource> --scanName=<scanName>)
+  pv getScanHistory (--datasource=<datasource> --scanName=<scanName>)
+  pv getScanFilters (--datasource=<datasource> --scanName=<scanName>)
+  pv runScan (--datasource=<datasource> --scanName=<scanName>) [--scanLevel=<scanLevel>]
+  pv getSystemScanRulesets
+  pv getSystemScanRulesetsSettings
+  pv getScanRulesets
+  pv getAssetDistributionByDataSource [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
+  pv getAssetDistributionByTopPaths (--datasource=<datasource>) [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
+  pv getFileTypeSizeTimeSeries (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
+  pv getFileTypeSizeTrendByDataSource (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
+  pv getTopFileTypesBySize [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
+  pv getTopLevelSummary [--registeredSourceGroup=<registeredSourceGroup>]
+  pv getRegisteredSourceGroupsWithAssets
 
 Options:
   -h --help                                         Show this screen.
@@ -72,13 +72,15 @@ Options:
   --width=<width>                                   Custom to Azure Purview [default: 6].
   --direction=<direction>                           INPUT or OUTPUT or BOTH [default: BOTH].
   --scanLevel=<scanLevel>                           Incremental or Full.
-  --registeredSourceGroup=<registeredSourceGroup>   Guardian.
   --classificationCategory=<classificationCategory> Guardian.
   --classificationName=<classificationName>         Guardian.
+  --registeredSourceGroup=<registeredSourceGroup>   Guardian.
+  --datasource=<datasource>                         Guardian.
   --fileType=<fileType>                             png or json or csv or xlsx.
   --window=<window>                                 7d or 30d.
 
 """
+import json
 from docopt import docopt
 from purviewcli import __version__
 from purviewcli import common
@@ -92,9 +94,8 @@ from purviewcli import scan
 from purviewcli import guardian
 
 def main():
-  # Initialise Arguments (docopt)
   args = docopt(__doc__, version=__version__)
-  # print(args)
+
   # Special Argument: config
   if args['config']:
     common.init_config()
@@ -102,7 +103,6 @@ def main():
     purview_api(args)
 
 def purview_api(args):
-  # Function Map
   function_map = {
     'getEntityAudit': entity.getEntityAudit,
     'getEntityBulk': entity.getEntityBulk,
@@ -164,8 +164,11 @@ def purview_api(args):
   command = common.selected_arg(args, function_map.keys())
   func = function_map[command]
   data = func(config, args)
-  fileformat = common.selected_arg(args, ['csv','json'])
-  common.export_data(data,command,fileformat,config)
+  
+  if len(data) > 0:
+    print(json.dumps(data, indent=4, sort_keys=True)) 
+  else:
+    print('No data found for %s.' % (command))
 
 if __name__ == '__main__':
   main()
