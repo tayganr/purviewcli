@@ -72,7 +72,7 @@ def getGlossaryTermsRelated(config, args):
 
 def newGlossaryTerm(config, args):
     glossary = getGlossary(config, args)
-    glossary_guid = json.loads(glossary)[0]['guid']
+    glossary_guid = glossary[0]['guid']
     endpoint = '/api/atlas/v2/glossary/term'
     payload = {
         "name": args['--termName'],
@@ -92,17 +92,3 @@ def newGlossaryTerm(config, args):
 
     data = http_get('catalog', 'POST', endpoint, None, payload, config)
     return data
-
-
-
-# {
-#     "name":"Another Term",
-#     "anchor":{"glossaryGuid":"505674a3-d8fc-4234-9038-e313829a7216"},
-#     "status":"Alert",
-#     "longDescription":"This is the term definition.",
-#     "abbreviation":"acro1, acro2, acro3",
-#     "resources":[{"displayName":"resource1","url":"https://google.com"}],
-#     "synonyms":[{"termGuid":"a6bf5214-91d8-4c04-bdfc-d171bfee6eaa"},{"termGuid":"f87e4915-470a-43ac-a801-db245aa65212"}],
-#     "seeAlso":[{"termGuid":"6cbfe86d-bbac-4823-a9df-d354528c99ad"}],
-#     "contacts":{"Expert":[{"id":"095354ff-cae8-44ff-8120-22ec5a941b40","info":"Information here."}],"Steward":[{"id":"095354ff-cae8-44ff-8120-22ec5a941b40","info":"More information."}]},
-#     "attributes":{"New Term Template":{"Employee ID":"1234"}}}

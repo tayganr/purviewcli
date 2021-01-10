@@ -5,7 +5,18 @@ def search(config, args):
     payload = {
         'keywords': args['--keywords'],
         'limit': args['--limit'],
-        'offset': args['--offset']
+        'offset': args['--offset'],
+        'facets': []
     }
+
+    for facet in args['--facet']:
+        payload['facets'].append(
+            {
+                'count': 0,
+                'facet': facet,
+                'sort': { 'count': 'desc'}
+            }
+        )
+
     data = http_get('catalog', 'POST', endpoint, None, payload, config)
     return data

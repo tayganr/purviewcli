@@ -26,7 +26,7 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            'pv = purviewcli.cli:main'
+            'pv = purviewcli.cli.cli:main'
         ],
     }
 )

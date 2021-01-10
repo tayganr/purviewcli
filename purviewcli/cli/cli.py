@@ -3,7 +3,7 @@
 
 Usage:
   pv config
-  pv search (--keywords=<keywords>) [--limit=<limit> --offset=<offset>]
+  pv search [--keywords=<keywords> --limit=<limit> --offset=<offset> --facet=<facet>...]
   pv getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
   pv getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
   pv getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
@@ -23,7 +23,7 @@ Usage:
   pv getGlossaryCategoryTerms (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryDetailed (--glossaryGuid=<glossaryGuid>)
   pv getGlossaryTerm (--termGuid=<termGuid>)
-  pv newGlossaryTerm (--termName=<termName> --termStatus=<termStatus>) [--termDescription=<termDescription> --termAcronym=<termAcronym> --synonym=<synonym>... --related=<related>...]
+  pv newGlossaryTerm (--termName=<termName>) [--termStatus=<termStatus> --termDescription=<termDescription> --termAcronym=<termAcronym> --synonym=<synonym>... --related=<related>...]
   pv getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryTermsAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
@@ -78,6 +78,7 @@ Options:
   --datasource=<datasource>                         Guardian.
   --fileType=<fileType>                             png or json or csv or xlsx.
   --window=<window>                                 7d or 30d.
+  --facet=<facet>                                   Advanced Search.
 
 """
 import json
