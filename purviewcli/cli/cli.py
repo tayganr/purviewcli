@@ -23,7 +23,8 @@ Usage:
   pv getGlossaryCategoryTerms (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryDetailed (--glossaryGuid=<glossaryGuid>)
   pv getGlossaryTerm (--termGuid=<termGuid>)
-  pv newGlossaryTerm (--termName=<termName>) [--termStatus=<termStatus> --termDescription=<termDescription> --termAcronym=<termAcronym> --synonym=<synonym>... --related=<related>...]
+  pv delGlossaryTerm (--termGuid=<termGuid>)
+  pv newGlossaryTerm (--termName=<termName>) [--glossaryGuid=<glossaryGuid> --termStatus=<termStatus> --termDescription=<termDescription> --termAcronym=<termAcronym> --synonym=<synonym>... --related=<related>... --resourceName=<resourceName>... --resourceUrl=<resourceUrl>... --expertId=<expertId>... --stewardId=<stewardId>...]
   pv getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryTermsAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
@@ -72,104 +73,104 @@ Options:
   --width=<width>                                   Custom to Azure Purview [default: 6].
   --direction=<direction>                           INPUT or OUTPUT or BOTH [default: BOTH].
   --scanLevel=<scanLevel>                           Incremental or Full.
-  --classificationCategory=<classificationCategory> Guardian.
-  --classificationName=<classificationName>         Guardian.
-  --registeredSourceGroup=<registeredSourceGroup>   Guardian.
-  --datasource=<datasource>                         Guardian.
+  --classificationCategory=<classificationCategory> client.
+  --classificationName=<classificationName>         client.
+  --registeredSourceGroup=<registeredSourceGroup>   client.
+  --datasource=<datasource>                         client.
   --fileType=<fileType>                             png or json or csv or xlsx.
   --window=<window>                                 7d or 30d.
   --facet=<facet>                                   Advanced Search.
 
 """
+import os
 import json
 from docopt import docopt
 from purviewcli import __version__
-from purviewcli import common
-from purviewcli import entity
-from purviewcli import glossary
-from purviewcli import lineage
-from purviewcli import relationship
-from purviewcli import typedefs
-from purviewcli import search
-from purviewcli import scan
-from purviewcli import guardian
+from purviewcli.client import PurviewClient
 
 def main():
+  # Initialise arguments
   args = docopt(__doc__, version=__version__)
 
-  # Special Argument: config
-  if args['config']:
-    common.init_config()
-  else:
-    purview_api(args)
+  # Initialise client
+  client = PurviewClient(account_name = os.environ.get("PURVIEW_NAME", ""))
+  client.set_token()
 
-def purview_api(args):
   function_map = {
-    'getEntityAudit': entity.getEntityAudit,
-    'getEntityBulk': entity.getEntityBulk,
-    'getEntityBulkHeaders': entity.getEntityBulkHeaders,
-    'getEntityBulkUniqueAttributeType': entity.getEntityBulkUniqueAttributeType,
-    'getEntityBusinessmetadataImportTemplate': entity.getEntityBusinessmetadataImportTemplate,
-    'getEntityGuid': entity.getEntityGuid,
-    'getEntityGuidClassification': entity.getEntityGuidClassification,
-    'getEntityGuidClassifications': entity.getEntityGuidClassifications,
-    'getEntityGuidHeader': entity.getEntityGuidHeader,
-    'getEntityUniqueAttributeType': entity.getEntityUniqueAttributeType,
-    'getEntityUniqueAttributeTypeHeader': entity.getEntityUniqueAttributeTypeHeader,
-    'getGlossary': glossary.getGlossary,
-    'getGlossaryCategories': glossary.getGlossaryCategories,
-    'getGlossaryCategoriesHeaders': glossary.getGlossaryCategoriesHeaders,
-    'getGlossaryCategory': glossary.getGlossaryCategory,
-    'getGlossaryCategoryRelated': glossary.getGlossaryCategoryRelated,
-    'getGlossaryCategoryTerms': glossary.getGlossaryCategoryTerms,
-    'getGlossaryDetailed': glossary.getGlossaryDetailed,
-    'getGlossaryTerm': glossary.getGlossaryTerm,
-    'newGlossaryTerm': glossary.newGlossaryTerm,
-    'getGlossaryTerms': glossary.getGlossaryTerms,
-    'getGlossaryTermsAssignedEntities': glossary.getGlossaryTermsAssignedEntities,
-    'getGlossaryTermsHeaders': glossary.getGlossaryTermsHeaders,
-    'getGlossaryTermsRelated': glossary.getGlossaryTermsRelated,
-    'getLineage': lineage.getLineage,
-    'getLineageUniqueAttributeType': lineage.getLineageUniqueAttributeType,
-    'getRelationshipGuid': relationship.getRelationshipGuid,
-    'getBusinessmetadatadef': typedefs.getBusinessmetadatadef,
-    'getClassificationdef': typedefs.getClassificationdef,
-    'getEntitydef': typedefs.getEntitydef,
-    'getEnumdef': typedefs.getEnumdef,
-    'getRelationshipdef': typedefs.getRelationshipdef,
-    'getStructdef': typedefs.getStructdef,
-    'getTypedef': typedefs.getTypedef,
-    'getTypedefs': typedefs.getTypedefs,
-    'getTypedefsHeaders': typedefs.getTypedefsHeaders,
-    'search': search.search,
-    'getDatasources': scan.getDatasources,
-    'getDatasource': scan.getDatasource,
-    'getScans': scan.getScans,
-    'getScan': scan.getScan,
-    'getScanHistory': scan.getScanHistory,
-    'getScanFilters': scan.getScanFilters,
-    'runScan': scan.runScan,
-    'getSystemScanRulesets': scan.getSystemScanRulesets,
-    'getSystemScanRulesetsSettings': scan.getSystemScanRulesetsSettings,
-    'getScanRulesets': scan.getScanRulesets,
-    'getAssetDistributionByDataSource': guardian.getAssetDistributionByDataSource,
-    'getAssetDistributionByTopPaths': guardian.getAssetDistributionByTopPaths,
-    'getFileTypeSizeTimeSeries': guardian.getFileTypeSizeTimeSeries,
-    'getFileTypeSizeTrendByDataSource': guardian.getFileTypeSizeTrendByDataSource,
-    'getTopFileTypesBySize': guardian.getTopFileTypesBySize,
-    'getTopLevelSummary': guardian.getTopLevelSummary,
-    'getRegisteredSourceGroupsWithAssets': guardian.getRegisteredSourceGroupsWithAssets
+    'getEntityAudit': client.getEntityAudit,
+    'getEntityBulk': client.getEntityBulk,
+    'getEntityBulkHeaders': client.getEntityBulkHeaders,
+    'getEntityBulkUniqueAttributeType': client.getEntityBulkUniqueAttributeType,
+    'getEntityBusinessmetadataImportTemplate': client.getEntityBusinessmetadataImportTemplate,
+    'getEntityGuid': client.getEntityGuid,
+    'getEntityGuidClassification': client.getEntityGuidClassification,
+    'getEntityGuidClassifications': client.getEntityGuidClassifications,
+    'getEntityGuidHeader': client.getEntityGuidHeader,
+    'getEntityUniqueAttributeType': client.getEntityUniqueAttributeType,
+    'getEntityUniqueAttributeTypeHeader': client.getEntityUniqueAttributeTypeHeader,
+    'getGlossary': client.getGlossary,
+    'getGlossaryCategories': client.getGlossaryCategories,
+    'getGlossaryCategoriesHeaders': client.getGlossaryCategoriesHeaders,
+    'getGlossaryCategory': client.getGlossaryCategory,
+    'getGlossaryCategoryRelated': client.getGlossaryCategoryRelated,
+    'getGlossaryCategoryTerms': client.getGlossaryCategoryTerms,
+    'getGlossaryDetailed': client.getGlossaryDetailed,
+    'getGlossaryTerm': client.getGlossaryTerm,
+    'delGlossaryTerm': client.delGlossaryTerm,
+    'newGlossaryTerm': client.newGlossaryTerm,
+    'getGlossaryTerms': client.getGlossaryTerms,
+    'getGlossaryTermsAssignedEntities': client.getGlossaryTermsAssignedEntities,
+    'getGlossaryTermsHeaders': client.getGlossaryTermsHeaders,
+    'getGlossaryTermsRelated': client.getGlossaryTermsRelated,
+    'getLineage': client.getLineage,
+    'getLineageUniqueAttributeType': client.getLineageUniqueAttributeType,
+    'getRelationshipGuid': client.getRelationshipGuid,
+    'getBusinessmetadatadef': client.getBusinessmetadatadef,
+    'getClassificationdef': client.getClassificationdef,
+    'getEntitydef': client.getEntitydef,
+    'getEnumdef': client.getEnumdef,
+    'getRelationshipdef': client.getRelationshipdef,
+    'getStructdef': client.getStructdef,
+    'getTypedef': client.getTypedef,
+    'getTypedefs': client.getTypedefs,
+    'getTypedefsHeaders': client.getTypedefsHeaders,
+    'search': client.search,
+    'getDatasources': client.getDatasources,
+    'getDatasource': client.getDatasource,
+    'getScans': client.getScans,
+    'getScan': client.getScan,
+    'getScanHistory': client.getScanHistory,
+    'getScanFilters': client.getScanFilters,
+    'runScan': client.runScan,
+    'getSystemScanRulesets': client.getSystemScanRulesets,
+    'getSystemScanRulesetsSettings': client.getSystemScanRulesetsSettings,
+    'getScanRulesets': client.getScanRulesets,
+    'getAssetDistributionByDataSource': client.getAssetDistributionByDataSource,
+    'getAssetDistributionByTopPaths': client.getAssetDistributionByTopPaths,
+    'getFileTypeSizeTimeSeries': client.getFileTypeSizeTimeSeries,
+    'getFileTypeSizeTrendByDataSource': client.getFileTypeSizeTrendByDataSource,
+    'getTopFileTypesBySize': client.getTopFileTypesBySize,
+    'getTopLevelSummary': client.getTopLevelSummary,
+    'getRegisteredSourceGroupsWithAssets': client.getRegisteredSourceGroupsWithAssets
   }
 
-  config = common.read_config()
-  command = common.selected_arg(args, function_map.keys())
+  # Execute command
+  command = selected_arg(args, function_map.keys())
   func = function_map[command]
-  data = func(config, args)
+  data = func(args)
   
+  # Print data
   if len(data) > 0:
     print(json.dumps(data, indent=4, sort_keys=True)) 
   else:
     print('No data found for %s.' % (command))
+
+def selected_arg(args, arg_list):
+    selection = None
+    for item in  arg_list:
+        if args[item]:
+            selection = item
+    return selection
 
 if __name__ == '__main__':
   main()

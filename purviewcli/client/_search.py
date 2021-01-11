@@ -1,6 +1,4 @@
-from purviewcli.common import http_get
-
-def search(config, args):
+def search(self, args):
     endpoint = '/api/atlas/v2/search/advanced'
     payload = {
         'keywords': args['--keywords'],
@@ -18,5 +16,5 @@ def search(config, args):
             }
         )
 
-    data = http_get('catalog', 'POST', endpoint, None, payload, config)
+    data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data

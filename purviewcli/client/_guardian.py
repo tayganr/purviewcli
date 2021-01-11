@@ -1,16 +1,14 @@
-from purviewcli.common import http_get
-
-def getAssetDistributionByDataSource(config, args):
+def getAssetDistributionByDataSource(self, args):
     endpoint = '/mapanddiscover/reports/asset2/assetDistributionByDataSource'
     payload = {
         "registeredSourceGroup": args['--registeredSourceGroup'] or '',
         "classificationCategory": args['--classificationCategory'] or '',
         "classificationName": args['--classificationName'] or ''
     }
-    data = http_get('guardian', 'POST', endpoint, None, payload, config)
+    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getAssetDistributionByTopPaths(config, args):
+def getAssetDistributionByTopPaths(self, args):
     endpoint = '/mapanddiscover/reports/asset2/assetDistributionByTopPaths'
     payload = {
         "registeredSourceGroup": args['--registeredSourceGroup'] or '',
@@ -18,10 +16,10 @@ def getAssetDistributionByTopPaths(config, args):
         "classificationName": args['--classificationName'] or '',
         "dataSource": args['--datasource'] or ''
     }
-    data = http_get('guardian', 'POST', endpoint, None, payload, config)
+    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getFileTypeSizeTimeSeries(config, args):
+def getFileTypeSizeTimeSeries(self, args):
     endpoint = '/mapanddiscover/reports/asset2/fileTypeSizeTimeSeries'
     payload = {
         "dataSource": args['--datasource'] or '',
@@ -29,10 +27,10 @@ def getFileTypeSizeTimeSeries(config, args):
         "registeredSourceGroup": args['--registeredSourceGroup'] or '',
         "window": args['--window'] or ''
     }
-    data = http_get('guardian', 'POST', endpoint, None, payload, config)
+    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getFileTypeSizeTrendByDataSource(config, args):
+def getFileTypeSizeTrendByDataSource(self, args):
     endpoint = '/mapanddiscover/reports/asset2/fileTypeSizeTrendByDataSource'
     payload = {
         "dataSource": args['--datasource'] or '',
@@ -40,29 +38,29 @@ def getFileTypeSizeTrendByDataSource(config, args):
         "registeredSourceGroup": args['--registeredSourceGroup'] or '',
         "window": args['--window'] or ''
     }
-    data = http_get('guardian', 'POST', endpoint, None, payload, config)
+    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getTopFileTypesBySize(config, args):
+def getTopFileTypesBySize(self, args):
     endpoint = '/mapanddiscover/reports/asset2/topFileTypesBySize'
     payload = {
         "dataSource": args['--datasource'] or '',
         "registeredSourceGroup": args['--registeredSourceGroup'] or ''
     }
-    data = http_get('guardian', 'POST', endpoint, None, payload, config)
+    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getTopLevelSummary(config, args):
+def getTopLevelSummary(self, args):
     endpoint = '/mapanddiscover/reports/asset2/topLevelSummary'
     payload = {
         "registeredSourceGroup": args['--registeredSourceGroup'] or ''
     }
-    data = http_get('guardian', 'POST', endpoint, None, payload, config)
+    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getRegisteredSourceGroupsWithAssets(config, args):
+def getRegisteredSourceGroupsWithAssets(self, args):
     endpoint = '/mapanddiscover/reports/asset2/registeredSourceGroupsWithAssets'
-    data = http_get('guardian', 'GET', endpoint, None, None, config)
+    data = self.http_get(app='guardian', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
 # Map & Discover > Reports > Asset2
