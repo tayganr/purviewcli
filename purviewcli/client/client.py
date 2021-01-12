@@ -1,6 +1,9 @@
+import logging
 import json
 import requests
 from azure.identity import DefaultAzureCredential
+
+logging.getLogger("azure.identity").setLevel(logging.ERROR)
 
 class PurviewClient():
     def __init__(self, account_name):

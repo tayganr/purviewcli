@@ -82,6 +82,7 @@ Options:
   --facet=<facet>                                   Advanced Search.
 
 """
+import sys
 import os
 import json
 from docopt import docopt
@@ -93,7 +94,7 @@ def main():
   args = docopt(__doc__, version=__version__)
 
   # Initialise client
-  client = PurviewClient(account_name = os.environ.get("PURVIEW_NAME", ""))
+  client = PurviewClient(account_name = get_var("PURVIEW_NAME"))
   client.set_token()
 
   function_map = {
@@ -171,6 +172,13 @@ def selected_arg(args, arg_list):
         if args[item]:
             selection = item
     return selection
+
+def get_var(varname):
+  varval = os.environ.get(varname)
+  if varval is None:
+    print("[ERROR] Environment variable '%s' needs to be set." % varname)
+    sys.exit()
+  return varval
 
 if __name__ == '__main__':
   main()
