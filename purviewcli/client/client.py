@@ -22,7 +22,22 @@ class PurviewClient():
         uri = 'https://%s.%s.purview.azure.com%s' % (self.account_name, app, endpoint)
         headers = {"Authorization": "Bearer {0}".format(self.access_token)}
         response = requests.request(method, uri, params=params, json=payload, headers=headers)
-        data = json.loads(response.content)
+
+        try:
+            data = response.json()
+        except ValueError:
+            status_code = response.status_code
+            if status_code == 204:
+                data = {
+                    'operation': '[%s] %s' % (method, response.url),
+                    'status': 'The server successfully processed the request'
+                }
+            else:
+                data = {
+                    'url': response.url,
+                    'status_code': response.status_code,
+                    'reason': response.reason
+                }
         return data
 
     from ._glossary import (
@@ -38,8 +53,9 @@ class PurviewClient():
         getGlossaryTermsAssignedEntities,
         getGlossaryTermsHeaders,
         getGlossaryTermsRelated,
-        delGlossaryTerm,
-        newGlossaryTerm
+        deleteGlossaryTerm,
+        createGlossaryTerm,
+        updateGlossaryTerm
     )
     from ._entity import (
         getEntityAudit,

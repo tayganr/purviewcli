@@ -52,7 +52,7 @@ getGlossaryCategoryRelated (--categoryGuid=<categoryGuid>) [--limit=<limit> --of
 getGlossaryCategoryTerms (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
 getGlossaryDetailed (--glossaryGuid=<glossaryGuid>)
 getGlossaryTerm (--termGuid=<termGuid>)
-newGlossaryTerm (--termName=<termName> --termStatus=<termStatus>) [--termDescription=<termDescription> --termAcronym=<termAcronym> --synonym=<synonym>... --related=<related>...]
+createGlossaryTerm (--termName=<termName> --status=<status>) [--longDescription=<longDescription> --abbreviation=<abbreviation> --synonym=<synonym>... --related=<related>...]
 getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
 getGlossaryTermsAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
 getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]

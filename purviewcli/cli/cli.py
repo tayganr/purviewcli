@@ -23,8 +23,9 @@ Usage:
   pv getGlossaryCategoryTerms (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryDetailed (--glossaryGuid=<glossaryGuid>)
   pv getGlossaryTerm (--termGuid=<termGuid>)
-  pv delGlossaryTerm (--termGuid=<termGuid>)
-  pv newGlossaryTerm (--termName=<termName>) [--glossaryGuid=<glossaryGuid> --termStatus=<termStatus> --termDescription=<termDescription> --termAcronym=<termAcronym> --synonym=<synonym>... --related=<related>... --resourceName=<resourceName>... --resourceUrl=<resourceUrl>... --expertId=<expertId>... --stewardId=<stewardId>...]
+  pv deleteGlossaryTerm (--termGuid=<termGuid>)
+  pv createGlossaryTerm (--termName=<termName>) [--glossaryGuid=<glossaryGuid> --status=<status> --longDescription=<longDescription> --abbreviation=<abbreviation> --synonym=<synonym>... --related=<related>... --resourceName=<resourceName>... --resourceUrl=<resourceUrl>... --expertId=<expertId>... --stewardId=<stewardId>...]
+  pv updateGlossaryTerm (--termGuid=<termGuid>) [--termName=<termName> --glossaryGuid=<glossaryGuid> --status=<status> --longDescription=<longDescription> --abbreviation=<abbreviation> --synonym=<synonym>... --related=<related>... --resourceName=<resourceName>... --resourceUrl=<resourceUrl>... --expertId=<expertId>... --stewardId=<stewardId>...]
   pv getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryTermsAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
@@ -117,8 +118,9 @@ def main():
     'getGlossaryCategoryTerms': client.getGlossaryCategoryTerms,
     'getGlossaryDetailed': client.getGlossaryDetailed,
     'getGlossaryTerm': client.getGlossaryTerm,
-    'delGlossaryTerm': client.delGlossaryTerm,
-    'newGlossaryTerm': client.newGlossaryTerm,
+    'deleteGlossaryTerm': client.deleteGlossaryTerm,
+    'createGlossaryTerm': client.createGlossaryTerm,
+    'updateGlossaryTerm': client.updateGlossaryTerm,
     'getGlossaryTerms': client.getGlossaryTerms,
     'getGlossaryTermsAssignedEntities': client.getGlossaryTermsAssignedEntities,
     'getGlossaryTermsHeaders': client.getGlossaryTermsHeaders,

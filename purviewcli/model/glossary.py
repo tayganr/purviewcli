@@ -1,23 +1,12 @@
 class PurviewGlossaryTerm():
-    def __init__(self, attrs={}):
-        self.name = attrs['--termName']
-        self.longDescription = attrs['--termDescription']
-        self.anchor = {'glossaryGuid': attrs['--glossaryGuid']}
-        self.status = attrs['--termStatus']
-        self.abbreviation = attrs['--termAcronym']
-        self.contacts = {'Expert': [], 'Steward': []}
-        self.resources = []
-        self.synonyms = []
-        self.seeAlso = []
-        self.attributes = {}
-
-        for expert in attrs['--expertId']:
-            self.contacts['Expert'].append({'id': expert})
-        for steward in attrs['--stewardId']:
-            self.contacts['Steward'].append({'id': steward})
-        for resourceName, resourceUrl in zip(attrs['--resourceName'],attrs['--resourceUrl']):
-            self.resources.append({'displayName': resourceName, 'url': resourceUrl})
-        for synonym in attrs['--synonym']:
-            self.synonyms.append({'termGuid': synonym})
-        for related in attrs['--related']:
-            self.seeAlso.append({'termGuid': related})
+    def __init__(self, name, glossaryGuid, **kwargs):
+        self.name = name
+        self.anchor = {'glossaryGuid': glossaryGuid}
+        self.longDescription = kwargs.get('longDescription', None)
+        self.status = kwargs.get('status', None)
+        self.abbreviation = kwargs.get('abbreviation', None)
+        self.contacts = {'Expert': kwargs.get('experts', []), 'Steward': kwargs.get('stewards', [])}
+        self.resources = kwargs.get('resources', [])
+        self.synonyms = kwargs.get('synonyms', [])
+        self.seeAlso = kwargs.get('relatedTerms', [])
+        self.attributes = kwargs.get('attributes', {})
