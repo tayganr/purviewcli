@@ -53,3 +53,13 @@ def getSystemScanRulesetsSettings(self, args):
     endpoint = '/systemScanRulesets/settings'
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
+
+def getClassificationRules(self, args):
+    endpoint = '/classificationrules'
+    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    return data
+
+def getClassificationRule(self, args):
+    endpoint = '/classificationrules/%s' % args['--classificationName']
+    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    return data

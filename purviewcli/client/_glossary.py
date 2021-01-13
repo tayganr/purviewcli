@@ -7,6 +7,12 @@ def getGlossary(self, args):
     data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
     return data
 
+# RequestUriNotFound
+def getGlossaryTemplate(self, args):
+    endpoint = '/api/atlas/v2/glossary/import/template'
+    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
+    return data
+
 def getGlossaryCategories(self, args):
     endpoint = '/api/atlas/v2/glossary/%s/categories' % args['--glossaryGuid']
     params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
@@ -141,4 +147,34 @@ def updateGlossaryTerm(self, args):
 def deleteGlossaryTerm(self, args):
     endpoint = '/api/atlas/v2/glossary/term/%s' % args['--termGuid']
     data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=None)
+    return data
+
+def deleteGlossary(self, args):
+    endpoint = '/api/atlas/v2/glossary/%s' % args['--glossaryGuid']
+    data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=None)
+    return data
+
+def deleteGlossaryCategory(self, args):
+    endpoint = '/api/atlas/v2/glossary/category/%s' % args['--categoryGuid']
+    data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=None)
+    return data
+
+def deleteGlossaryTermAssignedEntities(self, args):
+    endpoint = '/api/atlas/v2/glossary/terms/%s/assignedEntities' % args['--termGuid']
+    term = getGlossaryTerm(self, {'--termGuid': args['--termGuid']})
+
+    existingAssignments = {}
+    for existingAssignment in term.get('assignedEntities',[]):
+            existingAssignments[existingAssignment.get('guid',{})] = existingAssignment
+
+    payload = []
+    for assignedEntity in args['--assignedEntity']:
+        item = existingAssignments[assignedEntity] if assignedEntity in existingAssignments else None
+        if item:
+            payload.append(item)
+    
+    if len(payload) > 0:
+        data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=payload)
+    else:
+        data = '[INFO]: The glossary term with guid %s did not match any of the assigned entities.' % args['--termGuid']
     return data

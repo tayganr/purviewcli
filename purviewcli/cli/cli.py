@@ -16,6 +16,7 @@ Usage:
   pv getEntityUniqueAttributeType (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>) [--ignoreRelationships --minExtInfo]
   pv getEntityUniqueAttributeTypeHeader (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>)
   pv getGlossary [--glossaryGuid=<glossaryGuid>] [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getGlossaryTemplate
   pv getGlossaryCategories (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryCategoriesHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryCategory (--categoryGuid=<categoryGuid>)
@@ -24,6 +25,9 @@ Usage:
   pv getGlossaryDetailed (--glossaryGuid=<glossaryGuid>)
   pv getGlossaryTerm (--termGuid=<termGuid>)
   pv deleteGlossaryTerm (--termGuid=<termGuid>)
+  pv deleteGlossary (--glossaryGuid=<glossaryGuid>)
+  pv deleteGlossaryCategory (--categoryGuid=<categoryGuid>)
+  pv deleteGlossaryTermAssignedEntities (--termGuid=<termGuid> --assignedEntity=<assignedEntity>...)
   pv createGlossaryTerm (--termName=<termName>) [--glossaryGuid=<glossaryGuid> --status=<status> --longDescription=<longDescription> --abbreviation=<abbreviation> --synonym=<synonym>... --related=<related>... --resourceName=<resourceName>... --resourceUrl=<resourceUrl>... --expertId=<expertId>... --stewardId=<stewardId>...]
   pv updateGlossaryTerm (--termGuid=<termGuid>) [--termName=<termName> --glossaryGuid=<glossaryGuid> --status=<status> --longDescription=<longDescription> --abbreviation=<abbreviation> --synonym=<synonym>... --related=<related>... --resourceName=<resourceName>... --resourceUrl=<resourceUrl>... --expertId=<expertId>... --stewardId=<stewardId>...]
   pv getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
@@ -52,6 +56,8 @@ Usage:
   pv getSystemScanRulesets
   pv getSystemScanRulesetsSettings
   pv getScanRulesets
+  pv getClassificationRules
+  pv getClassificationRule (--classificationName=<classificationName>)
   pv getAssetDistributionByDataSource [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
   pv getAssetDistributionByTopPaths (--datasource=<datasource>) [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
   pv getFileTypeSizeTimeSeries (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
@@ -111,6 +117,7 @@ def main():
     'getEntityUniqueAttributeType': client.getEntityUniqueAttributeType,
     'getEntityUniqueAttributeTypeHeader': client.getEntityUniqueAttributeTypeHeader,
     'getGlossary': client.getGlossary,
+    'getGlossaryTemplate': client.getGlossaryTemplate,
     'getGlossaryCategories': client.getGlossaryCategories,
     'getGlossaryCategoriesHeaders': client.getGlossaryCategoriesHeaders,
     'getGlossaryCategory': client.getGlossaryCategory,
@@ -119,6 +126,9 @@ def main():
     'getGlossaryDetailed': client.getGlossaryDetailed,
     'getGlossaryTerm': client.getGlossaryTerm,
     'deleteGlossaryTerm': client.deleteGlossaryTerm,
+    'deleteGlossary': client.deleteGlossary,
+    'deleteGlossaryCategory': client.deleteGlossaryCategory,
+    'deleteGlossaryTermAssignedEntities': client.deleteGlossaryTermAssignedEntities,
     'createGlossaryTerm': client.createGlossaryTerm,
     'updateGlossaryTerm': client.updateGlossaryTerm,
     'getGlossaryTerms': client.getGlossaryTerms,
@@ -145,6 +155,8 @@ def main():
     'getScanHistory': client.getScanHistory,
     'getScanFilters': client.getScanFilters,
     'runScan': client.runScan,
+    'getClassificationRules': client.getClassificationRules,
+    'getClassificationRule': client.getClassificationRule,
     'getSystemScanRulesets': client.getSystemScanRulesets,
     'getSystemScanRulesetsSettings': client.getSystemScanRulesetsSettings,
     'getScanRulesets': client.getScanRulesets,

@@ -22,17 +22,16 @@ class PurviewClient():
         uri = 'https://%s.%s.purview.azure.com%s' % (self.account_name, app, endpoint)
         headers = {"Authorization": "Bearer {0}".format(self.access_token)}
         response = requests.request(method, uri, params=params, json=payload, headers=headers)
-
-        try:
-            data = response.json()
-        except ValueError:
-            status_code = response.status_code
-            if status_code == 204:
-                data = {
-                    'operation': '[%s] %s' % (method, response.url),
-                    'status': 'The server successfully processed the request'
-                }
-            else:
+        status_code = response.status_code
+        if status_code == 204:
+            data = {
+                'operation': '[%s] %s' % (method, response.url),
+                'status': 'The server successfully processed the request'
+            }
+        else:
+            try:
+                data = response.json()
+            except ValueError:
                 data = {
                     'url': response.url,
                     'status_code': response.status_code,
@@ -42,6 +41,7 @@ class PurviewClient():
 
     from ._glossary import (
         getGlossary,
+        getGlossaryTemplate,
         getGlossaryCategories,
         getGlossaryCategoriesHeaders,
         getGlossaryCategory,
@@ -54,6 +54,9 @@ class PurviewClient():
         getGlossaryTermsHeaders,
         getGlossaryTermsRelated,
         deleteGlossaryTerm,
+        deleteGlossary,
+        deleteGlossaryCategory,
+        deleteGlossaryTermAssignedEntities,
         createGlossaryTerm,
         updateGlossaryTerm
     )
@@ -96,7 +99,9 @@ class PurviewClient():
         getScans,
         getSystemScanRulesets,
         getSystemScanRulesetsSettings,
-        runScan
+        runScan,
+        getClassificationRules,
+        getClassificationRule
     )
     from ._search import (
         search
