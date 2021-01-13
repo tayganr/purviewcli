@@ -28,23 +28,23 @@ def getEntityBusinessmetadataImportTemplate(self, args):
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data
 
-def getEntityGuid(self, args):
+def getEntity(self, args):
   endpoint = '/api/atlas/v2/entity/guid/%s' % args['--guid'][0]
   params = {'ignoreRelationships': args['--ignoreRelationships'], 'minExtInfo': args['--minExtInfo']}
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
   return data
 
-def getEntityGuidClassification(self, args):
+def getEntityClassification(self, args):
   endpoint = '/api/atlas/v2/entity/guid/%s/classification/%s' % (args['--guid'][0], args['--classificationName'])
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data
 
-def getEntityGuidClassifications(self, args):
+def getEntityClassifications(self, args):
   endpoint = '/api/atlas/v2/entity/guid/%s/classifications' % args['--guid'][0]
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data
 
-def getEntityGuidHeader(self, args):
+def getEntityHeader(self, args):
   endpoint = '/api/atlas/v2/entity/guid/%s/header' % args['--guid'][0]
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data

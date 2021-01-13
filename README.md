@@ -35,10 +35,10 @@ getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
 getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
 getEntityBulkUniqueAttributeType (--typeName=<typeName>) [--ignoreRelationships --minExtInfo]
 getEntityBusinessmetadataImportTemplate
-getEntityGuid (--guid=<guid>) [--ignoreRelationships --minExtInfo]
-getEntityGuidClassification (--guid=<guid> --classificationName=<classificationName>)
-getEntityGuidClassifications (--guid=<guid>)
-getEntityGuidHeader (--guid=<guid>)
+getEntity (--guid=<guid>) [--ignoreRelationships --minExtInfo]
+getEntityClassification (--guid=<guid> --classificationName=<classificationName>)
+getEntityClassifications (--guid=<guid>)
+getEntityHeader (--guid=<guid>)
 getEntityUniqueAttributeType (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>) [--ignoreRelationships --minExtInfo]
 getEntityUniqueAttributeTypeHeader (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>)
 ```
@@ -65,7 +65,7 @@ getLineageUniqueAttributeType (--typeName=<typeName>) [--depth=<depth> --directi
 ```
 ### Relationship
 ```
-getRelationshipGuid (--guid=<guid>) [--extendedInfo]
+getRelationship (--guid=<guid>) [--extendedInfo]
 ```
 ### Types
 ```

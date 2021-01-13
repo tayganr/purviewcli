@@ -9,10 +9,10 @@ Usage:
   pv getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
   pv getEntityBulkUniqueAttributeType (--typeName=<typeName>) [--ignoreRelationships --minExtInfo]
   pv getEntityBusinessmetadataImportTemplate
-  pv getEntityGuid (--guid=<guid>) [--ignoreRelationships --minExtInfo]
-  pv getEntityGuidClassification (--guid=<guid> --classificationName=<classificationName>)
-  pv getEntityGuidClassifications (--guid=<guid>)
-  pv getEntityGuidHeader (--guid=<guid>)
+  pv getEntity (--guid=<guid>) [--ignoreRelationships --minExtInfo]
+  pv getEntityClassification (--guid=<guid> --classificationName=<classificationName>)
+  pv getEntityClassifications (--guid=<guid>)
+  pv getEntityHeader (--guid=<guid>)
   pv getEntityUniqueAttributeType (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>) [--ignoreRelationships --minExtInfo]
   pv getEntityUniqueAttributeTypeHeader (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>)
   pv getGlossary [--glossaryGuid=<glossaryGuid>] [--limit=<limit> --offset=<offset> --sort=<sort>]
@@ -32,7 +32,7 @@ Usage:
   pv getGlossaryTermsRelated (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getLineage (--guid=<guid>) [--depth=<depth> --width=<width> --direction=<direction> --forceNewApi --includeParent --getDerivedLineage]
   pv getLineageUniqueAttributeType (--typeName=<typeName>) [--depth=<depth> --direction=<direction>]
-  pv getRelationshipGuid (--guid=<guid>) [--extendedInfo]
+  pv getRelationship (--guid=<guid>) [--extendedInfo]
   pv getBusinessmetadatadef (--guid=<guid> | --name=<name>)
   pv getClassificationdef (--guid=<guid> | --name=<name>)
   pv getEntitydef (--guid=<guid> | --name=<name>)
@@ -104,10 +104,10 @@ def main():
     'getEntityBulkHeaders': client.getEntityBulkHeaders,
     'getEntityBulkUniqueAttributeType': client.getEntityBulkUniqueAttributeType,
     'getEntityBusinessmetadataImportTemplate': client.getEntityBusinessmetadataImportTemplate,
-    'getEntityGuid': client.getEntityGuid,
-    'getEntityGuidClassification': client.getEntityGuidClassification,
-    'getEntityGuidClassifications': client.getEntityGuidClassifications,
-    'getEntityGuidHeader': client.getEntityGuidHeader,
+    'getEntity': client.getEntity,
+    'getEntityClassification': client.getEntityClassification,
+    'getEntityClassifications': client.getEntityClassifications,
+    'getEntityHeader': client.getEntityHeader,
     'getEntityUniqueAttributeType': client.getEntityUniqueAttributeType,
     'getEntityUniqueAttributeTypeHeader': client.getEntityUniqueAttributeTypeHeader,
     'getGlossary': client.getGlossary,
@@ -127,7 +127,7 @@ def main():
     'getGlossaryTermsRelated': client.getGlossaryTermsRelated,
     'getLineage': client.getLineage,
     'getLineageUniqueAttributeType': client.getLineageUniqueAttributeType,
-    'getRelationshipGuid': client.getRelationshipGuid,
+    'getRelationship': client.getRelationship,
     'getBusinessmetadatadef': client.getBusinessmetadatadef,
     'getClassificationdef': client.getClassificationdef,
     'getEntitydef': client.getEntitydef,

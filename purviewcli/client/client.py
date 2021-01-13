@@ -63,10 +63,10 @@ class PurviewClient():
         getEntityBulkHeaders,
         getEntityBulkUniqueAttributeType,
         getEntityBusinessmetadataImportTemplate,
-        getEntityGuid,
-        getEntityGuidClassification,
-        getEntityGuidClassifications,
-        getEntityGuidHeader,
+        getEntity,
+        getEntityClassification,
+        getEntityClassifications,
+        getEntityHeader,
         getEntityUniqueAttributeType,
         getEntityUniqueAttributeTypeHeader
     )
@@ -84,7 +84,7 @@ class PurviewClient():
         getLineageUniqueAttributeType
     )
     from ._relationship import (
-        getRelationshipGuid
+        getRelationship
     )
     from ._scan import (
         getDatasource,
