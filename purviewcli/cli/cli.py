@@ -6,11 +6,17 @@ Usage:
   pv search [--keywords=<keywords> --limit=<limit> --offset=<offset> --facet=<facet>...]
   pv getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
   pv getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
+  pv deleteEntityBulk (--guid=<guid>...)
   pv getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
   pv getEntityBulkUniqueAttributeType (--typeName=<typeName>) [--ignoreRelationships --minExtInfo]
   pv getEntityBusinessmetadataImportTemplate
   pv getEntity (--guid=<guid>) [--ignoreRelationships --minExtInfo]
+  pv createEntity (--entityName=<entityName> --entityType=<entityType> --qualifiedName=<qualifiedName>) [--status=<status> --description=<description> --source=<source>]
+  pv createEntityBulk (--entityName=<entityName>... --entityType=<entityType>... --qualifiedName=<qualifiedName>...)
+  pv deleteEntity (--guid=<guid>)
+  pv addEntityClassifications (--guid=<guid> --classificationName=<classificationName>...)
   pv getEntityClassification (--guid=<guid> --classificationName=<classificationName>)
+  pv deleteEntityClassification (--guid=<guid> --classificationName=<classificationName>)
   pv getEntityClassifications (--guid=<guid>)
   pv getEntityHeader (--guid=<guid>)
   pv getEntityUniqueAttributeType (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>) [--ignoreRelationships --minExtInfo]
@@ -36,6 +42,9 @@ Usage:
   pv getGlossaryTermsRelated (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getLineage (--guid=<guid>) [--depth=<depth> --width=<width> --direction=<direction> --forceNewApi --includeParent --getDerivedLineage]
   pv getLineageUniqueAttributeType (--typeName=<typeName>) [--depth=<depth> --direction=<direction>]
+  pv createRelationship (--typeName=<typeName> --status=<status> --end1Guid=<end1Guid> --end2Guid=<end2Guid>)
+  pv updateRelationship (--guid=<guid>) [--status=<status> --end1Guid=<end1Guid> --end2Guid=<end2Guid>]
+  pv deleteRelationship (--guid=<guid>)
   pv getRelationship (--guid=<guid>) [--extendedInfo]
   pv getBusinessmetadatadef (--guid=<guid> | --name=<name>)
   pv getClassificationdef (--guid=<guid> | --name=<name>)
@@ -107,11 +116,17 @@ def main():
   function_map = {
     'getEntityAudit': client.getEntityAudit,
     'getEntityBulk': client.getEntityBulk,
+    'deleteEntityBulk': client.deleteEntityBulk,
     'getEntityBulkHeaders': client.getEntityBulkHeaders,
     'getEntityBulkUniqueAttributeType': client.getEntityBulkUniqueAttributeType,
     'getEntityBusinessmetadataImportTemplate': client.getEntityBusinessmetadataImportTemplate,
     'getEntity': client.getEntity,
+    'createEntity': client.createEntity,
+    'createEntityBulk': client.createEntityBulk,
+    'deleteEntity': client.deleteEntity,
     'getEntityClassification': client.getEntityClassification,
+    'deleteEntityClassification': client.deleteEntityClassification,
+    'addEntityClassifications': client.addEntityClassifications,
     'getEntityClassifications': client.getEntityClassifications,
     'getEntityHeader': client.getEntityHeader,
     'getEntityUniqueAttributeType': client.getEntityUniqueAttributeType,
@@ -138,6 +153,9 @@ def main():
     'getLineage': client.getLineage,
     'getLineageUniqueAttributeType': client.getLineageUniqueAttributeType,
     'getRelationship': client.getRelationship,
+    'deleteRelationship': client.deleteRelationship,
+    'createRelationship': client.createRelationship,
+    'updateRelationship': client.updateRelationship,
     'getBusinessmetadatadef': client.getBusinessmetadatadef,
     'getClassificationdef': client.getClassificationdef,
     'getEntitydef': client.getEntitydef,

@@ -1,0 +1,30 @@
+{
+    "relationship": {
+        "createTime": 1610803513518,
+        "createdBy": "095354ff-cae8-44ff-8120-22ec5a941b40",
+        "end1": {
+            "guid": "0961d22f-e783-4949-a03b-4fdaa5d0235b",
+            "typeName": "adf_dataflow_operation",
+            "uniqueAttributes": {
+                "qualifiedName": "lineage:https://adlssandboxtaygan.dfs.core.windows.net/enriched/#/subscriptions/2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0/resourceGroups/sandbox/providers/Microsoft.DataFactory/factories/adf-sandbox-taygan/pipelines/pipeline1/activities/dataflow1"
+            }
+        },
+        "end2": {
+            "guid": "9730b76e-0ba8-4ac6-94f1-155b7cc48228",
+            "typeName": "azure_datalake_gen2_path",
+            "uniqueAttributes": {
+                "qualifiedName": "https://adlssandboxtaygan.dfs.core.windows.net/enriched/"
+            }
+        },
+        "guid": "ee5f7c13-00b8-4035-9949-609b8f6bb68b",
+        "label": "__Process.outputs",
+        "lastModifiedTS": "1",
+        "propagatedClassifications": [],
+        "provenanceType": 0,
+        "status": "ACTIVE",
+        "typeName": "process_dataset_outputs",
+        "updateTime": 1610803513518,
+        "updatedBy": "095354ff-cae8-44ff-8120-22ec5a941b40",
+        "version": 0
+    }
+}

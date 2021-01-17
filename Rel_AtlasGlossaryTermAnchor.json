@@ -1,0 +1,30 @@
+{
+    "relationship": {
+        "createTime": 1610798064168,
+        "createdBy": "095354ff-cae8-44ff-8120-22ec5a941b40",
+        "end1": {
+            "guid": "505674a3-d8fc-4234-9038-e313829a7216",
+            "typeName": "AtlasGlossary",
+            "uniqueAttributes": {
+                "qualifiedName": "Glossary"
+            }
+        },
+        "end2": {
+            "guid": "3ed374bb-7a9a-433c-8d24-ce83410a20b5",
+            "typeName": "AtlasGlossaryTerm",
+            "uniqueAttributes": {
+                "qualifiedName": "Taygan@Glossary"
+            }
+        },
+        "guid": "6c6dfd8b-eb50-4253-84b4-8892f42e87e9",
+        "label": "r:AtlasGlossaryTermAnchor",
+        "lastModifiedTS": "1",
+        "propagatedClassifications": [],
+        "provenanceType": 0,
+        "status": "ACTIVE",
+        "typeName": "AtlasGlossaryTermAnchor",
+        "updateTime": 1610798064168,
+        "updatedBy": "095354ff-cae8-44ff-8120-22ec5a941b40",
+        "version": 0
+    }
+}

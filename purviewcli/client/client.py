@@ -21,7 +21,13 @@ class PurviewClient():
     def http_get(self, app, method, endpoint, params, payload):
         uri = 'https://%s.%s.purview.azure.com%s' % (self.account_name, app, endpoint)
         headers = {"Authorization": "Bearer {0}".format(self.access_token)}
+        # print(
+        #     method,
+        #     headers,
+        #     uri,
+        # )
         response = requests.request(method, uri, params=params, json=payload, headers=headers)
+        # print(response.url)
         status_code = response.status_code
         if status_code == 204:
             data = {
@@ -63,11 +69,17 @@ class PurviewClient():
     from ._entity import (
         getEntityAudit,
         getEntityBulk,
+        deleteEntityBulk,
         getEntityBulkHeaders,
         getEntityBulkUniqueAttributeType,
         getEntityBusinessmetadataImportTemplate,
         getEntity,
+        createEntity,
+        createEntityBulk,
+        deleteEntity,
+        addEntityClassifications,
         getEntityClassification,
+        deleteEntityClassification,
         getEntityClassifications,
         getEntityHeader,
         getEntityUniqueAttributeType,
@@ -87,7 +99,10 @@ class PurviewClient():
         getLineageUniqueAttributeType
     )
     from ._relationship import (
-        getRelationship
+        getRelationship,
+        deleteRelationship,
+        createRelationship,
+        updateRelationship
     )
     from ._scan import (
         getDatasource,
