@@ -48,12 +48,16 @@ Usage:
   pv getRelationship (--guid=<guid>) [--extendedInfo]
   pv getBusinessmetadatadef (--guid=<guid> | --name=<name>)
   pv getClassificationdef (--guid=<guid> | --name=<name>)
+  pv deleteClassificationdef (--guid=<guid> | --name=<name>)
+  pv createClassificationdefs (--defName=<defName>...) [--defDescription=<defDescription>... --defDisplayName=<defDisplayName>...]
+  pv updateClassificationdefs (--defName=<defName>...) [--defDescription=<defDescription>... --defDisplayName=<defDisplayName>...]
   pv getEntitydef (--guid=<guid> | --name=<name>)
   pv getEnumdef (--guid=<guid> | --name=<name>)
   pv getRelationshipdef (--guid=<guid> | --name=<name>)
   pv getStructdef (--guid=<guid> | --name=<name>)
   pv getTypedef (--guid=<guid> | --name=<name>)
-  pv getTypedefs
+  pv deleteTypedefName (--name=<name>)
+  pv getTypedefs [--type=<type>]
   pv getTypedefsHeaders
   pv getDatasources
   pv getDatasource (--datasource=<datasource>)
@@ -158,11 +162,15 @@ def main():
     'updateRelationship': client.updateRelationship,
     'getBusinessmetadatadef': client.getBusinessmetadatadef,
     'getClassificationdef': client.getClassificationdef,
+    'deleteClassificationdef': client.deleteClassificationdef,
+    'createClassificationdefs': client.createClassificationdefs,
+    'updateClassificationdefs': client.updateClassificationdefs,
     'getEntitydef': client.getEntitydef,
     'getEnumdef': client.getEnumdef,
     'getRelationshipdef': client.getRelationshipdef,
     'getStructdef': client.getStructdef,
     'getTypedef': client.getTypedef,
+    'deleteTypedefName': client.deleteTypedefName,
     'getTypedefs': client.getTypedefs,
     'getTypedefsHeaders': client.getTypedefsHeaders,
     'search': client.search,
@@ -208,7 +216,7 @@ def selected_arg(args, arg_list):
 def get_var(varname):
   varval = os.environ.get(varname)
   if varval is None:
-    print("[ERROR] Environment variable '%s' needs to be set." % varname)
+    print("[ERROR] Environment variable '%s' is missing. To set the environment variable, execute the following command: \033[94mexport PURVIEW_NAME=value\033[0m" % varname)
     sys.exit()
   return varval
 

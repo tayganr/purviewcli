@@ -124,11 +124,15 @@ class PurviewClient():
     from ._typedefs import (
         getBusinessmetadatadef,
         getClassificationdef,
+        deleteClassificationdef,
+        createClassificationdefs,
+        updateClassificationdefs,
         getEntitydef,
         getEnumdef,
         getRelationshipdef,
         getStructdef,
         getTypedef,
+        deleteTypedefName,
         getTypedefs,
         getTypedefsHeaders
     )

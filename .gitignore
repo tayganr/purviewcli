@@ -9,3 +9,4 @@ config.ini
 *.egg-info/
 dist/
 build/
+.output/
