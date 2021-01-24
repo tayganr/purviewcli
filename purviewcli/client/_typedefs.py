@@ -36,7 +36,6 @@ def deleteClassificationdef(self, args):
   data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=payload)
   return data
 
-
 def updateClassificationdefs(self, args):
   endpoint = '/api/atlas/v2/types/typedefs'
   payload = {

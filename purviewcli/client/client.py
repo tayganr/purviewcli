@@ -47,6 +47,8 @@ class PurviewClient():
 
     from ._glossary import (
         getGlossary,
+        createGlossary,
+        createGlossaryCategory,
         getGlossaryTemplate,
         getGlossaryCategories,
         getGlossaryCategoriesHeaders,
@@ -56,17 +58,19 @@ class PurviewClient():
         getGlossaryDetailed,
         getGlossaryTerm,
         getGlossaryTerms,
-        getGlossaryTermsAssignedEntities,
+        getAssignedEntities,
+        assignEntities,
         getGlossaryTermsHeaders,
         getGlossaryTermsRelated,
         deleteGlossaryTerm,
         deleteGlossary,
         deleteGlossaryCategory,
-        deleteGlossaryTermAssignedEntities,
+        deleteAssignedEntities,
         createGlossaryTerm,
         updateGlossaryTerm
     )
     from ._entity import (
+        assignLabels,
         getEntityAudit,
         getEntityBulk,
         deleteEntityBulk,

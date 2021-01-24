@@ -126,3 +126,11 @@ def getEntityUniqueAttributeTypeHeader(self, args):
   params = {'attr:' + args['--attrKey']: args['--attrVal']}
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
   return data
+
+def assignLabels(self, args):
+  endpoint = '/api/atlas/v2/entity/guid/%s/labels' % args['--guid'][0]
+  payload = []
+  for label in args['--label']:
+      payload.append(label)
+  data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=payload)
+  return data

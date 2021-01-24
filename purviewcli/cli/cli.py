@@ -4,6 +4,7 @@
 Usage:
   pv config
   pv search [--keywords=<keywords> --limit=<limit> --offset=<offset> --facet=<facet>...]
+  pv assignLabels (--guid=<guid> --label=<label>...)
   pv getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
   pv getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
   pv deleteEntityBulk (--guid=<guid>...)
@@ -22,6 +23,8 @@ Usage:
   pv getEntityUniqueAttributeType (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>) [--ignoreRelationships --minExtInfo]
   pv getEntityUniqueAttributeTypeHeader (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>)
   pv getGlossary [--glossaryGuid=<glossaryGuid>] [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv createGlossary (--name=<name>)
+  pv createGlossaryCategory (--name=<name> --glossaryGuid=<glossaryGuid>)
   pv getGlossaryTemplate
   pv getGlossaryCategories (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryCategoriesHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
@@ -33,11 +36,12 @@ Usage:
   pv deleteGlossaryTerm (--termGuid=<termGuid>)
   pv deleteGlossary (--glossaryGuid=<glossaryGuid>)
   pv deleteGlossaryCategory (--categoryGuid=<categoryGuid>)
-  pv deleteGlossaryTermAssignedEntities (--termGuid=<termGuid> --assignedEntity=<assignedEntity>...)
+  pv deleteAssignedEntities (--termGuid=<termGuid> --guid=<guid>...)
   pv createGlossaryTerm (--termName=<termName>) [--glossaryGuid=<glossaryGuid> --status=<status> --longDescription=<longDescription> --abbreviation=<abbreviation> --synonym=<synonym>... --related=<related>... --resourceName=<resourceName>... --resourceUrl=<resourceUrl>... --expertId=<expertId>... --stewardId=<stewardId>...]
   pv updateGlossaryTerm (--termGuid=<termGuid>) [--termName=<termName> --glossaryGuid=<glossaryGuid> --status=<status> --longDescription=<longDescription> --abbreviation=<abbreviation> --synonym=<synonym>... --related=<related>... --resourceName=<resourceName>... --resourceUrl=<resourceUrl>... --expertId=<expertId>... --stewardId=<stewardId>...]
   pv getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-  pv getGlossaryTermsAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv getAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
+  pv assignEntities (--termGuid=<termGuid> --guid=<guid>...)
   pv getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getGlossaryTermsRelated (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
   pv getLineage (--guid=<guid>) [--depth=<depth> --width=<width> --direction=<direction> --forceNewApi --includeParent --getDerivedLineage]
@@ -118,6 +122,7 @@ def main():
   client.set_token()
 
   function_map = {
+    'assignLabels': client.assignLabels,
     'getEntityAudit': client.getEntityAudit,
     'getEntityBulk': client.getEntityBulk,
     'deleteEntityBulk': client.deleteEntityBulk,
@@ -136,6 +141,8 @@ def main():
     'getEntityUniqueAttributeType': client.getEntityUniqueAttributeType,
     'getEntityUniqueAttributeTypeHeader': client.getEntityUniqueAttributeTypeHeader,
     'getGlossary': client.getGlossary,
+    'createGlossary': client.createGlossary,
+    'createGlossaryCategory': client.createGlossaryCategory,
     'getGlossaryTemplate': client.getGlossaryTemplate,
     'getGlossaryCategories': client.getGlossaryCategories,
     'getGlossaryCategoriesHeaders': client.getGlossaryCategoriesHeaders,
@@ -147,11 +154,12 @@ def main():
     'deleteGlossaryTerm': client.deleteGlossaryTerm,
     'deleteGlossary': client.deleteGlossary,
     'deleteGlossaryCategory': client.deleteGlossaryCategory,
-    'deleteGlossaryTermAssignedEntities': client.deleteGlossaryTermAssignedEntities,
+    'deleteAssignedEntities': client.deleteAssignedEntities,
     'createGlossaryTerm': client.createGlossaryTerm,
     'updateGlossaryTerm': client.updateGlossaryTerm,
     'getGlossaryTerms': client.getGlossaryTerms,
-    'getGlossaryTermsAssignedEntities': client.getGlossaryTermsAssignedEntities,
+    'getAssignedEntities': client.getAssignedEntities,
+    'assignEntities': client.assignEntities,
     'getGlossaryTermsHeaders': client.getGlossaryTermsHeaders,
     'getGlossaryTermsRelated': client.getGlossaryTermsRelated,
     'getLineage': client.getLineage,

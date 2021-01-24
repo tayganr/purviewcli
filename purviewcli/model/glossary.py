@@ -10,3 +10,12 @@ class PurviewGlossaryTerm():
         self.synonyms = kwargs.get('synonyms', [])
         self.seeAlso = kwargs.get('relatedTerms', [])
         self.attributes = kwargs.get('attributes', {})
+
+class PurviewGlossary():
+    def __init__(self, name, **kwargs):
+        self.name = name
+
+class PurviewGlossaryCategory():
+    def __init__(self, name, glossaryGuid, **kwargs):
+        self.name = name
+        self.anchor = {'glossaryGuid': glossaryGuid}
