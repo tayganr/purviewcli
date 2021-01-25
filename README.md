@@ -7,11 +7,15 @@ The identity executing Azure Purview CLI commands will need access to the deploy
  * Purview Data Curator
  * Purview Data Source Administrator
 
+## Azure Identity
+The purviewcli package uses `DefaultAzureCredential` from the [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential) library. Read the azure-identity documentation to understand the authentication hierarchy (i.e. Environment Variables > Managed Identity > Visual Studio Code > Azure CLI > Interactive). 
+
 ## Environment Variable
 Set the PURVIEW_NAME environment variable to the Azure Purview account name.
 ```
 export PURVIEW_NAME=<purview-account-name>
 ```
+Note: Syntax to set an environment variable may vary depending on your environment.
 
 ## Installation
 ```
