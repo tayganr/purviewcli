@@ -181,8 +181,8 @@ def updateGlossaryTerm(self, args):
     endpoint = '/api/atlas/v2/glossary/term/%s' % args['--termGuid']
     term = getGlossaryTerm(self, {'--termGuid': args['--termGuid']})
 
-    term['longDescription'] = args.get('--longDescription') if args.get('--longDescription') else term.get('longDescription')
-    term['status'] = args.get('--status') if args.get('--status') else term.get('status')
+    term['longDescription'] = args.get('--longDescription')[0] if args.get('--longDescription') else term.get('longDescription')
+    term['status'] = args.get('--status')[0] if args.get('--status') else term.get('status')
     term['abbreviation'] = args.get('--abbreviation') if args.get('--abbreviation') else term.get('abbreviation')
 
     term['contacts']['Expert'] = [] if args.get('--expertId') else term['contacts']['Expert']
@@ -197,14 +197,15 @@ def updateGlossaryTerm(self, args):
     for resourceName, resourceUrl in zip(args.get('--resourceName',[]),args.get('--resourceUrl',[])):
         term['resources'].append({'displayName': resourceName, 'url': resourceUrl})
 
-    term['synonyms'] = [] if args.get('--synonym') else term['synonyms']
+    term['synonyms'] = [] if args.get('--synonym') else term.get('synonyms')
     for synonym in args.get('--synonym', []):
         term['synonyms'].append({'termGuid': synonym})
 
-    term['seeAlso'] = [] if args.get('--related') else term['seeAlso']
+    term['seeAlso'] = [] if args.get('--related') else term.get('seeAlso')
     for related in args.get('--related'):
         term['seeAlso'].append({'termGuid': related})
 
+    print(term)
     data = self.http_get(app='catalog', method='PUT', endpoint=endpoint, params=None, payload=term)
     return data    
 
