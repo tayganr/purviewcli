@@ -106,8 +106,10 @@ class PurviewClient():
         updateRelationship
     )
     from ._scan import (
-        getDatasource,
-        getDatasources,
+        registerSource,
+        getSource,
+        getSources,
+        deleteSource,
         getScan,
         getScanFilters,
         getScanHistory,
@@ -117,7 +119,9 @@ class PurviewClient():
         getSystemScanRulesetsSettings,
         runScan,
         getClassificationRules,
-        getClassificationRule
+        getClassificationRule,
+        createCollection,
+        deleteCollection
     )
     from ._search import (
         search

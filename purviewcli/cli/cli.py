@@ -66,8 +66,6 @@ Usage:
   pv deleteTypedefName (--name=<name>)
   pv getTypedefs [--type=<type>]
   pv getTypedefsHeaders
-  pv getDatasources
-  pv getDatasource (--datasource=<datasource>)
   pv getScans (--datasource=<datasource>)
   pv getScan (--datasource=<datasource> --scanName=<scanName>)
   pv getScanHistory (--datasource=<datasource> --scanName=<scanName>)
@@ -78,6 +76,12 @@ Usage:
   pv getScanRulesets
   pv getClassificationRules
   pv getClassificationRule (--classificationName=<classificationName>)
+  pv createCollection (--collection=<collection>) [--parentCollection=<parentCollection>]
+  pv deleteCollection (--collection=<collection>)
+  pv registerSource (--datasource=<datasource> --kind=<kind>) [--accountUri=<accountUri> --subscriptionId=<subscriptionId> --resourceGroup=<resourceGroup> --location=<location> --resourceName=<resourceName> --endpoint=<endpoint> --serverEndpoint=<serverEndpoint> --tenant=<tenant> --parentCollection=<parentCollection> --host=<host> --applicationServer=<applicationServer> --systemNumber=<systemNumber> --clusterUrl=<clusterUrl> --roleARN=<roleARN> --serviceUrl=<serviceUrl>]
+  pv getSource (--datasource=<datasource>)
+  pv getSources
+  pv deleteSource (--datasource=<datasource>)
   pv getAssetDistributionByDataSource [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
   pv getAssetDistributionByTopPaths (--datasource=<datasource>) [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
   pv getFileTypeSizeTimeSeries (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
@@ -188,8 +192,10 @@ def main():
     'getTypedefs': client.getTypedefs,
     'getTypedefsHeaders': client.getTypedefsHeaders,
     'search': client.search,
-    'getDatasources': client.getDatasources,
-    'getDatasource': client.getDatasource,
+    'registerSource': client.registerSource,
+    'deleteSource': client.deleteSource,
+    'getSources': client.getSources,
+    'getSource': client.getSource,
     'getScans': client.getScans,
     'getScan': client.getScan,
     'getScanHistory': client.getScanHistory,
@@ -200,6 +206,8 @@ def main():
     'getSystemScanRulesets': client.getSystemScanRulesets,
     'getSystemScanRulesetsSettings': client.getSystemScanRulesetsSettings,
     'getScanRulesets': client.getScanRulesets,
+    'createCollection': client.createCollection,
+    'deleteCollection': client.deleteCollection,
     'getAssetDistributionByDataSource': client.getAssetDistributionByDataSource,
     'getAssetDistributionByTopPaths': client.getAssetDistributionByTopPaths,
     'getFileTypeSizeTimeSeries': client.getFileTypeSizeTimeSeries,

@@ -161,20 +161,35 @@ deleteTypedefName (--name=<name>)
 ```
 
 ### Scan
+**Scan**
 ```
-getDatasources
-getDatasource (--datasource=<datasource>)
-getScans (--datasource=<datasource>)
 getScan (--datasource=<datasource> --scanName=<scanName>)
+getScans (--datasource=<datasource>)
 getScanHistory (--datasource=<datasource> --scanName=<scanName>)
 getScanFilters (--datasource=<datasource> --scanName=<scanName>)
 runScan (--datasource=<datasource> --scanName=<scanName>) [--scanLevel=<scanLevel>]
+```
+**Scan Rule Set**
+```
+getScanRulesets
 getSystemScanRulesets
 getSystemScanRulesetsSettings
-getScanRulesets
-getClassificationRules
-getClassificationRule (--classificationName=<classificationName>)
 ```
+**Source**
+```
+getSource (--datasource=<datasource>)
+getSources
+deleteSource (--datasource=<datasource>)
+createCollection (--collection=<collection>) [--parentCollection=<parentCollection>]
+deleteCollection (--collection=<collection>)
+registerSource (--datasource=<datasource> --kind=<kind>) [--accountUri=<accountUri> --subscriptionId=<subscriptionId> --resourceGroup=<resourceGroup> --location=<location> --resourceName=<resourceName> --endpoint=<endpoint> --serverEndpoint=<serverEndpoint> --tenant=<tenant> --parentCollection=<parentCollection> --host=<host> --applicationServer=<applicationServer> --systemNumber=<systemNumber> --clusterUrl=<clusterUrl> --roleARN=<roleARN> --serviceUrl=<serviceUrl>]
+```
+**Classification Rules**
+```
+getClassificationRule (--classificationName=<classificationName>)
+getClassificationRules
+```
+
 ### Guardian (Insights)
 ```
 getAssetDistributionByDataSource [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]

@@ -1,9 +1,9 @@
-def getDatasources(self, args):
+def getSources(self, args):
     endpoint = '/datasources'
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def getDatasource(self, args):
+def getSource(self, args):
     endpoint = '/datasources/%s' % args['--datasource']
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
@@ -62,4 +62,156 @@ def getClassificationRules(self, args):
 def getClassificationRule(self, args):
     endpoint = '/classificationrules/%s' % args['--classificationName']
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    return data
+
+def createCollection(self, args):
+    endpoint = '/datasources/%s' % args['--collection']
+    payload = {
+        "kind": "Collection",
+        "name": args['--collection'],
+        "properties": {}
+    }
+    if args['--parentCollection']:
+        payload['properties'] = {
+            "parentCollection": {
+                "type":"DataSourceReference",
+                "referenceName": args['--parentCollection']
+            }
+        }
+    data = self.http_get(app='scan', method='PUT', endpoint=endpoint, params=None, payload=payload)
+    return data
+
+def deleteCollection(self, args):
+    endpoint = '/datasources/%s' % args['--collection']
+    data = self.http_get(app='scan', method='DELETE', endpoint=endpoint, params=None, payload=None)
+    return data
+
+def registerSource(self, args):
+    endpoint = '/datasources/%s' % args['--datasource']
+    payload = {
+        "kind": args['--kind'],
+        "name": args['--datasource'],
+        "properties": {}
+    }
+    
+    # Source Properties
+    if args['--kind'] == 'AzureCosmosDb':
+        payload['properties'] = {
+            "accountUri": args['--accountUri'],
+            "subscriptionId": args['--subscriptionId'],
+            "resourceGroup": args['--resourceGroup'],
+            "location": args['--location'],
+            "resourceName": args['--resourceName']
+        }
+    elif args['--kind'] == 'AzureDataExplorer':
+        payload['properties'] = {
+            "endpoint": args['--endpoint'],
+            "subscriptionId": args['--subscriptionId'],
+            "resourceGroup": args['--resourceGroup'],
+            "location": args['--location'],
+            "resourceName": args['--resourceName']
+        }
+    elif args['--kind'] == 'AdlsGen1':
+        payload['properties'] = {
+            "endpoint": args['--endpoint'],
+            "subscriptionId": args['--subscriptionId'],
+            "resourceGroup": args['--resourceGroup'],
+            "location": args['--location'],
+            "resourceName": args['--resourceName']
+        }
+    elif args['--kind'] == 'AdlsGen2':
+        payload['properties'] = {
+            "endpoint": args['--endpoint'],
+            "subscriptionId": args['--subscriptionId'],
+            "resourceGroup": args['--resourceGroup'],
+            "location": args['--location'],
+            "resourceName": args['--resourceName']
+        }
+    elif args['--kind'] == 'AzureStorage':
+        payload['properties'] = {
+            "endpoint": args['--endpoint'],
+            "subscriptionId": args['--subscriptionId'],
+            "resourceGroup": args['--resourceGroup'],
+            "location": args['--location'],
+            "resourceName": args['--resourceName']
+        }
+    elif args['--kind'] == 'AzureSqlDatabase':
+        payload['properties'] = {
+            "serverEndpoint": args['--serverEndpoint'],
+            "subscriptionId": args['--subscriptionId'],
+            "resourceGroup": args['--resourceGroup'],
+            "location": args['--location'],
+            "resourceName": args['--resourceName'][0]
+        }
+    elif args['--kind'] == 'AzureSqlDataWarehouse':
+        payload['properties'] = {
+            "serverEndpoint": args['--serverEndpoint'],
+            "subscriptionId": args['--subscriptionId'],
+            "resourceGroup": args['--resourceGroup'],
+            "location": args['--location'],
+            "resourceName": args['--resourceName']
+        }
+    elif args['--kind'] == 'PowerBI':
+        payload['properties'] = {
+            "tenant": args['--tenant']
+        }
+    elif args['--kind'] == 'SqlServerDatabase':
+        payload['properties'] = {
+            "serverEndpoint": args['--serverEndpoint']
+        }
+    elif args['--kind'] == 'AzureSqlDatabaseManagedInstance':
+        payload['properties'] = {
+            "serverEndpoint": args['--serverEndpoint'],
+            "subscriptionId": args['--subscriptionId'],
+            "resourceGroup": args['--resourceGroup'],
+            "location": args['--location'],
+            "resourceName": args['--resourceName']
+        }
+    elif args['--kind'] == 'AzureFileService':
+        payload['properties'] = {
+            "endpoint": args['--endpoint'],
+            "subscriptionId": args['--subscriptionId'],
+            "resourceGroup": args['--resourceGroup'],
+            "location": args['--location'],
+            "resourceName": args['--resourceName']
+        }
+    elif args['--kind'] == 'Teradata':
+        payload['properties'] = {
+            "host": args['--host']
+        }
+    elif args['--kind'] == 'SapEcc':
+        payload['properties'] = {
+            "applicationServer": args['--applicationServer'],
+            "systemNumber": args['--systemNumber']
+        }
+    elif args['--kind'] == 'SapS4Hana':
+        payload['properties'] = {
+            "applicationServer": args['--applicationServer'],
+            "systemNumber": args['--systemNumber']
+        }
+    elif args['--kind'] == 'Hive':
+        payload['properties'] = {
+            "clusterUrl": args['--clusterUrl'],
+            "host": args['--host']
+        }
+    elif args['--kind'] == 'AmazonS3':
+        payload['properties'] = {
+            "roleARN": args['--roleARN'],
+            "serviceUrl": args['--serviceUrl']
+        }
+
+    else:
+        pass
+
+    if args['--parentCollection']:
+        payload['properties']['parentCollection'] = {
+            "type":"DataSourceReference",
+            "referenceName": args['--parentCollection']
+        }
+    data = self.http_get(app='scan', method='PUT', endpoint=endpoint, params=None, payload=payload)
+    return data
+
+def deleteSource(self, args):
+    endpoint = '/datasources/%s' % args['--datasource']
+    data = self.http_get(app='scan', method='DELETE', endpoint=endpoint, params=None, payload=None)
     return data
