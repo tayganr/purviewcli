@@ -36,7 +36,7 @@ def createRelationship(self, args):
         end1TypeName = end1['entity']['typeName'],
         end2Guid = args.get('--end2Guid'),
         end2TypeName = end2['entity']['typeName'],
-        status = args.get('--status')
+        status = args.get('--status')[0] if len(args['--status'])>0 else 'ACTIVE'
     )
     data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=relationship.__dict__)
     return data

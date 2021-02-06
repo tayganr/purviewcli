@@ -51,9 +51,11 @@ def deleteEntity(self, args):
 def createEntity(self, args):
     endpoint = '/api/atlas/v2/entity'
     entity = PurviewEntity(
+      displayName = args.get('--displayName'),
       name = args.get('--entityName')[0],
       typeName = args.get('--entityType')[0],
-      status = 'ACTIVE' if args.get('--status') is None else args.get('--status'),
+      source = args.get('--source'),
+      status = args.get('--status')[0] if len(args['--status'])>0 else 'ACTIVE',
       description = args.get('--description'),
       qualifiedName = args.get('--qualifiedName')[0]
     )
@@ -70,7 +72,7 @@ def createEntityBulk(self, args):
       entity = PurviewEntity(
         name = entityName,
         typeName = entityType,
-        status = 'ACTIVE' if args.get('--status') is None else args.get('--status'),
+        status = args.get('--status')[0] if len(args['--status'])>0 else 'ACTIVE',
         qualifiedName = qualifiedName
       )
       payload['entities'].append(entity.__dict__)

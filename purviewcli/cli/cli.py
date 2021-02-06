@@ -12,7 +12,7 @@ Usage:
   pv getEntityBulkUniqueAttributeType (--typeName=<typeName>) [--ignoreRelationships --minExtInfo]
   pv getEntityBusinessmetadataImportTemplate
   pv getEntity (--guid=<guid>) [--ignoreRelationships --minExtInfo]
-  pv createEntity (--entityName=<entityName> --entityType=<entityType> --qualifiedName=<qualifiedName>) [--status=<status> --description=<description> --source=<source>]
+  pv createEntity (--entityName=<entityName> --entityType=<entityType> --qualifiedName=<qualifiedName>) [--displayName=<displayName> --status=<status> --description=<description> --source=<source>]
   pv createEntityBulk (--entityName=<entityName>... --entityType=<entityType>... --qualifiedName=<qualifiedName>...)
   pv deleteEntity (--guid=<guid>)
   pv addEntityClassifications (--guid=<guid> --classificationName=<classificationName>...)
