@@ -1,159 +1,36 @@
 import itertools
 from purviewcli.model import PurviewGlossaryTerm, PurviewGlossary, PurviewGlossaryCategory
 
-def getGlossary(self, args):
-    glossaryGuid = '' if args['--glossaryGuid'] is None else args['--glossaryGuid']
+# ---------------------------
+# GLOSSARY
+# ---------------------------
+def glossaryCreate(args):
+    endpoint = '/api/atlas/v2/glossary'
+    glossary = PurviewGlossary(name=args['--glossaryName'])
+    return {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':glossary.__dict__}
+    
+def glossaryRead(args):
+    glossaryGuid = args['--glossaryGuid'] if args['--glossaryGuid'] else ''
     endpoint = '/api/atlas/v2/glossary/%s' % glossaryGuid
     params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
-    return data
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload':None}
+    
+def glossaryDelete(args):
+    endpoint = '/api/atlas/v2/glossary/%s' % args['--glossaryGuid']
+    return {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload':None}
 
-def createGlossary(self, args):
-    endpoint = '/api/atlas/v2/glossary'
-    glossary = PurviewGlossary(name=args['--name'])
-    data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=glossary.__dict__)
-    return data
-
-def createGlossaryCategory(self, args):
-    endpoint = '/api/atlas/v2/glossary/category'
-    glossaryGuid = getGlossaryGuid(self, args)
-    category = PurviewGlossaryCategory(
-        name=args['--categoryName'][0],
-        glossaryGuid=glossaryGuid
-        )
-    data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=category.__dict__)
-    return data
-
-def createGlossaryCategories(self, args):
-    endpoint = '/api/atlas/v2/glossary/categories'
-    glossaryGuid = getGlossaryGuid(self, args)
-    payload = []
-    for categoryName in args['--categoryName']:
-        category = PurviewGlossaryCategory(
-            name=categoryName,
-            glossaryGuid=glossaryGuid
-        )
-        payload.append(category.__dict__)
-    data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=payload)
-    return data
-
-# RequestUriNotFound
-def assignEntities(self, args):
-    endpoint = '/api/atlas/v2/glossary/terms/%s/assignedEntities' % args['--termGuid']
-    payload = []
-    for guid in args['--guid']:
-        payload.append({'guid': guid})
-    data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=payload)
-    return data
-
-def getAssignedEntities(self, args):
-    endpoint = '/api/atlas/v2/glossary/terms/%s/assignedEntities' % args['--termGuid']
-    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
-    return data
-
-def deleteAssignedEntities(self, args):
-    endpoint = '/api/atlas/v2/glossary/terms/%s/assignedEntities' % args['--termGuid']
-    assignedEntities = getAssignedEntities(self, {
-        '--termGuid': args['--termGuid'],
-        '--limit': -1,
-        '--offset': 0,
-        '--sort': 'ASC'
-    })
-    payload = []
-    for entity in assignedEntities:
-        if entity['guid'] in args['--guid']:
-            payload.append({
-                'guid': entity['guid'],
-                'relationshipGuid': entity['relationshipGuid']
-            })
-    data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=payload)
-    return data
-
-# RequestUriNotFound
-def getGlossaryTemplate(self, args):
-    endpoint = '/api/atlas/v2/glossary/import/template'
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
-    return data
-
-def getGlossaryCategories(self, args):
-    endpoint = '/api/atlas/v2/glossary/%s/categories' % args['--glossaryGuid']
-    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
-    return data
-
-def getGlossaryCategoriesHeaders(self, args):
-    endpoint = '/api/atlas/v2/glossary/%s/categories/headers' % args['--glossaryGuid']
-    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
-    return data
-
-def getGlossaryCategory(self, args):
-    endpoint = '/api/atlas/v2/glossary/category/%s' % args['--categoryGuid']
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
-    return data
-
-def getGlossaryCategoryRelated(self, args):
-    endpoint = '/api/atlas/v2/glossary/category/%s/related' % args['--categoryGuid']
-    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
-    return data
-
-def getGlossaryCategoryTerms(self, args):
-    endpoint = '/api/atlas/v2/glossary/category/%s/terms' % args['--categoryGuid']
-    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
-    return data
-
-def getGlossaryDetailed(self, args):
+def glossaryReadDetailed(args):
     endpoint = '/api/atlas/v2/glossary/%s/detailed' % args['--glossaryGuid']
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
-    return data
-
-def getGlossaryTerms(self, args):
-    endpoint = '/api/atlas/v2/glossary/%s/terms' % args['--glossaryGuid']
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
-    return data
-
-def getGlossaryTermsHeaders(self, args):
-    endpoint = '/api/atlas/v2/glossary/%s/terms/headers' % args['--glossaryGuid']
-    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
-    return data
-
-def getGlossaryTermsRelated(self, args):
-    endpoint = '/api/atlas/v2/glossary/terms/%s/related' % args['--termGuid']
-    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
-    return data
-
-def getGlossaryTerm(self, args):
-    endpoint = '/api/atlas/v2/glossary/term/%s' % args['--termGuid']
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
-    return data
-
-def createGlossaryTerms(self, args):
-    endpoint = '/api/atlas/v2/glossary/terms'
-    glossaryGuid = getGlossaryGuid(self, args)
-    payload = []
-    for termName, termDescription, termStatus in itertools.zip_longest(args['--termName'], args['--longDescription'], args['--status']):
-        glossaryTerm = PurviewGlossaryTerm(
-            name = termName,
-            glossaryGuid = glossaryGuid,
-            longDescription = termDescription,
-            status = termStatus
-        )
-        payload.append(glossaryTerm.__dict__)
-
-    data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=payload)
-    return data
-
-def createGlossaryTerm(self, args):
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload':None}
+    
+# ---------------------------
+# TERMS
+# ---------------------------
+def glossaryCreateTerm(args):
     endpoint = '/api/atlas/v2/glossary/term'
-    glossaryGuid = getGlossaryGuid(self, args)
     glossaryTerm = PurviewGlossaryTerm(
         name = args.get('--termName')[0],
-        glossaryGuid = glossaryGuid,
+        glossaryGuid = args['--glossaryGuid'],
         longDescription = args.get('--longDescription')[0] if len(args['--longDescription'])>0 else None,
         status = args.get('--status')[0] if len(args['--status'])>0 else None,
         abbreviation = args.get('--abbreviation'),
@@ -174,12 +51,15 @@ def createGlossaryTerm(self, args):
     for related in args.get('--related'):
         glossaryTerm.relatedTerms.append({'termGuid': related})
 
-    data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=glossaryTerm.__dict__)
-    return data
+    return {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':glossaryTerm.__dict__}
 
-def updateGlossaryTerm(self, args):
+def glossaryReadTerm(args):
     endpoint = '/api/atlas/v2/glossary/term/%s' % args['--termGuid']
-    term = getGlossaryTerm(self, {'--termGuid': args['--termGuid']})
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload':None}
+    
+def glossaryUpdateTerm(args):
+    endpoint = '/api/atlas/v2/glossary/term/%s' % args['--termGuid']
+    term = getGlossaryTerm({'--termGuid': args['--termGuid']})
 
     term['longDescription'] = args.get('--longDescription')[0] if args.get('--longDescription') else term.get('longDescription')
     term['status'] = args.get('--status')[0] if args.get('--status') else term.get('status')
@@ -206,61 +86,115 @@ def updateGlossaryTerm(self, args):
         term['seeAlso'].append({'termGuid': related})
 
     print(term)
-    data = self.http_get(app='catalog', method='PUT', endpoint=endpoint, params=None, payload=term)
-    return data    
+    return {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload':term}
 
-def deleteGlossaryTerm(self, args):
+def glossaryDeleteTerm(args):
     endpoint = '/api/atlas/v2/glossary/term/%s' % args['--termGuid']
-    data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=None)
-    return data
+    return {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload':None}
 
-def purgeGlossaryTerms(self, args):
-    glossaryGuid = None
-    print('[INFO] Retrieving glossary GUID.')
-    if not args['--glossaryGuid']:
-        glossary = getGlossary(self, args)[0]
-        glossaryGuid = glossary['guid']
-    else:
-        glossaryGuid = args['--glossaryGuid']  
-    
-    print('[INFO] Retrieving glossary details.')
-    glossary_detail = getGlossaryDetailed(self, {
-        '--glossaryGuid': glossaryGuid
-    })
+def glossaryCreateTerms(args):
+    endpoint = '/api/atlas/v2/glossary/terms'
+    glossaryGuid = args['--glossaryGuid']
+    payload = []
+    for termName, termDescription, termStatus in itertools.zip_longest(args['--termName'], args['--longDescription'], args['--status']):
+        glossaryTerm = PurviewGlossaryTerm(
+            name = termName,
+            glossaryGuid = glossaryGuid,
+            longDescription = termDescription,
+            status = termStatus
+        )
+        payload.append(glossaryTerm.__dict__)
+    return {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':payload}
 
-    print('[INFO] Glossary with GUID: %s and Name: %s has %s terms.' % (
-        glossary_detail['guid'],
-        glossary_detail['name'],
-        len(glossary_detail['terms']) if 'terms' in glossary_detail else '0'
-    ))
-    if 'termInfo' in glossary_detail: 
-        for termGuid in glossary_detail['termInfo']:
-            if 'assignedEntities' in glossary_detail['termInfo'][termGuid]:
-                print('[INFO] Term is assigned to Entities.')
-                endpoint = '/api/atlas/v2/glossary/terms/%s/assignedEntities' % termGuid
-                payload = glossary_detail['termInfo'][termGuid]['assignedEntities']
-                data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=payload)
-                print(data)
-            print(deleteGlossaryTerm(self, {'--termGuid': termGuid}))
+def glossaryReadTerms(args):
+    endpoint = '/api/atlas/v2/glossary/%s/terms' % args['--glossaryGuid']
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload':None}
 
-    data = {'msg':'purgeGlossaryTerms complete.'}
-    return data
+def glossaryReadTermsHeaders(args):
+    endpoint = '/api/atlas/v2/glossary/%s/terms/headers' % args['--glossaryGuid']
+    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload':None}
 
-def deleteGlossary(self, args):
-    endpoint = '/api/atlas/v2/glossary/%s' % args['--glossaryGuid']
-    data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=None)
-    return data
+def glossaryReadTermsRelated(args):
+    endpoint = '/api/atlas/v2/glossary/terms/%s/related' % args['--termGuid']
+    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload':None}
 
-def deleteGlossaryCategory(self, args):
+def glossaryCreateAssignedEntities(args):
+    endpoint = '/api/atlas/v2/glossary/terms/%s/assignedEntities' % args['--termGuid']
+    payload = []
+    for guid in args['--guid']:
+        payload.append({'guid': guid})
+    return {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':payload}
+
+def glossaryReadAssignedEntities(args):
+    endpoint = '/api/atlas/v2/glossary/terms/%s/assignedEntities' % args['--termGuid']
+    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload':None}
+
+def glossaryDeleteAssignedEntities(args):
+    endpoint = '/api/atlas/v2/glossary/terms/%s/assignedEntities' % args['--termGuid']
+    payload = []
+    for guid, relationshipGuid in zip(args['--guid'], args['--relationshipGuid']):
+        payload.append({'guid': guid, 'relationshipGuid': relationshipGuid})
+    return {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload':payload}
+
+# ---------------------------
+# CATEGORY
+# ---------------------------
+def glossaryCreateCategory(args):
+    endpoint = '/api/atlas/v2/glossary/category'
+    glossaryGuid = args['--glossaryGuid']
+    category = PurviewGlossaryCategory(
+        name=args['--categoryName'][0],
+        glossaryGuid=glossaryGuid
+        )
+    return {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':category.__dict__}
+
+def glossaryReadCategory(args):
     endpoint = '/api/atlas/v2/glossary/category/%s' % args['--categoryGuid']
-    data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=None)
-    return data
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload':None}
 
-def getGlossaryGuid(self, args):
-    glossaryGuid = None
-    if not args['--glossaryGuid']:
-        glossary = getGlossary(self, args)
-        glossaryGuid = glossary[0]['guid']
-    else:
-        glossaryGuid = args['--glossaryGuid']
-    return glossaryGuid
+def glossaryDeleteCategory(args):
+    endpoint = '/api/atlas/v2/glossary/category/%s' % args['--categoryGuid']
+    return {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload':None}
+
+def glossaryReadCategoryRelated(args):
+    endpoint = '/api/atlas/v2/glossary/category/%s/related' % args['--categoryGuid']
+    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload':None}
+
+def glossaryReadCategoryTerms(args):
+    endpoint = '/api/atlas/v2/glossary/category/%s/terms' % args['--categoryGuid']
+    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload':None}
+
+def glossaryCreateCategories(args):
+    endpoint = '/api/atlas/v2/glossary/categories'
+    glossaryGuid = args['--glossaryGuid']
+    payload = []
+    for categoryName in args['--categoryName']:
+        category = PurviewGlossaryCategory(
+            name=categoryName,
+            glossaryGuid=glossaryGuid
+        )
+        payload.append(category.__dict__)
+    return {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':payload}
+
+def glossaryReadCategories(args):
+    endpoint = '/api/atlas/v2/glossary/%s/categories' % args['--glossaryGuid']
+    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload':None}
+
+def glossaryReadCategoriesHeaders(args):
+    endpoint = '/api/atlas/v2/glossary/%s/categories/headers' % args['--glossaryGuid']
+    params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload':None}
+    
+# ---------------------------
+# TEMPLATE
+# ---------------------------
+# RequestUriNotFound
+def glossaryReadTemplate(args):
+    endpoint = '/api/atlas/v2/glossary/import/template'
+    return {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload':None}

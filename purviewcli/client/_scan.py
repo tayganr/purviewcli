@@ -1,34 +1,34 @@
-def getSources(self, args):
+def scanReadSources(args):
     endpoint = '/datasources'
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def getSource(self, args):
+def scanReadSource(args):
     endpoint = '/datasources/%s' % args['--datasource']
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def getScans(self, args):
+def scanReadScans(args):
     endpoint = '/datasources/%s/scans' % args['--datasource']
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def getScan(self, args):
+def scanRead(args):
     endpoint = '/datasources/%s/scans/%s' % (args['--datasource'], args['--scanName'])
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def getScanHistory(self, args):
+def scanReadHistory(args):
     endpoint = '/datasources/%s/scans/%s/listHistory' % (args['--datasource'], args['--scanName'])
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def getScanFilters(self, args):
+def scanReadFilters(args):
     endpoint = '/datasources/%s/scans/%s/filters' % (args['--datasource'], args['--scanName'])
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def runScan(self, args):
+def scanRun(args):
     endpoint = '/datasources/%s/scans/%s/run' % (args['--datasource'], args['--scanName'])
 
     if args['--scanLevel']:
@@ -39,32 +39,32 @@ def runScan(self, args):
     data = self.http_get(app='scan', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getScanRulesets(self, args):
+def scanReadScanRulesets(args):
     endpoint = '/scanrulesets'
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def getSystemScanRulesets(self, args):
+def scanReadSystemScanRulesets(args):
     endpoint = '/systemScanRulesets'
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def getSystemScanRulesetsSettings(self, args):
+def scanReadSystemScanRulesetsSettings(args):
     endpoint = '/systemScanRulesets/settings'
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def getClassificationRules(self, args):
+def scanReadClassificationRules(args):
     endpoint = '/classificationrules'
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def getClassificationRule(self, args):
+def scanReadClassificationRule(args):
     endpoint = '/classificationrules/%s' % args['--classificationName']
     data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
     return data
 
-def createCollection(self, args):
+def scanCreateCollection(args):
     endpoint = '/datasources/%s' % args['--collection']
     payload = {
         "kind": "Collection",
@@ -81,12 +81,12 @@ def createCollection(self, args):
     data = self.http_get(app='scan', method='PUT', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def deleteCollection(self, args):
+def scanDeleteCollection(args):
     endpoint = '/datasources/%s' % args['--collection']
     data = self.http_get(app='scan', method='DELETE', endpoint=endpoint, params=None, payload=None)
     return data
 
-def registerSource(self, args):
+def scanCreateSource(args):
     endpoint = '/datasources/%s' % args['--datasource']
     payload = {
         "kind": args['--kind'],
@@ -211,7 +211,7 @@ def registerSource(self, args):
     data = self.http_get(app='scan', method='PUT', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def deleteSource(self, args):
+def scanDeleteSource(args):
     endpoint = '/datasources/%s' % args['--datasource']
     data = self.http_get(app='scan', method='DELETE', endpoint=endpoint, params=None, payload=None)
     return data

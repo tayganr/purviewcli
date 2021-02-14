@@ -1,20 +1,20 @@
 from purviewcli.model import PurviewClassificationDef
 
-def getBusinessmetadatadef(self, args):
+def typedefsReadBusinessmetadatadef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
   typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/Businessmetadatadef/%s/%s' % (typeDefKey,typeDefVal)
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data
 
-def getClassificationdef(self, args):
+def typedefsReadClassificationdef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
   typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/classificationdef/%s/%s' % (typeDefKey,typeDefVal)
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data
 
-def createClassificationdefs(self, args):
+def typedefsCreateClassificationdefs(args):
   endpoint = '/api/atlas/v2/types/typedefs'
   payload = {
     'classificationDefs': []
@@ -25,9 +25,9 @@ def createClassificationdefs(self, args):
   data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=payload)
   return data
 
-def deleteClassificationdef(self, args):
+def typedefsDeleteClassificationdef(args):
   endpoint = '/api/atlas/v2/types/typedefs'
-  classification = getClassificationdef(self, {
+  classification = getClassificationdef({
     '--guid': args.get('--guid'),
     '--name': args.get('--name')
   })
@@ -36,14 +36,14 @@ def deleteClassificationdef(self, args):
   data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=payload)
   return data
 
-def updateClassificationdefs(self, args):
+def typedefsUpdateClassificationdefs(args):
   endpoint = '/api/atlas/v2/types/typedefs'
   payload = {
     'classificationDefs': []
   }
   count = len(args['--defName'])
   for x in range(0,count):
-    classification = getClassificationdef(self, {
+    classification = getClassificationdef({
       '--name': args['--defName'][x]
     })
     classification['description'] = args['--defDescription'][x] if len(args['--defDescription']) > x else classification['description']
@@ -52,53 +52,53 @@ def updateClassificationdefs(self, args):
   data = self.http_get(app='catalog', method='PUT', endpoint=endpoint, params=None, payload=payload)
   return data
   
-def getEntitydef(self, args):
+def typedefsReadEntitydef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
   typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/entitydef/%s/%s' % (typeDefKey,typeDefVal)
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data
 
-def getEnumdef(self, args):
+def typedefsReadEnumdef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
   typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/enumdef/%s/%s' % (typeDefKey,typeDefVal)
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data
 
-def getRelationshipdef(self, args):
+def typedefsReadRelationshipdef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
   typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/relationshipdef/%s/%s' % (typeDefKey,typeDefVal)
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data
 
-def getStructdef(self, args):
+def typedefsReadStructdef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
   typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/structdef/%s/%s' % (typeDefKey,typeDefVal)
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data
 
-def getTypedef(self, args):
+def typedefsReadTypedef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
   typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/Typedef/%s/%s' % (typeDefKey,typeDefVal)
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data
 
-def deleteTypedefName(self, args):
+def typedefsDeleteTypedefName(args):
   endpoint = '/api/atlas/v2/types/typedef/name/%s' % args['--name']
   data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=None)
   return data
 
-def getTypedefs(self, args):
+def typedefsRead(args):
   endpoint = '/api/atlas/v2/types/typedefs'
   params = {'type': args['--type']} if args['--type'] else None
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
   return data
 
-def getTypedefsHeaders(self, args):
+def typedefsReadHeaders(args):
   endpoint = '/api/atlas/v2/types/typedefs/headers'
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=None, payload=None)
   return data

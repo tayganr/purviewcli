@@ -1,4 +1,4 @@
-def getAssetDistributionByDataSource(self, args):
+def insightAssetDistributionByDataSource(args):
     endpoint = '/mapanddiscover/reports/asset2/assetDistributionByDataSource'
     payload = {
         "registeredSourceGroup": args['--registeredSourceGroup'] or '',
@@ -8,7 +8,7 @@ def getAssetDistributionByDataSource(self, args):
     data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getAssetDistributionByTopPaths(self, args):
+def insightAssetDistributionByTopPaths(args):
     endpoint = '/mapanddiscover/reports/asset2/assetDistributionByTopPaths'
     payload = {
         "registeredSourceGroup": args['--registeredSourceGroup'] or '',
@@ -19,7 +19,7 @@ def getAssetDistributionByTopPaths(self, args):
     data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getFileTypeSizeTimeSeries(self, args):
+def insightFileTypeSizeTimeSeries(args):
     endpoint = '/mapanddiscover/reports/asset2/fileTypeSizeTimeSeries'
     payload = {
         "dataSource": args['--datasource'] or '',
@@ -30,7 +30,7 @@ def getFileTypeSizeTimeSeries(self, args):
     data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getFileTypeSizeTrendByDataSource(self, args):
+def insightFileTypeSizeTrendByDataSource(args):
     endpoint = '/mapanddiscover/reports/asset2/fileTypeSizeTrendByDataSource'
     payload = {
         "dataSource": args['--datasource'] or '',
@@ -41,7 +41,7 @@ def getFileTypeSizeTrendByDataSource(self, args):
     data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getTopFileTypesBySize(self, args):
+def insightTopFileTypesBySize(args):
     endpoint = '/mapanddiscover/reports/asset2/topFileTypesBySize'
     payload = {
         "dataSource": args['--datasource'] or '',
@@ -50,7 +50,7 @@ def getTopFileTypesBySize(self, args):
     data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getTopLevelSummary(self, args):
+def insightTopLevelSummary(args):
     endpoint = '/mapanddiscover/reports/asset2/topLevelSummary'
     payload = {
         "registeredSourceGroup": args['--registeredSourceGroup'] or ''
@@ -58,7 +58,7 @@ def getTopLevelSummary(self, args):
     data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
     return data
 
-def getRegisteredSourceGroupsWithAssets(self, args):
+def insightRegisteredSourceGroupsWithAssets(args):
     endpoint = '/mapanddiscover/reports/asset2/registeredSourceGroupsWithAssets'
     data = self.http_get(app='guardian', method='GET', endpoint=endpoint, params=None, payload=None)
     return data

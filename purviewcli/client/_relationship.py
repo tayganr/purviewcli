@@ -1,23 +1,30 @@
 from purviewcli.model import PurviewRelationship
 from purviewcli.client import _entity as entity
 
-def getRelationship(self, args):
-    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['--guid'][0]
+def relationshipRead(args):
+    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['<guid>']
     params = {'extendedInfo': args['--extendedInfo']}
-    data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
-    return data
+    return {
+        'app': 'catalog',
+        'method': 'GET',
+        'endpoint': endpoint,
+        'params': params,
+        'payload': None
+    }
+    # data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
+    # return data
 
-def deleteRelationship(self, args):
-    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['--guid'][0]
+def relationshipDelete(args):
+    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['<guid>']
     data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=None)
     return data
 
-def createRelationship(self, args):
+def relationshipCreate(args):
     endpoint = '/api/atlas/v2/relationship'
     end1 = entity.getEntity(
         self,
         {
-            '--guid':[args.get('--end1Guid')],
+            '<guid>':[args.get('--end1Guid')],
             '--ignoreRelationships': False,
             '--minExtInfo': False
         }
@@ -25,7 +32,7 @@ def createRelationship(self, args):
     end2 = entity.getEntity(
         self,
         {
-            '--guid':[args.get('--end2Guid')],
+            '<guid>':[args.get('--end2Guid')],
             '--ignoreRelationships': False,
             '--minExtInfo': False
         }
@@ -41,12 +48,12 @@ def createRelationship(self, args):
     data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=relationship.__dict__)
     return data
 
-def updateRelationship(self, args):
+def relationshipUpdate(args):
     # endpoint = '/api/atlas/v2/relationship'
     # relationship = getRelationship(
     #     self,
     #     {
-    #         '--guid': args['--guid'],
+    #         '<guid>': args['<guid>'],
     #         '--extendedInfo': False
     #     }
     # )['relationship']

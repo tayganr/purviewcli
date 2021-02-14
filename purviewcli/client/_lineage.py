@@ -1,5 +1,5 @@
-def getLineage(self, args):
-  endpoint = '/api/atlas/v2/lineage/%s' %  args['--guid'][0]
+def lineageRead(args):
+  endpoint = '/api/atlas/v2/lineage/%s' %  args['<guid>']
   params = {
     'depth': args['--depth'],
     'width': args['--width'],
@@ -12,7 +12,7 @@ def getLineage(self, args):
   return data
 
 # Request URI not found
-def getLineageUniqueAttributeType(self, args):
+def lineageReadUniqueAttributeType(args):
   endpoint = '/api/atlas/v2/lineage/uniqueAttribute/type/%s' % args['--typeName']
   params = {'depth': args['--depth'], 'direction': args['--direction']}  
   data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)

@@ -1,4 +1,4 @@
-def search(self, args):
+def searchAdvanced(args):
     endpoint = '/api/atlas/v2/search/advanced'
     payload = {
         'keywords': args['--keywords'],
