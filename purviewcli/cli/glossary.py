@@ -2,6 +2,7 @@
 usage: 
     pv glossary create --glossaryName=<val>
     pv glossary read [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val>]
+    pv glossary update --glossaryGuid=<val> --language=<val>
     pv glossary delete --glossaryGuid=<val>
     pv glossary readDetailed --glossaryGuid=<val>
     pv glossary createCategory --glossaryGuid=<val> --categoryName=<val>

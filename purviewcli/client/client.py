@@ -1,3 +1,4 @@
+import os
 import logging
 import json
 import requests
@@ -6,9 +7,12 @@ from azure.identity import DefaultAzureCredential
 logging.getLogger("azure.identity").setLevel(logging.ERROR)
 
 class PurviewClient():
-    def __init__(self, account_name):
+    def __init__(self):
         self.access_token = None
-        self.account_name = account_name
+        self.account_name = os.environ.get("PURVIEW_NAME")
+        if self.account_name is None:
+            print("[ERROR] Environment variable PURVIEW_NAME is missing. To set the environment variable, execute the following command: \033[94mexport PURVIEW_NAME=value\033[0m")
+            sys.exit()
 
     def set_token(self):
         credential = DefaultAzureCredential()
@@ -38,3 +42,9 @@ class PurviewClient():
                     'reason': response.reason
                 }
         return data
+
+def get_data(http_dict):
+    client = PurviewClient()
+    client.set_token()
+    data = client.http_get(http_dict['app'], http_dict['method'], http_dict['endpoint'], http_dict['params'], http_dict['payload'])
+    return data

@@ -21,7 +21,6 @@ See 'pv <command>' for more information on a specific command.
 
 """
 import sys
-import os
 import json
 import importlib
 from docopt import docopt
@@ -50,18 +49,14 @@ def main():
     # Method
     funcStr = command + action[0].upper() + action[1:]
     funcObj = eval('lib.' + funcStr)
-    http_dict = funcObj(command_args)
+    data = funcObj(command_args)
 
     # Azure Purview client
-    account_name = os.environ.get("PURVIEW_NAME")
-    if account_name is None:
-        print("[ERROR] Environment variable PURVIEW_NAME is missing. To set the environment variable, execute the following command: \033[94mexport PURVIEW_NAME=value\033[0m")
-        sys.exit()
-    client = PurviewClient(account_name=account_name)
-    client.set_token()
+    # client = PurviewClient()
+    # client.set_token()
+    # data = client.http_get(http_dict['app'], http_dict['method'], http_dict['endpoint'], http_dict['params'], http_dict['payload'])
     
     # Print data
-    data = client.http_get(http_dict['app'], http_dict['method'], http_dict['endpoint'], http_dict['params'], http_dict['payload'])
     if len(data) > 0:
         print(json.dumps(data, indent=4, sort_keys=True)) 
     else:
