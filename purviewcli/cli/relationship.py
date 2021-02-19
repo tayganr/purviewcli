@@ -1,9 +1,9 @@
 """
 usage: 
-    pv relationship create <typeName> <status> <end1Guid> <end2Guid>
-    pv relationship read <guid> [--extendedInfo]
-    pv relationship update <guid> [--status=<val> --end1Guid=<val> --end2Guid=<val>]
-    pv relationship delete <guid> 
+    pv relationship create --typeName=<val> --end1Guid=<val> --end1Type=<val> --end2Guid=<val> --end2Type=<val> [--status=<val>]
+    pv relationship read --relationshipGuid=<val> [--extendedInfo]
+    pv relationship update --relationshipGuid=<val> [--status=<val>]
+    pv relationship delete --relationshipGuid=<val>
 
 """
 from docopt import docopt

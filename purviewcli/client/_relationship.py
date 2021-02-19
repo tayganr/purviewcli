@@ -1,63 +1,48 @@
-from purviewcli.model import PurviewRelationship
-from purviewcli.client import _entity as entity
+from .client import get_data
+from purviewcli.model.atlas import AtlasRelationship
 
-def relationshipRead(args):
-    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['<guid>']
-    params = {'extendedInfo': args['--extendedInfo']}
-    return {
-        'app': 'catalog',
-        'method': 'GET',
-        'endpoint': endpoint,
-        'params': params,
-        'payload': None
-    }
-    # data = self.http_get(app='catalog', method='GET', endpoint=endpoint, params=params, payload=None)
-    # return data
-
-def relationshipDelete(args):
-    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['<guid>']
-    data = self.http_get(app='catalog', method='DELETE', endpoint=endpoint, params=None, payload=None)
-    return data
-
+# ---------------------------
+# RELATIONSHIP
+# ---------------------------
 def relationshipCreate(args):
     endpoint = '/api/atlas/v2/relationship'
-    end1 = entity.getEntity(
-        self,
-        {
-            '<guid>':[args.get('--end1Guid')],
-            '--ignoreRelationships': False,
-            '--minExtInfo': False
-        }
-    )
-    end2 = entity.getEntity(
-        self,
-        {
-            '<guid>':[args.get('--end2Guid')],
-            '--ignoreRelationships': False,
-            '--minExtInfo': False
-        }
-    )
-    relationship = PurviewRelationship(
-        typeName = args.get('--typeName'),
-        end1Guid = args.get('--end1Guid'),
-        end1TypeName = end1['entity']['typeName'],
-        end2Guid = args.get('--end2Guid'),
-        end2TypeName = end2['entity']['typeName'],
-        status = args.get('--status')[0] if len(args['--status'])>0 else 'ACTIVE'
-    )
-    data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=relationship.__dict__)
+    relationship = AtlasRelationship()
+    relationship.typeName = args['--typeName']
+    relationship.status = args.get('--status','ACTIVE')
+    relationship.end1 = {
+        'guid': args['--end1Guid'],
+        'typeName': args['--end1Type']
+    }
+    relationship.end2 = {
+        'guid': args['--end2Guid'],
+        'typeName': args['--end2Type']
+    }
+    payload = relationship.__dict__
+    del payload['guid']
+    http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
+    return data
+
+def relationshipRead(args):
+    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['--relationshipGuid']
+    params = {'extendedInfo': args.get('--extendedInfo', False)}
+    http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
+    data = get_data(http_dict)
+    return data
+
+def relationshipDelete(args):
+    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['--relationshipGuid']
+    http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def relationshipUpdate(args):
-    # endpoint = '/api/atlas/v2/relationship'
-    # relationship = getRelationship(
-    #     self,
-    #     {
-    #         '<guid>': args['<guid>'],
-    #         '--extendedInfo': False
-    #     }
-    # )['relationship']
-    # data = self.http_get(app='catalog', method='PUT', endpoint=endpoint, params=None, payload=relationship)
-    data = {}
+    endpoint = '/api/atlas/v2/relationship'
+    relationship = relationshipRead({'--relationshipGuid': args['--relationshipGuid']})
+    relationship = AtlasRelationship.from_json(relationship['relationship'])
+    relationship.status = args.get('--status') if args.get('--status') else relationship.status
+    payload = relationship.__dict__
+    http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
   
