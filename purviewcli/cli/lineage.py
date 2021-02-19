@@ -1,7 +1,7 @@
 """
 usage: 
-    pv lineage read <guid> [--depth=<val> --width=<val> --direction=<val> --forceNewApi --includeParent --getDerivedLineage]
-    pv lineage readUniqueAttributeType <typeName> [--depth=<val> --direction=<val>]
+    pv lineage read --guid=<val> [--depth=<val> --width=<val> --direction=<val>]
+    pv lineage readUniqueAttributeType --typeName=<val> --attrName=<val> --attrValue=<val> [--depth=<val> --direction=<val>]
 
 options:
     --depth=<depth>                   Number of hops for lineage [default: 3].
