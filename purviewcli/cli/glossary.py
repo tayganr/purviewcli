@@ -7,6 +7,7 @@ usage:
     pv glossary readDetailed --glossaryGuid=<val>
     pv glossary createCategory --glossaryGuid=<val> --categoryName=<val>
     pv glossary readCategory --categoryGuid=<val>
+    pv glossary updateCategory --categoryGuid=<val> [--longDescription=<val>]
     pv glossary deleteCategory --categoryGuid=<val>
     pv glossary readCategoryRelated --categoryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readCategoryTerms --categoryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
@@ -14,6 +15,7 @@ usage:
     pv glossary readCategories --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readCategoriesHeaders --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readTemplate
+    pv glossary uploadTemplate
     pv glossary createTerm --glossaryGuid=<val> --termName=<val> [--status=<val> --longDescription=<val> --abbreviation=<val> --synonym=<val>... --related=<val>... --resourceName=<val>... --resourceUrl=<val>... --expertId=<val>... --stewardId=<val>...]
     pv glossary readTerm --termGuid=<val>
     pv glossary updateTerm --termGuid=<val> [--termName=<val> --glossaryGuid=<val> --status=<val> --longDescription=<val> --abbreviation=<val> --synonym=<val>... --related=<val>... --resourceName=<val>... --resourceUrl=<val>... --expertId=<val>... --stewardId=<val>...]

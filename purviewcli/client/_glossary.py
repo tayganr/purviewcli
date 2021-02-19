@@ -1,6 +1,6 @@
 import itertools
-from purviewcli.model import AtlasGlossary, AtlasGlossaryTerm, AtlasGlossaryCategory
-from .client import PurviewClient, get_data
+from .client import get_data
+from purviewcli.model import AtlasGlossary, AtlasGlossaryTerm, AtlasGlossaryCategory, AtlasRelatedObjectId
 
 # ---------------------------
 # GLOSSARY
@@ -174,11 +174,16 @@ def glossaryReadTermsRelated(args):
     data = get_data(http_dict)
     return data
 
+# ---------------------------
+# ASSIGNED ENTITIES
+# ---------------------------
 def glossaryCreateAssignedEntities(args):
     endpoint = '/api/atlas/v2/glossary/terms/%s/assignedEntities' % args['--termGuid']
     payload = []
     for guid in args['--guid']:
-        payload.append({'guid': guid})
+        relatedObject = AtlasRelatedObjectId()
+        relatedObject.guid = guid
+        payload.append(relatedObject.__dict__)
     http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':payload}
     data = get_data(http_dict)
     return data
@@ -216,6 +221,16 @@ def glossaryCreateCategory(args):
 def glossaryReadCategory(args):
     endpoint = '/api/atlas/v2/glossary/category/%s' % args['--categoryGuid']
     http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload':None}
+    data = get_data(http_dict)
+    return data
+
+def glossaryUpdateCategory(args):
+    endpoint = '/api/atlas/v2/glossary/category/%s' % args['--categoryGuid']
+    category = glossaryReadCategory({'--categoryGuid': args['--categoryGuid']})
+    category = AtlasGlossaryCategory.from_json(category)
+    category.longDescription = args.get('--longDescription')[0] if args.get('--longDescription') else category.longDescription
+    payload = category.__dict__
+    http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload':payload}
     data = get_data(http_dict)
     return data
 
@@ -275,5 +290,12 @@ def glossaryReadCategoriesHeaders(args):
 def glossaryReadTemplate(args):
     endpoint = '/api/atlas/v2/glossary/import/template'
     http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload':None}
+    data = get_data(http_dict)
+    return data
+
+# RequestInvalid
+def glossaryUploadTemplate(args):
+    endpoint = '/api/atlas/v2/glossary/import'
+    http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':None}
     data = get_data(http_dict)
     return data

@@ -1,5 +1,3 @@
-import json
-
 class AtlasBaseModelObject():
     def __init__(self, **kwargs):
         self.guid = kwargs.get('guid')       
@@ -80,6 +78,29 @@ class AtlasGlossaryTerm(AtlasGlossaryBaseObject):
 
     def __repr__(self):
         return f'<AtlasGlossaryTerm { self.name }>'
+
+
+class AtlasObjectId():
+    def __init__(self, **kwargs):
+        self.guid = kwargs.get('guid')
+        self.typeName = kwargs.get('typeName')
+        self.uniqueAttributes = kwargs.get('uniqueAttributes')
+
+class AtlasRelatedObjectId(AtlasObjectId):
+    def __init__(self, **kwargs):
+        AtlasObjectId.__init__(self, **kwargs)
+        self.displayText = kwargs.get('displayText')
+        self.entityStatus = kwargs.get('entityStatus')
+        self.relationshipAttributes = kwargs.get('relationshipAttributes')
+        self.relationshipGuid = kwargs.get('relationshipGuid')
+        self.relationshipStatus = kwargs.get('relationshipStatus')
+
+    @classmethod
+    def from_json(cls, json_dict):
+        return cls(**json_dict)
+
+    def __repr__(self):
+        return f'<AtlasRelatedObjectId { self.displayText }>'
 
 # Apache Atlas Python Client
 # https://github.com/apache/atlas/tree/d99ea4b3fb6dad2c076f073d5b64b2ac5748f70a/intg/src/main/python

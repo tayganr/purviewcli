@@ -1,6 +1,6 @@
+import sys
 import os
 import logging
-import json
 import requests
 from azure.identity import DefaultAzureCredential
 

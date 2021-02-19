@@ -50,11 +50,6 @@ def main():
     funcStr = command + action[0].upper() + action[1:]
     funcObj = eval('lib.' + funcStr)
     data = funcObj(command_args)
-
-    # Azure Purview client
-    # client = PurviewClient()
-    # client.set_token()
-    # data = client.http_get(http_dict['app'], http_dict['method'], http_dict['endpoint'], http_dict['params'], http_dict['payload'])
     
     # Print data
     if len(data) > 0:
