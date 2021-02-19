@@ -30,12 +30,6 @@ def relationshipRead(args):
     data = get_data(http_dict)
     return data
 
-def relationshipDelete(args):
-    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['--relationshipGuid']
-    http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
-    data = get_data(http_dict)
-    return data
-
 def relationshipUpdate(args):
     endpoint = '/api/atlas/v2/relationship'
     relationship = relationshipRead({'--relationshipGuid': args['--relationshipGuid']})
@@ -45,4 +39,9 @@ def relationshipUpdate(args):
     http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
     data = get_data(http_dict)
     return data
-  
+
+def relationshipDelete(args):
+    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['--relationshipGuid']
+    http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
+    return data
