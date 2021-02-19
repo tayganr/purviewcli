@@ -25,7 +25,6 @@ import json
 import importlib
 from docopt import docopt
 from purviewcli import __version__
-from purviewcli.client import PurviewClient
 
 def main():
     args = docopt(__doc__, version=__version__, options_first=True)
