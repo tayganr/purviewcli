@@ -32,7 +32,7 @@ def main():
 
     # Command
     command = args['<command>']
-    if command in ['entity', 'relationship', 'lineage', 'glossary', 'typedefs', 'scan', 'insight', 'search']:
+    if command in ['entity', 'relationship', 'lineage', 'glossary', 'types', 'scan', 'insight', 'search']:
         globals()[command] = importlib.import_module('purviewcli.cli.' + command)
         command_args = docopt(eval(command).__doc__, argv=argv)
     else:
