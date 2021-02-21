@@ -2,6 +2,11 @@ class AtlasBaseModelObject():
     def __init__(self, **kwargs):
         self.guid = kwargs.get('guid')       
 
+class AtlasStruct():
+    def __init__(self, **kwargs):
+        self.attributes = kwargs.get('attributes')
+        self.typeName = kwargs.get('typeName')
+        self.lastModifiedTS = kwargs.get('lastModifiedTS')
 # ---------------------------
 # GLOSSARY
 # ---------------------------
@@ -106,14 +111,47 @@ class AtlasRelatedObjectId(AtlasObjectId):
         return f'<AtlasRelatedObjectId { self.displayText }>'
 
 # ---------------------------
+# ENTITY
+# ---------------------------
+class AtlasEntityExtInfo():
+    def __init__(self, **kwargs):
+        self.referredEntities = kwargs.get('referredEntities')
+
+class AtlasEntityWithExtInfo(AtlasEntityExtInfo):
+    def __init__(self, **kwargs):
+        AtlasEntityExtInfo.__init__(self, **kwargs)
+        self.entity = kwargs.get('entity')
+
+class AtlasEntity(AtlasStruct):
+    def __init__(self, **kwargs):
+        AtlasStruct.__init__(self, **kwargs)
+        self.classifications = kwargs.get('classifications')
+        self.createTime = kwargs.get('createTime')
+        self.createdBy = kwargs.get('createdBy')
+        self.guid = kwargs.get('guid')
+        self.homeId = kwargs.get('homeId')
+        self.meanings = kwargs.get('meanings')
+        self.provenanceType = kwargs.get('provenanceType')
+        self.proxy = kwargs.get('proxy')
+        self.relationshipAttributes = kwargs.get('relationshipAttributes')
+        self.status = kwargs.get('status')
+        self.updateTime = kwargs.get('updateTime')
+        self.updatedBy = kwargs.get('updatedBy')
+        self.version = kwargs.get('version')
+        self.source = kwargs.get('source')
+        self.sourceDetails = kwargs.get('sourceDetails')
+        self.contacts = kwargs.get('contacts')
+
+    @classmethod
+    def from_json(cls, json_dict):
+        return cls(**json_dict)
+
+    def __repr__(self):
+        return f'<AtlasEntity { self.typeName }>'
+
+# ---------------------------
 # RELATIONSHIP
 # ---------------------------
-class AtlasStruct():
-    def __init__(self, **kwargs):
-        self.attributes = kwargs.get('attributes')
-        self.typeName = kwargs.get('typeName')
-        self.lastModifiedTS = kwargs.get('lastModifiedTS')
-
 class AtlasRelationship(AtlasStruct):
     def __init__(self, **kwargs):
         AtlasStruct.__init__(self, **kwargs)
@@ -175,6 +213,22 @@ class AtlasBaseTypeDef():
     def __repr__(self):
         return f'<AtlasBaseTypeDef { self.name }>'
 
+class AttributeDef():
+    def __init__(self, **kwargs):
+        self.cardinality = kwargs.get('cardinality')
+        self.constraints = kwargs.get('constraints')
+        self.defaultValue = kwargs.get('defaultValue')
+        self.description = kwargs.get('description')
+        self.includeInNotification = kwargs.get('includeInNotification')
+        self.isIndexable = kwargs.get('isIndexable')
+        self.isOptional = kwargs.get('isOptional')
+        self.isUnique = kwargs.get('isUnique')
+        self.name = kwargs.get('name')
+        self.options = kwargs.get('options')
+        self.typeName = kwargs.get('typeName')
+        self.valuesMaxCount = kwargs.get('valuesMaxCount')
+        self.valuesMinCount = kwargs.get('valuesMinCount')
+
 class AtlasEnumDef(AtlasBaseTypeDef):
     def __init__(self, **kwargs):
         AtlasBaseTypeDef.__init__(self, **kwargs)
@@ -198,6 +252,13 @@ class AtlasEntityDef(AtlasStructDef):
         AtlasStructDef.__init__(self, **kwargs)
         self.subTypes = kwargs.get('subTypes')
         self.superTypes = kwargs.get('superTypes')
+
+    @classmethod
+    def from_json(cls, json_dict):
+        return cls(**json_dict)
+
+    def __repr__(self):
+        return f'<AtlasEntityDef { self.name }>'
 
 class AtlasRelationshipDef(AtlasStructDef):
     def __init__(self, **kwargs):

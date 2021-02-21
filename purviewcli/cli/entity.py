@@ -1,9 +1,8 @@
 """
 usage: 
-    pv entity create --entityName=<val> --entityType=<val> --qualifiedName=<val> [--displayName=<val> --status=<val> --description=<val> --source=<val>]
+    pv entity create --name=<val> --qualifiedName=<val> --typeName=<val> [--description=<val>]
     pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
     pv entity delete --guid=<val>
-    pv entity createBulk --entityName=<val>... --entityType=<val>... --qualifiedName=<val>...
     pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]
     pv entity deleteBulk --guid=<val>...
     pv entity readHeader --guid=<val>

@@ -13,6 +13,7 @@ usage:
     pv types readEnumdef (--guid=<val> | --name=<val>)
     pv types readRelationshipdef (--guid=<val> | --name=<val>)
     pv types readStructdef (--guid=<val> | --name=<val>)
+    pv types addAttributedef --name=<val> --type=<val> --typeName=<val>
 
 options:
   --type=<val>         Valid Types: classification | entity | enum | relationship | struct

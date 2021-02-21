@@ -1,7 +1,7 @@
 import sys
 import itertools
 from .client import get_data
-from purviewcli.model.atlas import AtlasTypesDef, AtlasBaseTypeDef
+from purviewcli.model.atlas import AtlasTypesDef, AtlasBaseTypeDef, AttributeDef, AtlasEntityDef
 
 # ---------------------------
 # TYPEDEFS
@@ -70,6 +70,36 @@ def typesUpdateTypedefs(args):
         sys.exit()
 
   payload = typedefs.__dict__
+  http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload':payload}
+  data = get_data(http_dict)
+  return data
+
+def typesAddAttributedef(args):
+  # Attribute Definition
+  attr = AttributeDef()
+  attr.cardinality = "SINGLE"
+  attr.includeInNotification = False
+  attr.isIndexable = False
+  attr.isOptional = True
+  attr.isUnique = False
+  attr.name = args['--name']
+  attr.typeName = args['--type']
+  attr.valuesMaxCount = 1
+  attr.valuesMinCount = 0
+
+  # Entity Definition
+  typedef = typesReadTypedef({'--guid': None, '--name': args['--typeName']})
+  typedef = AtlasEntityDef.from_json(typedef)
+  typedef.attributeDefs.append(attr.__dict__)
+
+  # Types Definition
+  item = typedef.__dict__
+  typedefs = AtlasTypesDef()
+  typedefs.entityDefs.append(item)
+  payload = typedefs.__dict__
+
+  # Request
+  endpoint = '/api/atlas/v2/types/typedefs'
   http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload':payload}
   data = get_data(http_dict)
   return data
