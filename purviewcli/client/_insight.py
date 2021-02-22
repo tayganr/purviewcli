@@ -1,3 +1,8 @@
+from .client import get_data
+
+# ---------------------------
+# INSIGHT (GUARDIAN)
+# ---------------------------
 def insightAssetDistributionByDataSource(args):
     endpoint = '/mapanddiscover/reports/asset2/assetDistributionByDataSource'
     payload = {
@@ -5,7 +10,8 @@ def insightAssetDistributionByDataSource(args):
         "classificationCategory": args['--classificationCategory'] or '',
         "classificationName": args['--classificationName'] or ''
     }
-    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
+    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
 
 def insightAssetDistributionByTopPaths(args):
@@ -16,7 +22,8 @@ def insightAssetDistributionByTopPaths(args):
         "classificationName": args['--classificationName'] or '',
         "dataSource": args['--datasource'] or ''
     }
-    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
+    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
 
 def insightFileTypeSizeTimeSeries(args):
@@ -27,7 +34,8 @@ def insightFileTypeSizeTimeSeries(args):
         "registeredSourceGroup": args['--registeredSourceGroup'] or '',
         "window": args['--window'] or ''
     }
-    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
+    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
 
 def insightFileTypeSizeTrendByDataSource(args):
@@ -38,7 +46,8 @@ def insightFileTypeSizeTrendByDataSource(args):
         "registeredSourceGroup": args['--registeredSourceGroup'] or '',
         "window": args['--window'] or ''
     }
-    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
+    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
 
 def insightTopFileTypesBySize(args):
@@ -47,7 +56,8 @@ def insightTopFileTypesBySize(args):
         "dataSource": args['--datasource'] or '',
         "registeredSourceGroup": args['--registeredSourceGroup'] or ''
     }
-    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
+    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
 
 def insightTopLevelSummary(args):
@@ -55,12 +65,14 @@ def insightTopLevelSummary(args):
     payload = {
         "registeredSourceGroup": args['--registeredSourceGroup'] or ''
     }
-    data = self.http_get(app='guardian', method='POST', endpoint=endpoint, params=None, payload=payload)
+    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
 
 def insightRegisteredSourceGroupsWithAssets(args):
     endpoint = '/mapanddiscover/reports/asset2/registeredSourceGroupsWithAssets'
-    data = self.http_get(app='guardian', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'guardian', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 # Map & Discover > Reports > Asset2
