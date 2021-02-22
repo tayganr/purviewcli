@@ -122,6 +122,25 @@ class AtlasEntityWithExtInfo(AtlasEntityExtInfo):
         AtlasEntityExtInfo.__init__(self, **kwargs)
         self.entity = kwargs.get('entity')
 
+    @classmethod
+    def from_json(cls, json_dict):
+        return cls(**json_dict)
+
+    def __repr__(self):
+        return f'<AtlasEntityWithExtInfo>'
+
+class AtlasEntitiesWithExtInfo(AtlasEntityExtInfo):
+    def __init__(self, **kwargs):
+        AtlasEntityExtInfo.__init__(self, **kwargs)
+        self.entities = []
+
+    @classmethod
+    def from_json(cls, json_dict):
+        return cls(**json_dict)
+
+    def __repr__(self):
+        return f'<AtlasEntityWithExtInfo>'
+
 class AtlasEntity(AtlasStruct):
     def __init__(self, **kwargs):
         AtlasStruct.__init__(self, **kwargs)
@@ -148,6 +167,32 @@ class AtlasEntity(AtlasStruct):
 
     def __repr__(self):
         return f'<AtlasEntity { self.typeName }>'
+
+# ---------------------------
+# CLASSIFICATION
+# ---------------------------
+class AtlasClassification(AtlasStruct):
+    def __init__(self, **kwargs):
+        AtlasStruct.__init__(self, **kwargs)
+        self.entityGuid = kwargs.get('entityGuid')
+        self.entityStatus = kwargs.get('entityStatus')
+        self.propagate = kwargs.get('propagate')
+        self.removePropagationsOnEntityDelete = kwargs.get('removePropagationsOnEntityDelete')
+        self.validityPeriods = kwargs.get('validityPeriods')
+        self.source = kwargs.get('source')
+        self.sourceDetails = kwargs.get('sourceDetails')
+
+    @classmethod
+    def from_json(cls, json_dict):
+        return cls(**json_dict)
+
+    def __repr__(self):
+        return f'<AtlasClassification { self.typeName }>'
+
+class ClassificationAssociateRequest():
+    def __init__(self, **kwargs):
+        self.classification = kwargs.get('classification')
+        self.entityGuids = []
 
 # ---------------------------
 # RELATIONSHIP

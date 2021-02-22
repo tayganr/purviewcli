@@ -26,6 +26,7 @@ class PurviewClient():
         uri = 'https://%s.%s.purview.azure.com%s' % (self.account_name, app, endpoint)
         headers = {"Authorization": "Bearer {0}".format(self.access_token)}
         response = requests.request(method, uri, params=params, json=payload, headers=headers)
+        # print(response.url)
         status_code = response.status_code
         if status_code == 204:
             data = {
