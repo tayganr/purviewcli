@@ -26,8 +26,25 @@ Note: Syntax to set an environment variable may vary depending on your environme
 
 ## Usage
 ```
-pv command sub-command [optional parameters]
+pv command sub-command --parameter1='value' --parameter2='value'
 ```
+
+## Parameter Types
+* All parameters are required by default.
+* Parameters enclosed with square brackets "**[ ]**" are optional.
+* Mutually exclusive parameters are enclosed with parens "**( )**" and separated with a pipe "**|**".
+* Some Parameters require an input (e.g. --parameter=&lt;val&gt;). Input can be specified after a space (e.g. --parameter 'value') or equal "**=**" sign (e.g. --parameter='value').
+* Parameters that do not require an input are **False** by default and **True** if present (e.g. --ignoreRelationships).
+* Parameters that are allowed to repeat end with ellipsis "**...**" (e.g. --guid='12345' --guid='23451' --guid='34512')
+
+```
+--requiredParameter=<val>
+[--optionalParameter=<val>]
+(--eitherThisParameter=<val> | --orThisParameter=<val>)
+--booleanParameter
+--repeatingParameter=<val> --repeatingParameter=<val>...
+```
+
 
 ## Commands
 ### Search
