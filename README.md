@@ -37,15 +37,6 @@ pv command sub-command --parameter1='value' --parameter2='value'
 * Parameters that do not require an input are **False** by default and **True** if present (e.g. --ignoreRelationships).
 * Parameters that are allowed to repeat end with ellipsis "**...**" (e.g. --guid='12345' --guid='23451' --guid='34512')
 
-```
---requiredParameter=<val>
-[--optionalParameter=<val>]
-(--eitherThisParameter=<val> | --orThisParameter=<val>)
---booleanParameter
---repeatingParameter=<val> --repeatingParameter=<val>...
-```
-
-
 ## Commands
 ### Search
 ```
