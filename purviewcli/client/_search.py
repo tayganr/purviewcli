@@ -1,3 +1,8 @@
+from .client import get_data
+
+# ---------------------------
+# SEARCH
+# ---------------------------
 def searchAdvanced(args):
     endpoint = '/api/atlas/v2/search/advanced'
     payload = {
@@ -16,5 +21,6 @@ def searchAdvanced(args):
             }
         )
 
-    data = self.http_get(app='catalog', method='POST', endpoint=endpoint, params=None, payload=payload)
+    http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
