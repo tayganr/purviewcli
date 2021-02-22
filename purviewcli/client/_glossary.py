@@ -48,7 +48,16 @@ def glossaryReadDetailed(args):
     http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload':None}
     data = get_data(http_dict)
     return data
-    
+
+def glossaryUpdatePartial(args):
+    endpoint = endpoint = '/api/atlas/v2/glossary/%s/partial' % args['--glossaryGuid']
+    payload = {}
+    for attrKey, attrVal in itertools.zip_longest(args['--attrKey'], args['--attrVal']):
+        payload[attrKey] = attrVal
+    http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload':payload}
+    data = get_data(http_dict)
+    return data
+
 # ---------------------------
 # TERMS
 # ---------------------------
@@ -137,7 +146,16 @@ def glossaryDeleteTerm(args):
     http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload':None}
     data = get_data(http_dict)
     return data
-    
+
+def glossaryUpdateTermPartial(args):
+    endpoint = '/api/atlas/v2/glossary/term/%s/partial' % args['--termGuid']
+    payload = {}
+    for attrKey, attrVal in itertools.zip_longest(args['--attrKey'], args['--attrVal']):
+        payload[attrKey] = attrVal
+    http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload':payload}
+    data = get_data(http_dict)
+    return data
+
 def glossaryCreateTerms(args):
     endpoint = '/api/atlas/v2/glossary/terms'
     payload = []
@@ -240,6 +258,15 @@ def glossaryDeleteCategory(args):
     data = get_data(http_dict)
     return data
 
+def glossaryUpdateCategoryPartial(args):
+    endpoint = '/api/atlas/v2/glossary/category/%s/partial' % args['--categoryGuid']
+    payload = {}
+    for attrKey, attrVal in itertools.zip_longest(args['--attrKey'], args['--attrVal']):
+        payload[attrKey] = attrVal
+    http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload':payload}
+    data = get_data(http_dict)
+    return data
+
 def glossaryReadCategoryRelated(args):
     endpoint = '/api/atlas/v2/glossary/category/%s/related' % args['--categoryGuid']
     params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
@@ -287,6 +314,7 @@ def glossaryReadCategoriesHeaders(args):
 # TEMPLATE
 # ---------------------------
 # RequestUriNotFound
+# pv glossary readTemplate
 def glossaryReadTemplate(args):
     endpoint = '/api/atlas/v2/glossary/import/template'
     http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload':None}
@@ -294,6 +322,7 @@ def glossaryReadTemplate(args):
     return data
 
 # RequestInvalid
+# pv glossary uploadTemplate
 def glossaryUploadTemplate(args):
     endpoint = '/api/atlas/v2/glossary/import'
     http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':None}

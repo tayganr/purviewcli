@@ -113,6 +113,7 @@ def entityCreateBulkClassification(args):
   return data
 
 # RequestInvalid
+# pv entity deleteBulk --guid=<val>...
 def entityDeleteBulk(args):
   endpoint = '/api/atlas/v2/entity/bulk'
   params = {'guid': args['--guid']}
@@ -121,6 +122,7 @@ def entityDeleteBulk(args):
   return data
 
 # RequestUriNotFound
+# pv entity readBulkHeaders [--tagUpdateStartTime=<val>]
 def entityReadBulkHeaders(args):
   endpoint = '/api/atlas/v2/entity/bulk/headers'
   params = None if args['--tagUpdateStartTime'] is None else {'tagUpdateStartTime': args['--tagUpdateStartTime']}
@@ -213,6 +215,7 @@ def entityDeleteUniqueAttributeType(args):
   return data
 
 # RequestUriNotFound
+# pv entity readUniqueAttributeTypeHeader --typeName=<val> --attrKey=<val> --attrVal=<val>
 def entityReadUniqueAttributeTypeHeader(args):
   endpoint = '/api/atlas/v2/entity/uniqueAttribute/type/%s/header' % args['--typeName'][0]
   params = {
@@ -271,6 +274,7 @@ def entityDeleteUniqueAttributeTypeClassification(args):
 # OTHER
 # ---------------------------
 # RequestUriNotFound
+# pv entity readAudit --guid=<val> [--auditAction=<val> --count=<val> --startKey=<val>]
 def entityReadAudit(args):
   endpoint = '/api/atlas/v2/entity/guid/%s/audit' % args['--guid'][0]
   params = {
@@ -279,12 +283,5 @@ def entityReadAudit(args):
     'startKey': args.get('--startKey')
   }
   http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
-
-# RequestUriNotFound
-def entityReadBusinessmetadataImportTemplate(args):
-  endpoint = '/api/atlas/v2/entity/businessmetadata/import/template'
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
   data = get_data(http_dict)
   return data
