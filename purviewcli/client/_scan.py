@@ -1,31 +1,42 @@
+from .client import get_data
+
+# ---------------------------
+# SCAN
+# ---------------------------
 def scanReadSources(args):
     endpoint = '/datasources'
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanReadSource(args):
     endpoint = '/datasources/%s' % args['--datasource']
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanReadScans(args):
     endpoint = '/datasources/%s/scans' % args['--datasource']
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanRead(args):
     endpoint = '/datasources/%s/scans/%s' % (args['--datasource'], args['--scanName'])
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanReadHistory(args):
     endpoint = '/datasources/%s/scans/%s/listHistory' % (args['--datasource'], args['--scanName'])
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanReadFilters(args):
     endpoint = '/datasources/%s/scans/%s/filters' % (args['--datasource'], args['--scanName'])
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanRun(args):
@@ -36,32 +47,38 @@ def scanRun(args):
     else:
         payload = None
     
-    data = self.http_get(app='scan', method='POST', endpoint=endpoint, params=None, payload=payload)
+    http_dict = {'app': 'scan', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
 
 def scanReadScanRulesets(args):
     endpoint = '/scanrulesets'
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanReadSystemScanRulesets(args):
     endpoint = '/systemScanRulesets'
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanReadSystemScanRulesetsSettings(args):
     endpoint = '/systemScanRulesets/settings'
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanReadClassificationRules(args):
     endpoint = '/classificationrules'
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanReadClassificationRule(args):
     endpoint = '/classificationrules/%s' % args['--classificationName']
-    data = self.http_get(app='scan', method='GET', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanCreateCollection(args):
@@ -78,12 +95,14 @@ def scanCreateCollection(args):
                 "referenceName": args['--parentCollection']
             }
         }
-    data = self.http_get(app='scan', method='PUT', endpoint=endpoint, params=None, payload=payload)
+    http_dict = {'app': 'scan', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
 
 def scanDeleteCollection(args):
     endpoint = '/datasources/%s' % args['--collection']
-    data = self.http_get(app='scan', method='DELETE', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data
 
 def scanCreateSource(args):
@@ -208,10 +227,12 @@ def scanCreateSource(args):
             "type":"DataSourceReference",
             "referenceName": args['--parentCollection']
         }
-    data = self.http_get(app='scan', method='PUT', endpoint=endpoint, params=None, payload=payload)
+    http_dict = {'app': 'scan', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
+    data = get_data(http_dict)
     return data
 
 def scanDeleteSource(args):
     endpoint = '/datasources/%s' % args['--datasource']
-    data = self.http_get(app='scan', method='DELETE', endpoint=endpoint, params=None, payload=None)
+    http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
     return data

@@ -2,13 +2,18 @@
 This package provides a command line interface to Azure Purview's REST API.  
 ![purviewcli](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_example.png)
 
-## Pre-Requisites
+## Installation
+```
+pip install purviewcli
+```
+
+## Authentication
+The purviewcli package uses `DefaultAzureCredential` from the [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential) package. This provides purviewcli a variety of Azure credential sources (e.g. Environment Variables > Managed Identity > Visual Studio Code > Azure CLI > Interactive). For example, if you are signed into Azure within Visual Studio Code, purviewcli will leverage those existing credentials when executing a command. Read the [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential) documentation to understand the authentication hierarchy . 
+
+## Authorization
 The identity executing Azure Purview CLI commands will need access to the deployed Azure Purview resource along with the following role assignments:  
  * Purview Data Curator
  * Purview Data Source Administrator
-
-## Azure Identity
-The purviewcli package uses `DefaultAzureCredential` from the [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential) library. Read the azure-identity documentation to understand the authentication hierarchy (i.e. Environment Variables > Managed Identity > Visual Studio Code > Azure CLI > Interactive). 
 
 ## Environment Variable
 Set the PURVIEW_NAME environment variable to the Azure Purview account name.
@@ -17,186 +22,132 @@ export PURVIEW_NAME=<purview-account-name>
 ```
 Note: Syntax to set an environment variable may vary depending on your environment.
 
-## Installation
-```
-pip install purviewcli
-```
+
 
 ## Usage
 ```
-pv command (mandatory parameters) [optional parameters]
+pv command sub-command [optional parameters]
 ```
 
 ## Commands
 ### Search
 ```
-pv search [--keywords=<keywords> --limit=<limit> --offset=<offset> --facet=<facet>...]
+pv search advanced [--keywords=<val> --limit=<val> --offset=<val> --facet=<val>...]
 ```
 ### Entity
-**Entity**
 ```
-createEntity (--entityName=<entityName> --entityType=<entityType> --qualifiedName=<qualifiedName>) [--status=<status> --description=<description> --source=<source>]
-createEntityBulk (--entityName=<entityName>... --entityType=<entityType>... --qualifiedName=<qualifiedName>...)
-getEntity (--guid=<guid>) [--ignoreRelationships --minExtInfo]
-getEntityHeader (--guid=<guid>)
-getEntityAudit (--guid=<guid>) [--auditAction=<auditAction> --count=<count> --startKey=<startKey>]
-getEntityBulk (--guid=<guid>...) [--ignoreRelationships --minExtInfo]
-getEntityBulkHeaders [--tagUpdateStartTime=<tagUpdateStartTime>]
-getEntityBusinessmetadataImportTemplate
-deleteEntity (--guid=<guid>)
-deleteEntityBulk (--guid=<guid>...)
-```
-**Label**
-```
-assignLabels (--guid=<guid> --label=<label>...)
-```
-**Classification**
-```
-addEntityClassifications (--guid=<guid> --classificationName=<classificationName>...)
-getEntityClassification (--guid=<guid> --classificationName=<classificationName>)
-getEntityClassifications (--guid=<guid>)
-deleteEntityClassification (--guid=<guid> --classificationName=<classificationName>)
-```
-**Unique Attribute**
-```
-getEntityUniqueAttributeType (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>) [--ignoreRelationships --minExtInfo]
-getEntityUniqueAttributeTypeHeader (--typeName=<typeName> --attrKey=<attrKey> --attrVal=<attrVal>)
-getEntityBulkUniqueAttributeType (--typeName=<typeName>) [--ignoreRelationships --minExtInfo]
+pv entity create --name=<val> --qualifiedName=<val> --typeName=<val> [--description=<val>]
+pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
+pv entity update --guid=<val> --attrName=<val> --attrValue=<val>
+pv entity delete --guid=<val>
+pv entity createBulk --name=<val>... --qualifiedName=<val>... --typeName=<val>...
+pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]
+pv entity readHeader --guid=<val>
+pv entity readBusinessmetadataImportTemplate
+pv entity createClassifications --guid=<val> --classificationName=<val>...
+pv entity readClassifications --guid=<val>
+pv entity updateClassifications --guid=<val> --classificationName=<val>...
+pv entity readClassification --guid=<val> --classificationName=<val>
+pv entity deleteClassification --guid=<val> --classificationName=<val>
+pv entity createBulkClassification --classificationName=<val> --guid=<val>...
+pv entity readUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val> [--ignoreRelationships --minExtInfo]
+pv entity deleteUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val>
+pv entity updateUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val> [--description=<val>]
+pv entity readBulkUniqueAttributeType --typeName=<val>  --attrKey=<val>... --attrVal=<val>... [--ignoreRelationships --minExtInfo]
+pv entity createUniqueAttributeTypeClassifications --typeName=<val> --attrKey=<val> --attrVal=<val> --classificationName=<val>...
+pv entity updateUniqueAttributeTypeClassifications --typeName=<val> --attrKey=<val> --attrVal=<val> --classificationName=<val>...
+pv entity deleteUniqueAttributeTypeClassification --typeName=<val> --attrKey=<val> --attrVal=<val> --classificationName=<val>
 ```
 
 ### Glossary
-**Glossary**
 ```
-createGlossary (--name=<name>)
-getGlossary [--glossaryGuid=<glossaryGuid>] [--limit=<limit> --offset=<offset> --sort=<sort>]
-getGlossaryDetailed (--glossaryGuid=<glossaryGuid>)
-deleteGlossary (--glossaryGuid=<glossaryGuid>)
-```
-
-**Category**
-```
-createGlossaryCategory (--categoryName=<name>) [--glossaryGuid=<glossaryGuid>]
-createGlossaryCategories (--categoryName=<name>...) [--glossaryGuid=<glossaryGuid>]
-getGlossaryCategory (--categoryGuid=<categoryGuid>)
-deleteGlossaryCategory (--categoryGuid=<categoryGuid>)
-getGlossaryCategories (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-getGlossaryCategoriesHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-getGlossaryCategoryRelated (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-getGlossaryCategoryTerms (--categoryGuid=<categoryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-```
-
-**Terms**
-```
-createGlossaryTerm (--termName=<termName>) [--glossaryGuid=<glossaryGuid> --status=<status> --longDescription=<longDescription> --abbreviation=<abbreviation> --synonym=<synonym>... --related=<related>... --resourceName=<resourceName>... --resourceUrl=<resourceUrl>... --expertId=<expertId>... --stewardId=<stewardId>...]
-createGlossaryTerms (--termName=<termName>...) [--glossaryGuid=<glossaryGuid> --status=<status>... --longDescription=<longDescription>...]
-getGlossaryTerm (--termGuid=<termGuid>)
-updateGlossaryTerm (--termGuid=<termGuid>) [--termName=<termName> --glossaryGuid=<glossaryGuid> --status=<status> --longDescription=<longDescription> --abbreviation=<abbreviation> --synonym=<synonym>... --related=<related>... --resourceName=<resourceName>... --resourceUrl=<resourceUrl>... --expertId=<expertId>... --stewardId=<stewardId>...]
-deleteGlossaryTerm (--termGuid=<termGuid>)
-purgeGlossaryTerms [--glossaryGuid=<glossaryGuid>]
-getGlossaryTerms (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-getGlossaryTermsHeaders (--glossaryGuid=<glossaryGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-getGlossaryTermsRelated (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-```
-
-**Assigned Entities**
-```
-assignEntities (--termGuid=<termGuid> --guid=<guid>...)
-getAssignedEntities (--termGuid=<termGuid>) [--limit=<limit> --offset=<offset> --sort=<sort>]
-deleteAssignedEntities (--termGuid=<termGuid> --guid=<guid>...)
-```
-
-**Template**
-```
-getGlossaryTemplate
+pv glossary create --glossaryName=<val>
+pv glossary read [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val>]
+pv glossary update --glossaryGuid=<val> --language=<val>
+pv glossary delete --glossaryGuid=<val>
+pv glossary readDetailed --glossaryGuid=<val>
+pv glossary updatePartial --glossaryGuid=<val> --attrKey=<val>... --attrVal=<val>...
+pv glossary updateCategoryPartial --categoryGuid=<val> --attrKey=<val>... --attrVal=<val>...
+pv glossary updateTermPartial --termGuid=<val> --attrKey=<val>... --attrVal=<val>...
+pv glossary createCategory --glossaryGuid=<val> --categoryName=<val>
+pv glossary readCategory --categoryGuid=<val>
+pv glossary updateCategory --categoryGuid=<val> [--longDescription=<val>]
+pv glossary deleteCategory --categoryGuid=<val>
+pv glossary readCategoryRelated --categoryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+pv glossary readCategoryTerms --categoryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+pv glossary createCategories --glossaryGuid=<val> --categoryName=<val>...
+pv glossary readCategories --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+pv glossary readCategoriesHeaders --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+pv glossary createTerm --glossaryGuid=<val> --termName=<val> [--status=<val> --longDescription=<val> --abbreviation=<val> --synonym=<val>... --related=<val>... --resourceName=<val>... --resourceUrl=<val>... --expertId=<val>... --stewardId=<val>...]
+pv glossary readTerm --termGuid=<val>
+pv glossary updateTerm --termGuid=<val> [--termName=<val> --glossaryGuid=<val> --status=<val> --longDescription=<val> --abbreviation=<val> --synonym=<val>... --related=<val>... --resourceName=<val>... --resourceUrl=<val>... --expertId=<val>... --stewardId=<val>...]
+pv glossary deleteTerm --termGuid=<val>
+pv glossary createTerms --glossaryGuid=<val> --termName=<val>... [--status=<val>... --longDescription=<val>...]
+pv glossary readTerms --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+pv glossary readTermsHeaders --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+pv glossary readTermsRelated --termGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+pv glossary createAssignedEntities --termGuid=<val> --guid=<val>...
+pv glossary readAssignedEntities --termGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+pv glossary deleteAssignedEntities --termGuid=<val> --guid=<val>... --relationshipGuid=<val>...
 ```
 
 ### Lineage
-**Lineage**
 ```
-getLineage (--guid=<guid>) [--depth=<depth> --width=<width> --direction=<direction> --forceNewApi --includeParent --getDerivedLineage]
-getLineageUniqueAttributeType (--typeName=<typeName>) [--depth=<depth> --direction=<direction>]
+pv lineage read --guid=<val> [--depth=<val> --width=<val> --direction=<val>]
+pv lineage readUniqueAttributeType --typeName=<val> --attrName=<val> --attrValue=<val> [--depth=<val> --direction=<val>]
 ```
 ### Relationship
-**Relationship**
 ```
-createRelationship (--typeName=<typeName> --status=<status> --end1Guid=<end1Guid> --end2Guid=<end2Guid>)
-getRelationship (--guid=<guid>) [--extendedInfo]
-updateRelationship (--guid=<guid>) [--status=<status> --end1Guid=<end1Guid> --end2Guid=<end2Guid>]
-deleteRelationship (--guid=<guid>)
+pv relationship create --typeName=<val> --end1Guid=<val> --end1Type=<val> --end2Guid=<val> --end2Type=<val> [--status=<val>]
+pv relationship read --relationshipGuid=<val> [--extendedInfo]
+pv relationship update --relationshipGuid=<val> [--status=<val>]
+pv relationship delete --relationshipGuid=<val>
 ```
 ### Types
-**Business Metadata Definition**
 ```
-getBusinessmetadatadef (--guid=<guid> | --name=<name>)
-```
-**Classification Definition**
-```
-createClassificationdefs (--defName=<defName>...) [--defDescription=<defDescription>... --defDisplayName=<defDisplayName>...]
-getClassificationdef (--guid=<guid> | --name=<name>)
-updateClassificationdefs (--defName=<defName>...) [--defDescription=<defDescription>... --defDisplayName=<defDisplayName>...]
-deleteClassificationdef (--guid=<guid> | --name=<name>)
-```
-**Entity Definition**
-```
-getEntitydef (--guid=<guid> | --name=<name>)
-```
-**Enum Definition**
-```
-getEnumdef (--guid=<guid> | --name=<name>)
-```
-**Relationship Definition**
-```
-getRelationshipdef (--guid=<guid> | --name=<name>)
-```
-**Struct Definition**
-```
-getStructdef (--guid=<guid> | --name=<name>)
-```
-**Type Definition**
-```
-getTypedef (--guid=<guid> | --name=<name>)
-getTypedefs [--type=<type>]
-getTypedefsHeaders
-deleteTypedefName (--name=<name>)
+pv types createTypedefs --category=<val>... --defName=<val>... [--defDescription=<val>...]
+pv types readTypedefs [--type=<val>]
+pv types updateTypedefs --category=<val>... --defName=<val>... [--defDescription=<val>...]
+pv types deleteTypedefs --defName=<val>...
+pv types readTypedefsHeaders
+pv types readTypedef (--guid=<val> | --name=<val>)
+pv types deleteTypedefName --name=<val>
+pv types readClassificationdef (--guid=<val> | --name=<val>)
+pv types readBusinessmetadatadef (--guid=<val> | --name=<val>)
+pv types readEntitydef (--guid=<val> | --name=<val>)
+pv types readEnumdef (--guid=<val> | --name=<val>)
+pv types readRelationshipdef (--guid=<val> | --name=<val>)
+pv types readStructdef (--guid=<val> | --name=<val>)
+pv types addAttributedef --name=<val> --type=<val> --typeName=<val>
 ```
 
 ### Scan
-**Scan**
 ```
-getScan (--datasource=<datasource> --scanName=<scanName>)
-getScans (--datasource=<datasource>)
-getScanHistory (--datasource=<datasource> --scanName=<scanName>)
-getScanFilters (--datasource=<datasource> --scanName=<scanName>)
-runScan (--datasource=<datasource> --scanName=<scanName>) [--scanLevel=<scanLevel>]
-```
-**Scan Rule Set**
-```
-getScanRulesets
-getSystemScanRulesets
-getSystemScanRulesetsSettings
-```
-**Source**
-```
-getSource (--datasource=<datasource>)
-getSources
-deleteSource (--datasource=<datasource>)
-createCollection (--collection=<collection>) [--parentCollection=<parentCollection>]
-deleteCollection (--collection=<collection>)
-registerSource (--datasource=<datasource> --kind=<kind>) [--accountUri=<accountUri> --subscriptionId=<subscriptionId> --resourceGroup=<resourceGroup> --location=<location> --resourceName=<resourceName> --endpoint=<endpoint> --serverEndpoint=<serverEndpoint> --tenant=<tenant> --parentCollection=<parentCollection> --host=<host> --applicationServer=<applicationServer> --systemNumber=<systemNumber> --clusterUrl=<clusterUrl> --roleARN=<roleARN> --serviceUrl=<serviceUrl>]
-```
-**Classification Rules**
-```
-getClassificationRule (--classificationName=<classificationName>)
-getClassificationRules
+pv scan read --datasource=<val> --scanName=<val>
+pv scan run --datasource=<val> --scanName=<val> [--scanLevel=<val>]
+pv scan createSource --datasource=<val> --kind=<val> [--accountUri=<val> --subscriptionId=<val> --resourceGroup=<val> --location=<val> --resourceName=<val> --endpoint=<val> --serverEndpoint=<val> --tenant=<val> --parentCollection=<val> --host=<val> --applicationServer=<val> --systemNumber=<val> --clusterUrl=<val> --roleARN=<val> --serviceUrl=<val>]
+pv scan readSource --datasource=<val>
+pv scan deleteSource --datasource=<val>
+pv scan readSources
+pv scan readScans --datasource=<val>
+pv scan readHistory --datasource=<val> --scanName=<val>
+pv scan readFilters --datasource=<val> --scanName=<val>
+pv scan readScanRulesets
+pv scan readSystemScanRulesets
+pv scan readSystemScanRulesetsSettings
+pv scan readClassificationRules
+pv scan readClassificationRule --classificationName=<val>
+pv scan createCollection --collection=<val> [--parentCollection=<val>]
+pv scan deleteCollection --collection=<val>
 ```
 
-### Guardian (Insights)
+### Insight (Guardian)
 ```
-getAssetDistributionByDataSource [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
-getAssetDistributionByTopPaths (--datasource=<datasource>) [--registeredSourceGroup=<registeredSourceGroup> --classificationCategory=<classificationCategory> --classificationName=<classificationName>]
-getFileTypeSizeTimeSeries (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
-getFileTypeSizeTrendByDataSource (--fileType=<fileType> --window=<window>) [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
-getTopFileTypesBySize [--registeredSourceGroup=<registeredSourceGroup> --datasource=<datasource>]
-getTopLevelSummary [--registeredSourceGroup=<registeredSourceGroup>]
-getRegisteredSourceGroupsWithAssets
+pv insight assetDistributionByDataSource [--registeredSourceGroup=<val> --classificationCategory=<val> --classificationName=<val>]
+pv insight assetDistributionByTopPaths --datasource=<val> [--registeredSourceGroup=<val> --classificationCategory=<val> --classificationName=<val>]
+pv insight fileTypeSizeTimeSeries --fileType=<val> --window=<val> [--registeredSourceGroup=<val> --datasource=<val>]
+pv insight fileTypeSizeTrendByDataSource --fileType=<val> --window=<val> [--registeredSourceGroup=<val> --datasource=<val>]
+pv insight topFileTypesBySize [--registeredSourceGroup=<val> --datasource=<val>]
+pv insight topLevelSummary [--registeredSourceGroup=<val>]
+pv insight registeredSourceGroupsWithAssets
 ```
