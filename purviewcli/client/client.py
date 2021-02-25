@@ -3,6 +3,7 @@ import os
 import logging
 import requests
 from azure.identity import DefaultAzureCredential
+from azure.core.exceptions import ClientAuthenticationError
 
 logging.getLogger("azure.identity").setLevel(logging.ERROR)
 
@@ -16,7 +17,12 @@ class PurviewClient():
 
     def set_token(self):
         credential = DefaultAzureCredential()
-        token = credential.get_token('https://purview.azure.net/.default')
+        try:
+            token = credential.get_token('https://purview.azure.net/.default')
+        except ClientAuthenticationError as e:
+            print(e)
+            print("For more information, check out: https://docs.microsoft.com/en-us/python/api/overview/azure/identity-readme?view=azure-python")
+            sys.exit()
         self.access_token = token.token
 
     def get_token(self):

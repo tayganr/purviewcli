@@ -46,7 +46,7 @@ pv search advanced [--keywords=<val> --limit=<val> --offset=<val> --facet=<val>.
 ```
 pv entity create --name=<val> --qualifiedName=<val> --typeName=<val> [--description=<val>]
 pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
-pv entity update --guid=<val> --attrName=<val> --attrValue=<val>
+pv entity update --guid=<val> --attrKey=<val> --attrVal=<val>
 pv entity delete --guid=<val>
 pv entity createBulk --name=<val>... --qualifiedName=<val>... --typeName=<val>...
 pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]
@@ -100,7 +100,7 @@ pv glossary deleteAssignedEntities --termGuid=<val> --guid=<val>... --relationsh
 ### Lineage
 ```
 pv lineage read --guid=<val> [--depth=<val> --width=<val> --direction=<val>]
-pv lineage readUniqueAttributeType --typeName=<val> --attrName=<val> --attrValue=<val> [--depth=<val> --direction=<val>]
+pv lineage readUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val> [--depth=<val> --direction=<val>]
 ```
 ### Relationship
 ```

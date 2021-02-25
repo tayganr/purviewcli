@@ -38,8 +38,8 @@ def entityRead(args):
 
 def entityUpdate(args):
   endpoint = '/api/atlas/v2/entity/guid/%s' % args['--guid'][0]
-  params = {'name': args['--attrName']}
-  payload = args['--attrValue']
+  params = {'name': args['--attrKey']}
+  payload = args['--attrVal']
   http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': params, 'payload': payload}
   data = get_data(http_dict)
   return data

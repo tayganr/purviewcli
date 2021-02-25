@@ -23,7 +23,7 @@ def lineageReadUniqueAttributeType(args):
   params = {
     'depth': args.get('--depth', 3),
     'direction': args.get('--direction', 'BOTH'),
-    'attr:' + args['--attrName']: args['--attrValue']
+    'attr:' + args['--attrKey']: args['--attrVal']
   }  
   http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
   data = get_data(http_dict)

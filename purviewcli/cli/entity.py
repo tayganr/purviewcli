@@ -2,7 +2,7 @@
 usage: 
     pv entity create --name=<val> --qualifiedName=<val> --typeName=<val> [--description=<val>]
     pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
-    pv entity update --guid=<val> --attrName=<val> --attrValue=<val>
+    pv entity update --guid=<val> --attrKey=<val> --attrVal=<val>
     pv entity delete --guid=<val>
     pv entity createBulk --name=<val>... --qualifiedName=<val>... --typeName=<val>...
     pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]

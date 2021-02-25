@@ -8,14 +8,14 @@ options:
    
 
 The most commonly used pv commands are:
-   entity           Entities are a collection of attributes that model or represent a data asset.
-   glossary         Vocabularies for business users.
-   lineage          Helps you understand the source and impact of data and changes to data over time.
-   relationship     Relationships describe connections between two entities.
-   typedefs         A Type in Atlas is a definition of how a particular type of metadata objects are stored and accessed.
-   scan             Azure Purview scan.
-   insight          Azure Purview insights.
-   search           Azure Purview advanced search.
+   pv entity           [Atlas] Entities are a collection of attributes that model or represent an asset.
+   pv glossary         [Atlas] Vocabularies for business users.
+   pv lineage          [Atlas] Helps you understand the source and impact of data and changes to data over time.
+   pv relationship     [Atlas] Relationships describe connections between two entities.
+   pv types            [Atlas] A Type in Atlas is a definition of how a particular object type is stored and accessed.
+   pv scan             [Other] Azure Purview scan.
+   pv insight          [Other] Azure Purview insights.
+   pv search           [Other] Azure Purview advanced search.
 
 See 'pv <command>' for more information on a specific command.
 
@@ -27,6 +27,9 @@ from docopt import docopt
 from purviewcli import __version__
 
 def main():
+    if len(sys.argv) == 1:
+        sys.argv.append('-h')
+        sys.exit(main())
     args = docopt(__doc__, version=__version__, options_first=True)
     argv = [args['<command>']] + args['<args>']
 
@@ -57,4 +60,4 @@ def main():
         print('[INFO] No data found for %s.' % (command))
 
 if __name__ == '__main__':
-  main()
+    main()
