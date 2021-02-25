@@ -1,35 +1,53 @@
 # Azure Purview CLI
+
 This package provides a command line interface to Azure Purview's REST API.  
-![purviewcli](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_example.png)
+![purviewcli](./doc/image/purviewcli_example.png)
 
 ## Installation
+
 ```
 pip install purviewcli
 ```
 
+## Getting Started
+
+1. Install purviewcli (e.g. `pip install purviewcli`)
+2. Set environment variables (`PURVIEW_NAME`, `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_CLIENT_SECRET`)
+3. Execute command (e.g. `!pv glossary read`)
+
+Snippet of an example Python-based notebook below.
+
+
+![purviewcli](./doc/image/purviewcli_notebook.png)
+
 ## Authentication
-The purviewcli package leverages the `DefaultAzureCredential` from the [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential) package. This provides purviewcli a variety of credential sources it can use to attempt authentication (e.g. Environment Variables, Managed Identity, Visual Studio Code, Azure CLI, Interactive). For example, if you are signed into Azure within Visual Studio Code, purviewcli will leverage those existing credentials when executing a command. This negates the need to store and manage credentials specific to the purviewcli package by leveraging what exists already. Read the [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential) documentation to understand the authentication hierarchy. 
+
+The purviewcli package leverages the `DefaultAzureCredential` from [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential). This provides purviewcli a variety of credential sources it can use to attempt authentication (e.g. Environment Variables, Managed Identity, Visual Studio Code, Azure CLI, Interactive). For example, if you are signed into Azure within Visual Studio Code, purviewcli will leverage those existing credentials when executing a command. This negates the need to store and manage credentials specific to the purviewcli package by leveraging what exists already. Read the [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential) documentation to understand the authentication hierarchy.
 
 ## Authorization
+
 The identity executing Azure Purview CLI commands will need access to the deployed Azure Purview resource along with the following role assignments:  
- * Purview Data Curator
- * Purview Data Source Administrator
 
-## Environment Variable
-Set the PURVIEW_NAME environment variable to the Azure Purview account name.
-```
-export PURVIEW_NAME=<purview-account-name>
-```
-Note: Syntax to set an environment variable may vary depending on your environment.
+* Purview Data Curator
+* Purview Data Source Administrator
 
+## Environment Variables
 
+* PURVIEW_NAME
+* AZURE_CLIENT_ID
+* AZURE_TENANT_ID
+* AZURE_CLIENT_SECRET
+
+Note: Syntax on how to set an environment variable will vary depending on your environment.
 
 ## Usage
+
 ```
 pv command sub-command --parameter1='value' --parameter2='value'
 ```
 
 ## Parameter Types
+
 * All parameters are required by default.
 * Parameters enclosed with square brackets "**[ ]**" are optional.
 * Mutually exclusive parameters are enclosed with parens "**( )**" and separated with a pipe "**|**".
@@ -38,11 +56,15 @@ pv command sub-command --parameter1='value' --parameter2='value'
 * The ellipsis "**...**" indicates parameters that are allowed to repeat (e.g. --guid='12345' --guid='23451' --guid='34512')
 
 ## Commands
+
 ### Search
+
 ```
 pv search advanced [--keywords=<val> --limit=<val> --offset=<val> --facet=<val>...]
 ```
+
 ### Entity
+
 ```
 pv entity create --name=<val> --qualifiedName=<val> --typeName=<val> [--description=<val>]
 pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
@@ -66,6 +88,7 @@ pv entity deleteUniqueAttributeTypeClassification --typeName=<val> --attrKey=<va
 ```
 
 ### Glossary
+
 ```
 pv glossary create --glossaryName=<val>
 pv glossary read [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val>]
@@ -98,18 +121,23 @@ pv glossary deleteAssignedEntities --termGuid=<val> --guid=<val>... --relationsh
 ```
 
 ### Lineage
+
 ```
 pv lineage read --guid=<val> [--depth=<val> --width=<val> --direction=<val>]
 pv lineage readUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val> [--depth=<val> --direction=<val>]
 ```
+
 ### Relationship
+
 ```
 pv relationship create --typeName=<val> --end1Guid=<val> --end1Type=<val> --end2Guid=<val> --end2Type=<val> [--status=<val>]
 pv relationship read --relationshipGuid=<val> [--extendedInfo]
 pv relationship update --relationshipGuid=<val> [--status=<val>]
 pv relationship delete --relationshipGuid=<val>
 ```
+
 ### Types
+
 ```
 pv types createTypedefs --category=<val>... --defName=<val>... [--defDescription=<val>...]
 pv types readTypedefs [--type=<val>]
@@ -128,6 +156,7 @@ pv types addAttributedef --name=<val> --type=<val> --typeName=<val>
 ```
 
 ### Scan
+
 ```
 pv scan read --datasource=<val> --scanName=<val>
 pv scan run --datasource=<val> --scanName=<val> [--scanLevel=<val>]
@@ -148,6 +177,7 @@ pv scan deleteCollection --collection=<val>
 ```
 
 ### Insight (Guardian)
+
 ```
 pv insight assetDistributionByDataSource [--registeredSourceGroup=<val> --classificationCategory=<val> --classificationName=<val>]
 pv insight assetDistributionByTopPaths --datasource=<val> [--registeredSourceGroup=<val> --classificationCategory=<val> --classificationName=<val>]
