@@ -140,7 +140,7 @@ def typesReadTypedefsHeaders(args):
 
 def typesReadTypedef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
+  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/typedef/%s/%s' % (typeDefKey,typeDefVal)
   http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
   data = get_data(http_dict)
@@ -154,7 +154,7 @@ def typesDeleteTypedefName(args):
 
 def typesReadBusinessmetadatadef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
+  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/businessmetadatadef/%s/%s' % (typeDefKey,typeDefVal)
   http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
   data = get_data(http_dict)
@@ -162,7 +162,7 @@ def typesReadBusinessmetadatadef(args):
 
 def typesReadClassificationdef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
+  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/classificationdef/%s/%s' % (typeDefKey,typeDefVal)
   http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
   data = get_data(http_dict)
@@ -170,7 +170,7 @@ def typesReadClassificationdef(args):
   
 def typesReadEntitydef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
+  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/entitydef/%s/%s' % (typeDefKey,typeDefVal)
   http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
   data = get_data(http_dict)
@@ -178,7 +178,7 @@ def typesReadEntitydef(args):
 
 def typesReadEnumdef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
+  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/enumdef/%s/%s' % (typeDefKey,typeDefVal)
   http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
   data = get_data(http_dict)
@@ -186,7 +186,7 @@ def typesReadEnumdef(args):
 
 def typesReadRelationshipdef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
+  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/relationshipdef/%s/%s' % (typeDefKey,typeDefVal)
   http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
   data = get_data(http_dict)
@@ -194,7 +194,7 @@ def typesReadRelationshipdef(args):
 
 def typesReadStructdef(args):
   typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'][0] if args['--name'] is None else args['--name']
+  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
   endpoint = '/api/atlas/v2/types/structdef/%s/%s' % (typeDefKey,typeDefVal)
   http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
   data = get_data(http_dict)

@@ -31,8 +31,19 @@ class PurviewClient():
     def http_get(self, app, method, endpoint, params, payload):
         uri = 'https://%s.%s.purview.azure.com%s' % (self.account_name, app, endpoint)
         headers = {"Authorization": "Bearer {0}".format(self.access_token)}
-        response = requests.request(method, uri, params=params, json=payload, headers=headers)
-        # print(response.url)
+
+        try:
+            response = requests.request(method, uri, params=params, json=payload, headers=headers)
+        except requests.exceptions.HTTPError as errh:
+            print ("[HTTP ERROR]",errh)
+        except requests.exceptions.ConnectionError as errc:
+            print ("[CONNECTION ERROR]",errc)
+            sys.exit()
+        except requests.exceptions.Timeout as errt:
+            print ("[TIMEOUT ERROR]",errt)
+        except requests.exceptions.RequestException as err:
+            print ("[REQUEST EXCEPTION]",err)
+
         status_code = response.status_code
         if status_code == 204:
             data = {
