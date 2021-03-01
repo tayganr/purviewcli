@@ -1,7 +1,7 @@
 # Azure Purview CLI
 
 This package provides a command line interface to Azure Purview's REST API.  
-![purviewcli](./doc/image/purviewcli_example.png)
+![purviewcli](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_example.png)
 
 ## Installation
 
@@ -12,17 +12,24 @@ pip install purviewcli
 ## Getting Started
 
 1. Install purviewcli (e.g. `pip install purviewcli`)
-2. Set environment variables (`PURVIEW_NAME`, `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_CLIENT_SECRET`)
+2. Set environment variable(s).
+    *  `PURVIEW_NAME` *(mandatory)*
+    * `AZURE_CLIENT_ID` *(optional)*
+    * `AZURE_TENANT_ID` *(optional)*
+    * `AZURE_CLIENT_SECRET` *(optional)*
+
+   Note: The environment variables related to authentication are optional as there are several methods in which we can pass credentials to purviewcli in order to authenticate with an instance of Azure Purview. See [Authentication](#authentication) for more details. 
+
 3. Execute command (e.g. `!pv glossary read`)
 
-Snippet of an example Python-based notebook below.
+Snippet of an example Python-based notebook.
 
 
-![purviewcli](./doc/image/purviewcli_notebook.png)
+![purviewcli](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_notebook.png)
 
 ## Authentication
 
-The purviewcli package leverages the `DefaultAzureCredential` from [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential). This provides purviewcli a variety of credential sources it can use to attempt authentication (e.g. Environment Variables, Managed Identity, Visual Studio Code, Azure CLI, Interactive). For example, if you are signed into Azure within Visual Studio Code, purviewcli will leverage those existing credentials when executing a command. This negates the need to store and manage credentials specific to the purviewcli package by leveraging what exists already. Read the [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential) documentation to understand the authentication hierarchy.
+The purviewcli package leverages the `DefaultAzureCredential` method from [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential). This provides purviewcli a variety of credential sources it can use to attempt authentication (e.g. Environment Variables, Managed Identity, Visual Studio Code, Azure CLI, Interactive). For example, if you are signed into Azure within Visual Studio Code, purviewcli will leverage those existing credentials when executing a command. This negates the need to store and manage credentials specific to the purviewcli package by leveraging what exists already. Read the [azure-identity](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#defaultazurecredential) documentation to understand the authentication hierarchy.
 
 ## Authorization
 
@@ -30,15 +37,6 @@ The identity executing Azure Purview CLI commands will need access to the deploy
 
 * Purview Data Curator
 * Purview Data Source Administrator
-
-## Environment Variables
-
-* PURVIEW_NAME
-* AZURE_CLIENT_ID
-* AZURE_TENANT_ID
-* AZURE_CLIENT_SECRET
-
-Note: Syntax on how to set an environment variable will vary depending on your environment.
 
 ## Usage
 
