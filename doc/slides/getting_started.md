@@ -11,7 +11,7 @@ theme: uncover
 <!-- _class: left -->
 <!-- _footer: "Azure Purview High-Level Concepts" -->
 
-![bg width:95%](../image/purview_components.png)
+![bg width:95%](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purview_components.png)
 
 <style>
 section.left h4, section.left p {
