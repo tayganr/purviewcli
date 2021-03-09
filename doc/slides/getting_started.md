@@ -7,6 +7,19 @@ theme: uncover
 `purviewcli`
 
 ---
+
+<!-- _class: left -->
+<!-- _footer: "Azure Purview High-Level Concepts" -->
+
+![bg width:95%](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purview_components.png)
+
+<style>
+section.left h4, section.left p {
+  text-align: left;
+}
+</style>
+
+---
 <!-- paginate: true -->
 
 ## What is purviewcli?
@@ -106,6 +119,34 @@ table {
 ---
 
 <!-- _class: left -->
+<!-- _footer: "`pv --help`" -->
+
+#### Commands
+
+|Commands|Description|
+|:---|:---|
+|`pv entity`|Entities are a collection of attributes that model or represent an asset.|
+|`pv glossary`|A glossary provides vocabulary for business users.|
+|`pv lineage`|Understand the data's origin and where it moves over time.|
+|`pv relationship`|Relationships describe connections between two entities.|
+|`pv types`|A Type is a definition of how a particular object type is stored.|
+|`pv scan`|Azure Purview scan.|
+|`pv insight`|Azure Purview insights.|
+|`pv search`|Azure Purview advanced search.|
+
+<!-- Scoped style -->
+<style scoped>
+p {
+  font-size: 22px;
+}
+ol {
+  font-size: 22px;
+}
+</style>
+
+---
+
+<!-- _class: left -->
 <!-- _footer: "GitHub https://aka.ms/purviewcli" -->
 
 #### Usage
@@ -142,34 +183,6 @@ An example of how you can get started with `purviewcli` within a Jupyter Noteboo
  3. Execute Command
 
 ![bg right fit](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_notebook.png)
-
-<!-- Scoped style -->
-<style scoped>
-p {
-  font-size: 22px;
-}
-ol {
-  font-size: 22px;
-}
-</style>
-
----
-
-<!-- _class: left -->
-<!-- _footer: "`pv --help`" -->
-
-#### Commands
-
-|Commands|Description|
-|:---|:---|
-|`pv entity`|Entities are a collection of attributes that model or represent an asset.|
-|`pv glossary`|A glossary provides vocabulary for business users.|
-|`pv lineage`|Understand the data's origin and where it moves over time.|
-|`pv relationship`|Relationships describe connections between two entities.|
-|`pv types`|A Type is a definition of how a particular object type is stored.|
-|`pv scan`|Azure Purview scan.|
-|`pv insight`|Azure Purview insights.|
-|`pv search`|Azure Purview advanced search.|
 
 <!-- Scoped style -->
 <style scoped>
