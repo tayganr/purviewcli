@@ -12,7 +12,15 @@ class PurviewClient():
         self.access_token = None
         self.account_name = os.environ.get("PURVIEW_NAME")
         if self.account_name is None:
-            print("[ERROR] Environment variable PURVIEW_NAME is missing. To set the environment variable, execute the following command: \033[94mexport PURVIEW_NAME=value\033[0m")
+            print("""[ERROR] Environment variable PURVIEW_NAME is missing.
+
+Please configure the PURVIEW_NAME environment variable. Setting environment variables can vary by environment, see examples below.
+\tWindows (Command Prompt):\tset PURVIEW_NAME=value
+\tmacOS (Terminal):\t\texport PURVIEW_NAME=value
+\tPython:\t\t\t\tos.environ["PURVIEW_NAME"] = "value"
+\tPowerShell:\t\t\t$env:PURVIEW_NAME = "value"
+\tJupyter Notebook:\t\t%env PURVIEW_NAME=value
+""")
             sys.exit()
 
     def set_token(self):
