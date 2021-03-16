@@ -24,7 +24,7 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
             sys.exit()
 
     def set_token(self):
-        credential = DefaultAzureCredential()
+        credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
         try:
             token = credential.get_token('https://purview.azure.net/.default')
         except ClientAuthenticationError as e:

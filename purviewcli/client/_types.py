@@ -1,7 +1,8 @@
+import json
 import sys
 import itertools
 from .client import get_data
-from purviewcli.model.atlas import AtlasTypesDef, AtlasBaseTypeDef, AttributeDef, AtlasEntityDef
+from purviewcli.model.atlas import AtlasClassificationDef, AtlasEnumDef, AtlasRelationshipDef, AtlasStructDef, AtlasTypesDef, AtlasBaseTypeDef, AttributeDef, AtlasEntityDef
 
 # ---------------------------
 # TYPEDEFS
@@ -9,30 +10,42 @@ from purviewcli.model.atlas import AtlasTypesDef, AtlasBaseTypeDef, AttributeDef
 def typesCreateTypedefs(args):
   endpoint = '/api/atlas/v2/types/typedefs'
   typedefs = AtlasTypesDef()
+  payload = json.loads(args-['--json'])
+  for typeDefinition in payload:
+    for item in typeDefinition:
+      category = item['category']
 
-  for category, name, description in itertools.zip_longest(args['--category'], args['--defName'], args['--defDescription']):
-    typedef = AtlasBaseTypeDef()
-    typedef.category = category
-    typedef.name = name
-    typedef.description = description
-    item = typedef.__dict__
-    del item['guid']
-
-    if category == 'CLASSIFICATION':
-      typedefs.classificationDefs.append(item)
-    elif category == 'ENTITY':
-      typedefs.entityDefs.append(item)
-    elif category == 'ENUM':
-      typedefs.entityDefs.append(item)
-    elif category == 'RELATIONSHIP':
-      typedefs.entityDefs.append(item)
-    elif category == 'STRUCT':
-      typedefs.structDefs.append(item)
-    else:
-        print("[ERROR] Category '%s' is invalid. Valid categories include: CLASSIFICATION, ENTITY, ENUM, RELATIONSHIP, or STRUCT." % category)
-        sys.exit()
-
+      if category == 'CLASSIFICATION':
+        classification = AtlasClassificationDef.from_json(item)
+        item = classification.__dict__
+        del item['guid']
+        typedefs.classificationDefs.append(item)
+      elif category == 'ENTITY':
+        entity = AtlasEntityDef.from_json(item)
+        item = entity.__dict__
+        del item['guid']
+        typedefs.entityDefs.append(item)
+      elif category == 'ENUM':
+        enum = AtlasEnumDef.from_json(item)
+        item = enum.__dict__
+        del item['guid']
+        typedefs.enumDefs.append(item)
+      elif category == 'RELATIONSHIP':
+        relationship = AtlasRelationshipDef.from_json(item)
+        item = relationship.__dict__
+        del item['guid']
+        typedefs.relationshipDefs.append(item)
+      elif category == 'STRUCT':
+        struct = AtlasStructDef.from_json(item)
+        item = struct.__dict__
+        del item['guid']
+        typedefs.structDefs.append(item)
+      else:
+          print("[ERROR] Category '%s' is invalid. Valid categories include: CLASSIFICATION, ENTITY, ENUM, RELATIONSHIP, or STRUCT." % category)
+          sys.exit()
+  
   payload = typedefs.__dict__
+  print(payload)
   http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':payload}
   data = get_data(http_dict)
   return data

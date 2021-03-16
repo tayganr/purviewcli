@@ -280,10 +280,18 @@ class AtlasEnumDef(AtlasBaseTypeDef):
         self.defaultValue = kwargs.get('defaultValue')
         self.elementDefs = kwargs.get('elementDefs')
 
+    @classmethod
+    def from_json(cls, json_dict):
+        return cls(**json_dict)
+
 class AtlasStructDef(AtlasBaseTypeDef):
     def __init__(self, **kwargs):
         AtlasBaseTypeDef.__init__(self, **kwargs)
         self.attributeDefs = kwargs.get('attributeDefs')
+
+    @classmethod
+    def from_json(cls, json_dict):
+        return cls(**json_dict)
 
 class AtlasClassificationDef(AtlasStructDef):
     def __init__(self, **kwargs):
@@ -291,6 +299,10 @@ class AtlasClassificationDef(AtlasStructDef):
         self.entityTypes = kwargs.get('entityTypes')
         self.subTypes = kwargs.get('subTypes')
         self.superTypes = kwargs.get('superTypes')
+
+    @classmethod
+    def from_json(cls, json_dict):
+        return cls(**json_dict)
 
 class AtlasEntityDef(AtlasStructDef):
     def __init__(self, **kwargs):
@@ -313,3 +325,7 @@ class AtlasRelationshipDef(AtlasStructDef):
         self.propagateTags = kwargs.get('propagateTags')
         self.relationshipCategory = kwargs.get('relationshipCategory')
         self.relationshipLabel = kwargs.get('relationshipLabel')
+
+    @classmethod
+    def from_json(cls, json_dict):
+        return cls(**json_dict)
