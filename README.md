@@ -11,6 +11,8 @@ pip install purviewcli
 
 ## Getting Started
 
+[![YouTube](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_youtube.png)](https://www.youtube.com/watch?v=ycr1G5iMM6U)
+
 1. Install purviewcli (e.g. `pip install purviewcli`)
 2. Set environment variable(s).
     *  `PURVIEW_NAME` *(mandatory)*
