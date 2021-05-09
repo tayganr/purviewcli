@@ -10,8 +10,12 @@ from purviewcli.model.atlas import AtlasClassificationDef, AtlasEnumDef, AtlasRe
 def typesCreateTypedefs(args):
   endpoint = '/api/atlas/v2/types/typedefs'
   typedefs = AtlasTypesDef()
-  payload = json.loads(args-['--json'])
+  payload = json.dumps(args['--json'])
+
+  payload = json.loads(payload)
+
   for typeDefinition in payload:
+    print(typeDefinition)
     for item in typeDefinition:
       category = item['category']
 

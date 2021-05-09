@@ -1,6 +1,6 @@
 """
 usage: 
-    pv types createTypedefs --json
+    pv types createTypedefs --json=<val>
     pv types readTypedefs [--type=<val>]
     pv types updateTypedefs --category=<val>... --defName=<val>... [--defDescription=<val>...]
     pv types deleteTypedefs --defName=<val>...

@@ -120,7 +120,7 @@ def scanCreateSource(args):
             "subscriptionId": args['--subscriptionId'],
             "resourceGroup": args['--resourceGroup'],
             "location": args['--location'],
-            "resourceName": args['--resourceName'][0]
+            "resourceName": args['--resourceName']
         }
     elif args['--kind'] == 'AzureDataExplorer':
         payload['properties'] = {
@@ -128,7 +128,7 @@ def scanCreateSource(args):
             "subscriptionId": args['--subscriptionId'],
             "resourceGroup": args['--resourceGroup'],
             "location": args['--location'],
-            "resourceName": args['--resourceName'][0]
+            "resourceName": args['--resourceName']
         }
     elif args['--kind'] == 'AdlsGen1':
         payload['properties'] = {
@@ -136,7 +136,7 @@ def scanCreateSource(args):
             "subscriptionId": args['--subscriptionId'],
             "resourceGroup": args['--resourceGroup'],
             "location": args['--location'],
-            "resourceName": args['--resourceName'][0]
+            "resourceName": args['--resourceName']
         }
     elif args['--kind'] == 'AdlsGen2':
         payload['properties'] = {
@@ -144,7 +144,7 @@ def scanCreateSource(args):
             "subscriptionId": args['--subscriptionId'],
             "resourceGroup": args['--resourceGroup'],
             "location": args['--location'],
-            "resourceName": args['--resourceName'][0]
+            "resourceName": args['--resourceName']
         }
     elif args['--kind'] == 'AzureStorage':
         payload['properties'] = {
@@ -152,7 +152,7 @@ def scanCreateSource(args):
             "subscriptionId": args['--subscriptionId'],
             "resourceGroup": args['--resourceGroup'],
             "location": args['--location'],
-            "resourceName": args['--resourceName'][0]
+            "resourceName": args['--resourceName']
         }
     elif args['--kind'] == 'AzureSqlDatabase':
         payload['properties'] = {
@@ -160,7 +160,7 @@ def scanCreateSource(args):
             "subscriptionId": args['--subscriptionId'],
             "resourceGroup": args['--resourceGroup'],
             "location": args['--location'],
-            "resourceName": args['--resourceName'][0]
+            "resourceName": args['--resourceName']
         }
     elif args['--kind'] == 'AzureSqlDataWarehouse':
         payload['properties'] = {
@@ -168,7 +168,7 @@ def scanCreateSource(args):
             "subscriptionId": args['--subscriptionId'],
             "resourceGroup": args['--resourceGroup'],
             "location": args['--location'],
-            "resourceName": args['--resourceName'][0]
+            "resourceName": args['--resourceName']
         }
     elif args['--kind'] == 'PowerBI':
         payload['properties'] = {
@@ -184,7 +184,7 @@ def scanCreateSource(args):
             "subscriptionId": args['--subscriptionId'],
             "resourceGroup": args['--resourceGroup'],
             "location": args['--location'],
-            "resourceName": args['--resourceName'][0]
+            "resourceName": args['--resourceName']
         }
     elif args['--kind'] == 'AzureFileService':
         payload['properties'] = {
@@ -192,7 +192,7 @@ def scanCreateSource(args):
             "subscriptionId": args['--subscriptionId'],
             "resourceGroup": args['--resourceGroup'],
             "location": args['--location'],
-            "resourceName": args['--resourceName'][0]
+            "resourceName": args['--resourceName']
         }
     elif args['--kind'] == 'Teradata':
         payload['properties'] = {
