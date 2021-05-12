@@ -60,7 +60,7 @@ pv command sub-command --parameter1='value' --parameter2='value'
 ### Search
 
 ```
-pv search query [--keywords=<val> --filter=<val> --limit=<val> --offset=<val> --facets=<val>...]
+pv search query [--keywords=<val> --filter=<val> --limit=<val> --offset=<val> --facets=<val>]
 ```
 
 ### Entity

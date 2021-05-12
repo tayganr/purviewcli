@@ -12,9 +12,11 @@ def searchQuery(args):
         'limit': args['--limit'],
         'offset': args['--offset']
     }
-    if '--filter' in args:
+
+    if args['--filter'] is not None:
         payload['filter'] = json.loads(args['--filter'])
-    if '--facets' in args:
+
+    if args['--facets'] is not None:
         payload['facets'] = json.loads(args['--facets'])
 
     http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}

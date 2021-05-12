@@ -1,6 +1,6 @@
 """
 usage: 
-    pv search query [--keywords=<val> --filter=<val> --limit=<val> --offset=<val> --facets=<val>...]
+    pv search query [--keywords=<val> --filter=<val> --limit=<val> --offset=<val> --facets=<val>]
 
 options:
   --filter=<val>        Filter JSON payload (dictionary).
