@@ -1,0 +1,43 @@
+[{
+    "facet": "assetType",
+    "count": 0,
+    "sort": {
+        "count": "desc"
+    }
+}, {
+    "facet": "classification",
+    "count": 10,
+    "sort": {
+        "count": "desc"
+    }
+}, {
+    "facet": "contactId",
+    "count": 10,
+    "sort": {
+        "count": "desc"
+    }
+}, {
+    "facet": "label",
+    "count": 10,
+    "sort": {
+        "count": "desc"
+    }
+}, {
+    "facet": "term",
+    "count": 10,
+    "sort": {
+        "count": "desc"
+    }
+}, {
+    "facet": "classificationCategory",
+    "count": 0,
+    "sort": {
+        "count": "desc"
+    }
+}, {
+    "facet": "fileExtension",
+    "count": 0,
+    "sort": {
+        "count": "desc"
+    }
+}]

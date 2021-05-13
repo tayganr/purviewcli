@@ -1,12 +1,12 @@
 """
 usage: 
-    pv search query [--keywords=<val> --filter=<val> --limit=<val> --offset=<val> --facets=<val>]
+    pv search query [--keywords=<val> --filter-file=<val> --limit=<val> --offset=<val> --facets-file=<val>]
 
 options:
-  --filter=<val>        Filter JSON payload (dictionary).
   --limit=<val>         By default there is no paging [default: 25].
   --offset=<val>        Offset for pagination purpose [default: 0].
-  --facets=<val>        Facets JSON payload (array).
+  --filter-file=<val>   File path to a filter json file.
+  --facets-file=<val>   File path to a facets json file.
 
 """
 from docopt import docopt

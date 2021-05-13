@@ -1,0 +1,27 @@
+{
+    "and": [{
+        "not": {
+            "or": [{
+                "attributeName": "size",
+                "operator": "eq",
+                "attributeValue": 0
+            }, {
+                "attributeName": "fileSize",
+                "operator": "eq",
+                "attributeValue": 0
+            }]
+        }
+    }, {
+        "not": {
+            "classification": "MICROSOFT.SYSTEM.TEMP_FILE"
+        }
+    }, {
+        "not": {
+            "or": [{
+                "entityType": "AtlasGlossaryTerm"
+            }, {
+                "entityType": "AtlasGlossary"
+            }]
+        }
+    }]
+}
