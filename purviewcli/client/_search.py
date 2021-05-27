@@ -5,6 +5,18 @@ import sys
 # ---------------------------
 # SEARCH
 # ---------------------------
+def getJSON(args, param):
+    response = None
+    if args[param] is not None:
+        filepath = args[param]
+        if '.JSON' in filepath.upper():
+            with open(filepath) as json_file:
+                response = json.load(json_file)
+        else:
+            print('[ERROR] The {0} parameter must contain a valid file path to a JSON document.'.format(param))
+            sys.exit()
+    return response
+
 def searchQuery(args):
     endpoint = '/api/search/query'
 
@@ -13,24 +25,8 @@ def searchQuery(args):
         'limit': args['--limit'],
         'offset': args['--offset']
     }
-
-    if args['--filter-file'] is not None:
-        filepath = args['--filter-file']
-        if '.JSON' in filepath.upper():
-            with open(filepath) as json_file:
-                payload['filter'] = json.load(json_file)
-        else:
-            print('[ERROR] The filter-file parameter must contain a valid file path to a JSON document.')
-            sys.exit()
-
-    if args['--facets-file'] is not None:
-        filepath = args['--facets-file']
-        if '.JSON' in filepath.upper():
-            with open(filepath) as json_file:
-                payload['facets'] = json.load(json_file)
-        else:
-            print('[ERROR] The facets-file parameter must contain a valid file path to a JSON document.')
-            sys.exit()
+    payload['filter'] = getJSON(args,'--filter-file')
+    payload['facets'] = getJSON(args,'--facets-file')
 
     http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
     data = get_data(http_dict)
