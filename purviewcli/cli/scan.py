@@ -1,24 +1,27 @@
 """
 usage: 
-    pv scan read --datasource=<val> --scanName=<val>
-    pv scan run --datasource=<val> --scanName=<val> [--scanLevel=<val>]
-    pv scan createSource --datasource=<val> --kind=<val> [--accountUri=<val> --subscriptionId=<val> --resourceGroup=<val> --location=<val> --resourceName=<val> --endpoint=<val> --serverEndpoint=<val> --tenant=<val> --parentCollection=<val> --host=<val> --applicationServer=<val> --systemNumber=<val> --clusterUrl=<val> --roleARN=<val> --serviceUrl=<val>]
-    pv scan readSource --datasource=<val>
-    pv scan deleteSource --datasource=<val>
-    pv scan readSources
-    pv scan readScans --datasource=<val>
-    pv scan readHistory --datasource=<val> --scanName=<val>
-    pv scan readFilters --datasource=<val> --scanName=<val>
-    pv scan readScanRulesets
-    pv scan readSystemScanRulesets
-    pv scan readSystemScanRulesetsSettings
     pv scan readClassificationRules
-    pv scan readClassificationRule --classificationName=<val>
-    pv scan createCollection --collection=<val> [--parentCollection=<val>]
-    pv scan deleteCollection --collection=<val>
+    pv scan readClassificationRule --classificationRuleName=<val>
+    pv scan readClassificationRuleVersions --classificationRuleName=<val>
+    pv scan readDatasources
+    pv scan readDatasource --dataSourceName=<val>
+    pv scan readScans --dataSourceName=<val>
+    pv scan readScan --dataSourceName=<val> --scanName=<val>
+    pv scan readScanHistory --dataSourceName=<val> --scanName=<val>
+    pv scan readFilters --dataSourceName=<val> --scanName=<val>
+    pv scan readTrigger --dataSourceName=<val> --scanName=<val>
+    pv scan readScanRulesets
+    pv scan readScanRuleset --scanRulesetName=<val>
+    pv scan readSystemScanRulesets
+    pv scan readSystemScanRuleset --dataSourceType=<val>
+    pv scan readSystemScanRulesetVersion --version=<val> --dataSourceType=<val>
+    pv scan readSystemScanRulesetLatest --dataSourceType=<val>
+    pv scan readSystemScanRulesetVersions --dataSourceType=<val>
+    pv scan readKeyVaults
+    pv scan readKeyVault --keyVaultName=<val>
 
 options:
-    --scanLevel=<val>                   Incremental or Full.
+    --purviewName=<val>                   Azure Purview account name.
 
 """
 from docopt import docopt
