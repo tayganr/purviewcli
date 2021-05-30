@@ -1,0 +1,7 @@
+{
+    "name": "DataSource2",
+    "kind": "AdlsGen2",
+    "properties": {
+        "endpoint": "https://adls5965.dfs.core.windows.net/"
+    }
+}

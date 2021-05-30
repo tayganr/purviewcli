@@ -1,0 +1,6 @@
+{
+    "properties": {
+        "baseUrl": "https://babylon-sample-kv.vault.azure.net/",
+        "description": "This is a Key Vault"
+    }
+}

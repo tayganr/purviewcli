@@ -1,0 +1,11 @@
+{
+    "properties": {
+        "includeUriPrefixes": [
+            "https://foo.file.core.windows.net/share1/user",
+            "https://foo.file.core.windows.net/share1/aggregated"
+        ],
+        "excludeUriPrefixes": [
+            "https://foo.file.core.windows.net/share1/user/temp"
+        ]
+    }
+}

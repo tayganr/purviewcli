@@ -1,0 +1,21 @@
+{
+    "kind": "Custom",
+    "properties": {
+        "description": "Let's put a cool desc here",
+        "classificationName": "MICROSOFT.FINANCIAL.AUSTRALIA.BANK_ACCOUNT_NUMBER",
+        "columnPatterns": [
+            {
+                "pattern": "^data$",
+                "kind": "Regex"
+            }
+        ],
+        "dataPatterns": [
+            {
+                "pattern": "^[0-9]{2}-[0-9]{4}-[0-9]{6}-[0-9]{3}$",
+                "kind": "Regex"
+            }
+        ],
+        "minimumPercentageMatch": 60,
+        "ruleStatus": "Enabled"
+    }
+}

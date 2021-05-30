@@ -1,0 +1,7 @@
+{
+    "kind": "AdlsGen2Msi",
+    "properties": {
+        "scanRulesetName": "AzureStorage",
+        "scanRulesetType": "System"
+    }
+}

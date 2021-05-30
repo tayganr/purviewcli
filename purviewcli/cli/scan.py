@@ -25,6 +25,14 @@ usage:
     pv scan deleteScanRuleset --scanRulesetName=<val>
     pv scan deleteScan --dataSourceName=<val> --scanName=<val>
     pv scan deleteTrigger --dataSourceName=<val> --scanName=<val>
+    pv scan putDataSource --dataSourceName=<val> --payload-file=<val>
+    pv scan putScan --dataSourceName=<val> --scanName=<val> --payload-file=<val>
+    pv scan putFilter --dataSourceName=<val> --scanName=<val> --payload-file=<val>
+    pv scan putTrigger --dataSourceName=<val> --scanName=<val> --payload-file=<val>
+    pv scan runScan --dataSourceName=<val> --scanName=<val> --runId=<val>
+    pv scan putClassificationRule --classificationRuleName=<val> --payload-file=<val>
+    pv scan putKeyVault --keyVaultName=<val> --payload-file=<val>
+    pv scan putScanRuleset --scanRulesetName=<val> --payload-file=<val>
 
 options:
     --purviewName=<val>        Azure Purview account name.

@@ -1,0 +1,47 @@
+{
+    "kind": "AzureStorage",
+    "scanRulesetType": "Custom",
+    "properties": {
+        "scanningRule": {
+            "fileExtensions": [
+                "CSV",
+                "JSON",
+                "PSV",
+                "SSV",
+                "TSV",
+                "TXT",
+                "XML",
+                "PARQUET"
+            ],
+            "customFileExtensions": [
+                {
+                    "customFileType": {
+                        "builtInType": null,
+                        "customDelimiter": "$"
+                    },
+                    "description": "model file type",
+                    "enabled": true,
+                    "fileExtension": ".model"
+                },
+                {
+                    "customFileType": {
+                        "builtInType": "JSON",
+                        "customDelimiter": null
+                    },
+                    "description": "mdoel1 type",
+                    "enabled": true,
+                    "fileExtension": ".model1"
+                }
+            ]
+        },
+        "description": null,
+        "excludedSystemClassifications": [
+            "MICROSOFT.FINANCIAL.AUSTRALIA.BANK_ACCOUNT_NUMBER",
+            "MICROSOFT.MISCELLANEOUS.IPADDRESS"
+        ],
+        "includedCustomClassificationRuleNames": [
+            "BF_PII",
+            "Dummy_Rule2"
+        ]
+    }
+}
