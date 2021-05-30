@@ -19,9 +19,17 @@ usage:
     pv scan readSystemScanRulesetVersions --dataSourceType=<val>
     pv scan readKeyVaults
     pv scan readKeyVault --keyVaultName=<val>
+    pv scan deleteClassificationRule --classificationRuleName=<val>
+    pv scan deleteDataSource --dataSourceName=<val>
+    pv scan deleteKeyVault --keyVaultName=<val>
+    pv scan deleteScanRuleset --scanRulesetName=<val>
+    pv scan deleteScan --dataSourceName=<val> --scanName=<val>
+    pv scan deleteTrigger --dataSourceName=<val> --scanName=<val>
 
 options:
-    --purviewName=<val>                   Azure Purview account name.
+    --purviewName=<val>        Azure Purview account name.
+    --dataSourceType=<val>     AdlsGen1 | AdlsGen2 | AmazonAccount | AmazonPostgreSql | AmazonS3 | AmazonSql | AzureCosmosDb | AzureDataExplorer | AzureFileService | AzureMySql | AzurePostgreSql | AzureResourceGroup | AzureSqlDataWarehouse | AzureSqlDatabase | AzureSqlDatabaseManagedInstance | AzureStorage | AzureSubscription | AzureSynapse | AzureSynapseWorkspace | Oracle | PowerBI | SapEcc | SapS4Hana | SqlServerDatabase | Teradata.
+
 
 """
 from docopt import docopt

@@ -4,6 +4,7 @@ from .client import get_data
 # SCAN
 # ---------------------------
 
+# GET
 def scanReadClassificationRule(args):
     classificationRuleName = args['--classificationRuleName']
     endpoint = f'/classificationrules/{classificationRuleName}'
@@ -136,6 +137,52 @@ def scanReadTrigger(args):
     http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
     data = get_data(http_dict)
     return data
+
+# DELETE
+def scanDeleteClassificationRule(args):
+    classificationRuleName = args['--classificationRuleName']
+    endpoint = f'/classificationrules/{classificationRuleName}'
+    http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
+    return data
+
+def scanDeleteDataSource(args):
+    dataSourceName = args['--dataSourceName']
+    endpoint = f'/datasources/{dataSourceName}'
+    http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
+    return data
+
+def scanDeleteKeyVault(args):
+    keyVaultName = args['--keyVaultName']
+    endpoint = f'/azureKeyVaults/{keyVaultName}'
+    http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
+    return data
+
+def scanDeleteScanRuleset(args):
+    scanRulesetName = args['--scanRulesetName']
+    endpoint = f'/scanrulesets/{scanRulesetName}'
+    http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
+    return data
+
+def scanDeleteScan(args):
+    dataSourceName = args['--dataSourceName']
+    scanName = args['--scanName']
+    endpoint = f'/datasources/{dataSourceName}/scans/{scanName}'
+    http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
+    return data
+
+def scanDeleteTrigger(args):
+    dataSourceName = args['--dataSourceName']
+    scanName = args['--scanName']
+    endpoint = f'/datasources/{dataSourceName}/scans/{scanName}/triggers/default'
+    http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
+    data = get_data(http_dict)
+    return data
+
 
 # NEW ----------------------------
 
