@@ -16,8 +16,9 @@ usage:
     pv types addAttributedef --name=<val> --type=<val> --typeName=<val>
 
 options:
-  --type=<val>         Valid Types: classification | entity | enum | relationship | struct
-  --category=<val>     Valid Categories: CLASSIFICATION | ENTITY | ENUM | RELATIONSHIP | STRUCT
+  --purviewName=<val>    Azure Purview account name.
+  --type=<val>           Valid Types: classification | entity | enum | relationship | struct.
+  --category=<val>       Valid Categories: CLASSIFICATION | ENTITY | ENUM | RELATIONSHIP | STRUCT.
 
 """
 from docopt import docopt

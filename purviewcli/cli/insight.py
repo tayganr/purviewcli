@@ -8,6 +8,9 @@ usage:
     pv insight topLevelSummary [--registeredSourceGroup=<val>]
     pv insight registeredSourceGroupsWithAssets
 
+options:
+    --purviewName=<val>               Azure Purview account name.
+
 """
 from docopt import docopt
 

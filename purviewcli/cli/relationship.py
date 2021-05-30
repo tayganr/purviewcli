@@ -5,6 +5,9 @@ usage:
     pv relationship update --relationshipGuid=<val> [--status=<val>]
     pv relationship delete --relationshipGuid=<val>
 
+options:
+    --purviewName=<val>                   Azure Purview account name.
+
 """
 from docopt import docopt
 

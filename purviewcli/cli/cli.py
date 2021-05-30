@@ -25,6 +25,7 @@ import json
 import importlib
 from docopt import docopt
 from purviewcli import __version__
+from purviewcli.client import settings
 
 def main():
     if len(sys.argv) == 1:
@@ -32,6 +33,13 @@ def main():
         sys.exit(main())
     args = docopt(__doc__, version=__version__, options_first=True)
     argv = [args['<command>']] + args['<args>']
+    
+    # Remove purviewName from argument list
+    if '--purviewName' in argv:
+            pos = argv.index('--purviewName')
+            del argv[pos]
+            settings.PURVIEW_NAME = argv[pos]
+            del argv[pos]
 
     # Command
     command = args['<command>']

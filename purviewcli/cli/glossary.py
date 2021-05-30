@@ -30,6 +30,7 @@ usage:
     pv glossary deleteAssignedEntities --termGuid=<val> --guid=<val>... --relationshipGuid=<val>...
 
 options:
+    --purviewName=<val>     Azure Purview account name.
     --limit=<val>           By default there is no paging [default: -1].
     --offset=<val>          Offset for pagination purpose [default: 0].
     --sort=<val>            ASC or DESC [default: ASC].

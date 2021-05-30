@@ -4,13 +4,14 @@ import logging
 import requests
 from azure.identity import DefaultAzureCredential
 from azure.core.exceptions import ClientAuthenticationError
+from . import settings
 
 logging.getLogger("azure.identity").setLevel(logging.ERROR)
 
 class PurviewClient():
     def __init__(self):
         self.access_token = None
-        self.account_name = os.environ.get("PURVIEW_NAME")
+        self.account_name = settings.PURVIEW_NAME if settings.PURVIEW_NAME != None else os.environ.get("PURVIEW_NAME")
         if self.account_name is None:
             print("""[ERROR] Environment variable PURVIEW_NAME is missing.
 

@@ -4,6 +4,7 @@ usage:
     pv lineage readUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val> [--depth=<val> --direction=<val>]
 
 options:
+    --purviewName=<val>               Azure Purview account name.
     --depth=<depth>                   Number of hops for lineage [default: 3].
     --width=<width>                   Custom to Azure Purview [default: 6].
     --direction=<direction>           INPUT or OUTPUT or BOTH [default: BOTH].
