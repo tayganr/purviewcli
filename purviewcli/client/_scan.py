@@ -1,88 +1,56 @@
-from .client import get_data, get_json
+import uuid
+from .endpoint import Endpoint, decorator, get_json
 
-def decorator(func):
-    def wrapper(self, args):
-        func(self, args)
-        http_dict = {'app': self.app, 'method': self.method, 'endpoint': self.endpoint, 'params': self.params, 'payload': self.payload}
-        data = get_data(http_dict)
-        return data
-    return wrapper
-
-class Scan:
-
+class Scan(Endpoint):
     def __init__(self):
+        Endpoint.__init__(self)
         self.app = 'scan'
-        self.method = None
-        self.endpoint = None
-        self.params = None
-        self.payload = None
-
-    # ---------------------------
-    # SCAN
-    # ---------------------------
 
     # GET
-    def scanReadClassificationRule(args):
-        classificationRuleName = args['--classificationRuleName']
-        endpoint = f'/classificationrules/{classificationRuleName}'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadClassificationRule(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/classificationrules/{args["--classificationRuleName"]}'
 
-    def scanReadClassificationRules(args):
-        endpoint = '/classificationrules'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadClassificationRules(self, args):
+        self.method = 'GET'
+        self.endpoint = '/classificationrules'
 
-    def scanReadClassificationRuleVersions(args):
-        classificationRuleName = args['--classificationRuleName']
-        endpoint = f'/classificationrules/{classificationRuleName}/versions'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadClassificationRuleVersions(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/classificationrules/{args["--classificationRuleName"]}/versions'
 
-    def scanReadDatasource(args):
-        dataSourceName = args['--dataSourceName']
-        endpoint = f'/datasources/{dataSourceName}'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadDatasource(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}'
 
-    def scanReadDatasources(args):
-        endpoint = '/datasources'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadDatasources(self, args):
+        self.method = 'GET'
+        self.endpoint = '/datasources'
 
-    def scanReadFilters(args):
-        dataSourceName = args['--dataSourceName']
-        scanName = args['--scanName']
-        endpoint = f'/datasources/{dataSourceName}/scans/{scanName}/filters/custom'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadFilters(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/filters/custom'
 
-    def scanReadKeyVault(args):
-        keyVaultName = args['--keyVaultName']
-        endpoint = f'/azureKeyVaults/{keyVaultName}'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadKeyVault(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/azureKeyVaults/{args["--keyVaultName"]}'
 
-    def scanReadKeyVaults(args):
-        endpoint = '/azureKeyVaults'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadKeyVaults(self, args):
+        self.method = 'GET'
+        self.endpoint = '/azureKeyVaults'
 
-    def scanReadScanHistory(args):
-        dataSourceName = args['--dataSourceName']
-        scanName = args['--scanName']
-        endpoint = f'/datasources/{dataSourceName}/scans/{scanName}/runs'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadScanHistory(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/runs'
 
     @decorator
     def scanReadScanRuleset(self, args):
@@ -94,63 +62,45 @@ class Scan:
         self.method = 'GET'
         self.endpoint = '/scanrulesets'
 
-    def scanReadScan(args):
-        dataSourceName = args['--dataSourceName']
-        scanName = args['--scanName']
-        endpoint = f'/datasources/{dataSourceName}/scans/{scanName}'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadScan(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}'
 
-    def scanReadScans(args):
-        dataSourceName = args['--dataSourceName']
-        endpoint = f'/datasources/{dataSourceName}/scans'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadScans(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans'
 
-    def scanReadSystemScanRuleset(args):
-        dataSourceType = args['--dataSourceType']
-        endpoint = f'/systemScanRulesets/datasources/{dataSourceType}'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadSystemScanRuleset(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/systemScanRulesets/datasources/{args["--dataSourceType"]}'
 
-    def scanReadSystemScanRulesetVersion(args):
-        version = args['--version']
-        dataSourceType = args['--dataSourceType']
-        endpoint = f'/systemScanRulesets/versions/{version}?dataSourceType={dataSourceType}'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadSystemScanRulesetVersion(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/systemScanRulesets/versions/{args["--version"]}?dataSourceType={args["--dataSourceType"]}'
 
-    def scanReadSystemScanRulesetLatest(args):
-        dataSourceType = args['--dataSourceType']
-        endpoint = f'/systemScanRulesets/versions/latest?dataSourceType={dataSourceType}'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadSystemScanRulesetLatest(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/systemScanRulesets/versions/latest?dataSourceType={args["--dataSourceType"]}'
 
-    def scanReadSystemScanRulesets(args):
-        endpoint = '/systemScanRulesets'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadSystemScanRulesets(self, args):
+        self.method = 'GET'
+        self.endpoint = '/systemScanRulesets'
 
-    def scanReadSystemScanRulesetVersions(args):
-        dataSourceType = args['--dataSourceType']
-        endpoint = f'/systemScanRulesets/versions?dataSourceType={dataSourceType}'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadSystemScanRulesetVersions(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/systemScanRulesets/versions?dataSourceType={args["--dataSourceType"]}'
 
-    def scanReadTrigger(args):
-        dataSourceName = args['--dataSourceName']
-        scanName = args['--scanName']
-        endpoint = f'/datasources/{dataSourceName}/scans/{scanName}/triggers/default'
-        http_dict = {'app': 'scan', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanReadTrigger(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/triggers/default'
 
     # DELETE
     @decorator
@@ -158,93 +108,71 @@ class Scan:
         self.method = 'DELETE'
         self.endpoint = f'/classificationrules/{args["--classificationRuleName"]}'
 
-    def scanDeleteDataSource(args):
-        dataSourceName = args['--dataSourceName']
-        endpoint = f'/datasources/{dataSourceName}'
-        http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanDeleteDataSource(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}'
 
-    def scanDeleteKeyVault(args):
-        keyVaultName = args['--keyVaultName']
-        endpoint = f'/azureKeyVaults/{keyVaultName}'
-        http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanDeleteKeyVault(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/azureKeyVaults/{args["--keyVaultName"]}'
 
-    def scanDeleteScanRuleset(args):
-        scanRulesetName = args['--scanRulesetName']
-        endpoint = f'/scanrulesets/{scanRulesetName}'
-        http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanDeleteScanRuleset(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/scanrulesets/{args["--scanRulesetName"]}'
 
-    def scanDeleteScan(args):
-        dataSourceName = args['--dataSourceName']
-        scanName = args['--scanName']
-        endpoint = f'/datasources/{dataSourceName}/scans/{scanName}'
-        http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanDeleteScan(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}'
 
-    def scanDeleteTrigger(args):
-        dataSourceName = args['--dataSourceName']
-        scanName = args['--scanName']
-        endpoint = f'/datasources/{dataSourceName}/scans/{scanName}/triggers/default'
-        http_dict = {'app': 'scan', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanDeleteTrigger(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/triggers/default'
 
     # PUT
-    def scanPutClassificationRule(args):
-        classificationRuleName = args['--classificationRuleName']
-        endpoint = f'/classificationrules/{classificationRuleName}'
-        payload = get_json(args,'--payload-file')
-        http_dict = {'app': 'scan', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanPutClassificationRule(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/classificationrules/{args["--classificationRuleName"]}'
+        self.payload = get_json(args,'--payload-file')
 
-    def scanPutDataSource(args):
-        dataSourceName = args['--dataSourceName']
-        endpoint = f'/datasources/{dataSourceName}'
-        payload = get_json(args,'--payload-file')
-        http_dict = {'app': 'scan', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanPutDataSource(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}'
+        self.payload = get_json(args,'--payload-file')
 
-    def scanPutFilter(args):
-        dataSourceName = args['--dataSourceName']
-        scanName = args['--scanName']
-        endpoint = f'/datasources/{dataSourceName}/scans/{scanName}/filters/custom'
-        payload = get_json(args,'--payload-file')
-        http_dict = {'app': 'scan', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanPutFilter(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/filters/custom'
+        self.payload = get_json(args,'--payload-file')
 
-    def scanPutKeyVault(args):
-        keyVaultName = args['--keyVaultName']
-        endpoint = f'/azureKeyVaults/{keyVaultName}'
-        payload = get_json(args,'--payload-file')
-        http_dict = {'app': 'scan', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanPutKeyVault(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/azureKeyVaults/{args["--keyVaultName"]}'
+        self.payload = get_json(args,'--payload-file')
 
-    def scanRunScan(args):
-        dataSourceName = args['--dataSourceName']
-        scanName = args['--scanName']
-        runId = args['--runId']
-        endpoint = f'/datasources/{dataSourceName}/scans/{scanName}/runs/{runId}'
-        http_dict = {'app': 'scan', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': None}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanRunScan(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/runs/{str(uuid.uuid4())}'
+    
+    @decorator
+    def scanCancelScan(self, args):
+        self.method = 'POST'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/runs/{args["--runId"]}/:cancel'
 
-    def scanPutScanRuleset(args):
-        scanRulesetName = args['--scanRulesetName']
-        endpoint = f'/scanrulesets/{scanRulesetName}'
-        payload = get_json(args,'--payload-file')
-        http_dict = {'app': 'scan', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanPutScanRuleset(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/scanrulesets/{args["--scanRulesetName"]}'
+        self.payload = get_json(args,'--payload-file')
 
     @decorator
     def scanPutScan(self, args):
@@ -252,11 +180,8 @@ class Scan:
         self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}'
         self.payload = get_json(args,'--payload-file')
 
-    def scanPutTrigger(args):
-        dataSourceName = args['--dataSourceName']
-        scanName = args['--scanName']
-        endpoint = f'/datasources/{dataSourceName}/scans/{scanName}/triggers/default'
-        payload = get_json(args,'--payload-file')
-        http_dict = {'app': 'scan', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
-        data = get_data(http_dict)
-        return data
+    @decorator
+    def scanPutTrigger(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/triggers/default'
+        self.payload = get_json(args,'--payload-file')

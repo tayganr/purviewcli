@@ -29,7 +29,8 @@ usage:
     pv scan putScan --dataSourceName=<val> --scanName=<val> --payload-file=<val>
     pv scan putFilter --dataSourceName=<val> --scanName=<val> --payload-file=<val>
     pv scan putTrigger --dataSourceName=<val> --scanName=<val> --payload-file=<val>
-    pv scan runScan --dataSourceName=<val> --scanName=<val> --runId=<val>
+    pv scan runScan --dataSourceName=<val> --scanName=<val>
+    pv scan cancelScan --dataSourceName=<val> --scanName=<val> --runId=<val>
     pv scan putClassificationRule --classificationRuleName=<val> --payload-file=<val>
     pv scan putKeyVault --keyVaultName=<val> --payload-file=<val>
     pv scan putScanRuleset --scanRulesetName=<val> --payload-file=<val>
