@@ -1,30 +1,29 @@
-from .client import get_data
+from .endpoint import Endpoint, decorator, get_json
 
-# ---------------------------
-# LINEAGE
-# ---------------------------
-def lineageRead(args):
-  endpoint = '/api/atlas/v2/lineage/%s' %  args['--guid']
-  params = {
-    'depth': args.get('--depth', 3),
-    'width': args.get('--width', 6),
-    'direction': args.get('--direction', 'BOTH'),
-    'forceNewApi': 'true',
-    'includeParent': 'true',
-    'getDerivedLineage': 'false'
-  }
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+class Lineage(Endpoint):
+  def __init__(self):
+    Endpoint.__init__(self)
+    self.app = 'catalog'
 
-# Request URI not found
-def lineageReadUniqueAttributeType(args):
-  endpoint = '/api/atlas/v2/lineage/uniqueAttribute/type/%s' % args['--typeName']
-  params = {
-    'depth': args.get('--depth', 3),
-    'direction': args.get('--direction', 'BOTH'),
-    'attr:' + args['--attrKey']: args['--attrVal']
-  }  
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+  @decorator
+  def lineageRead(self, args):
+    self.method = 'GET'
+    self.endpoint = f'/api/atlas/v2/lineage/{args["--guid"]}'
+    self.params = {
+      'depth': args.get('--depth', 3),
+      'width': args.get('--width', 6),
+      'direction': args.get('--direction', 'BOTH'),
+      'forceNewApi': 'true',
+      'includeParent': 'true',
+      'getDerivedLineage': 'true'
+    }
+
+  # NOT SUPPORTED IN AZURE PURVIEW
+  # @decorator
+  # def lineageReadUniqueAttributeType(self, args):
+  #   self.method = 'GET'
+  #   self.endpoint = f'/api/atlas/v2/lineage/uniqueAttribute/type/{args["--typeName"]}'
+  #   self.params = {
+  #     'depth': args.get('--depth', 3),
+  #     'direction': args.get('--direction', 'BOTH')
+  #   }  

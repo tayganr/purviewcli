@@ -1,7 +1,6 @@
 """
 usage: 
     pv lineage read --guid=<val> [--depth=<val> --width=<val> --direction=<val>]
-    pv lineage readUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val> [--depth=<val> --direction=<val>]
 
 options:
     --purviewName=<val>               Azure Purview account name.
