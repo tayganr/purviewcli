@@ -1,47 +1,29 @@
-from .client import get_data
-from purviewcli.model.atlas import AtlasRelationship
+from .endpoint import Endpoint, decorator, get_json
 
-# ---------------------------
-# RELATIONSHIP
-# ---------------------------
-def relationshipCreate(args):
-    endpoint = '/api/atlas/v2/relationship'
-    relationship = AtlasRelationship()
-    relationship.typeName = args['--typeName']
-    relationship.status = args.get('--status','ACTIVE')
-    relationship.end1 = {
-        'guid': args['--end1Guid'],
-        'typeName': args['--end1Type']
-    }
-    relationship.end2 = {
-        'guid': args['--end2Guid'],
-        'typeName': args['--end2Type']
-    }
-    payload = relationship.__dict__
-    del payload['guid']
-    http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-    data = get_data(http_dict)
-    return data
+class Relationship(Endpoint):
+    def __init__(self):
+        Endpoint.__init__(self)
+        self.app = 'catalog'
 
-def relationshipRead(args):
-    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['--relationshipGuid']
-    params = {'extendedInfo': args.get('--extendedInfo', False)}
-    http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-    data = get_data(http_dict)
-    return data
+    @decorator
+    def relationshipCreate(self, args):
+        self.method = 'POST'
+        self.endpoint = '/api/atlas/v2/relationship'
+        self.payload = get_json(args, '--payload-file')
 
-def relationshipUpdate(args):
-    endpoint = '/api/atlas/v2/relationship'
-    relationship = relationshipRead({'--relationshipGuid': args['--relationshipGuid']})
-    relationship = AtlasRelationship.from_json(relationship['relationship'])
-    relationship.status = args.get('--status') if args.get('--status') else relationship.status
-    payload = relationship.__dict__
-    http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload': payload}
-    data = get_data(http_dict)
-    return data
+    @decorator
+    def relationshipPut(self, args):
+        self.method = 'PUT'
+        self.endpoint = '/api/atlas/v2/relationship'
+        self.payload = get_json(args, '--payload-file')
 
-def relationshipDelete(args):
-    endpoint = '/api/atlas/v2/relationship/guid/%s' % args['--relationshipGuid']
-    http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
-    data = get_data(http_dict)
-    return data
+    @decorator
+    def relationshipDelete(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/relationship/guid/{args["--guid"]}'
+
+    @decorator
+    def relationshipRead(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/api/atlas/v2/relationship/guid/{args["--guid"]}'
+        self.params = {'extendedInfo': str(args["--extendedInfo"]).lower()}
