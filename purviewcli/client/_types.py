@@ -1,218 +1,92 @@
-import json
-import sys
-import itertools
-from .client import get_data
-from purviewcli.model.atlas import AtlasClassificationDef, AtlasEnumDef, AtlasRelationshipDef, AtlasStructDef, AtlasTypesDef, AtlasBaseTypeDef, AttributeDef, AtlasEntityDef
+from .endpoint import Endpoint, decorator, get_json
 
-# ---------------------------
-# TYPEDEFS
-# ---------------------------
-def typesCreateTypedefs(args):
-  endpoint = '/api/atlas/v2/types/typedefs'
-  typedefs = AtlasTypesDef()
-  payload = json.dumps(args['--json'])
+class Types(Endpoint):
+    def __init__(self):
+        Endpoint.__init__(self)
+        self.app = 'catalog'
 
-  payload = json.loads(payload)
+    @decorator
+    def typesReadBusinessmetadatadef(self, args):
+        self.method = 'GET'
+        typeDefKey = 'guid' if args['--name'] is None else 'name'
+        typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
+        self.endpoint = f'/api/atlas/v2/types/businessmetadatadef/{typeDefKey}/{typeDefVal}'
 
-  for typeDefinition in payload:
-    print(typeDefinition)
-    for item in typeDefinition:
-      category = item['category']
+    @decorator
+    def typesReadClassificationdef(self, args):
+        self.method = 'GET'
+        typeDefKey = 'guid' if args['--name'] is None else 'name'
+        typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
+        self.endpoint = f'/api/atlas/v2/types/classificationdef/{typeDefKey}/{typeDefVal}'
 
-      if category == 'CLASSIFICATION':
-        classification = AtlasClassificationDef.from_json(item)
-        item = classification.__dict__
-        del item['guid']
-        typedefs.classificationDefs.append(item)
-      elif category == 'ENTITY':
-        entity = AtlasEntityDef.from_json(item)
-        item = entity.__dict__
-        del item['guid']
-        typedefs.entityDefs.append(item)
-      elif category == 'ENUM':
-        enum = AtlasEnumDef.from_json(item)
-        item = enum.__dict__
-        del item['guid']
-        typedefs.enumDefs.append(item)
-      elif category == 'RELATIONSHIP':
-        relationship = AtlasRelationshipDef.from_json(item)
-        item = relationship.__dict__
-        del item['guid']
-        typedefs.relationshipDefs.append(item)
-      elif category == 'STRUCT':
-        struct = AtlasStructDef.from_json(item)
-        item = struct.__dict__
-        del item['guid']
-        typedefs.structDefs.append(item)
-      else:
-          print("[ERROR] Category '%s' is invalid. Valid categories include: CLASSIFICATION, ENTITY, ENUM, RELATIONSHIP, or STRUCT." % category)
-          sys.exit()
-  
-  payload = typedefs.__dict__
-  print(payload)
-  http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload':payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def typesReadEntitydef(self, args):
+        self.method = 'GET'
+        typeDefKey = 'guid' if args['--name'] is None else 'name'
+        typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
+        self.endpoint = f'/api/atlas/v2/types/entitydef/{typeDefKey}/{typeDefVal}'
 
-def typesReadTypedefs(args):
-  endpoint = '/api/atlas/v2/types/typedefs'
-  params = {'type': args['--type']} if args['--type'] else None
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def typesReadEnumdef(self, args):
+        self.method = 'GET'
+        typeDefKey = 'guid' if args['--name'] is None else 'name'
+        typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
+        self.endpoint = f'/api/atlas/v2/types/enumdef/{typeDefKey}/{typeDefVal}'
 
-def typesUpdateTypedefs(args):
-  endpoint = '/api/atlas/v2/types/typedefs'
-  typedefs = AtlasTypesDef()
+    @decorator
+    def typesReadRelationshipdef(self, args):
+        self.method = 'GET'
+        typeDefKey = 'guid' if args['--name'] is None else 'name'
+        typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
+        self.endpoint = f'/api/atlas/v2/types/relationshipdef/{typeDefKey}/{typeDefVal}'
 
-  for category, name, description in itertools.zip_longest(args['--category'], args['--defName'], args['--defDescription']):
-    typedef = typesReadTypedef({'--guid': None, '--name': name})
-    typedef = AtlasBaseTypeDef.from_json(typedef)
-    typedef.category = category
-    typedef.description = description
+    @decorator
+    def typesReadStructdef(self, args):
+        self.method = 'GET'
+        typeDefKey = 'guid' if args['--name'] is None else 'name'
+        typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
+        self.endpoint = f'/api/atlas/v2/types/structdef/{typeDefKey}/{typeDefVal}'
 
-    item = typedef.__dict__
-    if category == 'CLASSIFICATION':
-      typedefs.classificationDefs.append(item)
-    elif category == 'ENTITY':
-      typedefs.entityDefs.append(item)
-    elif category == 'ENUM':
-      typedefs.entityDefs.append(item)
-    elif category == 'RELATIONSHIP':
-      typedefs.entityDefs.append(item)
-    elif category == 'STRUCT':
-      typedefs.structDefs.append(item)
-    else:
-        print("[ERROR] Category '%s' is invalid. Valid categories include: CLASSIFICATION, ENTITY, ENUM, RELATIONSHIP, or STRUCT." % category)
-        sys.exit()
+    @decorator
+    def typesReadTypedef(self, args):
+        self.method = 'GET'
+        typeDefKey = 'guid' if args['--name'] is None else 'name'
+        typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
+        self.endpoint = f'/api/atlas/v2/types/typedef/{typeDefKey}/{typeDefVal}'
 
-  payload = typedefs.__dict__
-  http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload':payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def typesReadTypedefs(self, args):
+        self.method = 'GET'
+        self.endpoint = '/api/atlas/v2/types/typedefs'
+        self.params = {'includeTermTemplate': str(args["--includeTermTemplate"]).lower()}
+        self.params['type'] = args["--type"] if args["--type"] else None
 
-def typesAddAttributedef(args):
-  # Attribute Definition
-  attr = AttributeDef()
-  attr.cardinality = "SINGLE"
-  attr.includeInNotification = False
-  attr.isIndexable = False
-  attr.isOptional = True
-  attr.isUnique = False
-  attr.name = args['--name']
-  attr.typeName = args['--type']
-  attr.valuesMaxCount = 1
-  attr.valuesMinCount = 0
+    @decorator
+    def typesReadTypedefsHeaders(self, args):
+      self.method = 'GET'
+      self.endpoint = '/api/atlas/v2/types/typedefs/headers'
+      self.params = {'includeTermTemplate': str(args["--includeTermTemplate"]).lower()}
+      self.params['type'] = args["--type"] if args["--type"] else None
 
-  # Entity Definition
-  typedef = typesReadTypedef({'--guid': None, '--name': args['--typeName']})
-  typedef = AtlasEntityDef.from_json(typedef)
-  typedef.attributeDefs.append(attr.__dict__)
+    @decorator
+    def typesDeleteTypedef(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/types/typedef/name/{args["--name"]}'
 
-  # Types Definition
-  item = typedef.__dict__
-  typedefs = AtlasTypesDef()
-  typedefs.entityDefs.append(item)
-  payload = typedefs.__dict__
+    @decorator
+    def typesDeleteTypedefs(self, args):
+        self.method = 'DELETE'
+        self.endpoint = '/api/atlas/v2/types/typedefs'
+        self.payload = get_json(args, '--payload-file')
 
-  # Request
-  endpoint = '/api/atlas/v2/types/typedefs'
-  http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': None, 'payload':payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def typesCreateTypedefs(self, args):
+        self.method = 'POST'
+        self.endpoint = '/api/atlas/v2/types/typedefs'
+        self.payload = get_json(args, '--payload-file')
 
-def typesDeleteTypedefs(args):
-  endpoint = '/api/atlas/v2/types/typedefs'
-  typedefs = AtlasTypesDef()
-
-  for name in args['--defName']:
-    typedef = typesReadTypedef({'--guid': None, '--name': name})
-    typedef = AtlasBaseTypeDef.from_json(typedef)
-    category = typedef.category
-    item = typedef.__dict__
-    if category == 'CLASSIFICATION':
-      typedefs.classificationDefs.append(item)
-    elif category == 'ENTITY':
-      typedefs.entityDefs.append(item)
-    elif category == 'ENUM':
-      typedefs.entityDefs.append(item)
-    elif category == 'RELATIONSHIP':
-      typedefs.entityDefs.append(item)
-    elif category == 'STRUCT':
-      typedefs.structDefs.append(item)
-    else:
-        print("[ERROR] Category '%s' is invalid. Valid categories include: CLASSIFICATION, ENTITY, ENUM, RELATIONSHIP, or STRUCT." % category)
-        sys.exit()
-
-  payload = typedefs.__dict__
-  http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload':payload}
-  data = get_data(http_dict)
-  return data
-
-def typesReadTypedefsHeaders(args):
-  endpoint = '/api/atlas/v2/types/typedefs/headers'
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
-
-def typesReadTypedef(args):
-  typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
-  endpoint = '/api/atlas/v2/types/typedef/%s/%s' % (typeDefKey,typeDefVal)
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
-
-def typesDeleteTypedefName(args):
-  endpoint = '/api/atlas/v2/types/typedef/name/%s' % args['--name']
-  http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
-
-def typesReadBusinessmetadatadef(args):
-  typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
-  endpoint = '/api/atlas/v2/types/businessmetadatadef/%s/%s' % (typeDefKey,typeDefVal)
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
-
-def typesReadClassificationdef(args):
-  typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
-  endpoint = '/api/atlas/v2/types/classificationdef/%s/%s' % (typeDefKey,typeDefVal)
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
-  
-def typesReadEntitydef(args):
-  typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
-  endpoint = '/api/atlas/v2/types/entitydef/%s/%s' % (typeDefKey,typeDefVal)
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
-
-def typesReadEnumdef(args):
-  typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
-  endpoint = '/api/atlas/v2/types/enumdef/%s/%s' % (typeDefKey,typeDefVal)
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
-
-def typesReadRelationshipdef(args):
-  typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
-  endpoint = '/api/atlas/v2/types/relationshipdef/%s/%s' % (typeDefKey,typeDefVal)
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
-
-def typesReadStructdef(args):
-  typeDefKey = 'guid' if args['--name'] is None else 'name'
-  typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
-  endpoint = '/api/atlas/v2/types/structdef/%s/%s' % (typeDefKey,typeDefVal)
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def typesPutTypedefs(self, args):
+        self.method = 'PUT'
+        self.endpoint = '/api/atlas/v2/types/typedefs'
+        self.payload = get_json(args, '--payload-file')
