@@ -54,11 +54,16 @@ def main():
     for item in command_args:
         if item[0] != '-' and item[0] != '<' and item != command and command_args[item] is True:
             action = item
-    globals()['lib'] = importlib.import_module('purviewcli.client._' + command)
+    
+    # purviewcli.client Class
+    module = importlib.import_module('purviewcli.client._' + command)
+    class_ = getattr(module, command.title())
+    instance = class_()
 
     # Method
     funcStr = command + action[0].upper() + action[1:]
-    funcObj = eval('lib.' + funcStr)
+    # funcObj = eval('lib.' + funcStr)
+    funcObj = eval('instance.' + funcStr)
     data = funcObj(command_args)
     
     # Print data
