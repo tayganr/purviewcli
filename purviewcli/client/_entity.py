@@ -1,287 +1,226 @@
-import itertools
-from .client import get_data
-from purviewcli.model import AtlasEntity, AtlasEntityWithExtInfo, AtlasEntitiesWithExtInfo, AtlasClassification, ClassificationAssociateRequest
+from .endpoint import Endpoint, decorator, get_json
 
-# ---------------------------
-# ENTITY
-# ---------------------------
-def entityCreate(args):
-  endpoint = '/api/atlas/v2/entity'
-  # Entity
-  entity = AtlasEntity()
-  entity.attributes = {
-    'name': args.get('--name')[0],
-    'description': args.get('--description'),
-    'qualifiedName': args.get('--qualifiedName')[0]
-  }
-  entity.typeName = args.get('--typeName')[0]
-  entity = entity.__dict__
-  del entity['guid']
+class Entity(Endpoint):
+    def __init__(self):
+        Endpoint.__init__(self)
+        self.app = 'catalog'
 
-  # Payload
-  payload = AtlasEntityWithExtInfo()
-  payload.entity = entity
-  payload = payload.__dict__
-  http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityCreate(self, args):
+        self.method = 'POST'
+        self.endpoint = '/api/atlas/v2/entity'
+        self.payload = get_json(args, '--payload-file')
 
-def entityRead(args):
-  endpoint = '/api/atlas/v2/entity/guid/%s' % args['--guid'][0]
-  params = {
-    'ignoreRelationships': args.get('--ignoreRelationships', False),
-    'minExtInfo': args.get('--minExtInfo', False)
-  }
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityDeleteBulk(self, args):
+        self.method = 'DELETE'
+        self.endpoint = '/api/atlas/v2/entity/bulk'
+        self.params = {'guid': args['--guid']}
 
-def entityUpdate(args):
-  endpoint = '/api/atlas/v2/entity/guid/%s' % args['--guid'][0]
-  params = {'name': args['--attrKey']}
-  payload = args['--attrVal']
-  http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': params, 'payload': payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityReadBulk(self, args):
+        self.method = 'GET'
+        self.endpoint = '/api/atlas/v2/entity/bulk'
+        self.params = {'guid': args['--guid'], 'ignoreRelationships': str(args['--ignoreRelationships']).lower(), 'minExtInfo': str(args['--minExtInfo']).lower()}
 
-def entityDelete(args):
-  endpoint = '/api/atlas/v2/entity/guid/%s' % args['--guid'][0]
-  http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityCreateBulk(self, args):
+        self.method = 'POST'
+        self.endpoint = '/api/atlas/v2/entity/bulk'
+        self.payload = get_json(args, '--payload-file')
 
-def entityReadAudit(args):
-  endpoint = '/api/atlas/v2/entity/%s/audit' % args['--guid'][0]
-  params = {'count': args['--count']}
-  if args['--auditAction']:
-    params['auditAction'] = args['--auditAction']
-  if args['--startKey']:
-    params['startKey'] = args['--startKey']
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityCreateBulkClassification(self, args):
+        # Associates a classification to multiple entities in bulk.
+        self.method = 'POST'
+        self.endpoint = '/api/atlas/v2/entity/bulk/classification'
+        self.payload = get_json(args, '--payload-file')
 
-def entityReadHeader(args):
-  endpoint = '/api/atlas/v2/entity/guid/%s/header' % args['--guid'][0]
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    # NOT SUPPORTED BY AZURE PURVIEW
+    # @decorator
+    # def entityReadBulkHeaders(self, args):
+    #     self.method = 'GET'
+    #     self.endpoint = '/api/atlas/v2/entity/bulk/headers'
+    #     self.params = {'tagUpdateStartTime': args['--tagUpdateStartTime']}
 
-# ---------------------------
-# BULK
-# ---------------------------
-def entityCreateBulk(args):
-  endpoint = '/api/atlas/v2/entity/bulk'
-  entities = AtlasEntitiesWithExtInfo()
-  for name, qualifiedName, typeName in itertools.zip_longest(args['--name'], args['--qualifiedName'], args['--typeName']):
-    entity = AtlasEntity()
-    entity.attributes = {
-      'name': name,
-      'qualifiedName': qualifiedName
-    }
-    entity.typeName = typeName
-    entity = entity.__dict__
-    del entity['guid']
-    entities.entities.append(entity)
-  payload = entities.__dict__
-  http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityCreateBulkClassifications(self, args):
+        # Set classifications on entities in bulk (Classification -< Entities).
+        self.method = 'POST'
+        self.endpoint = '/api/atlas/v2/entity/bulk/setClassifications'
+        self.payload = get_json(args, '--payload-file')
 
-def entityReadBulk(args):
-  endpoint = '/api/atlas/v2/entity/bulk'
-  params = {
-    'ignoreRelationships': args.get('--ignoreRelationships', False),
-    'minExtInfo': args.get('--minExtInfo', False),
-    'guid': args['--guid']
-  }
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityReadUniqueAttribute(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/api/atlas/v2/entity/bulk/uniqueAttribute/type/{args["--typeName"]}'
+        self.params = {'ignoreRelationships': str(args['--ignoreRelationships']).lower(), 'minExtInfo': str(args['--minExtInfo']).lower()}
 
-def entityCreateBulkClassification(args):
-  endpoint = '/api/atlas/v2/entity/bulk/classification'
-  associate_request = ClassificationAssociateRequest()
-  classification = AtlasClassification()
-  classification.typeName = args['--classificationName'][0]
-  associate_request.classification = classification.__dict__
-  for guid in args['--guid']:
-    associate_request.entityGuids.append(guid)
-  payload = associate_request.__dict__
-  http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityCreateBusinessMetadataTemplate(self, args):
+        self.method = 'POST'
+        self.endpoint = '/api/atlas/v2/entity/businessmetadata/import'
+        self.payload = get_json(args, '--payload-file')
 
-# RequestInvalid
-# pv entity deleteBulk --guid=<val>...
-def entityDeleteBulk(args):
-  endpoint = '/api/atlas/v2/entity/bulk'
-  params = {'guid': args['--guid']}
-  http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityReadBusinessMetadataTemplate(self, args):
+        self.method = 'GET'
+        self.endpoint = '/api/atlas/v2/entity/businessmetadata/import/template'
 
-# RequestUriNotFound
-# pv entity readBulkHeaders [--tagUpdateStartTime=<val>]
-def entityReadBulkHeaders(args):
-  endpoint = '/api/atlas/v2/entity/bulk/headers'
-  params = None if args['--tagUpdateStartTime'] is None else {'tagUpdateStartTime': args['--tagUpdateStartTime']}
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityDelete(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}'
 
-# ---------------------------
-# CLASSIFICATIONS
-# ---------------------------
-def entityCreateClassifications(args):
-  endpoint = '/api/atlas/v2/entity/guid/%s/classifications' % (args['--guid'][0])
-  payload = []
-  for name in args.get('--classificationName'):
-    classification = AtlasClassification()
-    classification.typeName = name
-    payload.append(classification.__dict__)
-  http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityRead(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}'
+        self.params = {'ignoreRelationships': str(args['--ignoreRelationships']).lower(), 'minExtInfo': str(args['--minExtInfo']).lower()}
 
-def entityReadClassifications(args):
-  endpoint = '/api/atlas/v2/entity/guid/%s/classifications' % args['--guid'][0]
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityPut(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}'
+        self.params = {'name': args['--name']}
+        self.payload = get_json(args, '--payload-file')
 
-# ---------------------------
-# CLASSIFICATION
-# ---------------------------
-def entityReadClassification(args):
-  endpoint = '/api/atlas/v2/entity/guid/%s/classification/%s' % (args['--guid'][0], args['--classificationName'][0])
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityDeleteBusinessMetadata(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata'
+        self.payload = get_json(args, '--payload-file')
 
-def entityDeleteClassification(args):
-  endpoint = '/api/atlas/v2/entity/guid/%s/classification/%s' % (args['--guid'][0], args['--classificationName'][0])
-  http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': None, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityCreateBusinessMetadata(self, args):
+        self.method = 'POST'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata'
+        self.params = {'isOverwrite': str(args['--isOverwrite']).lower()}
+        self.payload = get_json(args, '--payload-file')
 
-# ---------------------------
-# UNIQUE ATTRIBUTE (ENTITY)
-# ---------------------------
-def entityReadBulkUniqueAttributeType(args):
-  endpoint = '/api/atlas/v2/entity/bulk/uniqueAttribute/type/%s' % args['--typeName'][0]
-  params = {'ignoreRelationships': args['--ignoreRelationships'], 'minExtInfo': args['--minExtInfo']}
+    @decorator
+    def entityDeleteBusinessMetadataName(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata/{args["--bmName"]}'
+        self.payload = get_json(args, '--payload-file')
 
-  counter = 0
-  for attrKey, attrVal in itertools.zip_longest(args['--attrKey'], args['--attrVal']):
-    params['attr_' + str(counter) + ':' + attrKey] = attrVal
-    counter += 1
+    @decorator
+    def entityCreateBusinessMetadataName(self, args):
+        self.method = 'POST'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata/{args["--bmName"]}'
+        self.payload = get_json(args, '--payload-file')
 
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityDeleteClassification(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/classification/{args["--classificationName"]}'
 
-def entityReadUniqueAttributeType(args):
-  endpoint = '/api/atlas/v2/entity/uniqueAttribute/type/%s' % args['--typeName'][0]
-  params = {
-    'ignoreRelationships': args['--ignoreRelationships'],
-    'minExtInfo': args['--minExtInfo'],
-    'attr:' + args['--attrKey'][0]: args['--attrVal'][0]
-  }
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityReadClassification(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/classification/{args["--classificationName"]}'
 
-def entityUpdateUniqueAttributeType(args):
-  endpoint = '/api/atlas/v2/entity/uniqueAttribute/type/%s' % args['--typeName'][0]
-  entity = entityReadUniqueAttributeType(args)
-  entity = AtlasEntityWithExtInfo.from_json(entity)
-  entity.entity['attributes']['description'] = args['--description']
-  payload = entity.__dict__
-  params = {
-    'attr:' + args['--attrKey'][0]: args['--attrVal'][0]
-  }
-  http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': params, 'payload': payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityReadClassifications(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/classifications'
 
-def entityDeleteUniqueAttributeType(args):
-  endpoint = '/api/atlas/v2/entity/uniqueAttribute/type/%s' % args['--typeName'][0]
-  params = {
-    'attr:' + args['--attrKey'][0]: args['--attrVal'][0]
-  }
-  http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityCreateClassifications(self, args):
+        self.method = 'POST'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/classifications'
+        self.payload = get_json(args, '--payload-file')
 
-# RequestUriNotFound
-# pv entity readUniqueAttributeTypeHeader --typeName=<val> --attrKey=<val> --attrVal=<val>
-def entityReadUniqueAttributeTypeHeader(args):
-  endpoint = '/api/atlas/v2/entity/uniqueAttribute/type/%s/header' % args['--typeName'][0]
-  params = {
-    'attr:' + args['--attrKey'][0]: args['--attrVal'][0]
-  }
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityPutClassifications(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/classifications'
+        self.payload = get_json(args, '--payload-file')
 
-# ---------------------------
-# UNIQUE ATTRIBUTE (CLASSIFICATION)
-# ---------------------------
-def entityCreateUniqueAttributeTypeClassifications(args):
-  endpoint = '/api/atlas/v2/entity/uniqueAttribute/type/%s/classifications' % args['--typeName'][0]
-  payload = []
-  for name in args.get('--classificationName'):
-    classification = AtlasClassification()
-    classification.typeName = name
-    payload.append(classification.__dict__)
-  params = {
-    'attr:' + args['--attrKey'][0]: args['--attrVal'][0]
-  }
-  http_dict = {'app': 'catalog', 'method': 'POST', 'endpoint': endpoint, 'params': params, 'payload': payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityReadHeader(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/header'
 
-def entityUpdateUniqueAttributeTypeClassifications(args):
-  endpoint = '/api/atlas/v2/entity/uniqueAttribute/type/%s/classifications' % args['--typeName'][0]
-  entity = entityReadUniqueAttributeType(args)
-  entity = AtlasEntityWithExtInfo.from_json(entity)
+    @decorator
+    def entityDeleteLabels(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/labels'
+        self.payload = get_json(args, '--payload-file')
 
-  payload = []
-  for x in entity.entity['classifications']:
-    if x['typeName'] in args.get('--classificationName'):
-      classification = AtlasClassification.from_json(x)
-      # Update classification here
-      payload.append(classification.__dict__)
+    @decorator
+    def entityCreateLabels(self, args):
+        self.method = 'POST'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/labels'
+        self.payload = get_json(args, '--payload-file')
 
-  params = {
-    'attr:' + args['--attrKey'][0]: args['--attrVal'][0]
-  }
-  http_dict = {'app': 'catalog', 'method': 'PUT', 'endpoint': endpoint, 'params': params, 'payload': payload}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityPutLabels(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/labels'
+        self.payload = get_json(args, '--payload-file')
 
-def entityDeleteUniqueAttributeTypeClassification(args):
-  endpoint = '/api/atlas/v2/entity/uniqueAttribute/type/%s/classification/%s' % (args['--typeName'][0], args['--classificationName'][0])
-  params = {
-    'attr:' + args['--attrKey'][0]: args['--attrVal'][0]
-  }
-  http_dict = {'app': 'catalog', 'method': 'DELETE', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityDeleteType(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}'
 
-# ---------------------------
-# OTHER
-# ---------------------------
-# RequestUriNotFound
-# pv entity readAudit --guid=<val> [--auditAction=<val> --count=<val> --startKey=<val>]
-def entityReadAudit(args):
-  endpoint = '/api/atlas/v2/entity/guid/%s/audit' % args['--guid'][0]
-  params = {
-    'auditAction': args.get('--auditAction'),
-    'count': args.get('--count', 100),
-    'startKey': args.get('--startKey')
-  }
-  http_dict = {'app': 'catalog', 'method': 'GET', 'endpoint': endpoint, 'params': params, 'payload': None}
-  data = get_data(http_dict)
-  return data
+    @decorator
+    def entityReadType(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}'
+        self.params = {'attr:qualifiedName': args['--qualifiedName'], 'ignoreRelationships': str(args['--ignoreRelationships']).lower(), 'minExtInfo': str(args['--minExtInfo']).lower()}
+
+    @decorator
+    def entityPutType(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}'
+        self.payload = get_json(args, '--payload-file')
+
+    @decorator
+    def entityDeleteTypeClassification(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/classification/{args["--classificationName"]}'
+
+    @decorator
+    def entityCreateTypeClassifications(self, args):
+        self.method = 'POST'
+        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/classifications'
+        self.payload = get_json(args, '--payload-file')
+
+    @decorator
+    def entityPutTypeClassifications(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/classifications'
+        self.payload = get_json(args, '--payload-file')
+
+    # NOT SUPPORTED BY AZURE PURVIEW
+    # @decorator
+    # def entityReadTypeHeader(self, args):
+    #     self.method = 'GET'
+    #     self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/header'
+    #     self.params = {'attr:qualifiedName': args['--qualifiedName']}
+
+    @decorator
+    def entityDeleteTypeLabels(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/labels'
+        self.payload = get_json(args, '--payload-file')
+
+    @decorator
+    def entityCreateTypeLabels(self, args):
+        self.method = 'POST'
+        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/labels'
+        self.payload = get_json(args, '--payload-file')
+
+    @decorator
+    def entityPutTypeLabels(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/labels'
+        self.payload = get_json(args, '--payload-file')
+
+    @decorator
+    def entityReadAudit(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/api/atlas/v2/entity/{args["--guid"][0]}/audit'
+        self.params = {'auditAction': args['--auditAction'], 'count': args['--count'], 'startKey': args['--startKey']}

@@ -1,24 +1,40 @@
 """
 usage: 
-    pv entity create --name=<val> --qualifiedName=<val> --typeName=<val> [--description=<val>]
-    pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
-    pv entity update --guid=<val> --attrKey=<val> --attrVal=<val>
-    pv entity delete --guid=<val>
-    pv entity createBulk --name=<val>... --qualifiedName=<val>... --typeName=<val>...
+    pv entity create --payload-file=<val>
+    pv entity deleteBulk --guid=<val>...
     pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]
-    pv entity readHeader --guid=<val>
-    pv entity createClassifications --guid=<val> --classificationName=<val>...
-    pv entity readClassifications --guid=<val>
-    pv entity readClassification --guid=<val> --classificationName=<val>
+    pv entity createBulk --payload-file=<val>
+    pv entity createBulkClassification --payload-file=<val>
+    pv entity createBulkClassifications --payload-file=<val>
+    pv entity readUniqueAttribute --typeName=<val> [--ignoreRelationships --minExtInfo]
+    pv entity createBusinessMetadataTemplate --payload-file=<val>
+    pv entity readBusinessMetadataTemplate
+    pv entity delete --guid=<val>
+    pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
+    pv entity put --guid=<val> --name=<val> --payload-file=<val>
+    pv entity deleteBusinessMetadata --guid=<val> --payload-file=<val>
+    pv entity createBusinessMetadata --guid=<val> --payload-file=<val> [--isOverwrite]
+    pv entity deleteBusinessMetadataName --guid=<val> --payload-file=<val>
+    pv entity createBusinessMetadataName --guid=<val> --payload-file=<val>
     pv entity deleteClassification --guid=<val> --classificationName=<val>
-    pv entity createBulkClassification --classificationName=<val> --guid=<val>...
-    pv entity readUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val> [--ignoreRelationships --minExtInfo]
-    pv entity deleteUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val>
-    pv entity updateUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val> [--description=<val>]
-    pv entity readBulkUniqueAttributeType --typeName=<val> --attrKey=<val>... --attrVal=<val>... [--ignoreRelationships --minExtInfo]
-    pv entity createUniqueAttributeTypeClassifications --typeName=<val> --attrKey=<val> --attrVal=<val> --classificationName=<val>...
-    pv entity updateUniqueAttributeTypeClassifications --typeName=<val> --attrKey=<val> --attrVal=<val> --classificationName=<val>...
-    pv entity deleteUniqueAttributeTypeClassification --typeName=<val> --attrKey=<val> --attrVal=<val> --classificationName=<val>
+    pv entity readClassification --guid=<val> --classificationName=<val>
+    pv entity readClassifications --guid=<val>
+    pv entity createClassifications --guid=<val> --payload-file=<val>
+    pv entity putClassifications --guid=<val> --payload-file=<val>
+    pv entity readHeader --guid=<val>
+    pv entity deleteLabels --guid=<val> --payload-file=<val>
+    pv entity createLabels --guid=<val> --payload-file=<val>
+    pv entity putLabels --guid=<val> --payload-file=<val>
+    pv entity deleteType --typeName=<val>
+    pv entity readType --typeName=<val> --qualifiedName=<val> [--ignoreRelationships --minExtInfo]
+    pv entity putType --typeName=<val> --payload-file=<val>
+    pv entity deleteTypeClassification --typeName=<val> --classificationName=<val>
+    pv entity createTypeClassifications --typeName=<val> --payload-file=<val>
+    pv entity putTypeClassifications --typeName=<val> --payload-file=<val>
+    pv entity deleteTypeLabels --typeName=<val> --payload-file=<val>
+    pv entity createTypeLabels --typeName=<val> --payload-file=<val>
+    pv entity putTypeLabels --typeName=<val> --payload-file=<val>
+    pv entity readAudit --guid=<val> --auditAction=<val> --startKey=<val> [--count=<val>]
     
 options:
     --purviewName=<val>                 Azure Purview account name.
