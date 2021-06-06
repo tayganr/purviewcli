@@ -6,56 +6,56 @@ class Types(Endpoint):
         self.app = 'catalog'
 
     @decorator
-    def typesReadBusinessmetadatadef(self, args):
+    def typesReadTermTemplateDef(self, args):
         self.method = 'GET'
         typeDefKey = 'guid' if args['--name'] is None else 'name'
         typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
-        self.endpoint = f'/api/atlas/v2/types/businessmetadatadef/{typeDefKey}/{typeDefVal}'
+        self.endpoint = f'/api/atlas/v2/types/termtemplatedef/{typeDefKey}/{typeDefVal}'
 
     @decorator
-    def typesReadClassificationdef(self, args):
+    def typesReadClassificationDef(self, args):
         self.method = 'GET'
         typeDefKey = 'guid' if args['--name'] is None else 'name'
         typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
         self.endpoint = f'/api/atlas/v2/types/classificationdef/{typeDefKey}/{typeDefVal}'
 
     @decorator
-    def typesReadEntitydef(self, args):
+    def typesReadEntityDef(self, args):
         self.method = 'GET'
         typeDefKey = 'guid' if args['--name'] is None else 'name'
         typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
         self.endpoint = f'/api/atlas/v2/types/entitydef/{typeDefKey}/{typeDefVal}'
 
     @decorator
-    def typesReadEnumdef(self, args):
+    def typesReadEnumDef(self, args):
         self.method = 'GET'
         typeDefKey = 'guid' if args['--name'] is None else 'name'
         typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
         self.endpoint = f'/api/atlas/v2/types/enumdef/{typeDefKey}/{typeDefVal}'
 
     @decorator
-    def typesReadRelationshipdef(self, args):
+    def typesReadRelationshipDef(self, args):
         self.method = 'GET'
         typeDefKey = 'guid' if args['--name'] is None else 'name'
         typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
         self.endpoint = f'/api/atlas/v2/types/relationshipdef/{typeDefKey}/{typeDefVal}'
 
     @decorator
-    def typesReadStructdef(self, args):
+    def typesReadStructDef(self, args):
         self.method = 'GET'
         typeDefKey = 'guid' if args['--name'] is None else 'name'
         typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
         self.endpoint = f'/api/atlas/v2/types/structdef/{typeDefKey}/{typeDefVal}'
 
     @decorator
-    def typesReadTypedef(self, args):
+    def typesReadTypeDef(self, args):
         self.method = 'GET'
         typeDefKey = 'guid' if args['--name'] is None else 'name'
         typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
         self.endpoint = f'/api/atlas/v2/types/typedef/{typeDefKey}/{typeDefVal}'
 
     @decorator
-    def typesReadTypedefs(self, args):
+    def typesReadTypeDefs(self, args):
         self.method = 'GET'
         self.endpoint = '/api/atlas/v2/types/typedefs'
         self.params = {'includeTermTemplate': str(args["--includeTermTemplate"]).lower()}
@@ -69,24 +69,37 @@ class Types(Endpoint):
       self.params['type'] = args["--type"] if args["--type"] else None
 
     @decorator
-    def typesDeleteTypedef(self, args):
+    def typesDeleteTypeDef(self, args):
         self.method = 'DELETE'
         self.endpoint = f'/api/atlas/v2/types/typedef/name/{args["--name"]}'
 
     @decorator
-    def typesDeleteTypedefs(self, args):
+    def typesDeleteTypeDefs(self, args):
         self.method = 'DELETE'
         self.endpoint = '/api/atlas/v2/types/typedefs'
         self.payload = get_json(args, '--payload-file')
 
     @decorator
-    def typesCreateTypedefs(self, args):
+    def typesCreateTypeDefs(self, args):
         self.method = 'POST'
         self.endpoint = '/api/atlas/v2/types/typedefs'
         self.payload = get_json(args, '--payload-file')
 
     @decorator
-    def typesPutTypedefs(self, args):
+    def typesPutTypeDefs(self, args):
         self.method = 'PUT'
         self.endpoint = '/api/atlas/v2/types/typedefs'
         self.payload = get_json(args, '--payload-file')
+
+    @decorator
+    def typesReadStatistics(self, args):
+        self.method = 'GET'
+        self.endpoint = '/api/atlas/v2/types/statistics'
+
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def typesReadBusinessmetadataDef(self, args):
+    #     self.method = 'GET'
+    #     typeDefKey = 'guid' if args['--name'] is None else 'name'
+    #     typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
+    #     self.endpoint = f'/api/atlas/v2/types/businessmetadatadef/{typeDefKey}/{typeDefVal}'

@@ -1,18 +1,19 @@
 """
 usage: 
-    pv types readTypedefs [--includeTermTemplate --type=<val>]
-    pv types readTypedefsHeaders [--includeTermTemplate --type=<val>]
-    pv types readBusinessmetadatadef (--guid=<val> | --name=<val>)
-    pv types readClassificationdef (--guid=<val> | --name=<val>)
-    pv types readEntitydef (--guid=<val> | --name=<val>)
-    pv types readEnumdef (--guid=<val> | --name=<val>)
-    pv types readRelationshipdef (--guid=<val> | --name=<val>)
-    pv types readStructdef (--guid=<val> | --name=<val>)
-    pv types readTypedef (--guid=<val> | --name=<val>)
-    pv types deleteTypedef --name=<val>
-    pv types deleteTypedefs --payload-file
-    pv types createTypedefs --payload-file
-    pv types putTypedefs --payload-file
+    pv types readTypeDefs [--includeTermTemplate --type=<val>]
+    pv types readTypeDefsHeaders [--includeTermTemplate --type=<val>]
+    pv types readTermTemplateDef (--guid=<val> | --name=<val>)
+    pv types readClassificationDef (--guid=<val> | --name=<val>)
+    pv types readEntityDef (--guid=<val> | --name=<val>)
+    pv types readEnumDef (--guid=<val> | --name=<val>)
+    pv types readRelationshipDef (--guid=<val> | --name=<val>)
+    pv types readStructDef (--guid=<val> | --name=<val>)
+    pv types readTypeDef (--guid=<val> | --name=<val>)
+    pv types deleteTypeDef --name=<val>
+    pv types deleteTypeDefs --payload-file
+    pv types createTypeDefs --payload-file
+    pv types putTypeDefs --payload-file
+    pv types readStatistics
 
 options:
   --purviewName=<val>    Azure Purview account name.
