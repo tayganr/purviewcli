@@ -6,7 +6,9 @@ usage:
     pv relationship delete --guid=<val>
 
 options:
-    --purviewName=<val>                   Azure Purview account name.
+    --purviewName=<val>                   [string]  Azure Purview account name.
+    --guid=<val>                          [string]  The globally unique identifier of the relationship.
+    --extendedInfo                        [boolean] Limits whether includes extended information.
 
 """
 from docopt import docopt
