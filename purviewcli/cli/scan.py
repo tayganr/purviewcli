@@ -36,9 +36,14 @@ usage:
     pv scan putScanRuleset --scanRulesetName=<val> --payload-file=<val>
 
 options:
-    --purviewName=<val>        Azure Purview account name.
-    --dataSourceType=<val>     AdlsGen1 | AdlsGen2 | AmazonAccount | AmazonPostgreSql | AmazonS3 | AmazonSql | AzureCosmosDb | AzureDataExplorer | AzureFileService | AzureMySql | AzurePostgreSql | AzureResourceGroup | AzureSqlDataWarehouse | AzureSqlDatabase | AzureSqlDatabaseManagedInstance | AzureStorage | AzureSubscription | AzureSynapse | AzureSynapseWorkspace | Oracle | PowerBI | SapEcc | SapS4Hana | SqlServerDatabase | Teradata.
-
+    --purviewName=<val>                 [string]  Azure Purview account name.
+    --classificationRuleName=<val>      [string]  Name of the classification rule.
+    --dataSourceName=<val>              [string]  Name of the data source.
+    --scanName=<val>                    [string]  Name of the scan.
+    --scanRulesetName=<val>             [string]  Name of the scan ruleset.
+    --keyVaultName=<val>                [string]  Name of the Key Vault.
+    --runId=<val>                       [string]  The unique identifier of the run.
+    --dataSourceType=<val>              [string]  Type of data source (AdlsGen1 | AdlsGen2 | AmazonAccount | AmazonPostgreSql | AmazonS3 | AmazonSql | AzureCosmosDb | AzureDataExplorer | AzureFileService | AzureMySql | AzurePostgreSql | AzureResourceGroup | AzureSqlDataWarehouse | AzureSqlDatabase | AzureSqlDatabaseManagedInstance | AzureStorage | AzureSubscription | AzureSynapse | AzureSynapseWorkspace | Oracle | PowerBI | SapEcc | SapS4Hana | SqlServerDatabase | Teradata).
 
 """
 from docopt import docopt
