@@ -36,36 +36,12 @@ class Entity(Endpoint):
         self.endpoint = '/api/atlas/v2/entity/bulk/classification'
         self.payload = get_json(args, '--payload-file')
 
-    # NOT SUPPORTED BY AZURE PURVIEW
-    # @decorator
-    # def entityReadBulkHeaders(self, args):
-    #     self.method = 'GET'
-    #     self.endpoint = '/api/atlas/v2/entity/bulk/headers'
-    #     self.params = {'tagUpdateStartTime': args['--tagUpdateStartTime']}
-
     @decorator
-    def entityCreateBulkClassifications(self, args):
+    def entityCreateBulkSetClassifications(self, args):
         # Set classifications on entities in bulk (Classification -< Entities).
         self.method = 'POST'
         self.endpoint = '/api/atlas/v2/entity/bulk/setClassifications'
         self.payload = get_json(args, '--payload-file')
-
-    @decorator
-    def entityReadUniqueAttribute(self, args):
-        self.method = 'GET'
-        self.endpoint = f'/api/atlas/v2/entity/bulk/uniqueAttribute/type/{args["--typeName"]}'
-        self.params = {'ignoreRelationships': str(args['--ignoreRelationships']).lower(), 'minExtInfo': str(args['--minExtInfo']).lower()}
-
-    @decorator
-    def entityCreateBusinessMetadataTemplate(self, args):
-        self.method = 'POST'
-        self.endpoint = '/api/atlas/v2/entity/businessmetadata/import'
-        self.payload = get_json(args, '--payload-file')
-
-    @decorator
-    def entityReadBusinessMetadataTemplate(self, args):
-        self.method = 'GET'
-        self.endpoint = '/api/atlas/v2/entity/businessmetadata/import/template'
 
     @decorator
     def entityDelete(self, args):
@@ -83,31 +59,6 @@ class Entity(Endpoint):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}'
         self.params = {'name': args['--name']}
-        self.payload = get_json(args, '--payload-file')
-
-    @decorator
-    def entityDeleteBusinessMetadata(self, args):
-        self.method = 'DELETE'
-        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata'
-        self.payload = get_json(args, '--payload-file')
-
-    @decorator
-    def entityCreateBusinessMetadata(self, args):
-        self.method = 'POST'
-        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata'
-        self.params = {'isOverwrite': str(args['--isOverwrite']).lower()}
-        self.payload = get_json(args, '--payload-file')
-
-    @decorator
-    def entityDeleteBusinessMetadataName(self, args):
-        self.method = 'DELETE'
-        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata/{args["--bmName"]}'
-        self.payload = get_json(args, '--payload-file')
-
-    @decorator
-    def entityCreateBusinessMetadataName(self, args):
-        self.method = 'POST'
-        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata/{args["--bmName"]}'
         self.payload = get_json(args, '--payload-file')
 
     @decorator
@@ -143,84 +94,146 @@ class Entity(Endpoint):
         self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/header'
 
     @decorator
-    def entityDeleteLabels(self, args):
-        self.method = 'DELETE'
-        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/labels'
-        self.payload = get_json(args, '--payload-file')
+    def entityReadBulkUniqueAttribute(self, args):
+        self.method = 'GET'
+        self.endpoint = f'/api/atlas/v2/entity/bulk/uniqueAttribute/type/{args["--typeName"]}'
+        self.params = {'ignoreRelationships': str(args['--ignoreRelationships']).lower(), 'minExtInfo': str(args['--minExtInfo']).lower()}
 
     @decorator
-    def entityCreateLabels(self, args):
-        self.method = 'POST'
-        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/labels'
-        self.payload = get_json(args, '--payload-file')
-
-    @decorator
-    def entityPutLabels(self, args):
-        self.method = 'PUT'
-        self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/labels'
-        self.payload = get_json(args, '--payload-file')
-
-    @decorator
-    def entityDeleteType(self, args):
-        self.method = 'DELETE'
-        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}'
-
-    @decorator
-    def entityReadType(self, args):
+    def entityReadUniqueAttribute(self, args):
         self.method = 'GET'
         self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}'
         self.params = {'attr:qualifiedName': args['--qualifiedName'], 'ignoreRelationships': str(args['--ignoreRelationships']).lower(), 'minExtInfo': str(args['--minExtInfo']).lower()}
 
     @decorator
-    def entityPutType(self, args):
+    def entityDeleteUniqueAttribute(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}'
+
+    @decorator
+    def entityPutUniqueAttribute(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}'
         self.payload = get_json(args, '--payload-file')
 
     @decorator
-    def entityDeleteTypeClassification(self, args):
+    def entityDeleteUniqueAttributeClassification(self, args):
         self.method = 'DELETE'
         self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/classification/{args["--classificationName"]}'
 
     @decorator
-    def entityCreateTypeClassifications(self, args):
+    def entityCreateUniqueAttributeClassifications(self, args):
         self.method = 'POST'
         self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/classifications'
         self.payload = get_json(args, '--payload-file')
 
     @decorator
-    def entityPutTypeClassifications(self, args):
+    def entityPutUniqueAttributeClassifications(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/classifications'
         self.payload = get_json(args, '--payload-file')
 
-    # NOT SUPPORTED BY AZURE PURVIEW
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityCreateBusinessMetadataTemplate(self, args):
+    #     self.method = 'POST'
+    #     self.endpoint = '/api/atlas/v2/entity/businessmetadata/import'
+    #     self.payload = get_json(args, '--payload-file')
+
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityReadBusinessMetadataTemplate(self, args):
+    #     self.method = 'GET'
+    #     self.endpoint = '/api/atlas/v2/entity/businessmetadata/import/template'
+
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityDeleteBusinessMetadata(self, args):
+    #     self.method = 'DELETE'
+    #     self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata'
+    #     self.payload = get_json(args, '--payload-file')
+
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityCreateBusinessMetadata(self, args):
+    #     self.method = 'POST'
+    #     self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata'
+    #     self.params = {'isOverwrite': str(args['--isOverwrite']).lower()}
+    #     self.payload = get_json(args, '--payload-file')
+
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityDeleteBusinessMetadataName(self, args):
+    #     self.method = 'DELETE'
+    #     self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata/{args["--bmName"]}'
+    #     self.payload = get_json(args, '--payload-file')
+
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityCreateBusinessMetadataName(self, args):
+    #     self.method = 'POST'
+    #     self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/businessmetadata/{args["--bmName"]}'
+    #     self.payload = get_json(args, '--payload-file')
+
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityReadAudit(self, args):
+    #     self.method = 'GET'
+    #     self.endpoint = f'/api/atlas/v2/entity/{args["--guid"][0]}/audit'
+    #     self.params = {'auditAction': args['--auditAction'], 'count': args['--count'], 'startKey': args['--startKey']}
+
+    # NOT SUPPORTED IN AZURE PURVIEW
     # @decorator
     # def entityReadTypeHeader(self, args):
     #     self.method = 'GET'
     #     self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/header'
     #     self.params = {'attr:qualifiedName': args['--qualifiedName']}
 
-    @decorator
-    def entityDeleteTypeLabels(self, args):
-        self.method = 'DELETE'
-        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/labels'
-        self.payload = get_json(args, '--payload-file')
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityReadBulkHeaders(self, args):
+    #     self.method = 'GET'
+    #     self.endpoint = '/api/atlas/v2/entity/bulk/headers'
+    #     self.params = {'tagUpdateStartTime': args['--tagUpdateStartTime']}
 
-    @decorator
-    def entityCreateTypeLabels(self, args):
-        self.method = 'POST'
-        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/labels'
-        self.payload = get_json(args, '--payload-file')
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityDeleteLabels(self, args):
+    #     self.method = 'DELETE'
+    #     self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/labels'
+    #     self.payload = get_json(args, '--payload-file')
 
-    @decorator
-    def entityPutTypeLabels(self, args):
-        self.method = 'PUT'
-        self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/labels'
-        self.payload = get_json(args, '--payload-file')
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityCreateLabels(self, args):
+    #     self.method = 'POST'
+    #     self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/labels'
+    #     self.payload = get_json(args, '--payload-file')
 
-    @decorator
-    def entityReadAudit(self, args):
-        self.method = 'GET'
-        self.endpoint = f'/api/atlas/v2/entity/{args["--guid"][0]}/audit'
-        self.params = {'auditAction': args['--auditAction'], 'count': args['--count'], 'startKey': args['--startKey']}
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityPutLabels(self, args):
+    #     self.method = 'PUT'
+    #     self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}/labels'
+    #     self.payload = get_json(args, '--payload-file')
+
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityDeleteTypeLabels(self, args):
+    #     self.method = 'DELETE'
+    #     self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/labels'
+    #     self.payload = get_json(args, '--payload-file')
+
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityCreateTypeLabels(self, args):
+    #     self.method = 'POST'
+    #     self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/labels'
+    #     self.payload = get_json(args, '--payload-file')
+
+    # NOT SUPPORTED IN AZURE PURVIEW
+    # @decorator
+    # def entityPutTypeLabels(self, args):
+    #     self.method = 'PUT'
+    #     self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/labels'
+    #     self.payload = get_json(args, '--payload-file')

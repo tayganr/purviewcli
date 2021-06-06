@@ -5,36 +5,23 @@ usage:
     pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]
     pv entity createBulk --payload-file=<val>
     pv entity createBulkClassification --payload-file=<val>
-    pv entity createBulkClassifications --payload-file=<val>
-    pv entity readUniqueAttribute --typeName=<val> [--ignoreRelationships --minExtInfo]
-    pv entity createBusinessMetadataTemplate --payload-file=<val>
-    pv entity readBusinessMetadataTemplate
+    pv entity createBulkSetClassifications --payload-file=<val>
     pv entity delete --guid=<val>
     pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
     pv entity put --guid=<val> --name=<val> --payload-file=<val>
-    pv entity deleteBusinessMetadata --guid=<val> --payload-file=<val>
-    pv entity createBusinessMetadata --guid=<val> --payload-file=<val> [--isOverwrite]
-    pv entity deleteBusinessMetadataName --guid=<val> --payload-file=<val>
-    pv entity createBusinessMetadataName --guid=<val> --payload-file=<val>
     pv entity deleteClassification --guid=<val> --classificationName=<val>
     pv entity readClassification --guid=<val> --classificationName=<val>
     pv entity readClassifications --guid=<val>
     pv entity createClassifications --guid=<val> --payload-file=<val>
     pv entity putClassifications --guid=<val> --payload-file=<val>
     pv entity readHeader --guid=<val>
-    pv entity deleteLabels --guid=<val> --payload-file=<val>
-    pv entity createLabels --guid=<val> --payload-file=<val>
-    pv entity putLabels --guid=<val> --payload-file=<val>
-    pv entity deleteType --typeName=<val>
-    pv entity readType --typeName=<val> --qualifiedName=<val> [--ignoreRelationships --minExtInfo]
-    pv entity putType --typeName=<val> --payload-file=<val>
-    pv entity deleteTypeClassification --typeName=<val> --classificationName=<val>
-    pv entity createTypeClassifications --typeName=<val> --payload-file=<val>
-    pv entity putTypeClassifications --typeName=<val> --payload-file=<val>
-    pv entity deleteTypeLabels --typeName=<val> --payload-file=<val>
-    pv entity createTypeLabels --typeName=<val> --payload-file=<val>
-    pv entity putTypeLabels --typeName=<val> --payload-file=<val>
-    pv entity readAudit --guid=<val> --auditAction=<val> --startKey=<val> [--count=<val>]
+    pv entity deleteUniqueAttribute --typeName=<val>
+    pv entity readUniqueAttribute --typeName=<val> --qualifiedName=<val> [--ignoreRelationships --minExtInfo]
+    pv entity putUniqueAttribute --typeName=<val> --payload-file=<val>
+    pv entity deleteUniqueAttributeClassification --typeName=<val> --classificationName=<val>
+    pv entity createUniqueAttributeClassifications --typeName=<val> --payload-file=<val>
+    pv entity putUniqueAttributeClassifications --typeName=<val> --payload-file=<val>
+    pv entity readBulkUniqueAttribute --typeName=<val> [--ignoreRelationships --minExtInfo]
     
 options:
     --purviewName=<val>                 Azure Purview account name.

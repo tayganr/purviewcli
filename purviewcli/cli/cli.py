@@ -62,7 +62,6 @@ def main():
 
     # Method
     funcStr = command + action[0].upper() + action[1:]
-    # funcObj = eval('lib.' + funcStr)
     funcObj = eval('instance.' + funcStr)
     data = funcObj(command_args)
     
