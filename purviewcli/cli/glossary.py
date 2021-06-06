@@ -10,8 +10,6 @@ usage:
     pv glossary putCategoryPartial --categoryGuid=<val> --payload-file=<val>
     pv glossary readCategoryRelated --categoryGuid=<val>
     pv glossary readCategoryTerms --categoryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
-    pv glossary createTemplate --payload-file=<val>
-    pv glossary readTemplate
     pv glossary createTerm --payload-file=<val>
     pv glossary deleteTerm --termGuid=<val>
     pv glossary readTerm --termGuid=<val>
@@ -31,12 +29,21 @@ usage:
     pv glossary putPartial --glossaryGuid=<val> --payload-file=<val>
     pv glossary readTerms --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readTermsHeaders --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+    pv glossary createTermsExport --glossaryGuid=<val> --termGuid=<val>...
+    pv glossary createTermsImport (--glossaryGuid=<val> | --glossaryName=<val>)
+    pv glossary readTerms --glossaryName=<val>
+    pv glossary readTermsImport --operationGuid=<val>
 
 options:
-    --purviewName=<val>     Azure Purview account name.
-    --limit=<val>           By default there is no paging [default: -1].
-    --offset=<val>          Offset for pagination purpose [default: 0].
-    --sort=<val>            ASC or DESC [default: ASC].
+    --purviewName=<val>     [string]  Azure Purview account name.
+    --glossaryGuid=<val>    [string]  The globally unique identifier for glossary.
+    --categoryGuid=<val>    [string]  The globally unique identifier of the category.
+    --termGuid=<val>        [string]  The globally unique identifier for glossary term.
+    --glossaryName=<val>    [string]  The name of the glossary.
+    --operationGuid=<val>   [string]  The globally unique identifier for async operation/job.
+    --limit=<val>           [integer] The page size - by default there is no paging [default: -1].
+    --offset=<val>          [integer] Offset for pagination purpose [default: 0].
+    --sort=<val>            [string]  ASC or DESC [default: ASC].
 """
 from docopt import docopt
 

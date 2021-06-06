@@ -24,11 +24,14 @@ usage:
     pv entity readBulkUniqueAttribute --typeName=<val> [--ignoreRelationships --minExtInfo]
     
 options:
-    --purviewName=<val>                 Azure Purview account name.
-    --auditAction=<val>                 BUSINESS_ATTRIBUTE_UPDATE or CLASSIFICATION_ADD or CLASSIFICATION_DELETE or CLASSIFICATION_UPDATE or ENTITY_CREATE or ENTITY_DELETE or ENTITY_IMPORT_CREATE or ENTITY_IMPORT_DELETE or ENTITY_IMPORT_UPDATE or ENTITY_PURGE or ENTITY_UPDATE or LABEL_ADD or LABEL_DELETE or PROPAGATED_CLASSIFICATION_ADD or PROPAGATED_CLASSIFICATION_DELETE or PROPAGATED_CLASSIFICATION_UPDATE or TERM_ADD or TERM_DELETE.
-    --count=<val>                       Number of events required	[default: 100].
-    --startKey=<val>                    Used for pagination. Startkey is inclusive, the returned results contain the event with the given startkey.
-    --tagUpdateStartTime=<val>          DataType long.
+    --purviewName=<val>                 [string]  Azure Purview account name.
+    --guid=<val>                        [string]  The globally unique identifier of the entity.
+    --ignoreRelationships               [boolean] Whether to ignore relationship attributes.
+    --minExtInfo                        [boolean] Whether to return minimal information for referred entities.
+    --name=<val>                        [string]  The name of the attribute.
+    --classificationName=<val>          [string]  The name of the classification.
+    --typeName=<val>                    [string]  The name of the type.
+    --qualifiedName=<val>               [string]  The qualified name of the entity.
 
 """
 from docopt import docopt
