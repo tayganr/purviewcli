@@ -16,8 +16,11 @@ usage:
     pv types readStatistics
 
 options:
-  --purviewName=<val>    Azure Purview account name.
-  --type=<val>           Valid Types: classification | entity | enum | relationship | struct.
+  --purviewName=<val>     [string]  Azure Purview account name.
+  --type=<val>            [string]  Typedef name as search filter when get typedefs (classification | entity | enum | relationship | struct).
+  --includeTermTemplate   [boolean] Whether include termtemplatedef when return all typedefs. This is always true when search filter type=term_template
+  --guid=<val>            [string]  The globally unique identifier.
+  --name=<val>            [string]  The name of the definition.
 
 """
 from docopt import docopt
