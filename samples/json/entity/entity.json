@@ -1,0 +1,12 @@
+{
+    "entity": {
+        "status": "ACTIVE",
+        "attributes": {
+            "description": "Hello World is a custom entity.",
+            "name": "Hello World",
+            "objectType": "U ",
+            "qualifiedName": "mssql://sqlsvr.database.windows.net/sqldb/Schema/Table"
+        },
+        "typeName": "azure_sql_table"
+    }
+}

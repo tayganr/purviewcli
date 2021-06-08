@@ -1,0 +1,20 @@
+{
+    "end1": {
+        "guid": "9eb55cd7-911b-43b6-8fc6-bdf57c3e7d2a",
+        "typeName": "adf_copy_activity",
+        "uniqueAttributes": {
+            "qualifiedName": "/subscriptions/2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0/resourceGroups/purviewlab/providers/Microsoft.DataFactory/factories/adf8951/pipelines/copyPipeline/activities/copyActivity"
+        }
+    },
+    "end2": {
+        "guid": "f0a9c131-8cad-4fa9-928d-f4f6f6f60000",
+        "typeName": "azure_sql_table",
+        "uniqueAttributes": {
+            "qualifiedName": "mssql://sqlsvr8951.database.windows.net/sqldb8951/SalesLT/SalesOrderDetail"
+        }
+    },
+    "guid": "adaa22fe-e391-436a-a4c6-dfa3041fcb71",
+    "label": "__Process.outputs",
+    "status": "ACTIVE",
+    "typeName": "process_dataset_outputs"
+}

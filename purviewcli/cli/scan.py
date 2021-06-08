@@ -41,9 +41,9 @@ options:
     --dataSourceName=<val>              [string]  Name of the data source.
     --scanName=<val>                    [string]  Name of the scan.
     --scanRulesetName=<val>             [string]  Name of the scan ruleset.
-    --keyVaultName=<val>                [string]  Name of the Key Vault.
+    --keyVaultName=<val>                [string]  Name of the key vault.
     --runId=<val>                       [string]  The unique identifier of the run.
-    --dataSourceType=<val>              [string]  Type of data source (AdlsGen1 | AdlsGen2 | AmazonAccount | AmazonPostgreSql | AmazonS3 | AmazonSql | AzureCosmosDb | AzureDataExplorer | AzureFileService | AzureMySql | AzurePostgreSql | AzureResourceGroup | AzureSqlDataWarehouse | AzureSqlDatabase | AzureSqlDatabaseManagedInstance | AzureStorage | AzureSubscription | AzureSynapse | AzureSynapseWorkspace | Oracle | PowerBI | SapEcc | SapS4Hana | SqlServerDatabase | Teradata).
+    --dataSourceType=<val>              [string]  Type of data source.
 
 """
 from docopt import docopt

@@ -1,0 +1,123 @@
+{
+    "classificationDefs": [],
+    "entityDefs": [],
+    "enumDefs": [
+        {
+            "category": "ENUM",
+            "description": "custom_enum_001",
+            "elementDefs": [
+                {
+                    "ordinal": 0,
+                    "value": "Approved"
+                },
+                {
+                    "ordinal": 1,
+                    "value": "Alert"
+                },
+                {
+                    "ordinal": 2,
+                    "value": "Expired"
+                },
+                {
+                    "ordinal": 3,
+                    "value": "Draft"
+                }
+            ],
+            "name": "custom_enum_001"
+        },
+        {
+            "category": "ENUM",
+            "description": "custom_enum_002",
+            "elementDefs": [
+                {
+                    "ordinal": 0,
+                    "value": "Approved"
+                },
+                {
+                    "ordinal": 1,
+                    "value": "Alert"
+                },
+                {
+                    "ordinal": 2,
+                    "value": "Expired"
+                },
+                {
+                    "ordinal": 3,
+                    "value": "Draft"
+                }
+            ],
+            "name": "custom_enum_002"
+        },
+        {
+            "category": "ENUM",
+            "description": "custom_enum_003",
+            "elementDefs": [
+                {
+                    "ordinal": 0,
+                    "value": "Approved"
+                },
+                {
+                    "ordinal": 1,
+                    "value": "Alert"
+                },
+                {
+                    "ordinal": 2,
+                    "value": "Expired"
+                },
+                {
+                    "ordinal": 3,
+                    "value": "Draft"
+                }
+            ],
+            "name": "custom_enum_003"
+        },
+        {
+            "category": "ENUM",
+            "description": "custom_enum_004",
+            "elementDefs": [
+                {
+                    "ordinal": 0,
+                    "value": "Approved"
+                },
+                {
+                    "ordinal": 1,
+                    "value": "Alert"
+                },
+                {
+                    "ordinal": 2,
+                    "value": "Expired"
+                },
+                {
+                    "ordinal": 3,
+                    "value": "Draft"
+                }
+            ],
+            "name": "custom_enum_004"
+        },
+        {
+            "category": "ENUM",
+            "description": "custom_enum_005",
+            "elementDefs": [
+                {
+                    "ordinal": 0,
+                    "value": "Approved"
+                },
+                {
+                    "ordinal": 1,
+                    "value": "Alert"
+                },
+                {
+                    "ordinal": 2,
+                    "value": "Expired"
+                },
+                {
+                    "ordinal": 3,
+                    "value": "Draft"
+                }
+            ],
+            "name": "custom_enum_005"
+        }
+    ],
+    "relationshipDefs": [],
+    "structDefs": []
+}

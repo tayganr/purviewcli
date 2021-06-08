@@ -1,6 +1,6 @@
 """
 usage: 
-    pv search query [--keywords=<val> --filter-file=<val> --limit=<val> --offset=<val> --facets-file=<val>]
+    pv search query [--keywords=<val> --limit=<val> --offset=<val> --filter-file=<val> --facets-file=<val>]
 
 options:
   --purviewName=<val>     [string]  Azure Purview account name.

@@ -1,0 +1,33 @@
+{
+    "entities": [{
+            "status": "ACTIVE",
+            "attributes": {
+                "description": "Table01 is a custom entity.",
+                "name": "Table01",
+                "objectType": "U ",
+                "qualifiedName": "mssql://sqlsvr.database.windows.net/sqldb/Schema/Table01"
+            },
+            "typeName": "azure_sql_table"
+        },
+        {
+            "status": "ACTIVE",
+            "attributes": {
+                "description": "Table02 is a custom entity.",
+                "name": "Table02",
+                "objectType": "U ",
+                "qualifiedName": "mssql://sqlsvr.database.windows.net/sqldb/Schema/Table02"
+            },
+            "typeName": "azure_sql_table"
+        },
+        {
+            "status": "ACTIVE",
+            "attributes": {
+                "description": "Table03 is a custom entity.",
+                "name": "Table03",
+                "objectType": "U ",
+                "qualifiedName": "mssql://sqlsvr.database.windows.net/sqldb/Schema/Table03"
+            },
+            "typeName": "azure_sql_table"
+        }
+    ]
+}

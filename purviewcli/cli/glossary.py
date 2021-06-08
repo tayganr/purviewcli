@@ -39,8 +39,8 @@ options:
     --glossaryGuid=<val>    [string]  The globally unique identifier for glossary.
     --categoryGuid=<val>    [string]  The globally unique identifier of the category.
     --termGuid=<val>        [string]  The globally unique identifier for glossary term.
-    --glossaryName=<val>    [string]  The name of the glossary.
     --operationGuid=<val>   [string]  The globally unique identifier for async operation/job.
+    --glossaryName=<val>    [string]  The name of the glossary.
     --limit=<val>           [integer] The page size - by default there is no paging [default: -1].
     --offset=<val>          [integer] Offset for pagination purpose [default: 0].
     --sort=<val>            [string]  ASC or DESC [default: ASC].

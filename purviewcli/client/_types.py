@@ -62,7 +62,7 @@ class Types(Endpoint):
         self.params['type'] = args["--type"] if args["--type"] else None
 
     @decorator
-    def typesReadTypedefsHeaders(self, args):
+    def typesReadTypeDefsHeaders(self, args):
       self.method = 'GET'
       self.endpoint = '/api/atlas/v2/types/typedefs/headers'
       self.params = {'includeTermTemplate': str(args["--includeTermTemplate"]).lower()}

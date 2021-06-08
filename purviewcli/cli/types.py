@@ -10,15 +10,15 @@ usage:
     pv types readStructDef (--guid=<val> | --name=<val>)
     pv types readTypeDef (--guid=<val> | --name=<val>)
     pv types deleteTypeDef --name=<val>
-    pv types deleteTypeDefs --payload-file
-    pv types createTypeDefs --payload-file
-    pv types putTypeDefs --payload-file
+    pv types deleteTypeDefs --payload-file=<val>
+    pv types createTypeDefs --payload-file=<val>
+    pv types putTypeDefs --payload-file=<val>
     pv types readStatistics
 
 options:
   --purviewName=<val>     [string]  Azure Purview account name.
-  --type=<val>            [string]  Typedef name as search filter when get typedefs (classification | entity | enum | relationship | struct).
-  --includeTermTemplate   [boolean] Whether include termtemplatedef when return all typedefs. This is always true when search filter type=term_template
+  --type=<val>            [string]  Typedef name as search filter (classification | entity | enum | relationship | struct).
+  --includeTermTemplate   [boolean] Whether to include termtemplatedef.
   --guid=<val>            [string]  The globally unique identifier.
   --name=<val>            [string]  The name of the definition.
 

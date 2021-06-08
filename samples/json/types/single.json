@@ -1,0 +1,133 @@
+{
+    "classificationDefs": [],
+    "entityDefs": [{
+        "attributeDefs": [{
+                "cardinality": "SINGLE",
+                "includeInNotification": false,
+                "isIndexable": false,
+                "isOptional": true,
+                "isUnique": false,
+                "name": "principalId",
+                "typeName": "int",
+                "valuesMaxCount": 1,
+                "valuesMinCount": 0
+            },
+            {
+                "cardinality": "SINGLE",
+                "includeInNotification": false,
+                "isIndexable": false,
+                "isOptional": true,
+                "isUnique": false,
+                "name": "createTime",
+                "typeName": "date",
+                "valuesMaxCount": 1,
+                "valuesMinCount": 0
+            },
+            {
+                "cardinality": "SINGLE",
+                "includeInNotification": false,
+                "isIndexable": false,
+                "isOptional": true,
+                "isUnique": false,
+                "name": "modifiedTime",
+                "typeName": "date",
+                "valuesMaxCount": 1,
+                "valuesMinCount": 0
+            }
+        ],
+        "category": "ENTITY",
+        "description": "custom_sql_table",
+        "name": "custom_sql_table",
+        "options": {
+            "purviewEntityExtDef": "{}",
+            "schemaElementsAttribute": "columns"
+        },
+        "relationshipAttributeDefs": [{
+                "cardinality": "SET",
+                "includeInNotification": false,
+                "isIndexable": false,
+                "isLegacyAttribute": false,
+                "isOptional": true,
+                "isUnique": false,
+                "name": "schema",
+                "relationshipTypeName": "avro_schema_associatedEntities",
+                "typeName": "array<avro_schema>",
+                "valuesMaxCount": -1,
+                "valuesMinCount": -1
+            },
+            {
+                "cardinality": "SET",
+                "includeInNotification": false,
+                "isIndexable": false,
+                "isLegacyAttribute": false,
+                "isOptional": true,
+                "isUnique": false,
+                "name": "inputToProcesses",
+                "relationshipTypeName": "dataset_process_inputs",
+                "typeName": "array<Process>",
+                "valuesMaxCount": -1,
+                "valuesMinCount": -1
+            },
+            {
+                "cardinality": "SET",
+                "includeInNotification": false,
+                "isIndexable": false,
+                "isLegacyAttribute": false,
+                "isOptional": true,
+                "isUnique": false,
+                "name": "attachedSchema",
+                "relationshipTypeName": "dataset_attached_schemas",
+                "typeName": "array<schema>",
+                "valuesMaxCount": -1,
+                "valuesMinCount": -1
+            },
+            {
+                "cardinality": "SET",
+                "includeInNotification": false,
+                "isIndexable": false,
+                "isLegacyAttribute": false,
+                "isOptional": true,
+                "isUnique": false,
+                "name": "meanings",
+                "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                "typeName": "array<AtlasGlossaryTerm>",
+                "valuesMaxCount": -1,
+                "valuesMinCount": -1
+            },
+            {
+                "cardinality": "SET",
+                "includeInNotification": false,
+                "isIndexable": false,
+                "isLegacyAttribute": false,
+                "isOptional": true,
+                "isUnique": false,
+                "name": "outputFromProcesses",
+                "relationshipTypeName": "process_dataset_outputs",
+                "typeName": "array<Process>",
+                "valuesMaxCount": -1,
+                "valuesMinCount": -1
+            },
+            {
+                "cardinality": "SINGLE",
+                "includeInNotification": false,
+                "isIndexable": false,
+                "isLegacyAttribute": false,
+                "isOptional": true,
+                "isUnique": false,
+                "name": "tabular_schema",
+                "relationshipTypeName": "tabular_schema_datasets",
+                "typeName": "tabular_schema",
+                "valuesMaxCount": -1,
+                "valuesMinCount": -1
+            }
+        ],
+        "serviceType": "Custom SQL Database",
+        "subTypes": [],
+        "superTypes": [
+            "DataSet"
+        ]
+    }],
+    "enumDefs": [],
+    "relationshipDefs": [],
+    "structDefs": []
+}
