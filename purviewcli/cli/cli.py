@@ -17,6 +17,7 @@ The most commonly used pv commands are:
    pv insight          [Other] Azure Purview insights.
    pv search           [Other] Azure Purview search.
    pv credential       [Other] Azure Purview credentials.
+   pv management       [Other] Azure Purview control plane operations (Account, Private Endpoint, Private Link, etc).
 
 See 'pv <command>' for more information on a specific command.
 
