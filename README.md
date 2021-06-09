@@ -20,12 +20,14 @@ pip install purviewcli
     * `AZURE_TENANT_ID` *(optional)*
     * `AZURE_CLIENT_SECRET` *(optional)*
 
-   Note: The environment variables related to authentication are optional as there are several methods in which we can pass credentials to purviewcli in order to authenticate with an instance of Azure Purview. See [Authentication](#authentication) for more details. 
+   Note #1: The environment variables related to authentication are optional as there are several methods in which we can pass credentials to purviewcli in order to authenticate with an instance of Azure Purview. See [Authentication](#authentication) for more details. 
 
-3. Execute command (e.g. `!pv glossary read`)
+   Note #2: While an Azure Purview account name ***must*** be specified, you can provide this value within the command itself (as opposed to via an environment variable). Simply add `--purviewName=<val>` at the end of any command.
 
-Snippet of an example Python-based notebook.
+3. Execute command (e.g. `pv glossary read`)
 
+Snippet of an example Python-based notebook below.  
+Note: If you are executing purviewcli commands within a Python notebook, you will need to prefix the command with an exclamation mark `!`. This will ensure the command is passed to the shell (not the Python interpreter).
 
 ![purviewcli](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_notebook.png)
 
@@ -60,31 +62,34 @@ pv command sub-command --parameter1='value' --parameter2='value'
 ### Search
 
 ```
-pv search query [--keywords=<val> --filter-file=<val> --limit=<val> --offset=<val> --facets-file=<val>]
+pv search query [--keywords=<val> --limit=<val> --offset=<val> --filter-file=<val> --facets-file=<val>]
 ```
 
 ### Entity
 
 ```
-pv entity create --name=<val> --qualifiedName=<val> --typeName=<val> [--description=<val>]
-pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
-pv entity update --guid=<val> --attrKey=<val> --attrVal=<val>
-pv entity delete --guid=<val>
-pv entity createBulk --name=<val>... --qualifiedName=<val>... --typeName=<val>...
+pv entity create --payload-file=<val>
+pv entity deleteBulk --guid=<val>...
 pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]
-pv entity readHeader --guid=<val>
-pv entity createClassifications --guid=<val> --classificationName=<val>...
-pv entity readClassifications --guid=<val>
-pv entity readClassification --guid=<val> --classificationName=<val>
+pv entity createBulk --payload-file=<val>
+pv entity createBulkClassification --payload-file=<val>
+pv entity createBulkSetClassifications --payload-file=<val>
+pv entity delete --guid=<val>
+pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
+pv entity put --guid=<val> --name=<val> --payload-file=<val>
 pv entity deleteClassification --guid=<val> --classificationName=<val>
-pv entity createBulkClassification --classificationName=<val> --guid=<val>...
-pv entity readUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val> [--ignoreRelationships --minExtInfo]
-pv entity deleteUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val>
-pv entity updateUniqueAttributeType --typeName=<val> --attrKey=<val> --attrVal=<val> [--description=<val>]
-pv entity readBulkUniqueAttributeType --typeName=<val> --attrKey=<val>... --attrVal=<val>... [--ignoreRelationships --minExtInfo]
-pv entity createUniqueAttributeTypeClassifications --typeName=<val> --attrKey=<val> --attrVal=<val> --classificationName=<val>...
-pv entity updateUniqueAttributeTypeClassifications --typeName=<val> --attrKey=<val> --attrVal=<val> --classificationName=<val>...
-pv entity deleteUniqueAttributeTypeClassification --typeName=<val> --attrKey=<val> --attrVal=<val> --classificationName=<val>
+pv entity readClassification --guid=<val> --classificationName=<val>
+pv entity readClassifications --guid=<val>
+pv entity createClassifications --guid=<val> --payload-file=<val>
+pv entity putClassifications --guid=<val> --payload-file=<val>
+pv entity readHeader --guid=<val>
+pv entity deleteUniqueAttribute --typeName=<val>
+pv entity readUniqueAttribute --typeName=<val> --qualifiedName=<val> [--ignoreRelationships --minExtInfo]
+pv entity putUniqueAttribute --typeName=<val> --payload-file=<val>
+pv entity deleteUniqueAttributeClassification --typeName=<val> --classificationName=<val>
+pv entity createUniqueAttributeClassifications --typeName=<val> --payload-file=<val>
+pv entity putUniqueAttributeClassifications --typeName=<val> --payload-file=<val>
+pv entity readBulkUniqueAttribute --typeName=<val> [--ignoreRelationships --minExtInfo]
 ```
 
 ### Glossary
@@ -100,8 +105,6 @@ pv glossary putCategory --categoryGuid=<val> --payload-file=<val>
 pv glossary putCategoryPartial --categoryGuid=<val> --payload-file=<val>
 pv glossary readCategoryRelated --categoryGuid=<val>
 pv glossary readCategoryTerms --categoryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
-pv glossary createTemplate --payload-file=<val>
-pv glossary readTemplate
 pv glossary createTerm --payload-file=<val>
 pv glossary deleteTerm --termGuid=<val>
 pv glossary readTerm --termGuid=<val>
@@ -121,39 +124,45 @@ pv glossary readDetailed --glossaryGuid=<val>
 pv glossary putPartial --glossaryGuid=<val> --payload-file=<val>
 pv glossary readTerms --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
 pv glossary readTermsHeaders --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+pv glossary createTermsExport --glossaryGuid=<val> --termGuid=<val>...
+pv glossary createTermsImport (--glossaryGuid=<val> | --glossaryName=<val>)
+pv glossary readTerms --glossaryName=<val>
+pv glossary readTermsImport --operationGuid=<val>
 ```
 
 ### Lineage
 
 ```
 pv lineage read --guid=<val> [--depth=<val> --width=<val> --direction=<val>]
+pv lineage readNext --guid=<val> [--direction<val> --offset=<val> --limit=<val>]
 ```
 
 ### Relationship
 
 ```
-pv relationship create --typeName=<val> --end1Guid=<val> --end1Type=<val> --end2Guid=<val> --end2Type=<val> [--status=<val>]
-pv relationship read --relationshipGuid=<val> [--extendedInfo]
-pv relationship update --relationshipGuid=<val> [--status=<val>]
-pv relationship delete --relationshipGuid=<val>
+pv relationship create --payload-file=<val>
+pv relationship put --payload-file=<val>
+pv relationship read --guid=<val> [--extendedInfo]
+pv relationship delete --guid=<val>
 ```
 
 ### Types
 
 ```
-pv types readTypedefs [--includeTermTemplate --type=<val>]
-pv types readTypedefsHeaders [--includeTermTemplate --type=<val>]
-pv types readBusinessmetadatadef (--guid=<val> | --name=<val>)
-pv types readClassificationdef (--guid=<val> | --name=<val>)
-pv types readEntitydef (--guid=<val> | --name=<val>)
-pv types readEnumdef (--guid=<val> | --name=<val>)
-pv types readRelationshipdef (--guid=<val> | --name=<val>)
-pv types readStructdef (--guid=<val> | --name=<val>)
-pv types readTypedef (--guid=<val> | --name=<val>)
-pv types deleteTypedef --name=<val>
-pv types deleteTypedefs --payload-file
-pv types createTypedefs --payload-file
-pv types putTypedefs --payload-file
+pv types readTypeDefs [--includeTermTemplate --type=<val>]
+pv types readTypeDefsHeaders [--includeTermTemplate --type=<val>]
+pv types readTermTemplateDef (--guid=<val> | --name=<val>)
+pv types readClassificationDef (--guid=<val> | --name=<val>)
+pv types readEntityDef (--guid=<val> | --name=<val>)
+pv types readEnumDef (--guid=<val> | --name=<val>)
+pv types readRelationshipDef (--guid=<val> | --name=<val>)
+pv types readStructDef (--guid=<val> | --name=<val>)
+pv types readTypeDef (--guid=<val> | --name=<val>)
+pv types deleteTypeDef --name=<val>
+pv types deleteTypeDefs --payload-file=<val>
+pv types createTypeDefs --payload-file=<val>
+pv types putTypeDefs --payload-file=<val>
+pv types readStatistics
 ```
 
 ### Scan
@@ -193,6 +202,14 @@ pv scan cancelScan --dataSourceName=<val> --scanName=<val> --runId=<val>
 pv scan putClassificationRule --classificationRuleName=<val> --payload-file=<val>
 pv scan putKeyVault --keyVaultName=<val> --payload-file=<val>
 pv scan putScanRuleset --scanRulesetName=<val> --payload-file=<val>
+```
+
+### Credential
+
+```
+pv credential read [--credentialName=<val>]
+pv credential delete --credentialName=<val>
+pv credential put --credentialName=<val> --payload-file=<val>
 ```
 
 ### Insight (Guardian)
