@@ -21,7 +21,7 @@ def get_json(args, param):
     if args[param] is not None:
         filepath = args[param]
         if '.JSON' in filepath.upper():
-            with open(filepath) as json_file:
+            with open(filepath, encoding="utf-16") as json_file:
                 response = json.load(json_file)
         else:
             print('[ERROR] The {0} parameter must contain a valid file path to a JSON document.'.format(param))

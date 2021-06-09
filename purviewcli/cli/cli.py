@@ -15,7 +15,8 @@ The most commonly used pv commands are:
    pv types            [Atlas] A Type in Atlas is a definition of how a particular object type is stored and accessed.
    pv scan             [Other] Azure Purview scan.
    pv insight          [Other] Azure Purview insights.
-   pv search           [Other] Azure Purview advanced search.
+   pv search           [Other] Azure Purview search.
+   pv credential       [Other] Azure Purview credentials.
 
 See 'pv <command>' for more information on a specific command.
 
@@ -43,7 +44,7 @@ def main():
 
     # Command
     command = args['<command>']
-    if command in ['entity', 'relationship', 'lineage', 'glossary', 'types', 'scan', 'insight', 'search']:
+    if command in ['entity', 'relationship', 'lineage', 'glossary', 'types', 'scan', 'insight', 'search', 'credential']:
         globals()[command] = importlib.import_module('purviewcli.cli.' + command)
         command_args = docopt(eval(command).__doc__, argv=argv)
     else:
