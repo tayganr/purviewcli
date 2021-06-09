@@ -12,7 +12,8 @@ class Endpoint:
 
 def get_data(http_dict):
     client = PurviewClient()
-    client.set_token()
+    client.set_account(http_dict['app'])
+    client.set_token(http_dict['app'])
     data = client.http_get(http_dict['app'], http_dict['method'], http_dict['endpoint'], http_dict['params'], http_dict['payload'])
     return data
 
@@ -21,7 +22,7 @@ def get_json(args, param):
     if args[param] is not None:
         filepath = args[param]
         if '.JSON' in filepath.upper():
-            with open(filepath, encoding="utf-16") as json_file:
+            with open(filepath) as json_file:
                 response = json.load(json_file)
         else:
             print('[ERROR] The {0} parameter must contain a valid file path to a JSON document.'.format(param))

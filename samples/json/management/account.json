@@ -1,0 +1,10 @@
+{
+    "location": "eastus",
+    "sku": {
+        "name": "Standard",
+        "capacity": 4
+    },
+    "properties": {
+        "managedResourceGroupName": "custom-rgname"
+    }
+}

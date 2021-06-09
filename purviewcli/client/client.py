@@ -11,9 +11,15 @@ logging.getLogger("azure.identity").setLevel(logging.ERROR)
 class PurviewClient():
     def __init__(self):
         self.access_token = None
-        self.account_name = settings.PURVIEW_NAME if settings.PURVIEW_NAME != None else os.environ.get("PURVIEW_NAME")
-        if self.account_name is None:
-            print("""[ERROR] Environment variable PURVIEW_NAME is missing.
+        self.account_name = None
+
+    def set_account(self, app):
+        if app == "management":
+            self.account_name = None
+        else:
+            self.account_name = settings.PURVIEW_NAME if settings.PURVIEW_NAME != None else os.environ.get("PURVIEW_NAME")
+            if self.account_name is None:
+                print("""[ERROR] Environment variable PURVIEW_NAME is missing.
 
 Please configure the PURVIEW_NAME environment variable. Setting environment variables can vary by environment, see examples below.
 \tWindows (Command Prompt):\tset PURVIEW_NAME=value
@@ -22,12 +28,15 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
 \tPowerShell:\t\t\t$env:PURVIEW_NAME = "value"
 \tJupyter Notebook:\t\t%env PURVIEW_NAME=value
 """)
-            sys.exit()
+                sys.exit()
 
-    def set_token(self):
+    def set_token(self, app):
         credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
+
+        resource = "https://management.azure.com/.default" if app == "management" else "https://purview.azure.net/.default"
+
         try:
-            token = credential.get_token('https://purview.azure.net/.default')
+            token = credential.get_token(f'{resource}')
         except ClientAuthenticationError as e:
             print(e)
             print("For more information, check out: https://docs.microsoft.com/en-us/python/api/overview/azure/identity-readme?view=azure-python")
@@ -38,7 +47,7 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
         return self.access_token
 
     def http_get(self, app, method, endpoint, params, payload):
-        uri = 'https://%s.%s.purview.azure.com%s' % (self.account_name, app, endpoint)
+        uri = f"https://management.azure.com{endpoint}" if app == "management" else f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
         headers = {"Authorization": "Bearer {0}".format(self.access_token)}
 
         try:
