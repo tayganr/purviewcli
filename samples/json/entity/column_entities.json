@@ -1,0 +1,94 @@
+{
+    "entities": [
+    {
+        "attributes": {
+            "name": "Column301",
+            "qualifiedName": "https://adls8951.dfs.core.windows.net/other/lots_of_cols.csv#__tabular_schema//:csv/300",
+            "type": "string"
+        },
+        "status": "ACTIVE",
+        "typeName": "column"
+    },
+    {
+        "attributes": {
+            "name": "Column302",
+            "qualifiedName": "https://adls8951.dfs.core.windows.net/other/lots_of_cols.csv#__tabular_schema//:csv/301",
+            "type": "string"
+        },
+        "status": "ACTIVE",
+        "typeName": "column"
+    },
+    {
+        "attributes": {
+            "name": "Column303",
+            "qualifiedName": "https://adls8951.dfs.core.windows.net/other/lots_of_cols.csv#__tabular_schema//:csv/302",
+            "type": "string"
+        },
+        "status": "ACTIVE",
+        "typeName": "column"
+    },
+    {
+        "attributes": {
+            "name": "Column304",
+            "qualifiedName": "https://adls8951.dfs.core.windows.net/other/lots_of_cols.csv#__tabular_schema//:csv/303",
+            "type": "string"
+        },
+        "status": "ACTIVE",
+        "typeName": "column"
+    },
+    {
+        "attributes": {
+            "name": "Column305",
+            "qualifiedName": "https://adls8951.dfs.core.windows.net/other/lots_of_cols.csv#__tabular_schema//:csv/304",
+            "type": "string"
+        },
+        "status": "ACTIVE",
+        "typeName": "column"
+    },
+    {
+        "attributes": {
+            "name": "Column306",
+            "qualifiedName": "https://adls8951.dfs.core.windows.net/other/lots_of_cols.csv#__tabular_schema//:csv/305",
+            "type": "string"
+        },
+        "status": "ACTIVE",
+        "typeName": "column"
+    },
+    {
+        "attributes": {
+            "name": "Column307",
+            "qualifiedName": "https://adls8951.dfs.core.windows.net/other/lots_of_cols.csv#__tabular_schema//:csv/306",
+            "type": "string"
+        },
+        "status": "ACTIVE",
+        "typeName": "column"
+    },
+    {
+        "attributes": {
+            "name": "Column308",
+            "qualifiedName": "https://adls8951.dfs.core.windows.net/other/lots_of_cols.csv#__tabular_schema//:csv/307",
+            "type": "string"
+        },
+        "status": "ACTIVE",
+        "typeName": "column"
+    },
+    {
+        "attributes": {
+            "name": "Column309",
+            "qualifiedName": "https://adls8951.dfs.core.windows.net/other/lots_of_cols.csv#__tabular_schema//:csv/308",
+            "type": "string"
+        },
+        "status": "ACTIVE",
+        "typeName": "column"
+    },
+    {
+        "attributes": {
+            "name": "Column310",
+            "qualifiedName": "https://adls8951.dfs.core.windows.net/other/lots_of_cols.csv#__tabular_schema//:csv/309",
+            "type": "string"
+        },
+        "status": "ACTIVE",
+        "typeName": "column"
+    }
+]
+}
