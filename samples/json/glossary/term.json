@@ -1,0 +1,16 @@
+{
+    "anchor": {
+        "glossaryGuid": "b5544147-c1c5-401c-b835-d3e93e7eaae2"
+    },
+    "abbreviation": "TABC",
+    "longDescription": "This is a long definition.",
+    "name": "Term ABC",
+    "qualifiedName": "Term ABC@Glossary",
+    "resources": [
+        {
+            "displayName": "Azure Purview",
+            "url": "https://aka.ms/AzurePurview"
+        }
+    ],
+    "status": "Draft"
+}

@@ -1,0 +1,35 @@
+[
+    {
+        "anchor": {
+            "glossaryGuid": "b5544147-c1c5-401c-b835-d3e93e7eaae2"
+        },
+        "longDescription": "This is a long definition.",
+        "name": "Custom01",
+        "qualifiedName": "Custom01@Glossary",
+        "shortDescription": null,
+        "status": "Approved",
+        "templateName": []
+    },
+    {
+        "anchor": {
+            "glossaryGuid": "b5544147-c1c5-401c-b835-d3e93e7eaae2"
+        },
+        "longDescription": "This is a long definition.",
+        "name": "Custom02",
+        "qualifiedName": "Custom02@Glossary",
+        "shortDescription": null,
+        "status": "Approved",
+        "templateName": []
+    },
+    {
+        "anchor": {
+            "glossaryGuid": "b5544147-c1c5-401c-b835-d3e93e7eaae2"
+        },
+        "longDescription": "This is a long definition.",
+        "name": "Custom03",
+        "qualifiedName": "Custom03@Glossary",
+        "shortDescription": null,
+        "status": "Approved",
+        "templateName": []
+    }
+]
