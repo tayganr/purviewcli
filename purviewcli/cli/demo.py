@@ -1,9 +1,10 @@
 """
 usage: 
-    pv demo generate
+    pv demo generate --subscriptionId=<val> --location=<val> [--resourceGroupName=<val>]
 
 options:
-  --purviewName=<val>     [string]  Azure Purview account name.
+    --subscriptionId=<val>                  [string]  The subscription ID.
+    --resourceGroupName=<val>               [string]  The name of the resource group.
 
 """
 from docopt import docopt

@@ -5,6 +5,14 @@ class Management(Endpoint):
         Endpoint.__init__(self)
         self.app = 'management'
 
+
+    @decorator
+    def managementPutResourceGroup(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/subscriptions/{args["--subscriptionId"]}/resourcegroups/{args["--resourceGroupName"]}'
+        self.params = { 'api-version': '2021-04-01' }
+        self.payload = { 'location': args["--location"] }
+
     @decorator
     def managementListOperations(self, args):
         self.method = 'GET'

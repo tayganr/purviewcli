@@ -2,6 +2,7 @@
 usage: 
     pv management listOperations
     pv management checkNameAvailability --subscriptionId=<val> --accountName=<val>
+    pv management putResourceGroup --subscriptionId=<val> --resourceGroupName=<val> --location=<val>
     pv management createAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
     pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
     pv management deleteAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
@@ -18,7 +19,6 @@ usage:
     pv management readPrivateEndpoints --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
 
 options:
-    --purviewName=<val>                     [string]  Azure Purview account name.
     --subscriptionId=<val>                  [string]  The subscription ID.
     --resourceGroupName=<val>               [string]  The name of the resource group.
     --accountName=<val>                     [string]  The name of the account.
