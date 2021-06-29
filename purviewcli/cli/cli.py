@@ -68,8 +68,10 @@ def main():
     data = funcObj(command_args)
     
     # Print data
-    if len(data) > 0:
+    if type(data) is dict and len(data) > 0:
         print(json.dumps(data, indent=4, sort_keys=True)) 
+    elif type(data) is not dict and len(data) > 0:
+        print(data)
     else:
         print('[INFO] No data found for %s.' % (command))
 

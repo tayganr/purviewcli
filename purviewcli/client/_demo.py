@@ -1,4 +1,5 @@
-import time, json, string, random, importlib.resources
+import math, time, json, string, random, importlib.resources
+from datetime import datetime
 from os import read
 from subprocess import Popen, PIPE
 from purviewcli.client import settings
@@ -9,12 +10,12 @@ def runCommand(cmd):
     output = json.loads(output)
     return output
 
-
 class Demo():
     def demoGenerate(self, args):
         # Init variables
         accountName = None
         nameAvailable = False
+        startTime = datetime.now()
 
         # Generate Azure Purview Account Name
         while nameAvailable == False:
@@ -109,7 +110,6 @@ class Demo():
                 old_guid = old_entities[qualifiedName]
                 guid_mapping[old_guid] = new_guid
                 counter += 1
-        print('[COMPLETE] Bulk creation of entities complete!')
 
         # Replace references to OLD GUID with NEW GUID
         with importlib.resources.path("purviewcli.ninja.entities", "entities_rels_old.json") as filepath:
@@ -149,5 +149,11 @@ class Demo():
         
         print('[COMPLETE] Bulk creation of entities with relationships complete!')
 
-        response = { 'x': 'y' }
+        finishTime = datetime.now()
+        duration = finishTime - startTime
+        minutes = math.floor(duration.seconds / 60)
+        seconds = duration.seconds % 60
+        print(f'Duration: {minutes:02}:{seconds:02}')
+
+        response = 'Hello World!'
         return response
