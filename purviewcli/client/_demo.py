@@ -58,5 +58,77 @@ class Demo():
 
         catalogEndpoint = data['properties']['endpoints']['catalog']
 
+        # output = !pv types createTypeDefs --payload-file "{source_path}/types/typedefs_custom.json"
+        # # Map qualifiedName to OLD GUID
+        # with open(f"{source_path}/entities/entities.json") as f:
+        #     original_entities = json.load(f)
+
+        # old_entities = {}
+        # for entity in original_entities:
+        #     qualifiedName = entity['attributes']['qualifiedName']
+        #     old_guid = entity['guid']
+        #     old_entities[qualifiedName] = old_guid
+
+        # # Create Entities
+        # guid_mapping = {}
+        # filepaths = [f"{source_path}/entities/entities_min1.json", f"{source_path}/entities/entities_min2.json"]
+
+        # for filepath in filepaths:
+        #     print(f'[WORKING] Creating entities from {filepath}...')
+        #     guidAssignments = !pv entity createBulk --payload-file {filepath}
+        #     guidAssignments = getJSON(guidAssignments)
+
+        #     # Map OLD GUID to NEW GUID
+        #     with open(filepath) as f:
+        #         entities = json.load(f)
+
+        #     counter = 0
+        #     for entity in entities['entities']:
+        #         new_guid = list(guidAssignments['guidAssignments'].items())[counter][1]
+        #         qualifiedName = entity['attributes']['qualifiedName']
+        #         old_guid = old_entities[qualifiedName]
+        #         guid_mapping[old_guid] = new_guid
+        #         counter += 1
+        # print('[COMPLETE] Bulk creation of entities complete!')
+
+        # # Replace references to OLD GUID with NEW GUID
+        # with open(f"{source_path}/entities/entities_rels_old.json") as f:
+        #     entities_with_rels = json.load(f)
+
+        # for entity in entities_with_rels['entities']:
+        #     # Inputs/Outputs
+        #     for attribute in entity['attributes']:
+        #         if attribute == 'inputs' or attribute == 'outputs':
+        #             for io in entity['attributes'][attribute]:
+        #                 if 'guid' in io:
+        #                     old_guid = io['guid']
+        #                     io['guid'] = guid_mapping[old_guid]
+        #     # Relationships
+        #     for relationshipAttribute in entity['relationshipAttributes']:
+        #         attr = entity['relationshipAttributes'][relationshipAttribute]
+        #         isList = True if type(attr) is list else False
+        #         if isList:
+        #             for element in attr:
+        #                 old_guid = element['guid']
+        #                 element['guid'] = guid_mapping[old_guid]
+        #                 element.pop('relationshipGuid', None)
+        #         else:
+        #             old_guid = attr['guid']
+        #             attr['guid'] = guid_mapping[old_guid]
+        #             attr.pop('relationshipGuid', None)
+
+        # # Export updated entities with relationships JSON document
+        # from pathlib import Path
+        # directory = f"{source_path}/relationships"
+        # Path(directory).mkdir(parents=True, exist_ok=True)
+
+        # filepath = f'{directory}/entities_rels_new.json'
+        # with open(filepath, 'w') as fp:
+        #     json.dump(entities_with_rels, fp, indent=4, sort_keys=True)
+
+        # print(f'[WORKING] Creating entities with relationships from {filepath}...')
+        # output = !pv entity createBulk --payload-file {filepath}
+        # print('[COMPLETE] Bulk creation of entities with relationships complete!')
+
         response = { 'x': 'y' }
         return response

@@ -1,0 +1,2074 @@
+{
+    "classificationDefs": [
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "Twitter_Handle",
+            "entityTypes": [],
+            "name": "Twitter_Handle",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "test",
+            "entityTypes": [],
+            "name": "test",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "PerpetualCustomerID",
+            "entityTypes": [],
+            "name": "PerpetualCustomerID",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 2
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "demo001classification",
+            "entityTypes": [],
+            "name": "demo001classification",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 2
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "EmployeeID",
+            "entityTypes": [],
+            "name": "EmployeeID",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "EmiratesID",
+            "entityTypes": [],
+            "name": "EmiratesID",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "defineNewRule",
+            "entityTypes": [],
+            "name": "TestDemo",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "All Customer ID",
+            "entityTypes": [],
+            "name": "shkhCustomerId",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "Classification to detect column with potential product name",
+            "entityTypes": [],
+            "name": "Franmer_Product",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 2
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "Transaction details such as type of transaction ",
+            "entityTypes": [],
+            "name": "Transaction",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "Canadian Social Insurance Number",
+            "entityTypes": [],
+            "name": "franmer_SIN",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 4
+        },
+        {
+            "attributeDefs": [],
+            "category": "CLASSIFICATION",
+            "description": "SSN",
+            "entityTypes": [],
+            "name": "SSN",
+            "subTypes": [],
+            "superTypes": [],
+            "typeVersion": "1.0",
+            "version": 3
+        }
+    ],
+    "entityDefs": [
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": true,
+                    "isOptional": false,
+                    "isUnique": false,
+                    "name": "type",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "nullable",
+                    "typeName": "boolean",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "metadata",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "comment",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "ENTITY",
+            "description": "spark_column",
+            "lastModifiedTS": "1",
+            "name": "spark_column",
+            "relationshipAttributeDefs": [
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "schema",
+                    "relationshipTypeName": "avro_schema_associatedEntities",
+                    "typeName": "array<avro_schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "inputToProcesses",
+                    "relationshipTypeName": "dataset_process_inputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "pipeline",
+                    "relationshipTypeName": "spark_ml_pipeline_dataset",
+                    "typeName": "spark_ml_pipeline",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "model",
+                    "relationshipTypeName": "spark_ml_model_dataset",
+                    "typeName": "spark_ml_model",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "attachedSchema",
+                    "relationshipTypeName": "dataset_attached_schemas",
+                    "typeName": "array<schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "meanings",
+                    "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                    "typeName": "array<AtlasGlossaryTerm>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": false,
+                    "isUnique": false,
+                    "name": "table",
+                    "relationshipTypeName": "spark_table_columns",
+                    "typeName": "spark_table",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "outputFromProcesses",
+                    "relationshipTypeName": "process_dataset_outputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "tabular_schema",
+                    "relationshipTypeName": "tabular_schema_datasets",
+                    "typeName": "tabular_schema",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                }
+            ],
+            "serviceType": "spark",
+            "subTypes": [],
+            "superTypes": [
+                "DataSet"
+            ],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "tableType",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "provider",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "partitionColumnNames",
+                    "typeName": "array<string>",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "bucketSpec",
+                    "typeName": "map<string,string>",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "ownerType",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "createTime",
+                    "typeName": "date",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "parameters",
+                    "typeName": "map<string,string>",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "comment",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "unsupportedFeatures",
+                    "typeName": "array<string>",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "viewOriginalText",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "schemaDesc",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "partitionProvider",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "ENTITY",
+            "description": "spark_table",
+            "lastModifiedTS": "1",
+            "name": "spark_table",
+            "relationshipAttributeDefs": [
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "schema",
+                    "relationshipTypeName": "avro_schema_associatedEntities",
+                    "typeName": "array<avro_schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "inputToProcesses",
+                    "relationshipTypeName": "dataset_process_inputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "pipeline",
+                    "relationshipTypeName": "spark_ml_pipeline_dataset",
+                    "typeName": "spark_ml_pipeline",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "sd",
+                    "relationshipTypeName": "spark_table_storagedesc",
+                    "typeName": "spark_storagedesc",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "constraints": [
+                        {
+                            "type": "ownedRef"
+                        }
+                    ],
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "columns",
+                    "relationshipTypeName": "spark_table_columns",
+                    "typeName": "array<spark_column>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "model",
+                    "relationshipTypeName": "spark_ml_model_dataset",
+                    "typeName": "spark_ml_model",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "attachedSchema",
+                    "relationshipTypeName": "dataset_attached_schemas",
+                    "typeName": "array<schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "meanings",
+                    "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                    "typeName": "array<AtlasGlossaryTerm>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "db",
+                    "relationshipTypeName": "spark_table_db",
+                    "typeName": "spark_db",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "outputFromProcesses",
+                    "relationshipTypeName": "process_dataset_outputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "tabular_schema",
+                    "relationshipTypeName": "tabular_schema_datasets",
+                    "typeName": "tabular_schema",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                }
+            ],
+            "serviceType": "spark",
+            "subTypes": [],
+            "superTypes": [
+                "DataSet"
+            ],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "ENTITY",
+            "description": "spark_column_lineage",
+            "lastModifiedTS": "1",
+            "name": "spark_column_lineage",
+            "relationshipAttributeDefs": [
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": true,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "outputs",
+                    "relationshipTypeName": "process_dataset_outputs",
+                    "typeName": "array<DataSet>",
+                    "valuesMaxCount": 2147483647,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "process",
+                    "relationshipTypeName": "spark_process_column_lineages",
+                    "typeName": "spark_process",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": true,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "inputs",
+                    "relationshipTypeName": "dataset_process_inputs",
+                    "typeName": "array<DataSet>",
+                    "valuesMaxCount": 2147483647,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "meanings",
+                    "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                    "typeName": "array<AtlasGlossaryTerm>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                }
+            ],
+            "serviceType": "spark",
+            "subTypes": [],
+            "superTypes": [
+                "Process"
+            ],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "location",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "inputFormat",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "outputFormat",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "serde",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": true,
+                    "isOptional": false,
+                    "isUnique": false,
+                    "name": "compressed",
+                    "typeName": "boolean",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "parameters",
+                    "typeName": "map<string,string>",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "ENTITY",
+            "description": "spark_storagedesc",
+            "lastModifiedTS": "1",
+            "name": "spark_storagedesc",
+            "relationshipAttributeDefs": [
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "meanings",
+                    "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                    "typeName": "array<AtlasGlossaryTerm>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "table",
+                    "relationshipTypeName": "spark_table_storagedesc",
+                    "typeName": "spark_table",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                }
+            ],
+            "serviceType": "spark",
+            "subTypes": [],
+            "superTypes": [
+                "Referenceable"
+            ],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "extra",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "ENTITY",
+            "description": "spark_ml_pipeline",
+            "lastModifiedTS": "1",
+            "name": "spark_ml_pipeline",
+            "relationshipAttributeDefs": [
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "schema",
+                    "relationshipTypeName": "avro_schema_associatedEntities",
+                    "typeName": "array<avro_schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "inputToProcesses",
+                    "relationshipTypeName": "dataset_process_inputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "pipeline",
+                    "relationshipTypeName": "spark_ml_pipeline_dataset",
+                    "typeName": "spark_ml_pipeline",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "model",
+                    "relationshipTypeName": "spark_ml_model_dataset",
+                    "typeName": "spark_ml_model",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "attachedSchema",
+                    "relationshipTypeName": "dataset_attached_schemas",
+                    "typeName": "array<schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "constraints": [
+                        {
+                            "type": "ownedRef"
+                        }
+                    ],
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "directory",
+                    "relationshipTypeName": "spark_ml_pipeline_ml_directory",
+                    "typeName": "spark_ml_directory",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "dataset",
+                    "relationshipTypeName": "spark_ml_pipeline_dataset",
+                    "typeName": "DataSet",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "meanings",
+                    "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                    "typeName": "array<AtlasGlossaryTerm>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "outputFromProcesses",
+                    "relationshipTypeName": "process_dataset_outputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "tabular_schema",
+                    "relationshipTypeName": "tabular_schema_datasets",
+                    "typeName": "tabular_schema",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                }
+            ],
+            "serviceType": "spark",
+            "subTypes": [],
+            "superTypes": [
+                "DataSet"
+            ],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": true,
+                    "isOptional": false,
+                    "isUnique": false,
+                    "name": "uri",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": true,
+                    "isOptional": false,
+                    "isUnique": false,
+                    "name": "directory",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 1
+                }
+            ],
+            "category": "ENTITY",
+            "description": "spark_ml_directory",
+            "lastModifiedTS": "1",
+            "name": "spark_ml_directory",
+            "relationshipAttributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": false,
+                    "isUnique": false,
+                    "name": "pipeline",
+                    "relationshipTypeName": "spark_ml_pipeline_ml_directory",
+                    "typeName": "spark_ml_pipeline",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "pipeline",
+                    "relationshipTypeName": "spark_ml_pipeline_dataset",
+                    "typeName": "spark_ml_pipeline",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "schema",
+                    "relationshipTypeName": "avro_schema_associatedEntities",
+                    "typeName": "array<avro_schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "inputToProcesses",
+                    "relationshipTypeName": "dataset_process_inputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "model",
+                    "relationshipTypeName": "spark_ml_model_dataset",
+                    "typeName": "spark_ml_model",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": false,
+                    "isUnique": false,
+                    "name": "model",
+                    "relationshipTypeName": "spark_ml_model_ml_directory",
+                    "typeName": "spark_ml_model",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "attachedSchema",
+                    "relationshipTypeName": "dataset_attached_schemas",
+                    "typeName": "array<schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "meanings",
+                    "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                    "typeName": "array<AtlasGlossaryTerm>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "outputFromProcesses",
+                    "relationshipTypeName": "process_dataset_outputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "tabular_schema",
+                    "relationshipTypeName": "tabular_schema_datasets",
+                    "typeName": "tabular_schema",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                }
+            ],
+            "serviceType": "spark",
+            "subTypes": [],
+            "superTypes": [
+                "DataSet"
+            ],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "extra",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "ENTITY",
+            "description": "spark_ml_model",
+            "lastModifiedTS": "1",
+            "name": "spark_ml_model",
+            "relationshipAttributeDefs": [
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "schema",
+                    "relationshipTypeName": "avro_schema_associatedEntities",
+                    "typeName": "array<avro_schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "inputToProcesses",
+                    "relationshipTypeName": "dataset_process_inputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "pipeline",
+                    "relationshipTypeName": "spark_ml_pipeline_dataset",
+                    "typeName": "spark_ml_pipeline",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "model",
+                    "relationshipTypeName": "spark_ml_model_dataset",
+                    "typeName": "spark_ml_model",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "attachedSchema",
+                    "relationshipTypeName": "dataset_attached_schemas",
+                    "typeName": "array<schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "dataset",
+                    "relationshipTypeName": "spark_ml_model_dataset",
+                    "typeName": "DataSet",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "constraints": [
+                        {
+                            "type": "ownedRef"
+                        }
+                    ],
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "directory",
+                    "relationshipTypeName": "spark_ml_model_ml_directory",
+                    "typeName": "spark_ml_directory",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "meanings",
+                    "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                    "typeName": "array<AtlasGlossaryTerm>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "outputFromProcesses",
+                    "relationshipTypeName": "process_dataset_outputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "tabular_schema",
+                    "relationshipTypeName": "tabular_schema_datasets",
+                    "typeName": "tabular_schema",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                }
+            ],
+            "serviceType": "spark",
+            "subTypes": [],
+            "superTypes": [
+                "DataSet"
+            ],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "executionId",
+                    "typeName": "long",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "currUser",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "remoteUser",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "details",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "sparkPlanDescription",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "ENTITY",
+            "description": "spark_process",
+            "lastModifiedTS": "1",
+            "name": "spark_process",
+            "relationshipAttributeDefs": [
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": true,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "outputs",
+                    "relationshipTypeName": "process_dataset_outputs",
+                    "typeName": "array<DataSet>",
+                    "valuesMaxCount": 2147483647,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "application",
+                    "relationshipTypeName": "spark_application_processes",
+                    "typeName": "spark_application",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": true,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "inputs",
+                    "relationshipTypeName": "dataset_process_inputs",
+                    "typeName": "array<DataSet>",
+                    "valuesMaxCount": 2147483647,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "columnLineages",
+                    "relationshipTypeName": "spark_process_column_lineages",
+                    "typeName": "array<spark_column_lineage>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "meanings",
+                    "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                    "typeName": "array<AtlasGlossaryTerm>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                }
+            ],
+            "serviceType": "spark",
+            "subTypes": [],
+            "superTypes": [
+                "Process"
+            ],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": true,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "currentUser",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": true,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "remoteUser",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "ENTITY",
+            "description": "spark_application",
+            "lastModifiedTS": "1",
+            "name": "spark_application",
+            "relationshipAttributeDefs": [
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": true,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "outputs",
+                    "relationshipTypeName": "process_dataset_outputs",
+                    "typeName": "array<DataSet>",
+                    "valuesMaxCount": 2147483647,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "processes",
+                    "relationshipTypeName": "spark_application_processes",
+                    "typeName": "array<spark_process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": true,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "inputs",
+                    "relationshipTypeName": "dataset_process_inputs",
+                    "typeName": "array<DataSet>",
+                    "valuesMaxCount": 2147483647,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "meanings",
+                    "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                    "typeName": "array<AtlasGlossaryTerm>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                }
+            ],
+            "serviceType": "spark",
+            "subTypes": [],
+            "superTypes": [
+                "Process"
+            ],
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "location",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "clusterName",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "parameters",
+                    "typeName": "map<string,string>",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "ownerType",
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "ENTITY",
+            "description": "spark_db",
+            "lastModifiedTS": "1",
+            "name": "spark_db",
+            "relationshipAttributeDefs": [
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "schema",
+                    "relationshipTypeName": "avro_schema_associatedEntities",
+                    "typeName": "array<avro_schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "inputToProcesses",
+                    "relationshipTypeName": "dataset_process_inputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "pipeline",
+                    "relationshipTypeName": "spark_ml_pipeline_dataset",
+                    "typeName": "spark_ml_pipeline",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "tables",
+                    "relationshipTypeName": "spark_table_db",
+                    "typeName": "array<spark_table>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "model",
+                    "relationshipTypeName": "spark_ml_model_dataset",
+                    "typeName": "spark_ml_model",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "attachedSchema",
+                    "relationshipTypeName": "dataset_attached_schemas",
+                    "typeName": "array<schema>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "meanings",
+                    "relationshipTypeName": "AtlasGlossarySemanticAssignment",
+                    "typeName": "array<AtlasGlossaryTerm>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SET",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "outputFromProcesses",
+                    "relationshipTypeName": "process_dataset_outputs",
+                    "typeName": "array<Process>",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isLegacyAttribute": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "tabular_schema",
+                    "relationshipTypeName": "tabular_schema_datasets",
+                    "typeName": "tabular_schema",
+                    "valuesMaxCount": -1,
+                    "valuesMinCount": -1
+                }
+            ],
+            "serviceType": "spark",
+            "subTypes": [],
+            "superTypes": [
+                "DataSet"
+            ],
+            "typeVersion": "1.0",
+            "version": 1
+        }
+    ],
+    "enumDefs": [],
+    "relationshipDefs": [
+        {
+            "attributeDefs": [],
+            "category": "RELATIONSHIP",
+            "description": "spark_process_column_lineages",
+            "endDef1": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "process",
+                "type": "spark_column_lineage"
+            },
+            "endDef2": {
+                "cardinality": "SET",
+                "isContainer": true,
+                "isLegacyAttribute": false,
+                "name": "columnLineages",
+                "type": "spark_process"
+            },
+            "lastModifiedTS": "1",
+            "name": "spark_process_column_lineages",
+            "propagateTags": "NONE",
+            "relationshipCategory": "AGGREGATION",
+            "serviceType": "spark",
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "RELATIONSHIP",
+            "description": "spark_table_columns",
+            "endDef1": {
+                "cardinality": "SET",
+                "isContainer": true,
+                "isLegacyAttribute": false,
+                "name": "columns",
+                "type": "spark_table"
+            },
+            "endDef2": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "table",
+                "type": "spark_column"
+            },
+            "lastModifiedTS": "1",
+            "name": "spark_table_columns",
+            "propagateTags": "NONE",
+            "relationshipCategory": "COMPOSITION",
+            "serviceType": "spark",
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "RELATIONSHIP",
+            "description": "spark_ml_model_dataset",
+            "endDef1": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "dataset",
+                "type": "spark_ml_model"
+            },
+            "endDef2": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "model",
+                "type": "DataSet"
+            },
+            "lastModifiedTS": "1",
+            "name": "spark_ml_model_dataset",
+            "propagateTags": "NONE",
+            "relationshipCategory": "ASSOCIATION",
+            "serviceType": "spark",
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "RELATIONSHIP",
+            "description": "spark_ml_pipeline_ml_directory",
+            "endDef1": {
+                "cardinality": "SINGLE",
+                "isContainer": true,
+                "isLegacyAttribute": false,
+                "name": "directory",
+                "type": "spark_ml_pipeline"
+            },
+            "endDef2": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "pipeline",
+                "type": "spark_ml_directory"
+            },
+            "lastModifiedTS": "1",
+            "name": "spark_ml_pipeline_ml_directory",
+            "propagateTags": "NONE",
+            "relationshipCategory": "COMPOSITION",
+            "serviceType": "spark",
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "RELATIONSHIP",
+            "description": "spark_table_storagedesc",
+            "endDef1": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "sd",
+                "type": "spark_table"
+            },
+            "endDef2": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "table",
+                "type": "spark_storagedesc"
+            },
+            "lastModifiedTS": "1",
+            "name": "spark_table_storagedesc",
+            "propagateTags": "NONE",
+            "relationshipCategory": "ASSOCIATION",
+            "serviceType": "spark",
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "RELATIONSHIP",
+            "description": "spark_ml_model_ml_directory",
+            "endDef1": {
+                "cardinality": "SINGLE",
+                "isContainer": true,
+                "isLegacyAttribute": false,
+                "name": "directory",
+                "type": "spark_ml_model"
+            },
+            "endDef2": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "model",
+                "type": "spark_ml_directory"
+            },
+            "lastModifiedTS": "1",
+            "name": "spark_ml_model_ml_directory",
+            "propagateTags": "NONE",
+            "relationshipCategory": "COMPOSITION",
+            "serviceType": "spark",
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "RELATIONSHIP",
+            "description": "spark_application_processes",
+            "endDef1": {
+                "cardinality": "SET",
+                "isContainer": true,
+                "isLegacyAttribute": false,
+                "name": "processes",
+                "type": "spark_application"
+            },
+            "endDef2": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "application",
+                "type": "spark_process"
+            },
+            "lastModifiedTS": "1",
+            "name": "spark_application_processes",
+            "propagateTags": "NONE",
+            "relationshipCategory": "AGGREGATION",
+            "serviceType": "spark",
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "RELATIONSHIP",
+            "description": "spark_ml_pipeline_dataset",
+            "endDef1": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "dataset",
+                "type": "spark_ml_pipeline"
+            },
+            "endDef2": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "pipeline",
+                "type": "DataSet"
+            },
+            "lastModifiedTS": "1",
+            "name": "spark_ml_pipeline_dataset",
+            "propagateTags": "NONE",
+            "relationshipCategory": "ASSOCIATION",
+            "serviceType": "spark",
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [],
+            "category": "RELATIONSHIP",
+            "description": "spark_table_db",
+            "endDef1": {
+                "cardinality": "SINGLE",
+                "isContainer": false,
+                "isLegacyAttribute": false,
+                "name": "db",
+                "type": "spark_table"
+            },
+            "endDef2": {
+                "cardinality": "SET",
+                "isContainer": true,
+                "isLegacyAttribute": false,
+                "name": "tables",
+                "type": "spark_db"
+            },
+            "lastModifiedTS": "1",
+            "name": "spark_table_db",
+            "propagateTags": "NONE",
+            "relationshipCategory": "AGGREGATION",
+            "serviceType": "spark",
+            "typeVersion": "1.0",
+            "version": 1
+        }
+    ],
+    "structDefs": [],
+    "termTemplateDefs": [
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "description": "This is department specific information",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "Department",
+                    "options": {
+                        "isDisabled": "false"
+                    },
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "description": "THis is custom",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "Custom",
+                    "options": {
+                        "isDisabled": "false"
+                    },
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "TERM_TEMPLATE",
+            "description": "Sher Test",
+            "lastModifiedTS": "2",
+            "name": "Sher Test",
+            "typeVersion": "1.0",
+            "version": 2
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "description": "Revenue of department",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "Revenue",
+                    "options": {
+                        "isDisabled": "false"
+                    },
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "defaultValue": "Profit before taxes and expenses",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "Gross Profit",
+                    "options": {
+                        "isDisabled": "false"
+                    },
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "TERM_TEMPLATE",
+            "description": "Finance",
+            "lastModifiedTS": "3",
+            "name": "Finance",
+            "typeVersion": "1.0",
+            "version": 3
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "Produit",
+                    "options": {
+                        "isDisabled": "false"
+                    },
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "TERM_TEMPLATE",
+            "description": "MomModele",
+            "lastModifiedTS": "1",
+            "name": "MomModele",
+            "typeVersion": "1.0",
+            "version": 1
+        },
+        {
+            "attributeDefs": [
+                {
+                    "cardinality": "SINGLE",
+                    "description": "sfgsg",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": false,
+                    "isUnique": false,
+                    "name": "Nom_Produit_Financier",
+                    "options": {
+                        "isDisabled": "false"
+                    },
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 1
+                },
+                {
+                    "cardinality": "SINGLE",
+                    "includeInNotification": false,
+                    "isIndexable": false,
+                    "isOptional": true,
+                    "isUnique": false,
+                    "name": "Responsable",
+                    "options": {
+                        "isDisabled": "false"
+                    },
+                    "typeName": "string",
+                    "valuesMaxCount": 1,
+                    "valuesMinCount": 0
+                }
+            ],
+            "category": "TERM_TEMPLATE",
+            "description": "fvfdvfdvdfv",
+            "lastModifiedTS": "1",
+            "name": "MonMod\u00e8le",
+            "typeVersion": "1.0",
+            "version": 1
+        }
+    ]
+}
