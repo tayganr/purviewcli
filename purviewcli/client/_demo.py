@@ -61,7 +61,7 @@ class Demo():
 
         # Add Role Assignment (Owner)
         roleDefinitionId = '18d7d88d-d35e-4fb5-a5c3-7773c20a72d9' # User Access Administrator
-        cmd = "pv management readMe"
+        cmd = "pv graph readMe"
         data = runCommand(cmd)
         principalId = data['id']
         userPrincipalName = data['userPrincipalName']
