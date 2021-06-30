@@ -6,6 +6,12 @@ class Management(Endpoint):
         Endpoint.__init__(self)
         self.app = 'management'
 
+    @decorator
+    def managementReadMe(self, args):
+        self.app = 'graph'
+        self.method = 'GET'
+        self.endpoint = '/v1.0/me'
+
     # https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
     @decorator
     def managementPutRoleAssignment(self, args):

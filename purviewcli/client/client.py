@@ -1,3 +1,4 @@
+import jwt
 import sys
 import os
 import logging
@@ -14,7 +15,7 @@ class PurviewClient():
         self.account_name = None
 
     def set_account(self, app):
-        if app == "management":
+        if app == "management" or app == 'graph':
             self.account_name = None
         else:
             self.account_name = settings.PURVIEW_NAME if settings.PURVIEW_NAME != None else os.environ.get("PURVIEW_NAME")
@@ -33,7 +34,12 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
     def set_token(self, app):
         credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
 
-        resource = "https://management.azure.com/.default" if app == "management" else "https://purview.azure.net/.default"
+        if app == "management":
+            resource = f"https://{app}.azure.com/.default"
+        elif app == 'graph':
+            resource = f"https://{app}.microsoft.com/.default"
+        else:
+            resource = "https://purview.azure.net/.default"
 
         try:
             token = credential.get_token(f'{resource}')
@@ -47,7 +53,13 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
         return self.access_token
 
     def http_get(self, app, method, endpoint, params, payload):
-        uri = f"https://management.azure.com{endpoint}" if app == "management" else f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
+        if app == "management":
+            uri = f"https://{app}.azure.com{endpoint}"
+        elif app == 'graph':
+            uri = f"https://{app}.microsoft.com{endpoint}"
+        else:
+            uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
+
         headers = {"Authorization": "Bearer {0}".format(self.access_token)}
 
         try:
