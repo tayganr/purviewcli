@@ -1,3 +1,4 @@
+import uuid
 from .endpoint import Endpoint, decorator, get_json
 
 class Management(Endpoint):
@@ -5,6 +6,20 @@ class Management(Endpoint):
         Endpoint.__init__(self)
         self.app = 'management'
 
+    # https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
+    @decorator
+    def managementPutRoleAssignment(self, args):
+        self.method = 'PUT'
+        scope = f'/subscriptions/{args["--subscriptionId"]}/resourceGroups/{args["--resourceGroupName"]}/providers/Microsoft.Purview/accounts/{args["--accountName"]}'
+        roleAssignmentId = uuid.uuid4()
+        self.endpoint = f'{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01'
+        roleDefinitionId = args["--roleDefinitionId"]
+        self.payload = {
+            "properties": {
+                "roleDefinitionId": f"/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+                "principalId": f'{args["--principalId"]}'
+            }
+        }
 
     @decorator
     def managementPutResourceGroup(self, args):

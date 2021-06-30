@@ -3,6 +3,7 @@ usage:
     pv management listOperations
     pv management checkNameAvailability --subscriptionId=<val> --accountName=<val>
     pv management putResourceGroup --subscriptionId=<val> --resourceGroupName=<val> --location=<val>
+    pv management putRoleAssignment --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --roleDefinitionId=<val> --principalId=<val>
     pv management createAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
     pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
     pv management deleteAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
