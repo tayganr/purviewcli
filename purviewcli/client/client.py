@@ -35,9 +35,9 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
         credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
 
         if app == "management":
-            resource = f"https://{app}.azure.com/.default"
+            resource = "https://management.azure.com/.default"
         elif app == 'graph':
-            resource = f"https://{app}.microsoft.com/.default"
+            resource = "https://graph.microsoft.com/.default"
         else:
             resource = "https://purview.azure.net/.default"
 
@@ -48,6 +48,7 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
             print("For more information, check out: https://docs.microsoft.com/en-us/python/api/overview/azure/identity-readme?view=azure-python")
             sys.exit()
         self.access_token = token.token
+        print(self.access_token)
 
     def get_token(self):
         return self.access_token
