@@ -41,10 +41,11 @@ class Demo():
                 "capacity": 4
             }
         }
-        with open('temp.json', 'w') as f:
-            json.dump(payload, f)
+        with importlib.resources.path("purviewcli.ninja.account", "account.json") as filepath:
+            with open(filepath, 'w') as f:
+                json.dump(payload, f)
         print('Provisioning Azure Purview account...')
-        cmd = f"pv management createAccount --subscriptionId {args['--subscriptionId']} --resourceGroupName {resourceGroupName} --accountName {accountName} --payload-file temp.json"
+        cmd = f"pv management createAccount --subscriptionId {args['--subscriptionId']} --resourceGroupName {resourceGroupName} --accountName {accountName} --payload-file {filepath}"
         data = runCommand(cmd)
 
         # Check provisioningState until Succeeded

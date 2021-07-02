@@ -48,7 +48,6 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
             print("For more information, check out: https://docs.microsoft.com/en-us/python/api/overview/azure/identity-readme?view=azure-python")
             sys.exit()
         self.access_token = token.token
-        print(self.access_token)
 
     def get_token(self):
         return self.access_token

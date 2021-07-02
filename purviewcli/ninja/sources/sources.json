@@ -1,0 +1,355 @@
+[
+    {
+        "kind": "Collection",
+        "name": "Fabrikam"
+    },
+    {
+        "properties": {
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Fabrikam"
+            }
+        },
+        "kind": "Collection",
+        "name": "HumanResources"
+    },
+    {
+        "properties": {
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Fabrikam"
+            }
+        },
+        "kind": "Collection",
+        "name": "Finance"
+    },
+    {
+        "properties": {
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Fabrikam"
+            }
+        },
+        "kind": "Collection",
+        "name": "Sales"
+    },
+    {
+        "properties": {
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Fabrikam"
+            }
+        },
+        "kind": "Collection",
+        "name": "Marketing"
+    },
+    {
+        "properties": {
+            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "HumanResources"
+            },
+            "collection": null
+        },
+        "kind": "AzureSubscription",
+        "id": "datasources/AzureSubscription",
+        "name": "AzureSubscription"
+    },
+    {
+        "properties": {
+            "dedicatedSqlEndpoint": "synapsews8951.sql.azuresynapse.net",
+            "serverlessSqlEndpoint": "synapsews8951-ondemand.sql.azuresynapse.net",
+            "resourceGroup": "purviewlab",
+            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "location": "brazilsouth",
+            "resourceName": "synapsews8951",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Finance"
+            },
+            "collection": null
+        },
+        "kind": "AzureSynapseWorkspace",
+        "id": "datasources/AzureSynapseWorkspace",
+        "name": "AzureSynapseWorkspace"
+    },
+    {
+        "properties": {
+            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "resourceGroup": "purviewlab",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Sales"
+            },
+            "collection": null
+        },
+        "kind": "AzureResourceGroup",
+        "id": "datasources/AzureResourceGroup",
+        "name": "AzureResourceGroup"
+    },
+    {
+        "properties": {
+            "serverEndpoint": "synapsews8951.database.windows.net",
+            "resourceGroup": "synapsemg8951",
+            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "location": "brazilsouth",
+            "resourceName": "synapsews8951",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Marketing"
+            },
+            "collection": null
+        },
+        "kind": "AzureSqlDatabase",
+        "id": "datasources/AzureSqlDatabase",
+        "name": "AzureSqlDatabase"
+    },
+    {
+        "properties": {
+            "endpoint": "https://something.com",
+            "resourceGroup": null,
+            "subscriptionId": null,
+            "location": null,
+            "resourceName": null,
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "HumanResources"
+            },
+            "collection": null
+        },
+        "kind": "AzureDataExplorer",
+        "id": "datasources/AzureDataExplorer",
+        "name": "AzureDataExplorer"
+    },
+    {
+        "properties": {
+            "endpoint": "https://adlsgenone8951.azuredatalakestore.net/webhdfs/v1/",
+            "resourceGroup": "purviewlab",
+            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "location": "eastus2",
+            "resourceName": "adlsgenone8951",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Finance"
+            },
+            "collection": null
+        },
+        "kind": "AdlsGen1",
+        "id": "datasources/AdlsGen1",
+        "name": "AdlsGen1"
+    },
+    {
+        "properties": {
+            "endpoint": "https://taygan.blob.core.windows.net/",
+            "resourceGroup": "taygan",
+            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "location": "westeurope",
+            "resourceName": "taygan",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Sales"
+            },
+            "collection": null
+        },
+        "kind": "AzureStorage",
+        "id": "datasources/AzureStorage",
+        "name": "AzureStorage"
+    },
+    {
+        "properties": {
+            "serverEndpoint": "synapsews8951.database.windows.net",
+            "resourceGroup": "synapsemg8951",
+            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "location": "brazilsouth",
+            "resourceName": "synapsews8951",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Marketing"
+            },
+            "collection": null
+        },
+        "kind": "AzureSqlDataWarehouse",
+        "id": "datasources/AzureSqlDataWarehouse",
+        "name": "AzureSqlDataWarehouse"
+    },
+    {
+        "properties": {
+            "accountUri": "https://cosmos8951.documents.azure.com:443/",
+            "resourceGroup": "purviewlab",
+            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "location": "brazilsouth",
+            "resourceName": "cosmos8951",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "HumanResources"
+            },
+            "collection": null
+        },
+        "kind": "AzureCosmosDb",
+        "id": "datasources/AzureCosmosDb",
+        "name": "AzureCosmosDb"
+    },
+    {
+        "properties": {
+            "endpoint": "https://adls8951.dfs.core.windows.net/",
+            "resourceGroup": "purviewlab",
+            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "location": "brazilsouth",
+            "resourceName": "adls8951",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Finance"
+            },
+            "collection": null
+        },
+        "kind": "AdlsGen2",
+        "id": "datasources/AdlsGen2",
+        "name": "AdlsGen2"
+    },
+    {
+        "properties": {
+            "applicationServer": "application",
+            "systemNumber": "00",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Sales"
+            },
+            "collection": null
+        },
+        "kind": "SapEcc",
+        "id": "datasources/SapEcc",
+        "name": "SapEcc"
+    },
+    {
+        "properties": {
+            "awsAccountId": "123456789123",
+            "roleARN": null,
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Marketing"
+            },
+            "collection": null
+        },
+        "kind": "AmazonAccount",
+        "id": "datasources/AmazonAccount",
+        "name": "AmazonAccount"
+    },
+    {
+        "properties": {
+            "serviceUrl": "s3://bucketname",
+            "roleARN": null,
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "HumanResources"
+            },
+            "collection": null
+        },
+        "kind": "AmazonS3",
+        "id": "datasources/AmazonS3",
+        "name": "AmazonS3"
+    },
+    {
+        "properties": {
+            "host": "www",
+            "clusterUrl": "www",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Finance"
+            },
+            "collection": null
+        },
+        "kind": "Hive",
+        "id": "datasources/Hive",
+        "name": "Hive"
+    },
+    {
+        "properties": {
+            "applicationServer": "application",
+            "systemNumber": "00",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Sales"
+            },
+            "collection": null
+        },
+        "kind": "SapS4Hana",
+        "id": "datasources/sap_s4_hana",
+        "name": "sap_s4_hana"
+    },
+    {
+        "properties": {
+            "host": "www",
+            "port": "1234",
+            "service": "service",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Marketing"
+            },
+            "collection": null
+        },
+        "kind": "Oracle",
+        "id": "datasources/Oracle",
+        "name": "Oracle"
+    },
+    {
+        "properties": {
+            "host": "teradata.com",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "HumanResources"
+            },
+            "collection": null
+        },
+        "kind": "Teradata",
+        "id": "datasources/Teradata",
+        "name": "Teradata"
+    },
+    {
+        "properties": {
+            "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Finance"
+            },
+            "collection": null
+        },
+        "kind": "PowerBI",
+        "id": "datasources/PowerBI",
+        "name": "PowerBI"
+    },
+    {
+        "properties": {
+            "serverEndpoint": "server",
+            "resourceGroup": null,
+            "subscriptionId": null,
+            "location": null,
+            "resourceName": null,
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Sales"
+            },
+            "collection": null
+        },
+        "kind": "SqlServerDatabase",
+        "id": "datasources/SqlServerDatabase",
+        "name": "SqlServerDatabase"
+    },
+    {
+        "properties": {
+            "endpoint": "https://scanbrazilsouthcrkbyzq.file.core.windows.net/",
+            "resourceGroup": "managed-rg-twyqlvx",
+            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "location": "brazilsouth",
+            "resourceName": "scanbrazilsouthcrkbyzq",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Marketing"
+            },
+            "collection": null
+        },
+        "kind": "AzureFileService",
+        "id": "datasources/AzureFileService",
+        "name": "AzureFileService"
+    }
+]
