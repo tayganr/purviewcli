@@ -1,7 +1,6 @@
-import math, time, json, string, random, importlib.resources
+import math, time, json, string, random, importlib.resources, tempfile, os
 from datetime import datetime
-from os import read
-from subprocess import Popen, PIPE, run
+from subprocess import Popen, PIPE
 
 def runCommand(cmd):
     # print('calling')
@@ -41,12 +40,15 @@ class Demo():
                 "capacity": 4
             }
         }
-        with importlib.resources.path("purviewcli.ninja.account", "account.json") as filepath:
-            with open(filepath, 'w') as f:
-                json.dump(payload, f)
-        print('Provisioning Azure Purview account...')
-        cmd = f"pv management createAccount --subscriptionId {args['--subscriptionId']} --resourceGroupName {resourceGroupName} --accountName {accountName} --payload-file {filepath}"
-        data = runCommand(cmd)
+        fd, path = tempfile.mkstemp(suffix='.json')
+        try:
+            with os.fdopen(fd, 'w') as tmp:
+                json.dump(payload, tmp)
+            print('Provisioning Azure Purview account...')
+            cmd = f"pv management createAccount --subscriptionId {args['--subscriptionId']} --resourceGroupName {resourceGroupName} --accountName {accountName} --payload-file {path}"
+            data = runCommand(cmd)
+        finally:
+            os.remove(path)
 
         # Check provisioningState until Succeeded
         provisioning = True
@@ -156,6 +158,24 @@ class Demo():
             cmd = f"pv entity createBulk --payload-file {filepath} --purviewName {accountName}"
             data = runCommand(cmd)
         
+
+        # Creating Data Sources
+        with importlib.resources.path("purviewcli.ninja.sources", "sources.json") as filepath:
+            print(f' - Creating sources from {filepath}...')
+            with open(filepath) as f:
+                sources = json.load(f)
+
+        for source in sources:
+            dataSourceName = source['name']
+            fd, path = tempfile.mkstemp(suffix='.json')
+            try:
+                with os.fdopen(fd, 'w') as tmp:
+                    json.dump(source, tmp, indent=4, sort_keys=True)
+                cmd = f"pv scan putDataSource --dataSourceName {dataSourceName} --payload-file {path} --purviewName {accountName}"
+                data = runCommand(cmd)
+            finally:
+                os.remove(path)
+
         print('Complete!')
 
         finishTime = datetime.now()
