@@ -70,90 +70,135 @@ def assignRole(subscriptionId, resourceGroupName, accountName, roleDefinitionId)
 
 def populateTypes(accountName):
     print(' - Creating custom type definitions...')
-    with importlib.resources.path("purviewcli.ninja.types", "typedefs_custom.json") as filepath:
+    with importlib.resources.path("purviewcli.ninja", "typedefs_custom.json") as filepath:
         cmd = f"pv types createTypeDefs --payload-file {filepath} --purviewName {accountName}"
         data = runCommand(cmd)
 
 def populateEntities(accountName):
-    with importlib.resources.path("purviewcli.ninja.entities", "entities.json") as filepath:
-        with open(filepath) as f:
-            original_entities = json.load(f)
+    # 1. Read entities.json
+    # 
+    # 2. Generate entities_min_rels.json
+    #    Include: guid, attributes, relationshipAttributes, contacts, status, typeName, classifications.classification.typeName
+    # 
+    # 3. Generate entities_min_worels.json
+    #    Drop: guid, attributes.inputs, attributes.outputs, relationshipAttributes
+    # 
+    # 4. Split entities_min_worels.json (primary/secondary)
+    # 
+    # 5. Generate entities_min_rels_new with new GUIDs
 
-    # Map qualifiedName to OLD GUID
+    # 1. Read entities.json
+    with importlib.resources.path("purviewcli.ninja", "entities.json") as filepath:
+        with open(filepath) as f:
+            entities = json.load(f)
+
+    # 2. Generate entities_min_rels.json
+    entities_min_rels = []
+    item = {}
+    for entity in entities:
+        item = {
+            'guid': entity['guid'],
+            'attributes': entity['attributes'],
+            'relationshipAttributes': entity['relationshipAttributes'],
+            'status': entity['status'],
+            'typeName': entity['typeName'],
+        }
+        if 'contacts' in entity:
+            item['contacts'] = entity['contacts']
+        if 'classifications' in entity:
+            item['classifications'] = []
+            for classification in entity['classifications']:
+                item['classifications'].append({ 'typeName': classification['typeName'] })
+        entities_min_rels.append(item)
+
+    # 3. Generate entities_min_worels.json
+    #    Drop: guid, attributes.inputs, attributes.outputs, relationshipAttributes
+    entities_min_worels = []
+    item = {}
+    for entity in entities_min_rels:
+        item = {
+            'attributes': entity['attributes'],
+            'status': entity['status'],
+            'typeName': entity['typeName'],
+        }
+        item['attributes'].pop('inputs', None)
+        item['attributes'].pop('outputs', None)
+        entities_min_worels.append(item)
+
+    # 4. Split entities_min_worels.json (primary/secondary)
+    entities_primary = { "entities": [] }
+    entities_secondary = { "entities": [] }
+    for entity in entities_min_worels:
+        typeName = entity['typeName'].upper()
+        if 'COLUMN' in typeName or typeName.startswith('JSON_PROPERTY') or typeName.startswith('JSON_SCHEMA'):
+            entities_secondary['entities'].append(entity)
+        else:
+            entities_primary['entities'].append(entity)
+
+    # 5. MAP: qualifiedName to OLD GUID
     old_entities = {}
-    for entity in original_entities:
+    for entity in entities:
         qualifiedName = entity['attributes']['qualifiedName']
         old_guid = entity['guid']
         old_entities[qualifiedName] = old_guid
 
-    # Create Entities
+    # 6. Bulk Create Entities (without relationships)
     guid_mapping = {}
-    filepaths = []
-
-    # Path to Primary Entities
-    with importlib.resources.path("purviewcli.ninja.entities", "entities_min1.json") as filepath:
-        filepaths.append(filepath)
-
-    # Path to Secondary Entities
-    with importlib.resources.path("purviewcli.ninja.entities", "entities_min2.json") as filepath:
-        filepaths.append(filepath)
-
-    # Bulk Create Entities
-    for filepath in filepaths:
-        print(f' - Creating entities from {filepath}...')
-        cmd = f"pv entity createBulk --payload-file {filepath} --purviewName {accountName}"
+    collections = [entities_primary, entities_secondary]
+    for collection in collections:
+        fd, path = tempfile.mkstemp(suffix='.json')
+        with os.fdopen(fd, 'w') as tmp:
+            json.dump(collection, tmp)
+        print(f' - Creating entities from {path}...')
+        cmd = f"pv entity createBulk --payload-file {path} --purviewName {accountName}"
         guidAssignments = runCommand(cmd)
-
-        # Map OLD GUID to NEW GUID
-        with open(filepath) as f:
-            entities = json.load(f)
-
+        os.remove(path)
         counter = 0
-        for entity in entities['entities']:
+        for entity in collection['entities']:
             new_guid = list(guidAssignments['guidAssignments'].items())[counter][1]
             qualifiedName = entity['attributes']['qualifiedName']
             old_guid = old_entities[qualifiedName]
             guid_mapping[old_guid] = new_guid
             counter += 1
 
-    # Replace references to OLD GUID with NEW GUID
-    with importlib.resources.path("purviewcli.ninja.entities", "entities_rels_old.json") as filepath:
-        with open(filepath) as f:
-            entities_with_rels = json.load(f)
+    # 7. Generate entities_min_rels_new.json (with new GUIDs)
+    entities_min_rels_new = { "entities": [] }
+    for entity in entities_min_rels:
+        # Inputs/Outputs
+        for attribute in entity['attributes']:
+            if attribute == 'inputs' or attribute == 'outputs':
+                for io in entity['attributes'][attribute]:
+                    if 'guid' in io:
+                        old_guid = io['guid']
+                        io['guid'] = guid_mapping[old_guid]
+        # Relationships
+        for relationshipAttribute in entity['relationshipAttributes']:
+            attr = entity['relationshipAttributes'][relationshipAttribute]
+            isList = True if type(attr) is list else False
+            if isList:
+                for element in attr:
+                    old_guid = element['guid']
+                    element['guid'] = guid_mapping[old_guid]
+                    element.pop('relationshipGuid', None)
+            else:
+                old_guid = attr['guid']
+                attr['guid'] = guid_mapping[old_guid]
+                attr.pop('relationshipGuid', None)
+        # Pop GUID
+        entity.pop('guid', None)
+        entities_min_rels_new['entities'].append(entity)
 
-        for entity in entities_with_rels['entities']:
-            # Inputs/Outputs
-            for attribute in entity['attributes']:
-                if attribute == 'inputs' or attribute == 'outputs':
-                    for io in entity['attributes'][attribute]:
-                        if 'guid' in io:
-                            old_guid = io['guid']
-                            io['guid'] = guid_mapping[old_guid]
-            # Relationships
-            for relationshipAttribute in entity['relationshipAttributes']:
-                attr = entity['relationshipAttributes'][relationshipAttribute]
-                isList = True if type(attr) is list else False
-                if isList:
-                    for element in attr:
-                        old_guid = element['guid']
-                        element['guid'] = guid_mapping[old_guid]
-                        element.pop('relationshipGuid', None)
-                else:
-                    old_guid = attr['guid']
-                    attr['guid'] = guid_mapping[old_guid]
-                    attr.pop('relationshipGuid', None)
-
-    # Create Relationships
-    with importlib.resources.path("purviewcli.ninja.relationships", "entities_rels_new.json") as filepath:
-        with open(filepath, 'w') as fp:
-            json.dump(entities_with_rels, fp, indent=4, sort_keys=True)
-
-        print(f' - Creating entities with relationships from {filepath}...')
-        cmd = f"pv entity createBulk --payload-file {filepath} --purviewName {accountName}"
-        data = runCommand(cmd)
+    # 8. Bulk Create Entities (with relationships)
+    fd, path = tempfile.mkstemp(suffix='withrels.json')
+    print(f' - Creating entities with relationships from {path}...')
+    with os.fdopen(fd, 'w') as tmp:
+        json.dump(entities_min_rels_new, tmp)
+    cmd = f"pv entity createBulk --payload-file {path} --purviewName {accountName}"
+    data = runCommand(cmd)
+    # os.remove(path)
 
 def populateSources(accountName):
-    with importlib.resources.path("purviewcli.ninja.sources", "sources.json") as filepath:
+    with importlib.resources.path("purviewcli.ninja", "sources.json") as filepath:
         print(f' - Creating sources from {filepath}...')
         with open(filepath) as f:
             sources = json.load(f)
