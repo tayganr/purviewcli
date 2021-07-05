@@ -217,6 +217,8 @@ pv credential put --credentialName=<val> --payload-file=<val>
 ```
 pv management listOperations
 pv management checkNameAvailability --subscriptionId=<val> --accountName=<val>
+pv management putResourceGroup --subscriptionId=<val> --resourceGroupName=<val> --location=<val>
+pv management putRoleAssignment --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --roleDefinitionId=<val> --principalId=<val>
 pv management createAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
 pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
 pv management deleteAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
@@ -231,6 +233,7 @@ pv management putPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val
 pv management deletePrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val>
 pv management readPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val>
 pv management readPrivateEndpoints --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
+pv management readMe
 ```
 
 ### Insight (Guardian)
