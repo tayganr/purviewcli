@@ -1,4 +1,4 @@
-import math, time, json, string, random, importlib.resources, tempfile, os
+import math, time, json, string, random, importlib.resources, tempfile, os, random
 from datetime import datetime
 from subprocess import Popen, PIPE
 
@@ -74,7 +74,7 @@ def populateTypes(accountName):
         cmd = f"pv types createTypeDefs --payload-file {filepath} --purviewName {accountName}"
         data = runCommand(cmd)
 
-def populateEntities(accountName):
+def populateEntities(accountName, args):
     # 1. Read entities.json
     # 
     # 2. Generate entities_min_rels.json
@@ -108,7 +108,11 @@ def populateEntities(accountName):
         if 'classifications' in entity:
             item['classifications'] = []
             for classification in entity['classifications']:
-                item['classifications'].append({ 'typeName': classification['typeName'] })
+                if classification['typeName'].startswith("Microsoft.Label") == False:
+                    item['classifications'].append({ 
+                        'typeName': classification['typeName'],
+                        'entityStatus': classification['entityStatus'],
+                    })
         entities_min_rels.append(item)
 
     # 3. Generate entities_min_worels.json
@@ -119,10 +123,12 @@ def populateEntities(accountName):
         item = {
             'attributes': entity['attributes'],
             'status': entity['status'],
-            'typeName': entity['typeName'],
+            'typeName': entity['typeName']
         }
         item['attributes'].pop('inputs', None)
         item['attributes'].pop('outputs', None)
+        if 'classifications' in entity:
+            item['classifications'] = entity['classifications']
         entities_min_worels.append(item)
 
     # 4. Split entities_min_worels.json (primary/secondary)
@@ -146,7 +152,7 @@ def populateEntities(accountName):
     guid_mapping = {}
     collections = [entities_primary, entities_secondary]
     for collection in collections:
-        fd, path = tempfile.mkstemp(suffix='.json')
+        fd, path = tempfile.mkstemp(suffix='worels.json')
         with os.fdopen(fd, 'w') as tmp:
             json.dump(collection, tmp)
         print(f' - Creating entities from {path}...')
@@ -162,6 +168,14 @@ def populateEntities(accountName):
             counter += 1
 
     # 7. Generate entities_min_rels_new.json (with new GUIDs)
+    peopleFile = args['--people-file']
+    users = []
+    if peopleFile:
+        with open(peopleFile) as f:
+            people = json.load(f)
+        for person in people['value']:
+            users.append(person['id'])
+
     entities_min_rels_new = { "entities": [] }
     for entity in entities_min_rels:
         # Inputs/Outputs
@@ -184,6 +198,16 @@ def populateEntities(accountName):
                 old_guid = attr['guid']
                 attr['guid'] = guid_mapping[old_guid]
                 attr.pop('relationshipGuid', None)
+        
+        # Contacts
+        if 'contacts' in entity:
+            if len(users) > 0:
+                for key in entity['contacts']:
+                    for contact in entity['contacts'][key]:
+                        contact['id'] = random.choice(users)
+            else:
+                entity.pop('contacts', None)
+
         # Pop GUID
         entity.pop('guid', None)
         entities_min_rels_new['entities'].append(entity)
@@ -195,7 +219,7 @@ def populateEntities(accountName):
         json.dump(entities_min_rels_new, tmp)
     cmd = f"pv entity createBulk --payload-file {path} --purviewName {accountName}"
     data = runCommand(cmd)
-    # os.remove(path)
+    os.remove(path)
 
 def populateSources(accountName):
     with importlib.resources.path("purviewcli.ninja", "sources.json") as filepath:
@@ -235,7 +259,7 @@ class Demo():
         # Populate account
         print('Populating environment...')
         populateTypes(accountName)
-        populateEntities(accountName)
+        populateEntities(accountName, args)
         populateSources(accountName)
         
         # Complete

@@ -1,6 +1,6 @@
 """
 usage: 
-    pv demo generate --subscriptionId=<val> --location=<val> [--resourceGroupName=<val>]
+    pv demo generate --subscriptionId=<val> --location=<val> [--resourceGroupName=<val> --people-file=<val>]
 
 options:
     --subscriptionId=<val>                  [string]  The subscription ID.
