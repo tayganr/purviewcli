@@ -233,7 +233,6 @@ pv management putPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val
 pv management deletePrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val>
 pv management readPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val>
 pv management readPrivateEndpoints --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
-pv management readMe
 ```
 
 ### Insight (Guardian)

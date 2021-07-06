@@ -4,7 +4,11 @@ from azure.identity import DefaultAzureCredential
 from azure.core.exceptions import ClientAuthenticationError
 
 def get_token(app):
-    credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
+    credential = DefaultAzureCredential(
+        exclude_environment_credential=True,
+        exclude_managed_identity_credential=True,
+        exclude_shared_token_cache_credential=True
+    )
 
     if app == "management":
         resource = "https://management.azure.com/.default"
@@ -69,6 +73,25 @@ class Demo():
         data = http_get(method, endpoint, params, payload, self.token_management)
         print(f'Resource Group: {resourceGroupName}')
         return resourceGroupName
+
+    def provisionStorageAccount(self, subscriptionId, location, resourceGroupName):
+        accountName = 'adls' + ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
+        method = 'PUT'
+        endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}'
+        params = { 'api-version': '2018-02-01' }
+        payload = {
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "properties": {
+                "isHnsEnabled": True
+            },
+            "kind": "StorageV2",
+            "location": location,
+        }
+        data = http_get(method, endpoint, params, payload, self.token_management)
+        print(f'ADLS Gen2 Storage Account: {accountName}')
+        return accountName
 
     def provisionAccount(self, subscriptionId, location, resourceGroupName):
         # Generate unique name
