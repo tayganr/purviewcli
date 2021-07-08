@@ -1,0 +1,14 @@
+{
+    "id": "datasources/AdlsGen2",
+    "kind": "AdlsGen2",
+    "name": "AdlsGen2",
+    "properties": {
+        "collection": null,
+        "endpoint": "https://adls8951.dfs.core.windows.net/",
+        "location": "brazilsouth",
+        "parentCollection": null,
+        "resourceGroup": "purviewlab",
+        "resourceName": "adls8951",
+        "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0"
+    }
+}

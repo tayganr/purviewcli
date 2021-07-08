@@ -1,0 +1,15 @@
+{
+    "properties": {
+        "dedicatedSqlEndpoint": "synapsews8951.sql.azuresynapse.net",
+        "serverlessSqlEndpoint": "synapsews8951-ondemand.sql.azuresynapse.net",
+        "resourceGroup": "purviewlab",
+        "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+        "location": "brazilsouth",
+        "resourceName": "synapsews8951",
+        "parentCollection": null,
+        "collection": null
+    },
+    "kind": "AzureSynapseWorkspace",
+    "id": "datasources/AzureSynapseWorkspace",
+    "name": "AzureSynapseWorkspace"
+}

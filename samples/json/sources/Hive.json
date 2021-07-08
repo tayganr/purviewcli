@@ -1,0 +1,11 @@
+{
+    "id": "datasources/Hive",
+    "kind": "Hive",
+    "name": "Hive",
+    "properties": {
+        "clusterUrl": "www",
+        "collection": null,
+        "host": "www",
+        "parentCollection": null
+    }
+}

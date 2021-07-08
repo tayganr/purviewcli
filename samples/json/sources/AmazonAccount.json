@@ -1,0 +1,11 @@
+{
+    "id": "datasources/AmazonAccount",
+    "kind": "AmazonAccount",
+    "name": "AmazonAccount",
+    "properties": {
+        "awsAccountId": "123456789123",
+        "collection": null,
+        "parentCollection": null,
+        "roleARN": null
+    }
+}

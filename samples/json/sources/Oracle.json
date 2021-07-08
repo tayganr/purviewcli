@@ -1,0 +1,12 @@
+{
+    "id": "datasources/Oracle",
+    "kind": "Oracle",
+    "name": "Oracle",
+    "properties": {
+        "collection": null,
+        "host": "www",
+        "parentCollection": null,
+        "port": "1234",
+        "service": "service"
+    }
+}
