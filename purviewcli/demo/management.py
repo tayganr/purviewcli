@@ -1,0 +1,104 @@
+import random, string, uuid, time
+from purviewcli.demo.utils import Utils
+
+class ControlPlane():
+    def provisionResourceGroup(subscriptionId, location, resourceGroupName, token):
+        resourceGroupName = resourceGroupName or 'purview-rg-' + ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
+        method = 'PUT'
+        endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}'
+        params = { 'api-version': '2021-04-01' }
+        payload = { 'location': location }
+        data = Utils.http_get(method, endpoint, params, payload, token)
+        print(f'Resource Group: {resourceGroupName}')
+        return resourceGroupName
+
+    def provisionStorageAccount(subscriptionId, location, resourceGroupName, token):
+        accountName = 'adls' + ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
+        method = 'PUT'
+        endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}'
+        params = { 'api-version': '2018-02-01' }
+        payload = {
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "properties": {
+                "isHnsEnabled": True
+            },
+            "kind": "StorageV2",
+            "location": location,
+        }
+        data = Utils.http_get(method, endpoint, params, payload, token)
+        print(f'ADLS Gen2 Storage Account: {accountName}')
+        return accountName
+
+    def provisionAccount(subscriptionId, location, resourceGroupName, token):
+        # Generate unique name
+        accountName = None
+        nameAvailable = False
+        while nameAvailable == False:
+            accountName = 'purview-' + ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
+            method = 'POST'
+            endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Purview/checkNameAvailability'
+            params = {'api-version': '2020-12-01-preview'}
+            payload = {'name': accountName, 'type': 'Microsoft.Purview/accounts'}
+            data = Utils.http_get(method, endpoint, params, payload, token)
+            nameAvailable = data['nameAvailable']
+        print(f'Account Name: {accountName}')
+
+        # Provision Azure Purview Account
+        print('Provisioning Azure Purview account...')
+        method = 'PUT'
+        endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}'
+        params = {'api-version': '2020-12-01-preview'}
+        payload = {
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "location": location,
+            "sku": {
+                "name": "Standard",
+                "capacity": 4
+            }
+        }
+        data = Utils.http_get(method, endpoint, params, payload, token)
+
+        # Check provisioningState until Succeeded
+        time.sleep(60)
+        provisioning = True
+        while provisioning:
+            time.sleep(5)
+            method = 'GET'
+            endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}'
+            params = {'api-version': '2020-12-01-preview'}
+            payload = None
+            data = Utils.http_get(method, endpoint, params, payload, token)
+            if data['properties']['provisioningState'] == 'Succeeded':
+                provisioning = False
+
+        print(f'Ready! Purview Studio: https://ms.web.purview.azure.com/resource/{accountName}')
+        return accountName
+
+    def getMe(token):
+        method = 'GET'
+        endpoint = 'https://graph.microsoft.com/v1.0/me'
+        params = None
+        payload = None
+        data = Utils.http_get(method, endpoint, params, payload, token)
+        principalId = data['id']
+        userPrincipalName = data['userPrincipalName']
+        return principalId, userPrincipalName
+
+    def assignRole(subscriptionId, resourceGroupName, accountName, roleDefinitionId, principalId, token):
+        method = 'PUT'
+        scope = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}'
+        roleAssignmentId = uuid.uuid4()
+        endpoint = f'{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01'
+        roleDefinitionId = roleDefinitionId
+        params = None
+        payload = {
+            "properties": {
+                "roleDefinitionId": f"/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+                "principalId": f'{principalId}'
+            }
+        }
+        data = Utils.http_get(method, endpoint, params, payload, token)
