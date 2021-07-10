@@ -44,7 +44,8 @@ class Utils():
         if status_code == 204:
             data = {
                 'operation': '[%s] %s' % (method, response.url),
-                'status': 'The server successfully processed the request'
+                'status': 'The server successfully processed the request',
+                'status_code': status_code
             }
         else:
             try:

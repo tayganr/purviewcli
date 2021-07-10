@@ -10,3 +10,4 @@ config.ini
 dist/
 build/
 .output/
+testing.ipynb

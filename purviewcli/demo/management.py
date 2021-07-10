@@ -1,18 +1,61 @@
-import random, string, uuid, time
+import random, string, uuid, time, sys
 from purviewcli.demo.utils import Utils
 
 class ControlPlane():
-    def provisionResourceGroup(subscriptionId, location, resourceGroupName, token):
-        resourceGroupName = resourceGroupName or 'purview-rg-' + ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
+    def __init__(self):
+        self.token = Utils.get_token('management')
+        self.tokenGraph = Utils.get_token('graph')
+
+    # RESOURCE GROUP
+    def resourceGroupCheckExistence(self, subscriptionId, resourceGroupName):
+        method = 'HEAD'
+        endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}'
+        params = {'api-version': '2021-04-01'}
+        payload = None
+        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        response = True if data['status_code'] == 204 else False
+        return response
+
+    def resourceGroupCreateUpdate(self, subscriptionId, resourceGroupName, location):
         method = 'PUT'
         endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}'
         params = { 'api-version': '2021-04-01' }
         payload = { 'location': location }
-        data = Utils.http_get(method, endpoint, params, payload, token)
-        print(f'Resource Group: {resourceGroupName}')
-        return resourceGroupName
+        data = Utils.http_get(method, endpoint, params, payload, self.token)      
+        return data
 
-    def provisionStorageAccount(subscriptionId, location, resourceGroupName, token):
+    def resourceGroupGet(self, subscriptionId, resourceGroupName):
+        method = 'GET'
+        endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}'
+        params = {'api-version': '2021-04-01'}
+        payload = None
+        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        return data
+
+    def resourceGroupProvision(self, subscriptionId, resourceGroupName, location):
+        # 1. Set resourceGroupName
+        resourceGroupName = resourceGroupName or 'purview-rg-' + ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
+
+        # 2. Create resourceGroupName if does not exists
+        isExists = self.resourceGroupCheckExistence(subscriptionId, resourceGroupName)
+        if isExists:
+            print(f'Will use existing resource group: [{resourceGroupName}]')
+        else:
+            print(f'Creating new resource group: [{resourceGroupName}]...')
+            data = self.resourceGroupCreateUpdate(subscriptionId, resourceGroupName, location)
+            if 'error' in data:
+                print(data)
+                sys.exit()
+
+            provisioning = True
+            while provisioning:
+                if data['properties']['provisioningState'] == 'Succeeded':
+                    provisioning = False
+                else:
+                    data = self.resourceGroupGet(subscriptionId, resourceGroupName)
+            print(f'Resource group [{resourceGroupName}] created successfully!')
+
+    def provisionStorageAccount(self, subscriptionId, location, resourceGroupName, token):
         accountName = 'adls' + ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
         method = 'PUT'
         endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}'
@@ -31,7 +74,7 @@ class ControlPlane():
         print(f'ADLS Gen2 Storage Account: {accountName}')
         return accountName
 
-    def provisionAccount(subscriptionId, location, resourceGroupName, token):
+    def provisionAccount(self, subscriptionId, location, resourceGroupName, token):
         # Generate unique name
         accountName = None
         nameAvailable = False
@@ -78,7 +121,7 @@ class ControlPlane():
         print(f'Ready! Purview Studio: https://ms.web.purview.azure.com/resource/{accountName}')
         return accountName
 
-    def getMe(token):
+    def getMe(self, token):
         method = 'GET'
         endpoint = 'https://graph.microsoft.com/v1.0/me'
         params = None
@@ -88,7 +131,7 @@ class ControlPlane():
         userPrincipalName = data['userPrincipalName']
         return principalId, userPrincipalName
 
-    def assignRole(subscriptionId, resourceGroupName, accountName, roleDefinitionId, principalId, token):
+    def assignRole(self, subscriptionId, resourceGroupName, accountName, roleDefinitionId, principalId, token):
         method = 'PUT'
         scope = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}'
         roleAssignmentId = uuid.uuid4()
