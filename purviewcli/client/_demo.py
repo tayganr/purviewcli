@@ -1,4 +1,4 @@
-import math
+import math, jwt, sys, random
 from datetime import datetime
 from purviewcli.demo.management import ControlPlane
 from purviewcli.demo.purview import DataPlane
@@ -6,6 +6,9 @@ from purviewcli.demo.purview import DataPlane
 class Demo():
 
     def demoGenerate(self, args):
+        # Start Timestamp
+        startTime = datetime.now()
+
         # Init variables
         resourceGroupName = args['--resourceGroupName']
         subscriptionId = args['--subscriptionId']
@@ -15,8 +18,50 @@ class Demo():
         cp = ControlPlane()
         dp = DataPlane()
 
-        # Start Timestamp
-        startTime = datetime.now()
+        # Decode JWT
+        print('\n==============[CREDENTIALS]==============')
+        tokenManagement = cp.token
+        claimset = jwt.decode(tokenManagement, options={"verify_signature": False})
+        name = claimset['name']
+        principalId = claimset ['oid']
+        userPrincipalName = claimset['upn']
+        tenantId = claimset['tid']
+        print(f' - Tenant ID:\t\t{tenantId}')
+        print(f' - Object ID:\t\t{principalId}')
+        print(f' - Name:\t\t{name}')
+        print(f' - Principal Name:\t{userPrincipalName}')
+
+        # Subscription
+        print('\n==============[SUBSCRIPTION]==============')
+        subscriptionsList = cp.subscriptionsList()
+        subscriptions = []
+        subscriptionName = {}
+        for sub in subscriptionsList:
+            subscriptions.append(sub['id'])
+            subscriptionName[sub['id']] = sub['name']
+            if sub['isDefault'] == True:
+                defaultSubscriptionId = sub['id']
+        if subscriptionId is None:
+            subscriptionId = defaultSubscriptionId
+        elif subscriptionId in subscriptions:
+            pass
+        else:
+            print(f' - The current set of credentials does not have access to Subscription ID: {subscriptionId}\n')
+            sys.exit()
+        print(f' - Subscription ID:\t{subscriptionId}')
+        print(f' - Subscription Name:\t{subscriptionName[subscriptionId]}')
+
+        # Location
+        if location == None:
+            print('\n==============[LOCATION]==============')
+            print(' - No location was specified, retrieving a list of valid locations...')
+            resourceProviderNamespace = 'Microsoft.Purview'
+            provider = cp.providersGet(subscriptionId, resourceProviderNamespace)
+            for resourceType in provider['resourceTypes']:
+                if resourceType['resourceType'] == 'accounts':
+                    locations = resourceType['locations']
+                    location = random.choice(locations)
+                    print(f' - Resources will be deployed to {location}')
 
         # Provision Resources
         print('\n==============[RESOURCE GROUP]==============')

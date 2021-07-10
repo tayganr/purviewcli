@@ -1,10 +1,25 @@
-import random, string, uuid, time, sys
+import random, string, uuid, time, sys, subprocess, json
 from purviewcli.demo.utils import Utils
 
 class ControlPlane():
     def __init__(self):
         self.token = Utils.get_token('management')
         self.tokenGraph = Utils.get_token('graph')
+
+    # SUBSCRIPTIONS
+    def subscriptionsList(self):
+        result = subprocess.run(['az', 'account', 'list'], stdout=subprocess.PIPE)
+        response = json.loads(result.stdout)
+        return response
+
+    # PROVIDERS
+    def providersGet(self, subscriptionId, resourceProviderNamespace):
+        method = 'GET'
+        endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}'
+        params = {'api-version': '2021-04-01'}
+        payload = None
+        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        return data
 
     # RESOURCE GROUP
     def resourceGroupCheckExistence(self, subscriptionId, resourceGroupName):
@@ -98,7 +113,7 @@ class ControlPlane():
         # 2. Create account if accountName does not exist
         data = self.purviewAccountCheckNameAvailability(subscriptionId, accountName)
         if data['nameAvailable'] == False:
-            print(f'Azure Purview account name [{accountName}] is not available.')
+            print(f' - Azure Purview account name [{accountName}] is not available.')
             print(data)
             sys.exit()
         else:
@@ -115,8 +130,8 @@ class ControlPlane():
             if data['properties']['provisioningState'] == 'Succeeded':
                 provisioning = False
 
-        print(f'- Purview account [{accountName}] created successfully!')
-        print(f'- https://ms.web.purview.azure.com/resource/{accountName}')
+        print(f' - Purview account [{accountName}] created successfully!')
+        print(f' - https://ms.web.purview.azure.com/resource/{accountName}')
         return accountName
 
     # STORAGE ACCOUNT
