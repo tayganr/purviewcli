@@ -1,0 +1,14 @@
+{
+    "id": "datasources/AzureSqlDatabase",
+    "kind": "AzureSqlDatabase",
+    "name": "AzureSqlDatabase",
+    "properties": {
+        "collection": null,
+        "location": "brazilsouth",
+        "parentCollection": null,
+        "resourceGroup": "synapsemg8951",
+        "resourceName": "synapsews8951",
+        "serverEndpoint": "synapsews8951.database.windows.net",
+        "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0"
+    }
+}

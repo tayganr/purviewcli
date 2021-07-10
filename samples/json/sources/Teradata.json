@@ -1,0 +1,10 @@
+{
+    "id": "datasources/Teradata",
+    "kind": "Teradata",
+    "name": "Teradata",
+    "properties": {
+        "collection": null,
+        "host": "teradata.com",
+        "parentCollection": null
+    }
+}

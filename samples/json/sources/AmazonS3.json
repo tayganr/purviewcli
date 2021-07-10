@@ -1,0 +1,11 @@
+{
+    "id": "datasources/AmazonS3",
+    "kind": "AmazonS3",
+    "name": "AmazonS3",
+    "properties": {
+        "collection": null,
+        "parentCollection": null,
+        "roleARN": null,
+        "serviceUrl": "s3://bucketname"
+    }
+}

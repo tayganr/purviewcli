@@ -1,0 +1,14 @@
+{
+    "id": "datasources/AzureDataExplorer",
+    "kind": "AzureDataExplorer",
+    "name": "AzureDataExplorer",
+    "properties": {
+        "collection": null,
+        "endpoint": "https://something.com",
+        "location": null,
+        "parentCollection": null,
+        "resourceGroup": null,
+        "resourceName": null,
+        "subscriptionId": null
+    }
+}

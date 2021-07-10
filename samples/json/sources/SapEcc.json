@@ -1,0 +1,11 @@
+{
+    "id": "datasources/SapEcc",
+    "kind": "SapEcc",
+    "name": "SapEcc",
+    "properties": {
+        "applicationServer": "application",
+        "collection": null,
+        "parentCollection": null,
+        "systemNumber": "00"
+    }
+}

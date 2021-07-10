@@ -1,0 +1,14 @@
+{
+    "id": "datasources/SqlServerDatabase",
+    "kind": "SqlServerDatabase",
+    "name": "SqlServerDatabase",
+    "properties": {
+        "collection": null,
+        "location": null,
+        "parentCollection": null,
+        "resourceGroup": null,
+        "resourceName": null,
+        "serverEndpoint": "server",
+        "subscriptionId": null
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "id": "datasources/AzureCosmosDb",
+    "kind": "AzureCosmosDb",
+    "name": "AzureCosmosDb",
+    "properties": {
+        "accountUri": "https://cosmos8951.documents.azure.com:443/",
+        "collection": null,
+        "location": "brazilsouth",
+        "parentCollection": null,
+        "resourceGroup": "purviewlab",
+        "resourceName": "cosmos8951",
+        "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0"
+    }
+}

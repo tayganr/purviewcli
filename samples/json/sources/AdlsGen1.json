@@ -1,0 +1,14 @@
+{
+    "id": "datasources/AdlsGen1",
+    "kind": "AdlsGen1",
+    "name": "AdlsGen1",
+    "properties": {
+        "collection": null,
+        "endpoint": "https://adlsgenone8951.azuredatalakestore.net/webhdfs/v1/",
+        "location": "eastus2",
+        "parentCollection": null,
+        "resourceGroup": "purviewlab",
+        "resourceName": "adlsgenone8951",
+        "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0"
+    }
+}
