@@ -116,7 +116,7 @@ class ControlPlane():
                 provisioning = False
 
         print(f'- Purview account [{accountName}] created successfully!')
-        print(f'- Purview Studio: https://ms.web.purview.azure.com/resource/{accountName}')
+        print(f'- https://ms.web.purview.azure.com/resource/{accountName}')
         return accountName
 
     # STORAGE ACCOUNT
