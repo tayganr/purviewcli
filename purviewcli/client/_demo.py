@@ -4,6 +4,11 @@ from purviewcli.demo.management import ControlPlane
 from purviewcli.demo.purview import DataPlane
 from purviewcli.demo.utils import get_token
 
+def printHeading(heading):
+    print('\n-------------------------------------------------------------------------')
+    print(f' {heading}')
+    print('-------------------------------------------------------------------------')
+
 class Demo():
 
     def demoGenerate(self, args):
@@ -28,7 +33,7 @@ class Demo():
             dp.token = get_token('purview')
 
         # Decode JWT
-        print('\n=================[     CREDENTIALS     ]=================')
+        printHeading('CREDENTIALS')
         tokenManagement = cp.token
         claimset = jwt.decode(tokenManagement, options={"verify_signature": False})
         name = claimset['name']
@@ -41,7 +46,7 @@ class Demo():
         print(f' - Principal Name:\t{userPrincipalName}')
 
         # Subscription
-        print('\n=================[   SUBSCRIPTION   ]=================')
+        printHeading('SUBSCRIPTION')
         subscriptionsList = cp.subscriptionsList()
         subscriptions = []
         subscriptionName = {}
@@ -62,7 +67,7 @@ class Demo():
 
         # Location
         if location == None:
-            print('\n=================[      LOCATION      ]=================')
+            printHeading('LOCATION')
             print(' - No location was specified, retrieving a list of valid locations...')
             resourceProviderNamespace = 'Microsoft.Purview'
             provider = cp.providersGet(subscriptionId, resourceProviderNamespace)
@@ -73,16 +78,16 @@ class Demo():
                     print(f' - Resources will be deployed to {location}')
 
         # Provision Resources
-        print('\n=================[   RESOURCE GROUP   ]=================')
+        printHeading('RESOURCE GROUP')
         resourceGroupName = cp.resourceGroupProvision(subscriptionId, resourceGroupName, location)
 
-        print('\n=================[   PURVIEW ACCOUNT   ]=================')
+        printHeading('PURVIEW ACCOUNT')
         account = cp.purviewAccountProvision(subscriptionId, location, resourceGroupName, accountName)
         accountName = account['name']
         # accountIdentity = account['identity']['principalId']
 
         # Add Role Assignment (Owner)
-        print('\n=================[   ACCESS CONTROL   ]=================')
+        printHeading('ACCESS CONTROL')
         scope = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}'
         roleDefinitionId = '18d7d88d-d35e-4fb5-a5c3-7773c20a72d9' # User Access Administrator
         print(f' - Assigning role [User Access Administrator] to [principalId: {principalId}; userPrincipalName: {userPrincipalName}]')
@@ -99,13 +104,13 @@ class Demo():
                 peopleFile = None
         
         # Populate account
-        print('\n=================[HYDRATING ENVIRONMENT]=================')
+        printHeading('HYDRATING ENVIRONMENT')
         dp.populateTypes(accountName)
         dp.populateEntities(accountName, peopleFile)
         dp.populateSources(accountName)
         
         # Complete
-        print('\n=================[      COMPLETE      ]=================')
+        printHeading('COMPLETE')
         # Calculate Total Duration
         finishTime = datetime.now()
         duration = finishTime - startTime
