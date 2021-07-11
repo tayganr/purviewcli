@@ -1,9 +1,9 @@
 import json, random, importlib.resources
-from purviewcli.demo.utils import Utils
+from purviewcli.demo.utils import http_get
 
 class DataPlane():
     def __init__(self):
-        self.token = Utils.get_token('purview')
+        self.token = None
 
     def populateTypes(self, accountName):
         print(' - Creating custom type definitions...')
@@ -14,7 +14,7 @@ class DataPlane():
         endpoint = f'https://{accountName}.catalog.purview.azure.com/api/atlas/v2/types/typedefs'
         params = None
         payload = typedefs
-        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        data = http_get(method, endpoint, params, payload, self.token)
 
     def populateSources(self, accountName):
         print(f' - Creating sources...')
@@ -28,7 +28,7 @@ class DataPlane():
             endpoint = f'https://{accountName}.scan.purview.azure.com/datasources/{dataSourceName}'
             params = None
             payload = source
-            data = Utils.http_get(method, endpoint, params, payload, self.token)
+            data = http_get(method, endpoint, params, payload, self.token)
 
     def populateEntities(self, accountName, peopleFile):
         # 1. Read entities.json
@@ -100,7 +100,7 @@ class DataPlane():
             endpoint = f'https://{accountName}.catalog.purview.azure.com/api/atlas/v2/entity/bulk'
             params = None
             payload = collection
-            guidAssignments = Utils.http_get(method, endpoint, params, payload, self.token)
+            guidAssignments = http_get(method, endpoint, params, payload, self.token)
             for negativeGuid in guidAssignments['guidAssignments']:
                 new_guid = guidAssignments['guidAssignments'][negativeGuid]
                 guid_mapping[negativeGuid] = new_guid
@@ -154,4 +154,4 @@ class DataPlane():
         endpoint = f'https://{accountName}.catalog.purview.azure.com/api/atlas/v2/entity/bulk'
         params = None
         payload = entities_min_rels_new
-        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        data = http_get(method, endpoint, params, payload, self.token)

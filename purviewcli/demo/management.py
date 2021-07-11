@@ -1,10 +1,10 @@
 import random, string, uuid, time, sys, subprocess, json
-from purviewcli.demo.utils import Utils
+from purviewcli.demo.utils import http_get
 
 class ControlPlane():
     def __init__(self):
-        self.token = Utils.get_token('management')
-        self.tokenGraph = Utils.get_token('graph')
+        self.token = None
+        self.tokenGraph = None
 
     # SUBSCRIPTIONS
     def subscriptionsList(self):
@@ -18,7 +18,7 @@ class ControlPlane():
         endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}'
         params = {'api-version': '2021-04-01'}
         payload = None
-        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        data = http_get(method, endpoint, params, payload, self.token)
         return data
 
     # RESOURCE GROUP
@@ -27,7 +27,7 @@ class ControlPlane():
         endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}'
         params = {'api-version': '2021-04-01'}
         payload = None
-        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        data = http_get(method, endpoint, params, payload, self.token)
         response = True if data['status_code'] == 204 else False
         return response
 
@@ -36,7 +36,7 @@ class ControlPlane():
         endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}'
         params = { 'api-version': '2021-04-01' }
         payload = { 'location': location }
-        data = Utils.http_get(method, endpoint, params, payload, self.token)      
+        data = http_get(method, endpoint, params, payload, self.token)      
         return data
 
     def resourceGroupGet(self, subscriptionId, resourceGroupName):
@@ -44,7 +44,7 @@ class ControlPlane():
         endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}'
         params = {'api-version': '2021-04-01'}
         payload = None
-        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        data = http_get(method, endpoint, params, payload, self.token)
         return data
 
     def resourceGroupProvision(self, subscriptionId, resourceGroupName, location):
@@ -78,7 +78,7 @@ class ControlPlane():
         endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Purview/checkNameAvailability'
         params = {'api-version': '2020-12-01-preview'}
         payload = {'name': accountName, 'type': 'Microsoft.Purview/accounts'}
-        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        data = http_get(method, endpoint, params, payload, self.token)
         return data
 
     def purviewAccountCreateUpdate(self, subscriptionId, resourceGroupName, accountName, location):
@@ -95,7 +95,7 @@ class ControlPlane():
                 "capacity": 4
             }
         }
-        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        data = http_get(method, endpoint, params, payload, self.token)
         return data
 
     def purviewAccountGet(self, subscriptionId, resourceGroupName, accountName):
@@ -103,7 +103,7 @@ class ControlPlane():
         endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}'
         params = {'api-version': '2020-12-01-preview'}
         payload = None
-        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        data = http_get(method, endpoint, params, payload, self.token)
         return data
 
     def purviewAccountProvision(self, subscriptionId, location, resourceGroupName, accountName):
@@ -150,20 +150,28 @@ class ControlPlane():
             "kind": "StorageV2",
             "location": location,
         }
-        data = Utils.http_get(method, endpoint, params, payload, token)
+        data = http_get(method, endpoint, params, payload, token)
         print(f'ADLS Gen2 Storage Account: {accountName}')
         return accountName
 
     # GRAPH
-    def getMe(self):
+    # def getMe(self):
+    #     method = 'GET'
+    #     endpoint = 'https://graph.microsoft.com/v1.0/me'
+    #     params = None
+    #     payload = None
+    #     data = http_get(method, endpoint, params, payload, self.tokenGraph)
+    #     principalId = data['id']
+    #     userPrincipalName = data['userPrincipalName']
+    #     return principalId, userPrincipalName
+
+    def getUser(self, objectId):
         method = 'GET'
-        endpoint = 'https://graph.microsoft.com/v1.0/me'
+        endpoint = f'https://graph.microsoft.com/v1.0/users/{objectId}'
         params = None
         payload = None
-        data = Utils.http_get(method, endpoint, params, payload, self.tokenGraph)
-        principalId = data['id']
-        userPrincipalName = data['userPrincipalName']
-        return principalId, userPrincipalName
+        data = http_get(method, endpoint, params, payload, self.tokenGraph)
+        return data
 
     # AUTHORIZATION
     def roleAssignmentCreate(self, scope, roleDefinitionId, principalId):
@@ -177,5 +185,5 @@ class ControlPlane():
                 "principalId": f'{principalId}'
             }
         }
-        data = Utils.http_get(method, endpoint, params, payload, self.token)
+        data = http_get(method, endpoint, params, payload, self.token)
         return data
