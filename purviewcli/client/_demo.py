@@ -28,7 +28,7 @@ class Demo():
             dp.token = get_token('purview')
 
         # Decode JWT
-        print('\n=================[CREDENTIALS]=================')
+        print('\n=================[     CREDENTIALS     ]=================')
         tokenManagement = cp.token
         claimset = jwt.decode(tokenManagement, options={"verify_signature": False})
         name = claimset['name']
@@ -41,7 +41,7 @@ class Demo():
         print(f' - Principal Name:\t{userPrincipalName}')
 
         # Subscription
-        print('\n=================[SUBSCRIPTION]=================')
+        print('\n=================[   SUBSCRIPTION   ]=================')
         subscriptionsList = cp.subscriptionsList()
         subscriptions = []
         subscriptionName = {}
@@ -62,7 +62,7 @@ class Demo():
 
         # Location
         if location == None:
-            print('\n=================[LOCATION]=================')
+            print('\n=================[      LOCATION      ]=================')
             print(' - No location was specified, retrieving a list of valid locations...')
             resourceProviderNamespace = 'Microsoft.Purview'
             provider = cp.providersGet(subscriptionId, resourceProviderNamespace)
@@ -73,17 +73,18 @@ class Demo():
                     print(f' - Resources will be deployed to {location}')
 
         # Provision Resources
-        print('\n=================[RESOURCE GROUP]=================')
+        print('\n=================[   RESOURCE GROUP   ]=================')
         resourceGroupName = cp.resourceGroupProvision(subscriptionId, resourceGroupName, location)
 
-        print('\n=================[PURVIEW ACCOUNT]=================')
-        accountName = cp.purviewAccountProvision(subscriptionId, location, resourceGroupName, accountName)
+        print('\n=================[   PURVIEW ACCOUNT   ]=================')
+        account = cp.purviewAccountProvision(subscriptionId, location, resourceGroupName, accountName)
+        accountName = account['name']
+        # accountIdentity = account['identity']['principalId']
 
         # Add Role Assignment (Owner)
-        print('\n=================[ACCESS CONTROL]=================')
+        print('\n=================[   ACCESS CONTROL   ]=================')
         scope = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}'
         roleDefinitionId = '18d7d88d-d35e-4fb5-a5c3-7773c20a72d9' # User Access Administrator
-        principalId, userPrincipalName = cp.getMe()
         print(f' - Assigning role [User Access Administrator] to [principalId: {principalId}; userPrincipalName: {userPrincipalName}]')
         cp.roleAssignmentCreate(scope, roleDefinitionId, principalId)
 
@@ -104,7 +105,7 @@ class Demo():
         dp.populateSources(accountName)
         
         # Complete
-        print('\n=================[COMPLETE]=================')
+        print('\n=================[      COMPLETE      ]=================')
         # Calculate Total Duration
         finishTime = datetime.now()
         duration = finishTime - startTime

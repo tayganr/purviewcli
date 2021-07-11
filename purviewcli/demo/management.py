@@ -132,7 +132,7 @@ class ControlPlane():
 
         print(f' - Purview account [{accountName}] created successfully!')
         print(f' - https://ms.web.purview.azure.com/resource/{accountName}')
-        return accountName
+        return data
 
     # STORAGE ACCOUNT
     def provisionStorageAccount(self, subscriptionId, location, resourceGroupName, token):
