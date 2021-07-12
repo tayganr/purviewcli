@@ -172,24 +172,48 @@ class ControlPlane():
 
     def storagePopulate(self, accountName, accountKey):
         blob_service_client = BlobServiceClient(account_url=f'https://{accountName}.blob.core.windows.net/', credential=accountKey)
-        url = 'https://pkgstore.datahub.io/core/natural-gas/daily_csv/data/bcea28ceaffd84e048759cd46c31d0b2/daily_csv.csv'
-        file_name = 'Natural Gas Prices.csv'
 
-        # Create a unique name for the container
-        container_name = str(uuid.uuid4())
+        files = [
+            {
+                'url': 'https://raw.githubusercontent.com/tayganr/purviewcli/master/samples/datasets/Australia.csv',
+                'file_name': 'Australia.csv'
+            },
+            {
+                'url': 'https://raw.githubusercontent.com/tayganr/purviewcli/master/samples/datasets/BankChurners.csv',
+                'file_name': 'BankChurners.csv'
+            },
+            {
+                'url': 'https://raw.githubusercontent.com/tayganr/purviewcli/master/samples/datasets/MSFT.csv',
+                'file_name': 'MSFT.csv'
+            },
+            {
+                'url': 'https://raw.githubusercontent.com/tayganr/purviewcli/master/samples/datasets/Natural Gas Prices.csv',
+                'file_name': 'Natural Gas Prices.csv'
+            },
+            {
+                'url': 'https://raw.githubusercontent.com/tayganr/purviewcli/master/samples/datasets/Students Performance.csv',
+                'file_name': 'Students Performance.csv'
+            },
+            {
+                'url': 'https://raw.githubusercontent.com/tayganr/purviewcli/master/samples/datasets/Water Potability.csv',
+                'file_name': 'Water Potability.csv'
+            },
+        ]
 
-        # Create the container
-        blob_service_client.create_container(container_name)
+        for file in files:
+            # Create a unique name for the container
+            container_name = str(uuid.uuid4())
 
-        # Create a blob client using the local file name as the name for the blob
-        blob_client = blob_service_client.get_blob_client(container=container_name, blob=file_name)
+            # Create the container
+            blob_service_client.create_container(container_name)
 
-        print(f' - Uploading to Azure Storage as blob: {url}')
+            # Create a blob client using the local file name as the name for the blob
+            blob_client = blob_service_client.get_blob_client(container=container_name, blob=file['file_name'])
 
-        # Upload the created file
-        blob_client.upload_blob_from_url(url)
-        # with open(upload_file_path, "rb") as data:
-        #     blob_client.upload_blob(data)
+            print(f' - Uploading to Azure Storage as blob: {file["url"]}')
+
+            # Upload the created file
+            blob_client.upload_blob_from_url(file["url"])
 
     def storageAccountProvision(self, subscriptionId, location, resourceGroupName):
         # 1. Set accountName
