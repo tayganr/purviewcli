@@ -84,7 +84,55 @@ class Demo():
         printHeading('PURVIEW ACCOUNT')
         account = cp.purviewAccountProvision(subscriptionId, location, resourceGroupName, accountName)
         accountName = account['name']
-        # accountIdentity = account['identity']['principalId']
+        purviewManagedIdentity = account['identity']['principalId']
+
+        # Provision Azure Storage Account
+        printHeading('STORAGE ACCOUNT')
+        # 1. Create Storage Acount
+        storage = cp.storageAccountProvision(subscriptionId, location, resourceGroupName)
+        storageAccountName = storage['name']
+        # 2. Get Storage Key
+        print(f' - Retrieving storage account key...')
+        storageAccountKey = cp.storageAccountGetKey(subscriptionId, resourceGroupName, storageAccountName)
+        # 3. Assign Storage Blob Data Reader role to Azure Purview Managed Identity
+        scope = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}'
+        roleDefinitionId = '2a2b9908-6ea1-4ae2-8e65-a410df84e7d1' # Storage Blob Data Reader
+        print(f' - Assigning role [Storage Blob Data Reader] to Azure Purview Managed Identity (principalId [{purviewManagedIdentity}]).')
+        cp.roleAssignmentCreate(scope, roleDefinitionId, purviewManagedIdentity)
+        # 4. Populate Storage Account with sample data
+        cp.storagePopulate(storageAccountName, storageAccountKey)
+        # 5. Register Source
+        dataSourceName = storageAccountName
+        sourcePayload = {
+            "id": "datasources/AdlsGen2",
+            "kind": "AdlsGen2",
+            "name": storageAccountName,
+            "properties": {
+                "endpoint": f"https://{storageAccountName}.dfs.core.windows.net/",
+                "location": location,
+                "resourceGroup": resourceGroupName,
+                "resourceName": storageAccountName,
+                "subscriptionId": subscriptionId
+            }
+        }
+        print(f' - Registering Azure Data Lake Gen 2 Data Source [{dataSourceName}].')
+        dp.registerSource(accountName, dataSourceName, sourcePayload)
+        # 6. Create Scan
+        scanName = 'myRandomScan'
+        scanPayload = {
+            "properties":{
+                "scanRulesetName": "AdlsGen2",
+                "scanRulesetType": "System"
+            },
+            "kind": "AdlsGen2Msi",
+            "id": f"datasources/{dataSourceName}/scans/{scanName}",
+            "name": scanName
+        }
+        print(f' - Creating Scan [{scanName}] for Data Source [{dataSourceName}].')
+        dp.createScan(accountName, dataSourceName, scanName, scanPayload)
+        # 7. Trigger Scan
+        print(f' - Triggering scan [{scanName}] to run.')
+        dp.runScan(accountName, dataSourceName, scanName)
 
         # Add Role Assignment (Owner)
         printHeading('ACCESS CONTROL')

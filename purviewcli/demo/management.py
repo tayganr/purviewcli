@@ -1,5 +1,6 @@
 import random, string, uuid, time, sys, subprocess, json
 from purviewcli.demo.utils import http_get
+from azure.storage.blob import BlobServiceClient
 
 class ControlPlane():
     def __init__(self):
@@ -135,11 +136,10 @@ class ControlPlane():
         return data
 
     # STORAGE ACCOUNT
-    def provisionStorageAccount(self, subscriptionId, location, resourceGroupName, token):
-        accountName = 'adls' + ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
+    def storageAccountCreate(self, subscriptionId, resourceGroupName, accountName, location):
         method = 'PUT'
         endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}'
-        params = { 'api-version': '2018-02-01' }
+        params = {'api-version':'2021-04-01'}
         payload = {
             "sku": {
                 "name": "Standard_LRS"
@@ -150,21 +150,68 @@ class ControlPlane():
             "kind": "StorageV2",
             "location": location,
         }
-        data = http_get(method, endpoint, params, payload, token)
-        print(f'ADLS Gen2 Storage Account: {accountName}')
-        return accountName
+        data = http_get(method, endpoint, params, payload, self.token)
+        return data
+    
+    def storageAccountGet(self, subscriptionId, resourceGroupName, accountName):
+        method = 'GET'
+        endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}'
+        params = {'api-version':'2021-04-01'}
+        payload = None
+        data = http_get(method, endpoint, params, payload, self.token)
+        return data
+
+    def storageAccountGetKey(self, subscriptionId, resourceGroupName, accountName):
+        method = 'POST'
+        endpoint = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listKeys'
+        params = {'api-version':'2021-04-01'}
+        payload = None
+        data = http_get(method, endpoint, params, payload, self.token)
+        accountKey = data['keys'][0]['value']
+        return accountKey
+
+    def storagePopulate(self, accountName, accountKey):
+        blob_service_client = BlobServiceClient(account_url=f'https://{accountName}.blob.core.windows.net/', credential=accountKey)
+        upload_file_path = '/Users/taygan/Desktop/sample2.csv'
+        local_file_name = 'sample2.csv'
+
+        # Create a unique name for the container
+        container_name = str(uuid.uuid4())
+
+        # Create the container
+        container_client = blob_service_client.create_container(container_name)
+
+        # Create a blob client using the local file name as the name for the blob
+        blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
+
+        print(f' - Uploading to Azure Storage as blob: {upload_file_path}')
+
+        # Upload the created file
+        with open(upload_file_path, "rb") as data:
+            blob_client.upload_blob(data)
+
+    def storageAccountProvision(self, subscriptionId, location, resourceGroupName):
+        # 1. Set accountName
+        accountName = 'adls' + ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
+        
+        # 2. Create Storage Account
+        print(f' - Creating Storage account [{accountName}].')
+        self.storageAccountCreate(subscriptionId, resourceGroupName, accountName, location)
+        print(f' - Please wait while Storage account [{accountName}] is being prepared...')
+        
+        # 3. Periodically check provisioningState until Succeeded
+        provisioning = True
+        while provisioning:
+            time.sleep(5)
+            data = self.storageAccountGet(subscriptionId, resourceGroupName, accountName)
+            if data['properties']['provisioningState'] == 'Succeeded':
+                provisioning = False
+
+        print(f' - Storage account [{accountName}] created successfully!')
+        return data
+
 
     # GRAPH
-    # def getMe(self):
-    #     method = 'GET'
-    #     endpoint = 'https://graph.microsoft.com/v1.0/me'
-    #     params = None
-    #     payload = None
-    #     data = http_get(method, endpoint, params, payload, self.tokenGraph)
-    #     principalId = data['id']
-    #     userPrincipalName = data['userPrincipalName']
-    #     return principalId, userPrincipalName
-
     def getUser(self, objectId):
         method = 'GET'
         endpoint = f'https://graph.microsoft.com/v1.0/users/{objectId}'
@@ -177,8 +224,8 @@ class ControlPlane():
     def roleAssignmentCreate(self, scope, roleDefinitionId, principalId):
         method = 'PUT'
         roleAssignmentName = uuid.uuid4()
-        endpoint = f'{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01'
-        params = None
+        endpoint = f'{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}'
+        params = {'api-version': '2018-01-01-preview'}
         payload = {
             "properties": {
                 "roleDefinitionId": f"/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",

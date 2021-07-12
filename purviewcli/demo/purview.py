@@ -1,9 +1,31 @@
-import json, random, importlib.resources
+import json, random, importlib.resources, uuid
 from purviewcli.demo.utils import http_get
 
 class DataPlane():
     def __init__(self):
         self.token = None
+
+    def registerSource(self, accountName, dataSourceName, payload):
+        method = 'PUT'
+        endpoint = f'https://{accountName}.scan.purview.azure.com/datasources/{dataSourceName}'
+        params = None
+        data = http_get(method, endpoint, params, payload, self.token)
+        return data
+    
+    def createScan(self, accountName, dataSourceName, scanName, payload):
+        method = 'PUT'
+        endpoint = f'https://{accountName}.scan.purview.azure.com/datasources/{dataSourceName}/scans/{scanName}'
+        params = None
+        data = http_get(method, endpoint, params, payload, self.token)
+        return data
+
+    def runScan(self, accountName, dataSourceName, scanName):
+        method = 'PUT'
+        endpoint = f'https://{accountName}.scan.purview.azure.com/datasources/{dataSourceName}/scans/{scanName}/runs/{str(uuid.uuid4())}'
+        params = None
+        payload = None
+        data = http_get(method, endpoint, params, payload, self.token)
+        return data
 
     def populateTypes(self, accountName):
         print(' - Creating custom type definitions...')
