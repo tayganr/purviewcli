@@ -99,7 +99,10 @@ class Demo():
         print(f' - Assigning role [Storage Blob Data Reader] to Azure Purview Managed Identity (principalId [{purviewManagedIdentity}]).')
         cp.roleAssignmentCreate(scope, roleDefinitionId, purviewManagedIdentity)
         # 4. Populate Storage Account with sample data
+        print(f' - Uploading sample data to Azure Data Lake Storage...')
         cp.storagePopulate(storageAccountName, storageAccountKey)
+
+        printHeading('DATA MAP')
         # 5. Register Source
         dataSourceName = storageAccountName
         sourcePayload = {
@@ -114,7 +117,7 @@ class Demo():
                 "subscriptionId": subscriptionId
             }
         }
-        print(f' - Registering Azure Data Lake Gen 2 Data Source [{dataSourceName}].')
+        print(f' - Registering Azure Data Lake Storage Gen2 Data Source [{dataSourceName}].')
         dp.registerSource(accountName, dataSourceName, sourcePayload)
         # 6. Create Scan
         scanName = 'myRandomScan'
@@ -127,10 +130,10 @@ class Demo():
             "id": f"datasources/{dataSourceName}/scans/{scanName}",
             "name": scanName
         }
-        print(f' - Creating Scan [{scanName}] for Data Source [{dataSourceName}].')
+        print(f' - Creating Scan [{scanName}].')
         dp.createScan(accountName, dataSourceName, scanName, scanPayload)
         # 7. Trigger Scan
-        print(f' - Triggering scan [{scanName}] to run.')
+        print(f' - Triggering Run...')
         dp.runScan(accountName, dataSourceName, scanName)
 
         # Add Role Assignment (Owner)

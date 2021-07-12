@@ -210,8 +210,6 @@ class ControlPlane():
             # Create a blob client using the local file name as the name for the blob
             blob_client = blob_service_client.get_blob_client(container=container_name, blob=file['file_name'])
 
-            print(f' - Uploading to Azure Storage as blob: {file["url"]}')
-
             # Upload the created file
             blob_client.upload_blob_from_url(file["url"])
 
