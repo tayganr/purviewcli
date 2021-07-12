@@ -18,7 +18,7 @@ setuptools.setup(
     author_email='contact@taygan.co',
     license='MIT',
     packages=setuptools.find_packages(),
-    install_requires = ['docopt','requests','azure-identity'],
+    install_requires = ['docopt','requests','azure-identity','azure-storage-blob'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
