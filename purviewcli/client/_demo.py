@@ -1,4 +1,4 @@
-import math, jwt, sys, random, json
+import math, jwt, sys, random, json, string
 from datetime import datetime
 from purviewcli.demo.management import ControlPlane
 from purviewcli.demo.purview import DataPlane
@@ -120,7 +120,7 @@ class Demo():
         print(f' - Registering Azure Data Lake Storage Gen2 Data Source [{dataSourceName}].')
         dp.registerSource(accountName, dataSourceName, sourcePayload)
         # 6. Create Scan
-        scanName = 'myRandomScan'
+        scanName = 'Scan-' + ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase, k=3))
         scanPayload = {
             "properties":{
                 "scanRulesetName": "AdlsGen2",

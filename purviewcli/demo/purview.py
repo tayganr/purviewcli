@@ -133,7 +133,8 @@ class DataPlane():
             with open(peopleFile) as f:
                 people = json.load(f)
             for person in people['value']:
-                users.append(person['id'])
+                if person['userPrincipalName'] != None:
+                    users.append(person['id'])
 
         entities_min_rels_new = { "entities": [] }
         for entity in entities_min_rels:
