@@ -1,6 +1,6 @@
 """
 usage: 
-    pv demo generate [--subscriptionId=<val> --resourceGroupName=<val> --location=<val> --accountName=<val> --peopleFile=<val>]
+    pv demo generate --subscriptionId=<val> [--resourceGroupName=<val> --location=<val> --accountName=<val> --peopleFile=<val>]
 
 options:
     --subscriptionId=<val>                  [string]  An Azure Subscription ID.

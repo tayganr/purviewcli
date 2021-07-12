@@ -41,29 +41,30 @@ class Demo():
         userPrincipalName = claimset['upn']
         tenantId = claimset['tid']
         print(f' - Tenant ID:\t\t{tenantId}')
+        print(f' - Subscription ID:\t{subscriptionId}')
         print(f' - Object ID:\t\t{principalId}')
         print(f' - Name:\t\t{name}')
         print(f' - Principal Name:\t{userPrincipalName}')
 
         # Subscription
-        printHeading('SUBSCRIPTION')
-        subscriptionsList = cp.subscriptionsList()
-        subscriptions = []
-        subscriptionName = {}
-        for sub in subscriptionsList:
-            subscriptions.append(sub['id'])
-            subscriptionName[sub['id']] = sub['name']
-            if sub['isDefault'] == True:
-                defaultSubscriptionId = sub['id']
-        if subscriptionId is None:
-            subscriptionId = defaultSubscriptionId
-        elif subscriptionId in subscriptions:
-            pass
-        else:
-            print(f' - The current set of credentials does not have access to Subscription ID: {subscriptionId}\n')
-            sys.exit()
-        print(f' - Subscription ID:\t{subscriptionId}')
-        print(f' - Subscription Name:\t{subscriptionName[subscriptionId]}')
+        # printHeading('SUBSCRIPTION')
+        # subscriptionsList = cp.subscriptionsList()
+        # subscriptions = []
+        # subscriptionName = {}
+        # for sub in subscriptionsList:
+        #     subscriptions.append(sub['id'])
+        #     subscriptionName[sub['id']] = sub['name']
+        #     if sub['isDefault'] == True:
+        #         defaultSubscriptionId = sub['id']
+        # if subscriptionId is None:
+        #     subscriptionId = defaultSubscriptionId
+        # elif subscriptionId in subscriptions:
+        #     pass
+        # else:
+        #     print(f' - The current set of credentials does not have access to Subscription ID: {subscriptionId}\n')
+        #     sys.exit()
+        # print(f' - Subscription ID:\t{subscriptionId}')
+        # print(f' - Subscription Name:\t{subscriptionName[subscriptionId]}')
 
         # Location
         if location == None:

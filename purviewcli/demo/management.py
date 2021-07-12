@@ -9,7 +9,7 @@ class ControlPlane():
 
     # SUBSCRIPTIONS
     def subscriptionsList(self):
-        result = subprocess.run(['az', 'account', 'list'], stdout=subprocess.PIPE, shell=True)
+        result = subprocess.run(['az', 'account', 'list'], stdout=subprocess.PIPE)
         response = json.loads(result.stdout)
         return response
 
