@@ -92,7 +92,6 @@ class Demo():
         storage = cp.storageAccountProvision(subscriptionId, location, resourceGroupName)
         storageAccountName = storage['name']
         # 2. Get Storage Key
-        print(f' - Retrieving storage account key...')
         storageAccountKey = cp.storageAccountGetKey(subscriptionId, resourceGroupName, storageAccountName)
         # 3. Assign Storage Blob Data Reader role to Azure Purview Managed Identity
         scope = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}'

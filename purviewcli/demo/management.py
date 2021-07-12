@@ -172,23 +172,24 @@ class ControlPlane():
 
     def storagePopulate(self, accountName, accountKey):
         blob_service_client = BlobServiceClient(account_url=f'https://{accountName}.blob.core.windows.net/', credential=accountKey)
-        upload_file_path = '/Users/taygan/Desktop/sample2.csv'
-        local_file_name = 'sample2.csv'
+        url = 'https://pkgstore.datahub.io/core/natural-gas/daily_csv/data/bcea28ceaffd84e048759cd46c31d0b2/daily_csv.csv'
+        file_name = 'Natural Gas Prices.csv'
 
         # Create a unique name for the container
         container_name = str(uuid.uuid4())
 
         # Create the container
-        container_client = blob_service_client.create_container(container_name)
+        blob_service_client.create_container(container_name)
 
         # Create a blob client using the local file name as the name for the blob
-        blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
+        blob_client = blob_service_client.get_blob_client(container=container_name, blob=file_name)
 
-        print(f' - Uploading to Azure Storage as blob: {upload_file_path}')
+        print(f' - Uploading to Azure Storage as blob: {url}')
 
         # Upload the created file
-        with open(upload_file_path, "rb") as data:
-            blob_client.upload_blob(data)
+        blob_client.upload_blob_from_url(url)
+        # with open(upload_file_path, "rb") as data:
+        #     blob_client.upload_blob(data)
 
     def storageAccountProvision(self, subscriptionId, location, resourceGroupName):
         # 1. Set accountName
