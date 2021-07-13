@@ -9,6 +9,8 @@ def printHeading(heading):
     print(f' {heading}')
     print('-------------------------------------------------------------------------')
 
+# def setTokens()
+
 class Demo():
 
     def demoGenerate(self, args):
@@ -38,13 +40,11 @@ class Demo():
         claimset = jwt.decode(tokenManagement, options={"verify_signature": False})
         name = claimset['name']
         principalId = claimset ['oid']
-        userPrincipalName = claimset['upn']
         tenantId = claimset['tid']
         print(f' - Tenant ID:\t\t{tenantId}')
         print(f' - Subscription ID:\t{subscriptionId}')
         print(f' - Object ID:\t\t{principalId}')
         print(f' - Name:\t\t{name}')
-        print(f' - Principal Name:\t{userPrincipalName}')
 
         # Subscription
         # printHeading('SUBSCRIPTION')
@@ -141,7 +141,7 @@ class Demo():
         printHeading('ACCESS CONTROL')
         scope = f'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}'
         roleDefinitionId = '18d7d88d-d35e-4fb5-a5c3-7773c20a72d9' # User Access Administrator
-        print(f' - Assigning role [User Access Administrator] to [principalId: {principalId}; userPrincipalName: {userPrincipalName}]')
+        print(f' - Assigning role [User Access Administrator] to [principalId: {principalId}; name: {name}]')
         cp.roleAssignmentCreate(scope, roleDefinitionId, principalId)
 
         # Validate Contacts (peopleFile)
