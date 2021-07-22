@@ -1,0 +1,42 @@
+[
+    {
+        "kind": "Collection",
+        "name": "Contoso"
+    },
+    {
+        "properties": {
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Contoso"
+            }
+        },
+        "kind": "Collection",
+        "name": "Contoso-Data-Management"
+    },
+    {
+        "properties": {
+            "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Contoso-Data-Management"
+            },
+            "collection": null
+        },
+        "kind": "AzureSubscription",
+        "id": "datasources/AzureSubscription",
+        "name": "AzureSubscription"
+    },
+    {
+        "properties": {
+            "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Contoso-Data-Management"
+            },
+            "collection": null
+        },
+        "kind": "PowerBI",
+        "id": "datasources/PowerBI",
+        "name": "PowerBI"
+    }
+]
