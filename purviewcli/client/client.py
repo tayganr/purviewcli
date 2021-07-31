@@ -57,6 +57,10 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
             uri = f"https://{app}.azure.com{endpoint}"
         elif app == 'graph':
             uri = f"https://{app}.microsoft.com{endpoint}"
+        elif app == 'insight':
+            uri = f"https://{self.account_name}.purview.azure.com{endpoint}"
+        elif app == 'guardian':
+            uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
         else:
             uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
 

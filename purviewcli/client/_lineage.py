@@ -1,4 +1,4 @@
-from .endpoint import Endpoint, decorator, get_json
+from .endpoint import Endpoint, decorator
 
 
 class Lineage(Endpoint):

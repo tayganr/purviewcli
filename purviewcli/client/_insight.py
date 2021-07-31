@@ -1,109 +1,75 @@
-from .client import get_data
+from .endpoint import Endpoint, decorator, get_json
+from datetime import datetime, timedelta
 
-# ---------------------------
-# INSIGHT (GUARDIAN)
-# ---------------------------
-def insightAssetDistributionByDataSource(args):
-    endpoint = '/mapanddiscover/reports/asset2/assetDistributionByDataSource'
-    payload = {
-        "registeredSourceGroup": args['--registeredSourceGroup'] or '',
-        "classificationCategory": args['--classificationCategory'] or '',
-        "classificationName": args['--classificationName'] or ''
-    }
-    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-    data = get_data(http_dict)
-    return data
+class Insight(Endpoint):
+    def __init__(self):
+        Endpoint.__init__(self)
+        self.app = 'insight'
 
-def insightAssetDistributionByTopPaths(args):
-    endpoint = '/mapanddiscover/reports/asset2/assetDistributionByTopPaths'
-    payload = {
-        "registeredSourceGroup": args['--registeredSourceGroup'] or '',
-        "classificationCategory": args['--classificationCategory'] or '',
-        "classificationName": args['--classificationName'] or '',
-        "dataSource": args['--datasource'] or ''
-    }
-    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-    data = get_data(http_dict)
-    return data
+    @decorator
+    def insightGraphql(self, args):
+        self.app = 'guardian'
+        self.method = 'POST'
+        self.endpoint = '/graphql'
+        self.payload = get_json(args['--payload-file'])
 
-def insightFileTypeSizeTimeSeries(args):
-    endpoint = '/mapanddiscover/reports/asset2/fileTypeSizeTimeSeries'
-    payload = {
-        "dataSource": args['--datasource'] or '',
-        "fileType": args['--fileType'] or '',
-        "registeredSourceGroup": args['--registeredSourceGroup'] or '',
-        "window": args['--window'] or ''
-    }
-    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-    data = get_data(http_dict)
-    return data
+    @decorator
+    def insightFileExtensions(self, args):
+        self.app = 'guardian'
+        self.method = 'POST'
+        self.endpoint = '/reports/fileExtensions'
+        startDateTime = (datetime.now() - timedelta(days=int(args['--numberOfDays']))).strftime('%Y-%m-%dT%H:%M:00.000Z')
+        endDateTime = datetime.now().strftime('%Y-%m-%dT%H:%M:00.000Z')
+        self.payload = {
+            "Query":{
+                "StartTime": startDateTime,
+                "EndTime": endDateTime,
+                "takeTopCount": args['--takeTopCount'],
+                "assetTypes":[]
+            }
+        }
 
-def insightFileTypeSizeTrendByDataSource(args):
-    endpoint = '/mapanddiscover/reports/asset2/fileTypeSizeTrendByDataSource'
-    payload = {
-        "dataSource": args['--datasource'] or '',
-        "fileType": args['--fileType'] or '',
-        "registeredSourceGroup": args['--registeredSourceGroup'] or '',
-        "window": args['--window'] or ''
-    }
-    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-    data = get_data(http_dict)
-    return data
+    @decorator
+    def insightAssetDistribution(self, args):
+        self.method = 'GET'
+        self.endpoint = '/mapanddiscover/reports/asset2/assetDistribution/getSnapshot'
 
-def insightTopFileTypesBySize(args):
-    endpoint = '/mapanddiscover/reports/asset2/topFileTypesBySize'
-    payload = {
-        "dataSource": args['--datasource'] or '',
-        "registeredSourceGroup": args['--registeredSourceGroup'] or ''
-    }
-    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-    data = get_data(http_dict)
-    return data
+    @decorator
+    def insightAssetDataSources(self, args):
+        self.method = 'POST'
+        self.endpoint = '/mapanddiscover/reports/asset2/dataSources'
+        self.payload = {"registeredSourceGroup":""}
 
-def insightTopLevelSummary(args):
-    endpoint = '/mapanddiscover/reports/asset2/topLevelSummary'
-    payload = {
-        "registeredSourceGroup": args['--registeredSourceGroup'] or ''
-    }
-    http_dict = {'app': 'guardian', 'method': 'POST', 'endpoint': endpoint, 'params': None, 'payload': payload}
-    data = get_data(http_dict)
-    return data
+    @decorator
+    def insightFilesWithoutResourceSet(self, args):
+        self.method = 'GET'
+        self.endpoint = '/mapanddiscover/reports/asset2/filesWithoutResourceSet/getSnapshot'
 
-def insightRegisteredSourceGroupsWithAssets(args):
-    endpoint = '/mapanddiscover/reports/asset2/registeredSourceGroupsWithAssets'
-    http_dict = {'app': 'guardian', 'method': 'GET', 'endpoint': endpoint, 'params': None, 'payload': None}
-    data = get_data(http_dict)
-    return data
+    @decorator
+    def insightFileTypeSizeTimeSeries(self, args):
+        self.method = 'POST'
+        self.endpoint = '/mapanddiscover/reports/asset2/fileTypeSizeTimeSeries'
+        self.payload = {
+            "window": f"{args['--numberOfDays']}d",
+            "fileType": args['--fileType'],
+            "dataSource": args['--dataSource'],
+            "registeredSourceGroup":""
+        }
 
-# Map & Discover > Reports > Asset2
-# [POST] /mapanddiscover/reports/asset2/assetDistributionByDataSource
-# [POST] /mapanddiscover/reports/asset2/assetDistributionByTopPaths
-# [GET]  /mapanddiscover/reports/asset2/registeredSourceGroupsWithAssets
-# [POST] /mapanddiscover/reports/asset2/fileTypeSizeTimeSeries
-# [POST] /mapanddiscover/reports/asset2/fileTypeSizeTrendByDataSource
-# [POST] /mapanddiscover/reports/asset2/filesWithoutResourceSetByDataSource
-# [POST] /mapanddiscover/reports/asset2/topFileTypesBySize
-# [POST] /mapanddiscover/reports/asset2/topLevelSummary
+    @decorator
+    def insightTopFileTypesBySize(self, args):
+        self.method = 'POST'
+        self.endpoint = '/mapanddiscover/reports/asset2/topFileTypesBySize'
+        self.payload = {"dataSource":"","registeredSourceGroup":""}
 
-# Map & Discover > Reports > Scan Status
-# [POST] /mapanddiscover/reports/scanstatus/summary
-# [POST] /mapanddiscover/reports/scanstatus/summarybytimeseries
+    @decorator
+    def insightScanStatusSummaries(self, args):
+        self.method = 'GET'
+        self.endpoint = '/mapanddiscover/reports/scanstatus2/summaries'
+        self.params = { 'window': args['--numberOfDays'] }
 
-# Map & Discover > Reports > Glossary
-# [POST] /mapanddiscover/reports/user/latesttopnroles
-# [POST] /mapanddiscover/reports/glossary/latesttopnterms
-# [POST] /mapanddiscover/reports/glossary/latestsummarybystatus
-
-# Reports > Classification
-# [POST] /reports/classification/calculateFileTotalsOverTime
-# [POST] /reports/classification/calculateTableTotalsOverTime
-
-# Reports > (Sensitivity) Labels
-# [POST] /reports/label/calculateList
-# [POST] /reports/label/calculatePaginatedList
-
-# Reports > File Extensions
-# [POST] /reports/fileExtensions
-
-# Classification & Sensitivity Labels
-# [POST] /graphql
+    @decorator
+    def insightScanStatusSummariesByTs(self, args):
+        self.method = 'GET'
+        self.endpoint = '/mapanddiscover/reports/scanstatus2/summariesbyts'
+        self.params = { 'window': args['--numberOfDays'] }
