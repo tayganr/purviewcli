@@ -1,0 +1,4 @@
+{
+    "variables": {},
+    "query": "{\n  lastUpdatedTime\n  classificationQuery {\n    classificationSummary {\n      subscriptionsCount\n      uniqueClassificationsCount\n      filesClassifiedCount\n      tablesClassifiedCount\n      sourcesClassifiedCount\n      __typename\n    }\n    __typename\n  }\n}\n"
+}

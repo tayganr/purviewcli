@@ -1,0 +1,8 @@
+{
+    "variables": {
+        "startTime": "2021-06-26T00:00:00.000Z",
+        "endTime": "2021-07-31T11:46:12.413Z",
+        "localTimeFixedPoint": "2021-07-30T23:00:00.000Z"
+    },
+    "query": "query ($startTime: DateTime!, $endTime: DateTime!, $localTimeFixedPoint: DateTime!) {\n  classificationQuery {\n    sourcesClassifiedOverTimeData(timeRequestOptions: {startTime: $startTime, endTime: $endTime}, localTimeFixedPoint: $localTimeFixedPoint) {\n      values {\n        name\n        counts\n        __typename\n      }\n      timeBuckets\n      __typename\n    }\n    __typename\n  }\n}\n"
+}

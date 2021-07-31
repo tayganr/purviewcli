@@ -1,0 +1,7 @@
+{
+    "variables": {
+        "startTime": "2021-07-03T00:00:00.000Z",
+        "endTime": "2021-07-31T11:46:12.413Z"
+    },
+    "query": "query ($startTime: DateTime!, $endTime: DateTime!) {\n  classificationQuery {\n    files: classifications(sortBy: {fieldsToSort: {fieldName: FILESCOUNT, sortDirection: DESC}}, paginationOptions: {offset: 0, limit: 5}, timeRequestOptions: {startTime: $startTime, endTime: $endTime}) {\n      totalCount\n      values {\n        name\n        filesCount\n        __typename\n      }\n      __typename\n    }\n    tables: classifications(sortBy: {fieldsToSort: {fieldName: TABLESCOUNT, sortDirection: DESC}}, paginationOptions: {offset: 0, limit: 5}, timeRequestOptions: {startTime: $startTime, endTime: $endTime}) {\n      totalCount\n      values {\n        name\n        tablesCount\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n"
+}
