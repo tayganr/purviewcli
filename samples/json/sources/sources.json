@@ -1,0 +1,34 @@
+[
+    {
+        "kind": "Collection",
+        "name": "Contoso"
+    },
+    {
+        "properties": {
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Contoso"
+            }
+        },
+        "kind": "Collection",
+        "name": "Contoso-Sales"
+    },
+    {
+        "properties": {
+            "dedicatedSqlEndpoint": "cnt01-prd-synapse001.sql.azuresynapse.net",
+            "serverlessSqlEndpoint": "cnt01-prd-synapse001-ondemand.sql.azuresynapse.net",
+            "resourceGroup": "cnt01-prd-di001",
+            "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
+            "location": "eastus",
+            "resourceName": "cnt01-prd-synapse001",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Contoso-Sales"
+            },
+            "collection": null
+        },
+        "kind": "AzureSynapseWorkspace",
+        "id": "datasources/AzureSynapseWorkspace",
+        "name": "AzureSynapseWorkspace"
+    }
+]
