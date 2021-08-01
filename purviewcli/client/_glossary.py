@@ -173,7 +173,6 @@ class Glossary(Endpoint):
         self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/terms/headers'
         self.params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
 
-    # 
     @decorator
     def glossaryCreateTermsExport(self, args):
         self.method = 'POST'
@@ -187,11 +186,6 @@ class Glossary(Endpoint):
             self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/terms/import'
         else:
             self.endpoint = f'/api/atlas/v2/glossary/name/{args["--glossaryName"]}/terms/import'
-
-    @decorator
-    def glossaryReadTerms(self, args):
-        self.method = 'GET'
-        self.endpoint = f'/api/atlas/v2/glossary/name/{args["--glossaryName"]}/terms'
 
     @decorator
     def glossaryReadTermsImport(self, args):

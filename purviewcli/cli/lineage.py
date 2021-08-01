@@ -10,6 +10,16 @@ options:
     --direction=<direction>           [string]  The direction of the lineage, which could be INPUT, OUTPUT or BOTH [default: BOTH].
     --offset=<val>                    [integer] Offset for pagination purpose [default: 0].
     --limit=<val>                     [integer] The page size - by default there is no paging [default: -1].
+
+
+command to api mapping:
++----------+--------+------------------------------------+
+| Command  | Method | Endpoint                           |
++----------+--------+------------------------------------+
+| read     | GET    | /api/atlas/v2/lineage/{guid}       |
+| readNext | GET    | /api/atlas/v2/lineage/{guid}/next/ |
++----------+--------+------------------------------------+
+
 """
 from docopt import docopt
 

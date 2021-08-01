@@ -9,6 +9,14 @@ options:
   --filter-file=<val>     [string]  File path to a filter json file.
   --facets-file=<val>     [string]  File path to a facets json file.
 
+
+command to api mapping:
++---------+--------+-------------------+
+| Command | Method | Endpoint          |
++---------+--------+-------------------+
+| query   | POST   | /api/search/query |
++---------+--------+-------------------+
+
 """
 from docopt import docopt
 

@@ -12,7 +12,7 @@ class Management(Endpoint):
         self.method = 'PUT'
         scope = f'/subscriptions/{args["--subscriptionId"]}/resourceGroups/{args["--resourceGroupName"]}/providers/Microsoft.Purview/accounts/{args["--accountName"]}'
         roleAssignmentId = uuid.uuid4()
-        self.endpoint = f'{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01'
+        self.endpoint = f'{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}'
         roleDefinitionId = args["--roleDefinitionId"]
         self.payload = {
             "properties": {
@@ -20,6 +20,7 @@ class Management(Endpoint):
                 "principalId": f'{args["--principalId"]}'
             }
         }
+        self.params = {'api-version': '2015-07-01'}
 
     @decorator
     def managementPutResourceGroup(self, args):

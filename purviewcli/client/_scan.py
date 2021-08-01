@@ -6,7 +6,6 @@ class Scan(Endpoint):
         Endpoint.__init__(self)
         self.app = 'scan'
 
-    # GET
     @decorator
     def scanReadClassificationRule(self, args):
         self.method = 'GET'
@@ -102,7 +101,6 @@ class Scan(Endpoint):
         self.method = 'GET'
         self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/triggers/default'
 
-    # DELETE
     @decorator
     def scanDeleteClassificationRule(self, args):
         self.method = 'DELETE'
@@ -133,7 +131,6 @@ class Scan(Endpoint):
         self.method = 'DELETE'
         self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/triggers/default'
 
-    # PUT
     @decorator
     def scanPutClassificationRule(self, args):
         self.method = 'PUT'

@@ -30,13 +30,18 @@ from purviewcli import __version__
 from purviewcli.client import settings
 
 def main():
+    # Append help flag if input is pv only
     if len(sys.argv) == 1:
         sys.argv.append('-h')
         sys.exit(main())
+
+    # Dictionary return value from docopt with Options (e.g. --help), Arguments (<args>), and Commands (<command>)
     args = docopt(__doc__, version=__version__, options_first=True)
+
+    # List of command line arguments passed to purviewcli (e.g. ['glossary', 'putTerm', '--termGuid', '12345')
     argv = [args['<command>']] + args['<args>']
     
-    # Remove purviewName from argument list
+    # Remove purviewName from argument list (if exists)
     if '--purviewName' in argv:
             pos = argv.index('--purviewName')
             del argv[pos]
@@ -45,6 +50,8 @@ def main():
 
     # Command
     command = args['<command>']
+
+    # Init sub-docopt
     if command in ['entity', 'relationship', 'lineage', 'glossary', 'types', 'scan', 'insight', 'search', 'credential', 'demo', 'management', 'graph']:
         globals()[command] = importlib.import_module('purviewcli.cli.' + command)
         command_args = docopt(eval(command).__doc__, argv=argv)
