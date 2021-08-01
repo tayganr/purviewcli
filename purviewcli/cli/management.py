@@ -29,10 +29,10 @@ options:
     --groupId=<val>                         [string]  The group identifier.
     --privateEndpointConnectionName=<val>   [string]  The name of the private endpoint connection.
 
-
-command to api mapping:
+mapping:
+https://management.azure.com
 +--------------------------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Command                  | Method | Endpoint                                                                                                                                                                         |
+| Command                  | Method | Path                                                                                                                                                                             |
 +--------------------------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | checkNameAvailability    | POST   | /subscriptions/{subscriptionId}/providers/Microsoft.Purview/checkNameAvailability                                                                                                |
 | createAccount            | PUT    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}                                                            |

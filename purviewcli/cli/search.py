@@ -9,10 +9,10 @@ options:
   --filter-file=<val>     [string]  File path to a filter json file.
   --facets-file=<val>     [string]  File path to a facets json file.
 
-
-command to api mapping:
+mapping:
+https://{account_name}.catalog.purview.azure.com
 +---------+--------+-------------------+
-| Command | Method | Endpoint          |
+| Command | Method | Path              |
 +---------+--------+-------------------+
 | query   | POST   | /api/search/query |
 +---------+--------+-------------------+

@@ -17,15 +17,16 @@ usage:
 
 options:
   --purviewName=<val>     [string]  Azure Purview account name.
-  --type=<val>            [string]  Typedef name as search filter (classification | entity | enum | relationship | struct).
-  --includeTermTemplate   [boolean] Whether to include termtemplatedef.
   --guid=<val>            [string]  The globally unique identifier.
+  --includeTermTemplate   [boolean] Whether to include termtemplatedef [default: false].
   --name=<val>            [string]  The name of the definition.
+  --payload-file=<val>    [string]  File path to a valid JSON document.
+  --type=<val>            [string]  Typedef name as search filter (classification | entity | enum | relationship | struct).
 
-
-command to api mapping:
+mapping:
+https://{account_name}.catalog.purview.azure.com
 +-----------------------+--------+-----------------------------------------------------------------+
-| Command               | Method | Endpoint                                                        |
+| Command               | Method | Path                                                            |
 +-----------------------+--------+-----------------------------------------------------------------+
 | createTypeDefs        | POST   | /api/atlas/v2/types/typedefs                                    |
 | deleteTypeDef         | DELETE | /api/atlas/v2/types/typedef/name/{name}                         |

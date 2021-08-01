@@ -35,19 +35,20 @@ usage:
 
 options:
     --purviewName=<val>     [string]  Azure Purview account name.
-    --glossaryGuid=<val>    [string]  The globally unique identifier for glossary.
     --categoryGuid=<val>    [string]  The globally unique identifier of the category.
-    --termGuid=<val>        [string]  The globally unique identifier for glossary term.
-    --operationGuid=<val>   [string]  The globally unique identifier for async operation/job.
+    --glossaryGuid=<val>    [string]  The globally unique identifier for glossary.
     --glossaryName=<val>    [string]  The name of the glossary.
     --limit=<val>           [integer] The page size - by default there is no paging [default: -1].
     --offset=<val>          [integer] Offset for pagination purpose [default: 0].
+    --operationGuid=<val>   [string]  The globally unique identifier for async operation/job.
+    --payload-file=<val>    [string]  File path to a valid JSON document.
     --sort=<val>            [string]  ASC or DESC [default: ASC].
+    --termGuid=<val>        [string]  The globally unique identifier for glossary term.
 
-
-command to api mapping:
+mapping:
+https://{account_name}.catalog.purview.azure.com
 +-----------------------------+--------+----------------------------------------------------------+
-| Command                     | Method | Endpoint                                                 |
+| Command                     | Method | Path                                                     |
 +-----------------------------+--------+----------------------------------------------------------+
 | create                      | POST   | /api/atlas/v2/glossary                                   |
 | createCategories            | POST   | /api/atlas/v2/glossary/categories                        |
@@ -82,6 +83,7 @@ command to api mapping:
 | readTermsImport             | GET    | /api/atlas/v2/glossary/terms/import/{operationGuid}      |
 | readTermsRelated            | GET    | /api/atlas/v2/glossary/terms/{termGuid}/related          |
 +-----------------------------+---------+---------------------------------------------------------+
+
 """
 from docopt import docopt
 

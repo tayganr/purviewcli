@@ -25,18 +25,19 @@ usage:
     
 options:
     --purviewName=<val>                 [string]  Azure Purview account name.
-    --guid=<val>                        [string]  The globally unique identifier of the entity.
-    --ignoreRelationships               [boolean] Whether to ignore relationship attributes.
-    --minExtInfo                        [boolean] Whether to return minimal information for referred entities.
-    --name=<val>                        [string]  The name of the attribute.
     --classificationName=<val>          [string]  The name of the classification.
-    --typeName=<val>                    [string]  The name of the type.
+    --guid=<val>                        [string]  The globally unique identifier of the entity.
+    --ignoreRelationships               [boolean] Whether to ignore relationship attributes [default: false].
+    --minExtInfo                        [boolean] Whether to return minimal information for referred entities [default: false].
+    --name=<val>                        [string]  The name of the attribute.
+    --payload-file=<val>                [string]  File path to a valid JSON document.
     --qualifiedName=<val>               [string]  The qualified name of the entity.
+    --typeName=<val>                    [string]  The name of the type.
 
-
-command to api mapping:
+mapping:
+https://{account_name}.catalog.purview.azure.com
 +--------------------------------------+--------+-------------------------------------------------------------------------------------------+
-| Command                              | Method | Endpoint                                                                                  |
+| Command                              | Method | Path                                                                                      |
 +--------------------------------------+--------+-------------------------------------------------------------------------------------------+
 | create                               | POST   | /api/atlas/v2/entity                                                                      |
 | createBulk                           | POST   | /api/atlas/v2/entity/bulk                                                                 |

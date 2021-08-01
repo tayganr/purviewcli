@@ -45,10 +45,10 @@ options:
     --runId=<val>                       [string]  The unique identifier of the run.
     --dataSourceType=<val>              [string]  Type of data source.
 
-
-command to api mapping:
+mapping:
+https://{account_name}.scan.purview.azure.com
 +--------------------------------+--------+------------------------------------------------------------------------+
-| Command                        | Method | Endpoint                                                               |
+| Command                        | Method | Path                                                                   |
 +--------------------------------+--------+------------------------------------------------------------------------+
 | cancelScan                     | POST   | /datasources/{dataSourceName}/scans/{scanName}/runs/{runId}/:cancel    |
 | deleteClassificationRule       | DELETE | /classificationrules/{classificationRuleName}                          |

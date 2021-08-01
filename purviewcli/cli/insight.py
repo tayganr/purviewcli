@@ -11,23 +11,31 @@ usage:
     pv insight topFileTypesBySize
 
 options:
-    --purviewName=<val>               Azure Purview account name.
-    --numberOfDays=<val>              Trailing time period in days [default: 30].
-    --takeTopCount=<val>              Specify the maximum number of records to return [default: 10].
-    --fileType=<val>                  Specify a file type (csv | avro | parquet | json | snappy | pptx | docx | xlsx) [default: csv].
-    --dataSource=<val>                Specify a data source (Azure Blob Storage | aws | Azure Data Lake Storage Gen2).
+    --purviewName=<val>          [string]  Azure Purview account name.
+    --dataSource=<val>           [string]  Specify a data source (Azure Blob Storage | aws | Azure Data Lake Storage Gen2).
+    --fileType=<val>             [string]  Specify a file type (csv | avro | parquet | json | snappy | pptx | docx | xlsx) [default: csv].
+    --numberOfDays=<val>         [integer] Trailing time period in days [default: 30].
+    --payload-file=<val>         [string]  File path to a valid JSON document.
+    --takeTopCount=<val>         [integer] Specify the maximum number of records to return [default: 10].
 
+mapping:
+https://{account_name}.guardian.purview.azure.com
++-------------------------+--------+--------------------------------------------------------------------+
+| Command                 | Method | Endpoint                                                           |
++-------------------------+--------+--------------------------------------------------------------------+
+| fileExtensions          | POST   | /reports/fileExtensions                                            |                  
+| graphql                 | POST   | /graphql                                                           |  
++-------------------------+--------+--------------------------------------------------------------------+  
 
-command to api mapping:
+mapping:
+https://{account_name}.purview.azure.com
 +-------------------------+--------+--------------------------------------------------------------------+
 | Command                 | Method | Endpoint                                                           |
 +-------------------------+--------+--------------------------------------------------------------------+
 | assetDataSources        | POST   | /mapanddiscover/reports/asset2/dataSources                         |                                      
 | assetDistribution       | GET    | /mapanddiscover/reports/asset2/assetDistribution/getSnapshot       |                                                      
-| fileExtensions          | POST   | /reports/fileExtensions                                            |                  
 | fileTypeSizeTimeSeries  | POST   | /mapanddiscover/reports/asset2/fileTypeSizeTimeSeries              |                                                  
 | filesWithoutResourceSet | GET    | /mapanddiscover/reports/asset2/filesWithoutResourceSet/getSnapshot |                                                              
-| graphql                 | POST   | /graphql                                                           |  
 | scanStatusSummaries     | GET    | /mapanddiscover/reports/scanstatus2/summaries                      |                                          
 | scanStatusSummariesByTs | GET    | /mapanddiscover/reports/scanstatus2/summariesbyts                  |    
 | topFileTypesBySize      | POST   | /mapanddiscover/reports/asset2/topFileTypesBySize                  |                                              

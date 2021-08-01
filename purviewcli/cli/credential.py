@@ -8,10 +8,10 @@ options:
     --purviewName=<val>                   [string]  Azure Purview account name.
     --credentialName=<val>                [string]  The name of the credential.
 
-
-command to api mapping:
+mapping:
+https://{account_name}.proxy.purview.azure.com
 +---------+--------+-------------------------------+
-| Command | Method | Endpoint                      |
+| Command | Method | Path                          |
 +---------+--------+-------------------------------+
 | delete  | DELETE | /credentials/{credentialName} |
 | put     | PUT    | /credentials/{credentialName} |
