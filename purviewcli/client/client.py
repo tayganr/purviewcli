@@ -84,6 +84,14 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
                 'operation': '[%s] %s' % (method, response.url),
                 'status': 'The server successfully processed the request'
             }
+        elif response.headers['Content-Type'] == 'text/csv; charset=UTF-8':
+            filepath = os.path.join(os.getcwd(),'export.csv')
+            with open(filepath, 'wb') as f:
+                f.write(response.content)
+            data = {
+                'status_code': response.status_code,
+                'export': filepath
+            }
         else:
             try:
                 data = response.json()
