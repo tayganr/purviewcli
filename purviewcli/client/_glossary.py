@@ -164,8 +164,8 @@ class Glossary(Endpoint):
     @decorator
     def glossaryReadTerms(self, args):
         self.method = 'GET'
-        self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/terms'
-        self.params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
+        self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/terms' if args['--glossaryGuid'] else f'/api/atlas/v2/glossary/name/Glossary/terms'
+        self.params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort'], 'extInfo': args['--extInfo'], 'includeTermHierarchy': args['--includeTermHierarchy'], 'api-version': '2021-05-01-preview'}
 
     @decorator
     def glossaryReadTermsHeaders(self, args):

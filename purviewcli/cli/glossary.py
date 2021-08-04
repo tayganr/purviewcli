@@ -27,7 +27,7 @@ usage:
     pv glossary readCategoryTerms --categoryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readDetailed --glossaryGuid=<val>
     pv glossary readTerm --termGuid=<val>
-    pv glossary readTerms --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
+    pv glossary readTerms [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val> --extInfo --includeTermHierarchy]
     pv glossary readTermsAssignedEntities --termGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readTermsHeaders --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readTermsImport --operationGuid=<val>
@@ -36,9 +36,11 @@ usage:
 options:
     --purviewName=<val>     [string]  Azure Purview account name.
     --categoryGuid=<val>    [string]  The globally unique identifier of the category.
+    --extInfo               [boolean] extInfo [defaul: false]
     --glossaryGuid=<val>    [string]  The globally unique identifier for glossary.
     --glossaryName=<val>    [string]  The name of the glossary.
-    --limit=<val>           [integer] The page size - by default there is no paging [default: -1].
+    --includeTermHierarchy  [boolean] Include term template references [default: false]
+    --limit=<val>           [integer] The page size - by default there is no paging [default: 1000].
     --offset=<val>          [integer] Offset for pagination purpose [default: 0].
     --operationGuid=<val>   [string]  The globally unique identifier for async operation/job.
     --payload-file=<val>    [string]  File path to a valid JSON document.

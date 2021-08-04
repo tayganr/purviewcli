@@ -101,4 +101,5 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
                     'status_code': response.status_code,
                     'reason': response.reason
                 }
+        print(response.url)
         return data
