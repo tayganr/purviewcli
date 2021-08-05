@@ -24,7 +24,7 @@
         },
         "kind": "AzureSubscription",
         "id": "datasources/AzureSubscription",
-        "name": "AzureSubscription"
+        "name": "Contoso-Data-Management-AzureSubscription"
     },
     {
         "properties": {
@@ -37,6 +37,6 @@
         },
         "kind": "PowerBI",
         "id": "datasources/PowerBI",
-        "name": "PowerBI"
+        "name": "Contoso-PowerBI"
     }
 ]

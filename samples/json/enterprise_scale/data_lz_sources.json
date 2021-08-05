@@ -24,7 +24,7 @@
         },
         "kind": "AzureSubscription",
         "id": "datasources/AzureSubscription",
-        "name": "AzureSubscription"
+        "name": "Contoso-Sales-Data-AzureSubscription"
     },
     {
         "properties": {
@@ -42,7 +42,7 @@
         },
         "kind": "AzureSynapseWorkspace",
         "id": "datasources/AzureSynapseWorkspace",
-        "name": "AzureSynapseWorkspace"
+        "name": "Contoso-Sales-Data-AzureSynapseWorkspace"
     },
     {
         "properties": {
@@ -59,7 +59,7 @@
         },
         "kind": "AzureSqlDatabase",
         "id": "datasources/AzureSqlDatabase",
-        "name": "AzureSqlDatabase"
+        "name": "Contoso-Sales-Data-AzureSynapseDatabase"
     },
     {
         "properties": {
@@ -76,6 +76,6 @@
         },
         "kind": "AzureSqlDatabase",
         "id": "datasources/AzureSqlDatabase",
-        "name": "AzureSqlDatabase"
+        "name": "Contoso-Sales-Data-AzureSqlDatabase"
     }
 ]

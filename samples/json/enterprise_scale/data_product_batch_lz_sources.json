@@ -1,19 +1,6 @@
 [
     {
         "properties": {
-            "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
-            "parentCollection": {
-                "type": "DataSourceReference",
-                "referenceName": "Contoso-Sales"
-            },
-            "collection": null
-        },
-        "kind": "AzureSubscription",
-        "id": "datasources/AzureSubscription",
-        "name": "AzureSubscription"
-    },
-    {
-        "properties": {
             "dedicatedSqlEndpoint": "cntdatapb1-prd-product-synapse001.sql.azuresynapse.net",
             "serverlessSqlEndpoint": "cntdatapb1-prd-product-synapse001-ondemand.sql.azuresynapse.net",
             "resourceGroup": "cntdatapb1-prd-synapse001",
@@ -28,7 +15,7 @@
         },
         "kind": "AzureSynapseWorkspace",
         "id": "datasources/AzureSynapseWorkspace",
-        "name": "AzureSynapseWorkspace"
+        "name": "Contoso-Sales-Batch-AzureSynapseWorkspace"
     },
     {
         "properties": {
@@ -45,7 +32,7 @@
         },
         "kind": "AzureSqlDatabase",
         "id": "datasources/AzureSqlDatabase",
-        "name": "AzureSqlDatabase"
+        "name": "Contoso-Sales-Batch-AzureSqlDatabase"
     },
     {
         "properties": {
@@ -62,7 +49,7 @@
         },
         "kind": "AzureCosmosDb",
         "id": "datasources/AzureCosmosDb",
-        "name": "AzureCosmosDb"
+        "name": "Contoso-Sales-Batch-AzureCosmosDb"
     },
     {
         "properties": {
@@ -79,6 +66,6 @@
         },
         "kind": "AzureSqlDatabase",
         "id": "datasources/AzureSqlDatabase",
-        "name": "AzureSqlDatabase"
+        "name": "Contoso-Sales-Batch-AzureSqlDatabase"
     }
 ]

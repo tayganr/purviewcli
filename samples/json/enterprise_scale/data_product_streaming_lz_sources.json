@@ -15,7 +15,7 @@
         },
         "kind": "AzureSynapseWorkspace",
         "id": "datasources/AzureSynapseWorkspace",
-        "name": "AzureSynapseWorkspace"
+        "name": "Contoso-Sales-Stream-AzureSynapseWorkspace"
     },
     {
         "properties": {
@@ -32,7 +32,7 @@
         },
         "kind": "AzureSqlDatabase",
         "id": "datasources/AzureSqlDatabase",
-        "name": "AzureSqlDatabase"
+        "name": "Contoso-Sales-Stream-AzureSqlDatabase"
     },
     {
         "properties": {
@@ -49,7 +49,7 @@
         },
         "kind": "AzureCosmosDb",
         "id": "datasources/AzureCosmosDb",
-        "name": "AzureCosmosDb"
+        "name": "Contoso-Sales-Stream-AzureCosmosDb"
     },
     {
         "properties": {
@@ -66,6 +66,6 @@
         },
         "kind": "AzureSqlDatabase",
         "id": "datasources/AzureSqlDatabase",
-        "name": "AzureSqlDatabase"
+        "name": "Contoso-Sales-Stream-AzureSqlDatabase"
     }
 ]
