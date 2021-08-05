@@ -1,26 +1,12 @@
 [
     {
-        "kind": "Collection",
-        "name": "Contoso"
-    },
-    {
         "properties": {
-            "parentCollection": {
-                "type": "DataSourceReference",
-                "referenceName": "Contoso"
-            }
-        },
-        "kind": "Collection",
-        "name": "Contoso-Sales"
-    },
-    {
-        "properties": {
-            "dedicatedSqlEndpoint": "cnt01-prd-synapse001.sql.azuresynapse.net",
-            "serverlessSqlEndpoint": "cnt01-prd-synapse001-ondemand.sql.azuresynapse.net",
-            "resourceGroup": "cnt01-prd-di001",
+            "dedicatedSqlEndpoint": "cntdataps1-prd-synapse001.sql.azuresynapse.net",
+            "serverlessSqlEndpoint": "cntdataps1-prd-synapse001-ondemand.sql.azuresynapse.net",
+            "resourceGroup": "cntdataps1-prd-di001",
             "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
             "location": "eastus",
-            "resourceName": "cnt01-prd-synapse001",
+            "resourceName": "cntdataps1-prd-synapse001",
             "parentCollection": {
                 "type": "DataSourceReference",
                 "referenceName": "Contoso-Sales"
@@ -33,11 +19,11 @@
     },
     {
         "properties": {
-            "serverEndpoint": "cnt01-prd-synapse001.database.windows.net",
-            "resourceGroup": "cnt01-prd-di001",
+            "serverEndpoint": "cntdataps1-prd-synapse001.database.windows.net",
+            "resourceGroup": "cntdataps1-prd-dp002",
             "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
             "location": "eastus",
-            "resourceName": "cnt01-prd-synapse001",
+            "resourceName": "cntdataps1-prd-synapse001",
             "parentCollection": {
                 "type": "DataSourceReference",
                 "referenceName": "Contoso-Sales"
@@ -50,11 +36,11 @@
     },
     {
         "properties": {
-            "accountUri": "https://cnt01-prd-cosmos001.documents.azure.com:443/",
-            "resourceGroup": "cnt01-prd-di001",
-            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "accountUri": "https://cntdataps1-prd-cosmos001.documents.azure.com:443/",
+            "resourceGroup": "cntdataps1-prd-dp002",
+            "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
             "location": "eastus",
-            "resourceName": "cnt01-prd-cosmos001",
+            "resourceName": "cntdataps1-prd-cosmos001",
             "parentCollection": {
                 "type": "DataSourceReference",
                 "referenceName": "Contoso-Sales"
@@ -67,11 +53,11 @@
     },
     {
         "properties": {
-            "serverEndpoint": "cnt01-prd-sqlserver001.database.windows.net",
-            "resourceGroup": "cnt01-prd-cosmos001",
-            "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+            "serverEndpoint": "cntdataps1-prd-sqlserver001.database.windows.net",
+            "resourceGroup": "cntdataps1-prd-dp002",
+            "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
             "location": "eastus",
-            "resourceName": "cnt01-prd-sqlserver001",
+            "resourceName": "cntdataps1-prd-sqlserver001",
             "parentCollection": {
                 "type": "DataSourceReference",
                 "referenceName": "Contoso-Sales"
