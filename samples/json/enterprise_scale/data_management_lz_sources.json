@@ -15,7 +15,7 @@
     },
     {
         "properties": {
-            "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
+            "subscriptionId": "01234567-89ab-cdef-0123-456789abcdef",
             "parentCollection": {
                 "type": "DataSourceReference",
                 "referenceName": "Contoso-Data-Management"
@@ -28,7 +28,7 @@
     },
     {
         "properties": {
-            "tenant": "12345678-9abc-def0-0123-456789abcdef",
+            "tenant": "01234567-89ab-cdef-0123-456789abcdef",
             "parentCollection": {
                 "type": "DataSourceReference",
                 "referenceName": "Contoso-Data-Management"

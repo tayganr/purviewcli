@@ -66,11 +66,11 @@
     },
     {
         "properties": {
-            "serverEndpoint": "cnt01-prd-sqlserver001.database.windows.net",
+            "serverEndpoint": "cntdatapb1-prd-sqlserver001.database.windows.net",
             "resourceGroup": "cntdatal1-prd-dp001",
             "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
             "location": "eastus",
-            "resourceName": "cnt01-prd-sqlserver001",
+            "resourceName": "cntdatapb1-prd-sqlserver001",
             "parentCollection": {
                 "type": "DataSourceReference",
                 "referenceName": "Contoso-Sales"
