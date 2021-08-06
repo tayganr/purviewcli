@@ -1,0 +1,81 @@
+[
+    {
+        "kind": "Collection",
+        "name": "Contoso"
+    },
+    {
+        "properties": {
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Contoso"
+            }
+        },
+        "kind": "Collection",
+        "name": "Contoso-Sales"
+    },
+    {
+        "properties": {
+            "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Contoso-Sales"
+            },
+            "collection": null
+        },
+        "kind": "AzureSubscription",
+        "id": "datasources/AzureSubscription",
+        "name": "Contoso-Sales-Data-AzureSubscription"
+    },
+    {
+        "properties": {
+            "dedicatedSqlEndpoint": "cntdatal1-prd-product-synapse001.sql.azuresynapse.net",
+            "serverlessSqlEndpoint": "cntdatal1-prd-product-synapse001-ondemand.sql.azuresynapse.net",
+            "resourceGroup": "cntdatal1-prd-shared-product",
+            "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
+            "location": "eastus",
+            "resourceName": "cntdatal1-prd-product-synapse001",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Contoso-Sales"
+            },
+            "collection": null
+        },
+        "kind": "AzureSynapseWorkspace",
+        "id": "datasources/AzureSynapseWorkspace",
+        "name": "Contoso-Sales-Data-AzureSynapseWorkspace"
+    },
+    {
+        "properties": {
+            "serverEndpoint": "cntdatal1-prd-product-synapse001.database.windows.net",
+            "resourceGroup": "cntdatal1-prd-shared-product",
+            "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
+            "location": "eastus",
+            "resourceName": "cntdatal1-prd-product-synapse001",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Contoso-Sales"
+            },
+            "collection": null
+        },
+        "kind": "AzureSqlDatabase",
+        "id": "datasources/AzureSqlDatabase",
+        "name": "Contoso-Sales-Data-AzureSynapseDatabase"
+    },
+    {
+        "properties": {
+            "serverEndpoint": "cntdatal1-prd-sqlserver001.database.windows.net",
+            "resourceGroup": "cntdatal1-prd-metadata",
+            "subscriptionId": "12345678-9abc-def0-0123-456789abcdef",
+            "location": "eastus",
+            "resourceName": "cntdatal1-prd-sqlserver001",
+            "parentCollection": {
+                "type": "DataSourceReference",
+                "referenceName": "Contoso-Sales"
+            },
+            "collection": null
+        },
+        "kind": "AzureSqlDatabase",
+        "id": "datasources/AzureSqlDatabase",
+        "name": "Contoso-Sales-Data-AzureSqlDatabase"
+    }
+]
