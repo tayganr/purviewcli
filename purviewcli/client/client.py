@@ -85,13 +85,18 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
             }
         elif status_code == 403:
             # Decode JWT
-            print('Error: Access to the requested resource is forbidden (HTTP status code 403).')
+            print('[Error]')
+            print('Access to the requested resource is forbidden (HTTP status code 403).')
+            print('\r\n[Resource]')
+            print(f'[{method}] {uri}')
+            print('\r\n[Response]')
+            print(response.json())
             claimset = jwt.decode(self.access_token, options={"verify_signature": False})
+            print('\r\n[Credentials]')
             data = {
                 'applicationId': claimset.get('appid', None),
                 'objectId': claimset.get('oid', None),
-                'tenantId': claimset.get('tid',None),
-                'uri': f'[{method}] {uri}'
+                'tenantId': claimset.get('tid',None)
             }
         elif 'Content-Type' in response.headers:
             if response.headers['Content-Type'] == 'text/csv; charset=UTF-8':

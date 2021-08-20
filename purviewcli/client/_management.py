@@ -6,29 +6,6 @@ class Management(Endpoint):
         Endpoint.__init__(self)
         self.app = 'management'
 
-    # https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
-    @decorator
-    def managementPutRoleAssignment(self, args):
-        self.method = 'PUT'
-        scope = f'/subscriptions/{args["--subscriptionId"]}/resourceGroups/{args["--resourceGroupName"]}/providers/Microsoft.Purview/accounts/{args["--accountName"]}'
-        roleAssignmentId = uuid.uuid4()
-        self.endpoint = f'{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}'
-        roleDefinitionId = args["--roleDefinitionId"]
-        self.payload = {
-            "properties": {
-                "roleDefinitionId": f"/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
-                "principalId": f'{args["--principalId"]}'
-            }
-        }
-        self.params = {'api-version': '2015-07-01'}
-
-    @decorator
-    def managementPutResourceGroup(self, args):
-        self.method = 'PUT'
-        self.endpoint = f'/subscriptions/{args["--subscriptionId"]}/resourcegroups/{args["--resourceGroupName"]}'
-        self.params = { 'api-version': '2021-04-01' }
-        self.payload = { 'location': args["--location"] }
-
     @decorator
     def managementListOperations(self, args):
         self.method = 'GET'

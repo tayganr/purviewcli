@@ -9,8 +9,6 @@ usage:
     pv management listOperations
     pv management listPrivateLinkResources --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> [--groupId=<val>]
     pv management putPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val> --payload-file=<val>
-    pv management putResourceGroup --subscriptionId=<val> --resourceGroupName=<val> --location=<val>
-    pv management putRoleAssignment --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --roleDefinitionId=<val> --principalId=<val>
     pv management readAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
     pv management readAccounts --subscriptionId=<val> [--resourceGroupName=<val>]
     pv management readPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val>
@@ -43,8 +41,6 @@ https://management.azure.com
 | listOperations           | GET    | /providers/Microsoft.Purview/operations                                                                                                                                          |
 | listPrivateLinkResources | GET    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateLinkResources/{groupId}                             |
 | putPrivateEndpoint       | PUT    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName} |
-| putResourceGroup         | PUT    | /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}                                                                                                               |
-| putRoleAssignment        | PUT    | {scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}                                                                                                     |
 | readAccount              | GET    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}                                                            |
 | readAccounts             | GET    | /subscriptions/{subscriptionId}/providers/Microsoft.Purview/accounts                                                                                                             |
 | readPrivateEndpoint      | GET    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName} |
