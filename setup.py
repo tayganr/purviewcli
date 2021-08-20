@@ -28,6 +28,5 @@ setuptools.setup(
         'console_scripts': [
             'pv = purviewcli.cli.cli:main'
         ],
-    },
-    package_data={'purviewcli': ['ninja/*.json']}
+    }
 )

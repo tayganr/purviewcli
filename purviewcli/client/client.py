@@ -15,7 +15,7 @@ class PurviewClient():
         self.account_name = None
 
     def set_account(self, app):
-        if app == "management" or app == 'graph':
+        if app == "management":
             self.account_name = None
         else:
             self.account_name = settings.PURVIEW_NAME if settings.PURVIEW_NAME != None else os.environ.get("PURVIEW_NAME")
@@ -28,6 +28,8 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
 \tPython:\t\t\t\tos.environ["PURVIEW_NAME"] = "value"
 \tPowerShell:\t\t\t$env:PURVIEW_NAME = "value"
 \tJupyter Notebook:\t\t%env PURVIEW_NAME=value
+
+Alternatively, an Azure Purview account name can be provided by appending --purviewName=<val> at the end of your command.
 """)
                 sys.exit()
 
@@ -36,8 +38,6 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
 
         if app == "management":
             resource = "https://management.azure.com/.default"
-        elif app == 'graph':
-            resource = "https://graph.microsoft.com/.default"
         else:
             resource = "https://purview.azure.net/.default"
 
@@ -55,8 +55,6 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
     def http_get(self, app, method, endpoint, params, payload):
         if app == "management":
             uri = f"https://{app}.azure.com{endpoint}"
-        elif app == 'graph':
-            uri = f"https://{app}.microsoft.com{endpoint}"
         elif app == 'insight':
             uri = f"https://{self.account_name}.purview.azure.com{endpoint}"
         elif app == 'guardian':
@@ -79,26 +77,40 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
             print ("[REQUEST EXCEPTION]",err)
 
         status_code = response.status_code
+
         if status_code == 204:
             data = {
                 'operation': '[%s] %s' % (method, response.url),
                 'status': 'The server successfully processed the request'
             }
-        elif response.headers['Content-Type'] == 'text/csv; charset=UTF-8':
-            filepath = os.path.join(os.getcwd(),'export.csv')
-            with open(filepath, 'wb') as f:
-                f.write(response.content)
+        elif status_code == 403:
+            # Decode JWT
+            print('Error: Access to the requested resource is forbidden (HTTP status code 403).')
+            claimset = jwt.decode(self.access_token, options={"verify_signature": False})
             data = {
-                'status_code': response.status_code,
-                'export': filepath
+                'applicationId': claimset.get('appid', None),
+                'objectId': claimset.get('oid', None),
+                'tenantId': claimset.get('tid',None),
+                'uri': f'[{method}] {uri}'
             }
-        else:
-            try:
-                data = response.json()
-            except ValueError:
+        elif 'Content-Type' in response.headers:
+            if response.headers['Content-Type'] == 'text/csv; charset=UTF-8':
+                filepath = os.path.join(os.getcwd(),'export.csv')
+                with open(filepath, 'wb') as f:
+                    f.write(response.content)
                 data = {
-                    'url': response.url,
                     'status_code': response.status_code,
-                    'reason': response.reason
+                    'export': filepath
                 }
+            else:
+                try:
+                    data = response.json()
+                except ValueError:
+                    data = {
+                        'url': response.url,
+                        'status_code': response.status_code,
+                        'reason': response.reason
+                    }
+        else:
+            data = response.json()
         return data

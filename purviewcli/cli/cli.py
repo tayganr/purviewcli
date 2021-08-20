@@ -52,7 +52,7 @@ def main():
     command = args['<command>']
 
     # Init sub-docopt
-    if command in ['entity', 'relationship', 'lineage', 'glossary', 'types', 'scan', 'insight', 'search', 'credential', 'demo', 'management', 'graph']:
+    if command in ['entity', 'relationship', 'lineage', 'glossary', 'types', 'scan', 'insight', 'search', 'credential', 'management']:
         globals()[command] = importlib.import_module('purviewcli.cli.' + command)
         command_args = docopt(eval(command).__doc__, argv=argv)
     else:
