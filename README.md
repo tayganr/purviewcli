@@ -48,8 +48,8 @@ The purviewcli package leverages the `DefaultAzureCredential` method from [azure
 
 The identity executing Azure Purview CLI commands will need the following role assignments:  
 
-* Data Curator (read/write on catalog objects)
-* Data Source Admin (read/write on sources/scans)
+* `Data Curator` (read/write on catalog objects)
+* `Data Source Admin` (read/write on sources/scans)
 
 For more information, check out [Access control in Azure Purview](https://docs.microsoft.com/en-us/azure/purview/catalog-permissions).
 
