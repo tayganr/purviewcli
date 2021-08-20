@@ -234,8 +234,6 @@ pv management listKeys --subscriptionId=<val> --resourceGroupName=<val> --accoun
 pv management listOperations
 pv management listPrivateLinkResources --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> [--groupId=<val>]
 pv management putPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val> --payload-file=<val>
-pv management putResourceGroup --subscriptionId=<val> --resourceGroupName=<val> --location=<val>
-pv management putRoleAssignment --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --roleDefinitionId=<val> --principalId=<val>
 pv management readAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
 pv management readAccounts --subscriptionId=<val> [--resourceGroupName=<val>]
 pv management readPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val>
