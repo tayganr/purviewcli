@@ -6,7 +6,7 @@ class Policystore(Endpoint):
         self.app = 'base'
 
     @decorator
-    def policystoreReadMetadataroles(self, args):
+    def policystoreReadMetadataRoles(self, args):
         self.method = 'GET'
         self.endpoint = '/policystore/metadataroles'
         self.params = {"api-version": "2021-07-01"}
@@ -14,7 +14,7 @@ class Policystore(Endpoint):
     @decorator
     def policystoreReadMetadataPolicy(self, args):
         self.method = 'GET'
-        self.endpoint = f'/policystore/collections/{args["--collectionName"]}/metadataPolicy' if args["--metadataPolicyId"] is None else f'/policystore/metadataPolicies/{args["--metadataPolicyId"]}'
+        self.endpoint = f'/policystore/collections/{args["--collectionName"]}/metadataPolicy' if args["--policyId"] is None else f'/policystore/metadataPolicies/{args["--policyId"]}'
         self.params = {"api-version": "2021-07-01"}
 
     @decorator
@@ -26,6 +26,6 @@ class Policystore(Endpoint):
     @decorator
     def policystorePutMetadataPolicy(self, args):
         self.method = 'PUT'
-        self.endpoint = f'/policystore/metadataPolicies/{args["--metadataPolicyId"]}'
+        self.endpoint = f'/policystore/metadataPolicies/{args["--policyId"]}'
         self.params = {"api-version": "2021-07-01"}
         self.payload = get_json(args, '--payload-file')

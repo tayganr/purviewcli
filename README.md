@@ -256,3 +256,12 @@ pv insight scanStatusSummaries [--numberOfDays=<val>]
 pv insight scanStatusSummariesByTs [--numberOfDays=<val>]
 pv insight topFileTypesBySize
 ```
+
+### Policystore
+
+```
+pv policystore readMetadataRoles
+pv policystore readMetadataPolicy (--collectionName=<val> | --policyId=<val>)
+pv policystore readMetadataPolicies
+pv policystore putMetadataPolicy --policyId=<val> --payload-file=<val>
+```

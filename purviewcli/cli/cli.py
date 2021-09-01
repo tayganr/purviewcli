@@ -13,11 +13,12 @@ The most commonly used pv commands are:
    pv lineage          [Atlas] Helps you understand the source and impact of data and changes to data over time.
    pv relationship     [Atlas] Relationships describe connections between two entities.
    pv types            [Atlas] A Type in Atlas is a definition of how a particular object type is stored and accessed.
-   pv scan             [Other] Azure Purview scan.
-   pv insight          [Other] Azure Purview insights.
-   pv search           [Other] Azure Purview search.
    pv credential       [Other] Azure Purview credentials.
+   pv insight          [Other] Azure Purview insights.
    pv management       [Other] Azure Purview control plane operations (Account, Private Endpoint, Private Link, etc).
+   pv policystore      [Other] Azure Purview Metadata Policies.
+   pv scan             [Other] Azure Purview scan.
+   pv search           [Other] Azure Purview search.
 
 See 'pv <command>' for more information on a specific command.
 
