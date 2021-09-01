@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 class Insight(Endpoint):
     def __init__(self):
         Endpoint.__init__(self)
-        self.app = 'insight'
+        self.app = 'base'
 
     @decorator
     def insightGraphql(self, args):

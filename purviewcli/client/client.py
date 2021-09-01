@@ -55,7 +55,7 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
     def http_get(self, app, method, endpoint, params, payload):
         if app == "management":
             uri = f"https://{app}.azure.com{endpoint}"
-        elif app == 'insight':
+        elif app == 'base':
             uri = f"https://{self.account_name}.purview.azure.com{endpoint}"
         elif app == 'guardian':
             uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
