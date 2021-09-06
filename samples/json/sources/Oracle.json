@@ -3,9 +3,11 @@
     "kind": "Oracle",
     "name": "Oracle",
     "properties": {
-        "collection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "host": "www",
-        "parentCollection": null,
         "port": "1234",
         "service": "service"
     }

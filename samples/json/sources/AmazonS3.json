@@ -3,8 +3,10 @@
     "kind": "AmazonS3",
     "name": "AmazonS3",
     "properties": {
-        "collection": null,
-        "parentCollection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "roleARN": null,
         "serviceUrl": "s3://bucketname"
     }

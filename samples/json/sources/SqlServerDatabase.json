@@ -3,9 +3,11 @@
     "kind": "SqlServerDatabase",
     "name": "SqlServerDatabase",
     "properties": {
-        "collection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "location": null,
-        "parentCollection": null,
         "resourceGroup": null,
         "resourceName": null,
         "serverEndpoint": "server",

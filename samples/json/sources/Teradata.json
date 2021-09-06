@@ -3,7 +3,10 @@
     "kind": "Teradata",
     "name": "Teradata",
     "properties": {
-        "collection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "host": "teradata.com",
         "parentCollection": null
     }

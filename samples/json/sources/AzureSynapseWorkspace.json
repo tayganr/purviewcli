@@ -6,7 +6,6 @@
         "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
         "location": "brazilsouth",
         "resourceName": "synapsews8951",
-        "parentCollection": null,
         "collection": null
     },
     "kind": "AzureSynapseWorkspace",

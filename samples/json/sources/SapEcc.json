@@ -4,8 +4,10 @@
     "name": "SapEcc",
     "properties": {
         "applicationServer": "application",
-        "collection": null,
-        "parentCollection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "systemNumber": "00"
     }
 }

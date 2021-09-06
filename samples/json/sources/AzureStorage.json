@@ -3,10 +3,12 @@
     "kind": "AzureStorage",
     "name": "AzureStorage",
     "properties": {
-        "collection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "endpoint": "https://taygan.blob.core.windows.net/",
         "location": "westeurope",
-        "parentCollection": null,
         "resourceGroup": "taygan",
         "resourceName": "taygan",
         "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0"

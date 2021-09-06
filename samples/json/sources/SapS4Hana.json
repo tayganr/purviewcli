@@ -4,8 +4,10 @@
     "name": "sap_s4_hana",
     "properties": {
         "applicationServer": "application",
-        "collection": null,
-        "parentCollection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "systemNumber": "00"
     }
 }

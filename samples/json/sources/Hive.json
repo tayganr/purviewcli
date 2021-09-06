@@ -4,7 +4,10 @@
     "name": "Hive",
     "properties": {
         "clusterUrl": "www",
-        "collection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "host": "www",
         "parentCollection": null
     }

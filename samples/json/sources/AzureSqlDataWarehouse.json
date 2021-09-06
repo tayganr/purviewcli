@@ -3,9 +3,11 @@
     "kind": "AzureSqlDataWarehouse",
     "name": "AzureSqlDataWarehouse",
     "properties": {
-        "collection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "location": "brazilsouth",
-        "parentCollection": null,
         "resourceGroup": "synapsemg8951",
         "resourceName": "synapsews8951",
         "serverEndpoint": "synapsews8951.database.windows.net",

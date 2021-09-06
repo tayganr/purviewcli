@@ -4,8 +4,10 @@
     "name": "AmazonAccount",
     "properties": {
         "awsAccountId": "123456789123",
-        "collection": null,
-        "parentCollection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "roleARN": null
     }
 }

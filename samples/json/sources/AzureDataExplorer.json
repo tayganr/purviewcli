@@ -3,10 +3,12 @@
     "kind": "AzureDataExplorer",
     "name": "AzureDataExplorer",
     "properties": {
-        "collection": null,
+        "collection": {
+            "referenceName": "qaomdj",
+            "type": "CollectionReference"
+        },
         "endpoint": "https://something.com",
         "location": null,
-        "parentCollection": null,
         "resourceGroup": null,
         "resourceName": null,
         "subscriptionId": null
