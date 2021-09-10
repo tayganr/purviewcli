@@ -9,6 +9,7 @@ class Search(Endpoint):
     def searchQuery(self, args):
         self.method = 'POST'
         self.endpoint = '/api/search/query'
+        self.params = {"api-version": "2021-05-01-preview"}
         self.payload = {
             'keywords': args['--keywords'],
             'limit': args['--limit'],
