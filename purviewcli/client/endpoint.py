@@ -9,12 +9,13 @@ class Endpoint:
         self.endpoint = None
         self.params = None
         self.payload = None
+        self.headers = {}
 
 def get_data(http_dict):
     client = PurviewClient()
     client.set_account(http_dict['app'])
     client.set_token(http_dict['app'])
-    data = client.http_get(http_dict['app'], http_dict['method'], http_dict['endpoint'], http_dict['params'], http_dict['payload'])
+    data = client.http_get(http_dict['app'], http_dict['method'], http_dict['endpoint'], http_dict['params'], http_dict['payload'], http_dict['headers'])
     return data
 
 def get_json(args, param):
@@ -36,7 +37,7 @@ def get_json(args, param):
 def decorator(func):
     def wrapper(self, args):
         func(self, args)
-        http_dict = {'app': self.app, 'method': self.method, 'endpoint': self.endpoint, 'params': self.params, 'payload': self.payload}
+        http_dict = {'app': self.app, 'method': self.method, 'endpoint': self.endpoint, 'params': self.params, 'payload': self.payload, 'headers': self.headers}
         data = get_data(http_dict)
         return data
     return wrapper

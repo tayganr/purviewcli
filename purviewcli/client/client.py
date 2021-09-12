@@ -52,7 +52,7 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
     def get_token(self):
         return self.access_token
 
-    def http_get(self, app, method, endpoint, params, payload):
+    def http_get(self, app, method, endpoint, params, payload, headers):
         if app == "management":
             uri = f"https://{app}.azure.com{endpoint}"
         elif app == 'base':
@@ -62,7 +62,10 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
         else:
             uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
 
-        headers = {"Authorization": "Bearer {0}".format(self.access_token)}
+        auth = {"Authorization": "Bearer {0}".format(self.access_token)}
+        headers = dict(**headers, **auth)
+
+        print(headers)
 
         try:
             response = requests.request(method, uri, params=params, json=payload, headers=headers)
