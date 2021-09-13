@@ -14,6 +14,7 @@ class Entity(Endpoint):
     @decorator
     def entityDeleteBulk(self, args):
         self.method = 'DELETE'
+        self.headers = {'Content-Type':'application/json'}
         self.endpoint = '/api/atlas/v2/entity/bulk'
         self.params = {'guid': args['--guid']}
 

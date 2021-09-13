@@ -65,8 +65,6 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
         auth = {"Authorization": "Bearer {0}".format(self.access_token)}
         headers = dict(**headers, **auth)
 
-        print(headers)
-
         try:
             response = requests.request(method, uri, params=params, json=payload, headers=headers)
         except requests.exceptions.HTTPError as errh:
