@@ -118,5 +118,7 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
                         'reason': response.reason
                     }
         else:
+            print(response.status_code)
+            print(response.content)
             data = response.json()
         return data

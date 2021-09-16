@@ -33,7 +33,7 @@ usage:
     pv scan readSystemScanRulesetVersions --dataSourceType=<val>
     pv scan readSystemScanRulesets
     pv scan readTrigger --dataSourceName=<val> --scanName=<val>
-    pv scan runScan --dataSourceName=<val> --scanName=<val>
+    pv scan runScan --dataSourceName=<val> --scanName=<val> [--scanLevel=<val>]
 
 options:
     --purviewName=<val>                 [string]  Azure Purview account name.
@@ -44,6 +44,7 @@ options:
     --keyVaultName=<val>                [string]  Name of the key vault.
     --runId=<val>                       [string]  The unique identifier of the run.
     --dataSourceType=<val>              [string]  Type of data source.
+    --scanLevel=<val>                   [string]  Allowed values: Full or Incremental [default: Full].
 
 mapping:
 https://{account_name}.scan.purview.azure.com

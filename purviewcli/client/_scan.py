@@ -157,8 +157,11 @@ class Scan(Endpoint):
 
     @decorator
     def scanRunScan(self, args):
-        self.method = 'PUT'
-        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/runs/{str(uuid.uuid4())}'
+        self.method = 'POST'
+        self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/run'
+        self.params = {"api-version": "2018-12-01-preview"}
+        self.payload = {"scanLevel": args["--scanLevel"] }
+        self.headers = {'Content-Type':'application/json'}
     
     @decorator
     def scanCancelScan(self, args):
