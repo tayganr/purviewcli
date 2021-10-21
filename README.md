@@ -50,6 +50,7 @@ The identity executing Azure Purview CLI commands will need the following role a
 
 * `Data Curator` (read/write on catalog objects)
 * `Data Source Admin` (read/write on sources/scans)
+* `Collection Admin` (assign roles/manage collections)
 
 For more information, check out [Access control in Azure Purview](https://docs.microsoft.com/en-us/azure/purview/catalog-permissions).
 
