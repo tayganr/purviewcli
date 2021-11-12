@@ -1,0 +1,7 @@
+{
+    "and": [
+        {
+            "assetType": "Azure Data Lake Storage Gen2"
+        }
+    ]
+}
