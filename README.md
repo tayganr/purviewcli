@@ -266,3 +266,14 @@ pv policystore readMetadataPolicy (--collectionName=<val> | --policyId=<val>)
 pv policystore readMetadataPolicies
 pv policystore putMetadataPolicy --policyId=<val> --payload-file=<val>
 ```
+
+### Account
+
+```
+pv account deleteCollection --collectionName=<val>
+pv account getChildCollectionNames --collectionName=<val>
+pv account getCollection --collectionName=<val>
+pv account getCollectionPath --collectionName=<val>
+pv account getCollections
+pv account putCollection --friendlyName=<val> --parentCollection=<val>
+```
