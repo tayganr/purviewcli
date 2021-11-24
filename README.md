@@ -12,11 +12,42 @@ The purviewcli package works on Python versions:
 * Python 3.8+
 * Python 3.9+
 
-## Installation
+## Local Installation
 
 ```
 pip install purviewcli
 ```
+
+## Run container on Docker Desktop
+
+Alternatively, you can run Purview CLI inside a self-enclosed Docker Container.
+
+Clone this repo - then to run the container locally on Docker Desktop, run:
+
+```powershell
+
+# Change into "docker" directory
+cd docker
+
+# Build container image locally from included Dockerfile
+docker build -t purview-cli .
+
+# Start container by injecting environment variables
+docker run --name purview-cli-docker -d `
+  -e "PURVIEW_NAME=<your--purview--account--name>" `
+  -e "AZURE_CLIENT_ID=<your--client--id>" `
+  -e "AZURE_CLIENT_SECRET=<your--client--secret>" `
+  -e "AZURE_TENANT_ID=<your--azure--tenant--id>" `
+  purview-cli
+```
+This will spin up a container in Docker Desktop with the environment variables injected in - for example:
+![Spin up container](/doc/image/purviewcli_runcontainer.png)
+
+And we can shell into the running container using Docker Desktop:
+![Shell into container](/doc/image/purviewcli_runcontainershell.png)
+
+Execute a command, e.g. Get all classifications: `pv types readTypeDefs --type "CLASSIFICATION"`:
+![Run sample command](/doc/image/purviewcli_runcmdcontainershell.png)
 
 ## Getting Started
 
