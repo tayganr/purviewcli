@@ -12,6 +12,21 @@ class Account(Endpoint):
         self.app = 'account'
 
     @decorator
+    def accountGetAccount(self, args):
+        self.method = 'GET'
+        self.endpoint = '/'
+        self.params = {"api-version": "2019-11-01-preview"}
+
+    @decorator
+    def accountUpdateAccount(self, args):
+        self.method = 'PATCH'
+        self.endpoint = '/'
+        self.params = {"api-version": "2019-11-01-preview"}
+        self.payload = {
+            "friendlyName": f"{args['--friendlyName']}"
+        }
+
+    @decorator
     def accountGetCollections(self, args):
         self.method = 'GET'
         self.endpoint = '/collections'
@@ -55,3 +70,43 @@ class Account(Endpoint):
                 "type": "CollectionReference"
             }
         }
+
+    @decorator
+    def accountGetAccessKeys(self, args):
+        self.method = 'POST'
+        self.endpoint = f"/listkeys"
+        self.params = {"api-version": "2019-11-01-preview"}
+
+    @decorator
+    def accountRegenerateAccessKeys(self, args):
+        self.method = 'POST'
+        self.endpoint = f"/regeneratekeys"
+        self.params = {"api-version": "2019-11-01-preview"}
+        self.payload = {
+            "keyType": f"{args['--keyType']}"
+        }
+
+    @decorator
+    def accountGetResourceSetRules(self, args):
+        self.method = 'GET'
+        self.endpoint = f"/resourceSetRuleConfigs"
+        self.params = {"api-version": "2019-11-01-preview"}
+
+    @decorator
+    def accountDeleteResourceSetRule(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f"/resourceSetRuleConfigs/defaultResourceSetRuleConfig"
+        self.params = {"api-version": "2019-11-01-preview"}
+
+    @decorator
+    def accountGetResourceSetRule(self, args):
+        self.method = 'GET'
+        self.endpoint = f"/resourceSetRuleConfigs/defaultResourceSetRuleConfig"
+        self.params = {"api-version": "2019-11-01-preview"}
+
+    @decorator
+    def accountPutResourceSetRule(self, args):
+        self.method = 'PUT'
+        self.endpoint = f"/resourceSetRuleConfigs/defaultResourceSetRuleConfig"
+        self.params = {"api-version": "2019-11-01-preview"}
+        self.payload = get_json(args, '--payload-file')
