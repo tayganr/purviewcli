@@ -29,6 +29,8 @@ https://{account_name}.purview.azure.com/account
 +-------------------------+-------+--------------------------------------------------------+
 | Command                 | Method | Path                                                  |
 +-------------------------+--------+-------------------------------------------------------+
+| getAccount              | GET    | /                                                     |
+| updateAccount           | PATCH  | /                                                     |
 | getCollection           | GET    | /collections/{collectionName}                         |
 | getCollectionPath       | GET    | /collections/{collectionName}/getCollectionPath       |
 | getChildCollectionNames | GET    | /collections/{collectionName}/getChildCollectionNames |
