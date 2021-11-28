@@ -119,3 +119,10 @@ class Management(Endpoint):
         self.method = 'GET'
         self.endpoint = f'/subscriptions/{args["--subscriptionId"]}/resourceGroups/{args["--resourceGroupName"]}/providers/Microsoft.Purview/accounts/{args["--accountName"]}/privateEndpointConnections'
         self.params = {'api-version': '2020-12-01-preview'}
+    
+    @decorator
+    def managementAddRootCollectionAdmin(self, args):
+        self.method = 'POST'
+        self.endpoint = f"/subscriptions/{args['--subscriptionId']}/resourceGroups/{args['--resourceGroupName']}/providers/Microsoft.Purview/accounts/{args['--accountName']}/addRootCollectionAdmin"
+        self.payload = { "objectId": f"{args['--objectId']}" }
+        self.params = {'api-version': '2021-07-01'}

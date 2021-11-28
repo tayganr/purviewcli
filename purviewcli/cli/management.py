@@ -16,6 +16,7 @@ usage:
     pv management removeDefaultAccount --scopeTenantId=<val> --scopeType=<val> --scope=<val>
     pv management setDefaultAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --scopeTenantId=<val> --scopeType=<val> --scope=<val>
     pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
+    pv management addRootCollectionAdmin --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --objectId=<val>
 
 options:
     --subscriptionId=<val>                  [string]  The subscription ID.
@@ -26,6 +27,7 @@ options:
     --scope=<val>                           [string]  The scope object ID (e.g. sub ID or tenant ID).
     --groupId=<val>                         [string]  The group identifier.
     --privateEndpointConnectionName=<val>   [string]  The name of the private endpoint connection.
+    --objectId=<val>                        [string]  Gets or sets the object identifier of the admin.
 
 mapping:
 https://management.azure.com
@@ -48,6 +50,7 @@ https://management.azure.com
 | removeDefaultAccount     | POST   | /providers/Microsoft.Purview/removeDefaultAccount                                                                                                                                |
 | setDefaultAccount        | POST   | /providers/Microsoft.Purview/setDefaultAccount                                                                                                                                   |
 | updateAccount            | PATCH  | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}                                                            |
+| addRootCollectionAdmin   | POST   | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin                                     |
 +--------------------------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 """

@@ -3,6 +3,7 @@ import sys
 import os
 import logging
 import requests
+from http.client import responses
 from azure.identity import DefaultAzureCredential
 from azure.core.exceptions import ClientAuthenticationError
 from . import settings
@@ -120,7 +121,12 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
                         'reason': response.reason
                     }
         else:
-            print(response.status_code)
-            print(response.content)
-            data = response.json()
+            status_code = response.status_code
+            status_msg = responses[status_code]
+            print(f"[INFO] HTTP Status Code: {status_code} ({status_msg})")
+
+            try:
+                data = response.json()
+            except ValueError:
+                data = response.content
         return data

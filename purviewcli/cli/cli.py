@@ -82,7 +82,7 @@ def main():
     elif len(data) > 0:
         print(data)
     else:
-        print('[INFO] No data found for %s.' % (command))
+        print('[INFO] No data returned in the response.')
 
 if __name__ == '__main__':
     main()
