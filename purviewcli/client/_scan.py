@@ -185,3 +185,12 @@ class Scan(Endpoint):
         self.method = 'PUT'
         self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/triggers/default'
         self.payload = get_json(args,'--payload-file')
+
+    @decorator
+    def scanTagClassificationVersion(self, args):
+        self.method = 'POST'
+        self.endpoint = f"/classificationrules/{args['--classificationRuleName']}/versions/{args['--classificationRuleVersion']}/:tag"
+        self.params = {
+            "action": f"{args['--action']}",
+            "api-version": "2018-12-01-preview"
+        }

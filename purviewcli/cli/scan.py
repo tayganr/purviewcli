@@ -34,10 +34,13 @@ usage:
     pv scan readSystemScanRulesets
     pv scan readTrigger --dataSourceName=<val> --scanName=<val>
     pv scan runScan --dataSourceName=<val> --scanName=<val> [--scanLevel=<val>]
+    pv scan tagClassificationVersion --classificationRuleName=<val> --classificationRuleVersion=<val> --action=<val>
 
 options:
     --purviewName=<val>                 [string]  Azure Purview account name.
+    --action=<val>                      [string] Allowed values: Delete or Keep.
     --classificationRuleName=<val>      [string]  Name of the classification rule.
+    --classificationRuleVersion=<val>   [integer] Version of the classification rule.    
     --dataSourceName=<val>              [string]  Name of the data source.
     --scanName=<val>                    [string]  Name of the scan.
     --scanRulesetName=<val>             [string]  Name of the scan ruleset.
