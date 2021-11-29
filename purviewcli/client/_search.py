@@ -17,3 +17,38 @@ class Search(Endpoint):
             'filter': get_json(args,'--filter-file'),
             'facets': get_json(args,'--facets-file')
         }
+    
+    @decorator
+    def searchAutoComplete(self, args):
+        self.method = 'POST'
+        self.endpoint = '/api/search/autocomplete'
+        self.params = {"api-version": "2021-05-01-preview"}
+        self.payload = {
+            "keywords": args['--keywords'],
+            "filter": get_json(args,'--filter-file'),
+            "limit": args['--limit']
+        }
+
+    @decorator
+    def searchSuggest(self, args):
+        self.method = 'POST'
+        self.endpoint = '/api/search/suggest'
+        self.params = {"api-version": "2021-05-01-preview"}
+        self.payload = {
+            "keywords": args['--keywords'],
+            "filter": get_json(args,'--filter-file'),
+            "limit": args['--limit']
+        }
+    
+    @decorator
+    def searchBrowse(self, args):
+        self.method = 'POST'
+        self.endpoint = '/api/browse'
+        self.params = {"api-version": "2021-05-01-preview"}
+        self.payload = {
+            "entityType": args['--entityType'],
+            "path": args['--path'],
+            "limit": args['--limit'],
+            'offset': args['--offset']
+
+        }
