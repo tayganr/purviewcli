@@ -22,12 +22,12 @@ pip install purviewcli
 
 Alternatively, you can run Purview CLI inside a self-enclosed Docker Container.
 
-1. Build container image locally from included Dockerfile
+1. Build container image locally.
 ```
 docker build -t purviewcli https://raw.githubusercontent.com/tayganr/purviewcli/master/docker/Dockerfile
 ```
 
-2. Start container by injecting environment variables
+2. Start container by injecting environment variables. Note: You will need to update the environment variables.
 ```
 docker run --name purview-cli-docker -d -e "PURVIEW_NAME=<your_purview_account_name>" -e "AZURE_CLIENT_ID=<your_client_id>" -e "AZURE_CLIENT_SECRET=<your_client_secret>" -e "AZURE_TENANT_ID=<your_azure_tenant_id>" purviewcli
 ```
