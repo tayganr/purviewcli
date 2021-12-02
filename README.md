@@ -32,14 +32,10 @@ docker build -t purviewcli https://raw.githubusercontent.com/tayganr/purviewcli/
 docker run --name purview-cli-docker -d -e "PURVIEW_NAME=<your_purview_account_name>" -e "AZURE_CLIENT_ID=<your_client_id>" -e "AZURE_CLIENT_SECRET=<your_client_secret>" -e "AZURE_TENANT_ID=<your_azure_tenant_id>" purviewcli
 ```
 
-This will spin up a container in Docker Desktop with the environment variables injected in - for example:
-![Spin up container](/doc/image/purviewcli_runcontainer.png)
-
-And we can shell into the running container using Docker Desktop:
-![Shell into container](/doc/image/purviewcli_runcontainershell.png)
-
-Execute a command, e.g. Get all classifications: `pv types readTypeDefs --type "CLASSIFICATION"`:
-![Run sample command](/doc/image/purviewcli_runcmdcontainershell.png)
+3. Start a bash shell in the container.
+```
+docker exec -it purview-cli-docker bash
+```
 
 ## Getting Started
 
