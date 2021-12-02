@@ -22,15 +22,10 @@ pip install purviewcli
 
 Alternatively, you can run Purview CLI inside a self-enclosed Docker Container.
 
-Clone this repo - then to run the container locally on Docker Desktop, run:
-
 ```powershell
 
-# Change into "docker" directory
-cd docker
-
 # Build container image locally from included Dockerfile
-docker build -t purview-cli .
+docker build https://raw.githubusercontent.com/tayganr/purviewcli/master/docker/Dockerfile
 
 # Start container by injecting environment variables
 docker run --name purview-cli-docker -d `

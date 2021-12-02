@@ -1,0 +1,17 @@
+{
+    "and": [{
+            "or": [{
+                "label": "Microsoft.Label.9FBDE396_1A24_4C79_8EDF_9254A0F35055"
+            }]
+        },
+        {
+            "or": [{
+                    "assetType": "Azure Data Lake Storage Gen2"
+                },
+                {
+                    "assetType": "Azure SQL Database"
+                }
+            ]
+        }
+    ]
+}
