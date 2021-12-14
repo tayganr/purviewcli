@@ -59,8 +59,8 @@ class Entity(Endpoint):
     def entityPut(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/entity/guid/{args["--guid"][0]}'
-        self.params = {'name': args['--name']}
-        self.payload = get_json(args, '--payload-file')
+        self.params = {'name': args['--attrName']}
+        self.payload = args['--attrValue']
 
     @decorator
     def entityDeleteClassification(self, args):

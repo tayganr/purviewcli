@@ -110,7 +110,7 @@ pv entity deleteBulk --guid=<val>...
 pv entity deleteClassification --guid=<val> --classificationName=<val>
 pv entity deleteUniqueAttribute --typeName=<val>
 pv entity deleteUniqueAttributeClassification --typeName=<val> --classificationName=<val>
-pv entity put --guid=<val> --name=<val> --payload-file=<val>
+pv entity put --guid=<val> --attrName=<val> --attrValue=<val>
 pv entity putClassifications --guid=<val> --payload-file=<val>
 pv entity putUniqueAttribute --typeName=<val> --payload-file=<val>
 pv entity putUniqueAttributeClassifications --typeName=<val> --payload-file=<val>

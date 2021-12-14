@@ -1,0 +1,4 @@
+﻿TYPE_NAME,FULLY_QUALIFIED_NAME,DESCRIPTION
+azure_sql_table,mssql://pvdemofm2ie-sqlsvr.database.windows.net/pvdemofm2ie-sqldb/SalesLT/Customer,"This is a long description, hello world."
+azure_datalake_gen2_path,https://pvdemofm2ieadls.dfs.core.windows.net/bing/data/merged.parquet,Another description ABC.
+azure_datalake_gen2_path,https://pvdemofm2ieadls.dfs.core.windows.net/bing/NYCTripSmall.parquet,Another description XYZ.
