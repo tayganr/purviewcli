@@ -1,5 +1,9 @@
 ## Getting Started
 
+Learn how to install, setup, and use purviewcli.
+
+[![YouTube](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_youtube.png)](https://www.youtube.com/watch?v=ycr1G5iMM6U)
+
 ## Requirements
 
 The purviewcli package works on Python versions:
@@ -35,8 +39,6 @@ docker exec -it purview-cli-docker bash
 ```
 
 ## Quick Start
-
-[![YouTube](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_youtube.png)](https://www.youtube.com/watch?v=ycr1G5iMM6U)
 
 1. Install purviewcli (e.g. `pip install purviewcli`).
 2. [OPTIONAL] Set environment variable(s).
