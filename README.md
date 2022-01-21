@@ -7,6 +7,12 @@ This package provides a command line interface to Azure Purview's REST API.
 
 [Getting Started](./doc/md/guide.md) for guidance on how to install, setup, and use purviewcli.
 
+## Installation
+
+```
+pip install purviewcli
+```
+
 ## Usage
 
 ```
