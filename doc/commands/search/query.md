@@ -12,7 +12,7 @@ pv search query [--keywords=<val> --limit=<val> --offset=<val> --filter-file=<va
 *None*
 
 ## Optional Arguments
-**`--keywords`** (string)  
+`--keywords` (string)  
 The keywords applied to all searchable fields.
 
 `--limit` (integer)  
