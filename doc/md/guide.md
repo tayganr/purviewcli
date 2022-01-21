@@ -4,7 +4,7 @@
 
 ## Overview
 
-[![YouTube](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_youtube.png)](https://www.youtube.com/watch?v=ycr1G5iMM6U)
+[![YouTube](../image/purviewcli_youtube.png)](https://www.youtube.com/watch?v=ycr1G5iMM6U)
 
 ## Requirements
 
