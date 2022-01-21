@@ -1,7 +1,7 @@
 # Azure Purview CLI
 
 This package provides a command line interface to Azure Purview's REST API.  
-![purviewcli](https://raw.githubusercontent.com/tayganr/purviewcli/master/doc/image/purviewcli_example.png)
+![purviewcli](./doc/image/purviewcli_example.png)
 
 ## Getting Started
 
