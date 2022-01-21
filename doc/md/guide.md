@@ -21,7 +21,7 @@ The purviewcli package works on Python versions:
 pip install purviewcli
 ```
 
-## Run container on Docker Desktop
+## Run container on Docker Desktop (Alternative)
 
 Alternatively, you can run Purview CLI inside a self-enclosed Docker Container.
 
