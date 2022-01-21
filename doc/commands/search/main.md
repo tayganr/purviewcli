@@ -1,4 +1,5 @@
 # Search
+[Command Reference](../../../README.md#command-reference) > search
 
 ## Commands
 | Command | Description |

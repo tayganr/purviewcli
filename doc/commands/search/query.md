@@ -1,4 +1,5 @@
 # pv search query
+[Command Reference](../../../README.md#command-reference) > [search](./main.md) > query
 
 ## Description
 Gets data using search.

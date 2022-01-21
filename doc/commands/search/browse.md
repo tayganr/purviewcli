@@ -1,4 +1,5 @@
 # pv search browse
+[Command Reference](../../../README.md#command-reference) > [search](./main.md) > browse
 
 ## Description
 Browse entities by path or entity type.

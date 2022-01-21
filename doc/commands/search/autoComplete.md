@@ -1,4 +1,5 @@
 # pv search autoComplete
+[Command Reference](../../../README.md#command-reference) > [search](./main.md) > autoComplete
 
 ## Description
 Get auto complete options.

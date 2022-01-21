@@ -1,4 +1,5 @@
 # pv search suggest
+[Command Reference](../../../README.md#command-reference) > [search](./main.md) > suggest
 
 ## Description
 Get search suggestions by query criteria.
