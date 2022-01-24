@@ -4,7 +4,7 @@
 ## Description
 Gets data using search.
 
-## Synopsis
+## Syntax
 ```
 pv search query [--keywords=<val> --limit=<val> --offset=<val> --filter-file=<val> --facets-file=<val>]
 ```

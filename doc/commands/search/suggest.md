@@ -4,7 +4,7 @@
 ## Description
 Get search suggestions by query criteria.
 
-## Synopsis
+## Syntax
 ```
 pv search suggest [--keywords=<val> --limit=<val> --filter-file=<val>]
 ```

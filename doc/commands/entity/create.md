@@ -4,7 +4,7 @@
 ## Description
 Description.
 
-## Synopsis
+## Syntax
 ```
 pv entity create
 ```

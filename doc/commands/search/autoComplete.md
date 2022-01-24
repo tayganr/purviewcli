@@ -4,7 +4,7 @@
 ## Description
 Get auto complete options.
 
-## Synopsis
+## Syntax
 ```
 pv search autoComplete [--keywords=<val> --limit=<val> --filter-file=<val>]
 ```

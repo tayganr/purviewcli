@@ -4,7 +4,7 @@
 ## Description
 Browse entities by path or entity type.
 
-## Synopsis
+## Syntax
 ```
 pv search browse (--entityType=<val> | --path=<val>) [--limit=<val> --offset=<val>]
 ```
