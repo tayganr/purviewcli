@@ -10,11 +10,14 @@ pv entity createUniqueAttributeClassifications --typeName=<val> --payload-file=<
 ```
 
 ## Required Arguments
-*None*
+`--typeName` (string)  
+Description
+
+`--payload-file` (string)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
-Description
+*None*
 
 ## Examples
 ```powershell

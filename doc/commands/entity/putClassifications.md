@@ -10,11 +10,14 @@ pv entity putClassifications --guid=<val> --payload-file=<val>
 ```
 
 ## Required Arguments
-*None*
+`--guid` (type)  
+Description
+
+`--payload-file` (type)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
-Description
+*None*
 
 ## Examples
 ```powershell

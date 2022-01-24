@@ -10,10 +10,17 @@ pv entity readUniqueAttribute --typeName=<val> --qualifiedName=<val> [--ignoreRe
 ```
 
 ## Required Arguments
-*None*
+`--typeName` (type)  
+Description
+
+`--qualifiedName` (type)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
+`--ignoreRelationships` (type)  
+Description
+
+`--minExtInfo` (type)  
 Description
 
 ## Examples

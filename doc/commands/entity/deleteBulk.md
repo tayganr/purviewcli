@@ -10,11 +10,11 @@ pv entity deleteBulk --guid=<val>...
 ```
 
 ## Required Arguments
-*None*
+`--guid` (type)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
-Description
+*None*
 
 ## Examples
 ```powershell

@@ -10,10 +10,14 @@ pv entity readBulkUniqueAttribute --typeName=<val> [--ignoreRelationships --minE
 ```
 
 ## Required Arguments
-*None*
+`--typeName` (type)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
+`--ignoreRelationships` (type)  
+Description
+
+`--minExtInfo` (type)  
 Description
 
 ## Examples

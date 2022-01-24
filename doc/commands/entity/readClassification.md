@@ -10,11 +10,14 @@ pv entity readClassification --guid=<val> --classificationName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--guid` (type)  
+Description
+
+`--classificationName` (type)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
-Description
+*None*
 
 ## Examples
 ```powershell

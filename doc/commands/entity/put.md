@@ -10,11 +10,17 @@ pv entity put --guid=<val> --attrName=<val> --attrValue=<val>
 ```
 
 ## Required Arguments
-*None*
+`--guid` (type)  
+Description
+
+`--attrName` (type)  
+Description
+
+`--attrValue` (type)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
-Description
+*None*
 
 ## Examples
 ```powershell

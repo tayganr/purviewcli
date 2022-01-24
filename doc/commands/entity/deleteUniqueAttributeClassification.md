@@ -10,11 +10,14 @@ pv entity deleteUniqueAttributeClassification --typeName=<val> --classificationN
 ```
 
 ## Required Arguments
-*None*
+`--typeName` (type)  
+Description
+
+`--classificationName` (type)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
-Description
+*None*
 
 ## Examples
 ```powershell

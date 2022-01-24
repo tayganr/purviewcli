@@ -10,11 +10,11 @@ pv entity createBulkSetClassifications --payload-file=<val>
 ```
 
 ## Required Arguments
-*None*
+`--payload-file` (string)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
-Description
+*None*
 
 ## Examples
 ```powershell

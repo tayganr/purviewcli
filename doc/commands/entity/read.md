@@ -10,10 +10,14 @@ pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
 ```
 
 ## Required Arguments
-*None*
+`--guid` (type)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
+`--ignoreRelationships` (type)  
+Description
+
+`--minExtInfo` (type)  
 Description
 
 ## Examples

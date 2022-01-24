@@ -10,11 +10,11 @@ pv entity deleteUniqueAttribute --typeName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--typeName` (type)  
+Description
 
 ## Optional Arguments
-`--arg` (type)  
-Description
+*None*
 
 ## Examples
 ```powershell
