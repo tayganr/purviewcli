@@ -5,7 +5,7 @@ This package provides a command line interface to Azure Purview's REST API.
 
 ## Getting Started
 
-[Getting Started](./doc/md/guide.md) for guidance on how to install, setup, and use purviewcli.
+[Getting Started](./doc/md/guide.md) - how to install, setup, and use purviewcli.
 
 ## Installation
 
@@ -30,15 +30,20 @@ pv command sub-command --parameter1='value' --parameter2='value'
 
 ## Command Reference
 
-* pv entity
-* pv glossary
-* pv lineage
-* pv relationship
-* pv types
-* pv account
-* pv credential
-* pv insight
-* pv management
-* pv policystore
-* pv scan
+Apache Atlas
+* [pv entity](./doc/commands/entity/main.md)
+* [pv glossary](./doc/commands/glossary/main.md)
+* [pv lineage](./doc/commands/lineage/main.md)
+* [pv relationship](./doc/commands/relationship/main.md)
+* [pv types](./doc/commands/types/main.md)
+
+Control Plane (Azure Resource Manager)
+* [pv management](./doc/commands/management/main.md)
+
+Data Plane (non-Atlas)
+* [pv account](./doc/commands/account/main.md)
+* [pv credential](./doc/commands/credential/main.md)
+* [pv insight](./doc/commands/insight/main.md)
+* [pv policystore](./doc/commands/policystore/main.md)
+* [pv scan](./doc/commands/scan/main.md)
 * [pv search](./doc/commands/search/main.md)
