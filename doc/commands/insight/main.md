@@ -4,12 +4,12 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| [pv insight assetDataSources](./assetDataSources.md) | desc |
-| [pv insight assetDistribution](./assetDistribution.md) | desc |
-| [pv insight fileExtensions](./fileExtensions.md) | desc |
-| [pv insight fileTypeSizeTimeSeries](./fileTypeSizeTimeSeries.md) | desc |
-| [pv insight filesWithoutResourceSet](./filesWithoutResourceSet.md) | desc |
-| [pv insight graphql](./graphql.md) | desc |
-| [pv insight scanStatusSummaries](./scanStatusSummaries.md) | desc |
-| [pv insight scanStatusSummariesByTs](./scanStatusSummariesByTs.md) | desc |
-| [pv insight topFileTypesBySize](./topFileTypesBySize.md) | desc |
+| [pv insight assetDataSources](./assetDataSources.md) |  |
+| [pv insight assetDistribution](./assetDistribution.md) |  |
+| [pv insight fileExtensions](./fileExtensions.md) |  |
+| [pv insight fileTypeSizeTimeSeries](./fileTypeSizeTimeSeries.md) |  |
+| [pv insight filesWithoutResourceSet](./filesWithoutResourceSet.md) |  |
+| [pv insight graphql](./graphql.md) |  |
+| [pv insight scanStatusSummaries](./scanStatusSummaries.md) |  |
+| [pv insight scanStatusSummariesByTs](./scanStatusSummariesByTs.md) |  |
+| [pv insight topFileTypesBySize](./topFileTypesBySize.md) |  |
