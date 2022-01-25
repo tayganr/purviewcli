@@ -4,38 +4,43 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| [pv scan cancelScan](./cancelScan.md) | desc |
-| [pv scan deleteClassificationRule](./deleteClassificationRule.md) | desc |
-| [pv scan deleteDataSource](./deleteDataSource.md) | desc |
-| [pv scan deleteKeyVault](./deleteKeyVault.md) | desc |
-| [pv scan deleteScan](./deleteScan.md) | desc |
-| [pv scan deleteScanRuleset](./deleteScanRuleset.md) | desc |
-| [pv scan deleteTrigger](./deleteTrigger.md) | desc |
-| [pv scan putClassificationRule](./putClassificationRule.md) | desc |
-| [pv scan putDataSource](./putDataSource.md) | desc |
-| [pv scan putFilter](./putFilter.md) | desc |
-| [pv scan putKeyVault](./putKeyVault.md) | desc |
-| [pv scan putScan](./putScan.md) | desc |
-| [pv scan putScanRuleset](./putScanRuleset.md) | desc |
-| [pv scan putTrigger](./putTrigger.md) | desc |
-| [pv scan readClassificationRule](./readClassificationRule.md) | desc |
-| [pv scan readClassificationRuleVersions](./readClassificationRuleVersions.md) | desc |
-| [pv scan readClassificationRules](./readClassificationRules.md) | desc |
-| [pv scan readDatasource](./readDatasource.md) | desc |
-| [pv scan readDatasources](./readDatasources.md) | desc |
-| [pv scan readFilters](./readFilters.md) | desc |
-| [pv scan readKeyVault](./readKeyVault.md) | desc |
-| [pv scan readKeyVaults](./readKeyVaults.md) | desc |
-| [pv scan readScan](./readScan.md) | desc |
-| [pv scan readScanHistory](./readScanHistory.md) | desc |
-| [pv scan readScanRuleset](./readScanRuleset.md) | desc |
-| [pv scan readScanRulesets](./readScanRulesets.md) | desc |
-| [pv scan readScans](./readScans.md) | desc |
-| [pv scan readSystemScanRuleset](./readSystemScanRuleset.md) | desc |
-| [pv scan readSystemScanRulesetLatest](./readSystemScanRulesetLatest.md) | desc |
-| [pv scan readSystemScanRulesetVersion](./readSystemScanRulesetVersion.md) | desc |
-| [pv scan readSystemScanRulesetVersions](./readSystemScanRulesetVersions.md) | desc |
-| [pv scan readSystemScanRulesets](./readSystemScanRulesets.md) | desc |
-| [pv scan readTrigger](./readTrigger.md) | desc |
-| [pv scan runScan](./runScan.md) | desc |
-| [pv scan tagClassificationVersion](./tagClassificationVersion.md) | desc |
+| [pv scan cancelScan](./cancelScan.md) | Cancels a scan |
+| [pv scan deleteClassificationRule](./deleteClassificationRule.md) | Deletes a classification rule |
+| [pv scan deleteDataSource](./deleteDataSource.md) | Deletes a data source |
+| [pv scan deleteKeyVault](./deleteKeyVault.md) | Deletes the key vault connection associated with the account |
+| [pv scan deleteScan](./deleteScan.md) | Deletes the scan associated with the data source |
+| [pv scan deleteScanRuleset](./deleteScanRuleset.md) | Deletes a scan ruleset |
+| [pv scan deleteTrigger](./deleteTrigger.md) | Deletes the trigger associated with the scan |
+| [pv scan putClassificationRule](./putClassificationRule.md) | Creates or Updates a classification rule |
+| [pv scan putDataSource](./putDataSource.md) | Creates or Updates a data source |
+| [pv scan putFilter](./putFilter.md) | Creates or updates a filter |
+| [pv scan putKeyVault](./putKeyVault.md) | Creates an instance of a key vault connection |
+| [pv scan putScan](./putScan.md) | Creates an instance of a scan |
+| [pv scan putScanRuleset](./putScanRuleset.md) | Creates or Updates a scan ruleset |
+| [pv scan putTrigger](./putTrigger.md) | Creates an instance of a trigger |
+| [pv scan readClassificationRule](./readClassificationRule.md) | Get a classification rule |
+| [pv scan readClassificationRules](./readClassificationRules.md) | List classification rules in Account |
+| [pv scan readClassificationRuleVersions](./readClassificationRuleVersions.md) | Lists the rule versions of a classification rule |
+| [pv scan readDatasource](./readDatasource.md) | Get a data source |
+| [pv scan readDatasources](./readDatasources.md) | List data sources in Data catalog |
+| [pv scan readFilters](./readFilters.md) | Get a filter |
+| [pv scan readKeyVault](./readKeyVault.md) | Gets key vault information |
+| [pv scan readKeyVaults](./readKeyVaults.md) | List key vault connections in account |
+| [pv scan readScan](./readScan.md) | Gets a scan information |
+| [pv scan readScanHistory](./readScanHistory.md) | Lists the scan history of a scan |
+| [pv scan readScanRuleset](./readScanRuleset.md) | Get a scan ruleset |
+| [pv scan readScanRulesets](./readScanRulesets.md) | List scan rulesets in Data catalog |
+| [pv scan readScans](./readScans.md) | List scans in data source |
+| [pv scan readSystemScanRuleset](./readSystemScanRuleset.md) | Get a system scan ruleset for a data source |
+| [pv scan readSystemScanRulesetLatest](./readSystemScanRulesetLatest.md) | Get the latest version of a system scan ruleset |
+| [pv scan readSystemScanRulesets](./readSystemScanRulesets.md) | List all system scan rulesets for an account |
+| [pv scan readSystemScanRulesetVersion](./readSystemScanRulesetVersion.md) | Get a scan ruleset by version |
+| [pv scan readSystemScanRulesetVersions](./readSystemScanRulesetVersions.md) | List system scan ruleset versions in Data catalog |
+| [pv scan readTrigger](./readTrigger.md) | Gets trigger information |
+| [pv scan runScan](./runScan.md) | Runs the scan |
+| [pv scan tagClassificationVersion](./tagClassificationVersion.md) | Sets Classification Action on a specific classification rule version |
+
+
+
+
+

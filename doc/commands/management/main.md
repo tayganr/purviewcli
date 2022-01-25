@@ -4,20 +4,20 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| [pv management checkNameAvailability](./checkNameAvailability.md) | desc |
-| [pv management createAccount](./createAccount.md) | desc |
-| [pv management defaultAccount](./defaultAccount.md) | desc |
-| [pv management deleteAccount](./deleteAccount.md) | desc |
-| [pv management deletePrivateEndpoint](./deletePrivateEndpoint.md) | desc |
-| [pv management listKeys](./listKeys.md) | desc |
-| [pv management listOperations](./listOperations.md) | desc |
-| [pv management listPrivateLinkResources](./listPrivateLinkResources.md) | desc |
-| [pv management putPrivateEndpoint](./putPrivateEndpoint.md) | desc |
-| [pv management readAccount](./readAccount.md) | desc |
-| [pv management readAccounts](./readAccounts.md) | desc |
-| [pv management readPrivateEndpoint](./readPrivateEndpoint.md) | desc |
-| [pv management readPrivateEndpoints](./readPrivateEndpoints.md) | desc |
-| [pv management removeDefaultAccount](./removeDefaultAccount.md) | desc |
-| [pv management setDefaultAccount](./setDefaultAccount.md) | desc |
-| [pv management updateAccount](./updateAccount.md) | desc |
-| [pv management addRootCollectionAdmin](./addRootCollectionAdmin.md) | desc |
+| [pv management addRootCollectionAdmin](./addRootCollectionAdmin.md) | Add the administrator for root collection associated with this account. |
+| [pv management checkNameAvailability](./checkNameAvailability.md) | Checks the account name availability. |
+| [pv management createAccount](./createAccount.md) | Create or update an account resource |
+| [pv management defaultAccount](./defaultAccount.md) | Gets the default account information set for the scope. |
+| [pv management deleteAccount](./deleteAccount.md) | Deletes the account resource. |
+| [pv management deletePrivateEndpoint](./deletePrivateEndpoint.md) | Deletes private endpoint connection. |
+| [pv management listKeys](./listKeys.md) | Lists the keys asynchronous. |
+| [pv management listOperations](./listOperations.md) | Lists the available operations |
+| [pv management listPrivateLinkResources](./listPrivateLinkResources.md) | Gets a list of privately linkable resources for an account |
+| [pv management putPrivateEndpoint](./putPrivateEndpoint.md) | Approves/Rejects private endpoint connection request. |
+| [pv management readAccount](./readAccount.md) | Gets the account resource. |
+| [pv management readAccounts](./readAccounts.md) | Gets the accounts resources by subscription. |
+| [pv management readPrivateEndpoint](./readPrivateEndpoint.md) | Gets private endpoint connection information. |
+| [pv management readPrivateEndpoints](./readPrivateEndpoints.md) | Gets private endpoint connections. |
+| [pv management removeDefaultAccount](./removeDefaultAccount.md) | Removes the default account from the scope. |
+| [pv management setDefaultAccount](./setDefaultAccount.md) | Sets the default account for the scope. |
+| [pv management updateAccount](./updateAccount.md) | Patches the account resource. |

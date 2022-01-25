@@ -16,8 +16,8 @@
 | [pv entity deleteUniqueAttribute](./deleteUniqueAttribute.md) | Delete an entity identified by its type and unique attributes. |
 | [pv entity deleteUniqueAttributeClassification](./deleteUniqueAttributeClassification.md) | Delete a given classification from an entity identified by its type and unique attributes. |
 | [pv entity put](./put.md) | Update entity partially - create or update entity attribute identified by its GUID. |
-| [pv entity putClassifications](./putClassifications.md) | Update classifications to an existing entity represented by a GUID. |
-| [pv entity putUniqueAttribute](./putUniqueAttribute.md) | Update entity partially - Allow a subset of attributes to be updated on an entity which is identified by its type and unique attribute. |
+| [pv entity putClassifications](./putClassifications.md) | Update classifications to an existing entity represented by a guid. |
+| [pv entity putUniqueAttribute](./putUniqueAttribute.md) | Update entity partially. |
 | [pv entity putUniqueAttributeClassifications](./putUniqueAttributeClassifications.md) | Update classification on an entity identified by its type and unique attributes. |
 | [pv entity read](./read.md) | Get complete definition of an entity given its GUID. |
 | [pv entity readBulk](./readBulk.md) | List entities in bulk identified by its GUIDs. |
