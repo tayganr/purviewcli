@@ -4,6 +4,6 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| [pv credential delete](./delete.md) | desc |
-| [pv credential put](./put.md) | desc |
-| [pv credential read](./read.md) | desc |
+| [pv credential delete](./delete.md) | Delete a credential. |
+| [pv credential put](./put.md) | Create or update a credential. |
+| [pv credential read](./read.md) | Get a credential. |
