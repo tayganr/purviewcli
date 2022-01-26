@@ -21,6 +21,11 @@ Metadata Policy Data Plane > Metadata Policy > [Get](https://docs.microsoft.com/
 GET https://{accountName}.purview.azure.com/policystore/metadataPolicies/{policyId}
 ```
 
+Get Metadata Policy by Collection Name
+```
+GET https://{accountName}.purview.azure.com/policystore/collections/{collectionName}/metadataPolicy
+```
+
 ## Examples
 ```powershell
 

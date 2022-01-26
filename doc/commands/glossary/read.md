@@ -21,6 +21,11 @@ Catalog Data Plane > Glossary > [List Glossaries](https://docs.microsoft.com/en-
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary
 ```
 
+Catalog Data Plane > Glossary > [Get Glossary](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/get-glossary)
+```
+GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/{glossaryGuid}
+```
+
 ## Examples
 ```powershell
 
