@@ -10,11 +10,16 @@ pv entity readHeader --guid=<val>
 ```
 
 ## Required Arguments
-`--guid` (type)  
-Description
+*None*
 
 ## Optional Arguments
 *None*
+
+## API Mapping
+[Catalog Data Plane > Entity > Get Header](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/get-header)
+```
+GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{guid}/header
+```
 
 ## Examples
 ```powershell

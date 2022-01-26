@@ -10,14 +10,16 @@ pv entity deleteUniqueAttributeClassification --typeName=<val> --classificationN
 ```
 
 ## Required Arguments
-`--typeName` (type)  
-Description
-
-`--classificationName` (type)  
-Description
+*None*
 
 ## Optional Arguments
 *None*
+
+## API Mapping
+[Catalog Data Plane > Entity > Delete Classification By Unique Attribute](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/delete-classification-by-unique-attribute)
+```
+DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueAttribute/type/{typeName}/classification/{classificationName}
+```
 
 ## Examples
 ```powershell

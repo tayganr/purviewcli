@@ -10,11 +10,16 @@ pv entity createBulkClassification --payload-file=<val>
 ```
 
 ## Required Arguments
-`--payload-file` (type)  
-Description
+*None*
 
 ## Optional Arguments
 *None*
+
+## API Mapping
+[Catalog Data Plane > Entity > Add Classification](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/add-classification)
+```
+POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/bulk/classification
+```
 
 ## Examples
 ```powershell

@@ -10,14 +10,16 @@ pv entity putClassifications --guid=<val> --payload-file=<val>
 ```
 
 ## Required Arguments
-`--guid` (type)  
-Description
-
-`--payload-file` (type)  
-Description
+*None*
 
 ## Optional Arguments
 *None*
+
+## API Mapping
+[Catalog Data Plane > Entity > Update Classifications](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/update-classifications)
+```
+PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{guid}/classifications
+```
 
 ## Examples
 ```powershell

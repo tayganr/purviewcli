@@ -10,14 +10,16 @@ pv entity putUniqueAttribute --typeName=<val> --payload-file=<val>
 ```
 
 ## Required Arguments
-`--typeName` (type)  
-Description
-
-`--payload-file` (type)  
-Description
+*None*
 
 ## Optional Arguments
 *None*
+
+## API Mapping
+[Catalog Data Plane > Entity > Partial Update Entity By Unique Attributes](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/partial-update-entity-by-unique-attributes)
+```
+PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueAttribute/type/{typeName}
+```
 
 ## Examples
 ```powershell

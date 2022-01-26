@@ -1,0 +1,27 @@
+# pv account getAccessKeys
+[Command Reference](../../../README.md#command-reference) > [account](./main.md) > getAccessKeys
+
+## Description
+List the authorization keys associated with this account.
+
+## Syntax
+```
+pv account getAccessKeys
+```
+
+## Required Arguments
+*None*
+
+## Optional Arguments
+*None*
+
+## API Mapping
+[Account Data Plane > Accounts > Get Access Keys](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/accounts/get-access-keys)
+```
+POST https://{accountName}.purview.azure.com/account/listkeys
+```
+
+## Examples
+```powershell
+
+```

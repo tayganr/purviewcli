@@ -10,15 +10,16 @@ pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]
 ```
 
 ## Required Arguments
-`--guid` (type)  
-Description
+*None*
 
 ## Optional Arguments
-`--ignoreRelationships` (type)  
-Description
+*None*
 
-`--minExtInfo` (type)  
-Description
+## API Mapping
+[Catalog Data Plane > Entity > List By Guids](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/list-by-guids)
+```
+GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/bulk
+```
 
 ## Examples
 ```powershell

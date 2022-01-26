@@ -10,14 +10,16 @@ pv entity deleteClassification --guid=<val> --classificationName=<val>
 ```
 
 ## Required Arguments
-`--guid` (type)  
-Description
-
-`--classificationName` (type)  
-Description
+*None*
 
 ## Optional Arguments
 *None*
+
+## API Mapping
+[Catalog Data Plane > Entity > Delete Classification](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/delete-classification)
+```
+DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{guid}/classification/{classificationName}
+```
 
 ## Examples
 ```powershell

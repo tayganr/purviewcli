@@ -10,15 +10,16 @@ pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
 ```
 
 ## Required Arguments
-`--guid` (type)  
-Description
+*None*
 
 ## Optional Arguments
-`--ignoreRelationships` (type)  
-Description
+*None*
 
-`--minExtInfo` (type)  
-Description
+## API Mapping
+[Catalog Data Plane > Entity > Get By Guid](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/get-by-guid)
+```
+GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{guid}
+```
 
 ## Examples
 ```powershell

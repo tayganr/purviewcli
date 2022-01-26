@@ -10,17 +10,16 @@ pv entity put --guid=<val> --attrName=<val> --attrValue=<val>
 ```
 
 ## Required Arguments
-`--guid` (type)  
-Description
-
-`--attrName` (type)  
-Description
-
-`--attrValue` (type)  
-Description
+*None*
 
 ## Optional Arguments
 *None*
+
+## API Mapping
+[Catalog Data Plane > Entity > Partial Update Entity Attribute By Guid](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/partial-update-entity-attribute-by-guid)
+```
+PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{guid}
+```
 
 ## Examples
 ```powershell
