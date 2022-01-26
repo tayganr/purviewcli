@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > deleteUniqueAttributeClassification
 
 ## Description
-Description.
+Delete a given classification from an entity identified by its type and unique attributes.
 
 ## Syntax
 ```

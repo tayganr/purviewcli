@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > readBulkUniqueAttribute
 
 ## Description
-Description.
+Bulk API to retrieve list of entities identified by its unique attributes.
 
 ## Syntax
 ```

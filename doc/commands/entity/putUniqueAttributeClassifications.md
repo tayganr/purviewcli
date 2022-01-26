@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > putUniqueAttributeClassifications
 
 ## Description
-Description.
+Update classification on an entity identified by its type and unique attributes.
 
 ## Syntax
 ```

@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > createBulkClassification
 
 ## Description
-Description.
+Associate a classification to multiple entities in bulk.
 
 ## Syntax
 ```

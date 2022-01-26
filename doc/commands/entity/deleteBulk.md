@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > deleteBulk
 
 ## Description
-Description.
+Delete a list of entities in bulk identified by their GUIDs or unique attributes.
 
 ## Syntax
 ```

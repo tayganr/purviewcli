@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > createUniqueAttributeClassifications
 
 ## Description
-Description.
+Add classification to the entity identified by its type and unique attributes.
 
 ## Syntax
 ```

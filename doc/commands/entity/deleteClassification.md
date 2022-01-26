@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > deleteClassification
 
 ## Description
-Description.
+Delete a given classification from an existing entity represented by a GUID.
 
 ## Syntax
 ```

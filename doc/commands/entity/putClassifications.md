@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > putClassifications
 
 ## Description
-Description.
+Update classifications to an existing entity represented by a guid.
 
 ## Syntax
 ```

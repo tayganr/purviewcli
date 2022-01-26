@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > delete
 
 ## Description
-Description.
+Delete an entity identified by its GUID.
 
 ## Syntax
 ```

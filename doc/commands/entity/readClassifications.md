@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > readClassifications
 
 ## Description
-Description.
+List classifications for a given entity represented by a GUID.
 
 ## Syntax
 ```

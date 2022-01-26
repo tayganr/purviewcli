@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > read
 
 ## Description
-Description.
+Get complete definition of an entity given its GUID.
 
 ## Syntax
 ```

@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > readBulk
 
 ## Description
-Description.
+List entities in bulk identified by its GUIDs.
 
 ## Syntax
 ```

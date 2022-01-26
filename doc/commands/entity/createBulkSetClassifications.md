@@ -2,7 +2,8 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > createBulkSetClassifications
 
 ## Description
-Description.
+Set classifications on entities in bulk.
+
 
 ## Syntax
 ```

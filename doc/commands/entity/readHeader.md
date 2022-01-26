@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > readHeader
 
 ## Description
-Description.
+Get entity header given its GUID.
 
 ## Syntax
 ```
