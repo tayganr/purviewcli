@@ -16,7 +16,7 @@ pv scan readDatasources
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Data Sources > List All](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/data-sources/list-all)
+Scanning Data Plane > Data Sources > [List All](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/data-sources/list-all)
 ```
 GET https://{accountName}.purview.azure.com/scan/datasources
 ```

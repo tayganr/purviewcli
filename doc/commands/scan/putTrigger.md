@@ -16,7 +16,7 @@ pv scan putTrigger --dataSourceName=<val> --scanName=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Triggers > Create Trigger](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/triggers/create-trigger)
+Scanning Data Plane > Triggers > [Create Trigger](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/triggers/create-trigger)
 ```
 PUT https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default
 ```

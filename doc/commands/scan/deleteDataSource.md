@@ -16,7 +16,7 @@ pv scan deleteDataSource --dataSourceName=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Data Sources > Delete](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/data-sources/delete)
+Scanning Data Plane > Data Sources > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/data-sources/delete)
 ```
 DELETE https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}
 ```

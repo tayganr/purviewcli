@@ -16,7 +16,7 @@ pv policystore putMetadataPolicy --policyId=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Metadata Policy Data Plane > Metadata Policy > Update](https://docs.microsoft.com/en-us/rest/api/purview/metadatapolicydataplane/metadata-policy/update)
+Metadata Policy Data Plane > Metadata Policy > [Update](https://docs.microsoft.com/en-us/rest/api/purview/metadatapolicydataplane/metadata-policy/update)
 ```
 PUT https://{accountName}.purview.azure.com/policystore/metadataPolicies/{policyId}
 ```

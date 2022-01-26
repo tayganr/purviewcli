@@ -16,7 +16,7 @@ pv management addRootCollectionAdmin --subscriptionId=<val> --resourceGroupName=
 *None*
 
 ## API Mapping
-[Accounts > Add Root Collection Admin > ](https://docs.microsoft.com/en-us/rest/api/purview/accounts/add-root-collection-admin)
+Accounts > [Add Root Collection Admin](https://docs.microsoft.com/en-us/rest/api/purview/accounts/add-root-collection-admin)
 ```
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin
 ```

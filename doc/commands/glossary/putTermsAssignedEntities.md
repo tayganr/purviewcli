@@ -16,7 +16,7 @@ pv glossary putTermsAssignedEntities --termGuid=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Remove Term Assignment From Entities](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/remove-term-assignment-from-entities)
+Catalog Data Plane > Glossary > [Remove Term Assignment From Entities](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/remove-term-assignment-from-entities)
 ```
 PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/terms/{termGuid}/assignedEntities
 ```

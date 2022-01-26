@@ -16,7 +16,7 @@ pv account getChildCollectionNames --collectionName=<val>
 *None*
 
 ## API Mapping
-[Account Data Plane > Collections > List Child Collection Names](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/list-child-collection-names)
+Account Data Plane > Collections > [List Child Collection Names](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/list-child-collection-names)
 ```
 GET https://{accountName}.purview.azure.com/account/collections/{collectionName}/getChildCollectionNames
 ```

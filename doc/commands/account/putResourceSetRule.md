@@ -16,7 +16,7 @@ pv account putResourceSetRule --payload-file=<val>
 *None*
 
 ## API Mapping
-[Account Data Plane > Resource Set Rules > Create Or Update Resource Set Rule](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/resource-set-rules/create-or-update-resource-set-rule)
+Account Data Plane > Resource Set Rules > [Create Or Update Resource Set Rule](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/resource-set-rules/create-or-update-resource-set-rule)
 ```
 PUT https://{accountName}.purview.azure.com/account/resourceSetRuleConfigs/defaultResourceSetRuleConfig
 ```

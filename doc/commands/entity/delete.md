@@ -16,7 +16,7 @@ pv entity delete --guid=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Delete By Guid](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/delete-by-guid)
+Catalog Data Plane > Entity > [Delete By Guid](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/delete-by-guid)
 ```
 DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{guid}
 ```

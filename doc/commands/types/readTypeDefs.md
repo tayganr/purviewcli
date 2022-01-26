@@ -16,7 +16,7 @@ pv types readTypeDefs [--includeTermTemplate --type=<val>]
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Types > Get All Type Definitions](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-all-type-definitions)
+Catalog Data Plane > Types > [Get All Type Definitions](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-all-type-definitions)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
 ```

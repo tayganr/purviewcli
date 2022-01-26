@@ -16,7 +16,7 @@ pv glossary createCategories --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Create Glossary Categories](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/create-glossary-categories)
+Catalog Data Plane > Glossary > [Create Glossary Categories](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/create-glossary-categories)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/categories
 ```

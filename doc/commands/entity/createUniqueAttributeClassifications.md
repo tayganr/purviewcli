@@ -16,7 +16,7 @@ pv entity createUniqueAttributeClassifications --typeName=<val> --payload-file=<
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Add Classifications By Unique Attribute](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/add-classifications-by-unique-attribute)
+Catalog Data Plane > Entity > [Add Classifications By Unique Attribute](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/add-classifications-by-unique-attribute)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueAttribute/type/{typeName}/classifications
 ```

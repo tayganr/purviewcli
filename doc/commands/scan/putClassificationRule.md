@@ -16,7 +16,7 @@ pv scan putClassificationRule --classificationRuleName=<val> --payload-file=<val
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Classification Rules > Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/classification-rules/create-or-update)
+Scanning Data Plane > Classification Rules > [Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/classification-rules/create-or-update)
 ```
 PUT https://{accountName}.purview.azure.com/scan/classificationrules/{classificationRuleName}
 ```

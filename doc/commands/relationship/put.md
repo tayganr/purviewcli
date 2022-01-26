@@ -16,7 +16,7 @@ pv relationship put --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Relationship > Update](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/relationship/update)
+Catalog Data Plane > Relationship > [Update](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/relationship/update)
 ```
 PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/relationship
 ```

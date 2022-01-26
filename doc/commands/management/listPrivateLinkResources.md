@@ -16,7 +16,7 @@ pv management listPrivateLinkResources --subscriptionId=<val> --resourceGroupNam
 *None*
 
 ## API Mapping
-[Private Link Resources > List By Account > ](https://docs.microsoft.com/en-us/rest/api/purview/private-link-resources/list-by-account)
+Private Link Resources > [List By Account](https://docs.microsoft.com/en-us/rest/api/purview/private-link-resources/list-by-account)
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateLinkResources
 ```

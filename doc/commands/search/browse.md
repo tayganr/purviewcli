@@ -16,7 +16,7 @@ pv search browse  (--entityType=<val> | --path=<val>) [--limit=<val> --offset=<
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Discovery > Browse](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/discovery/browse)
+Catalog Data Plane > Discovery > [Browse](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/discovery/browse)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/browse
 ```

@@ -16,7 +16,7 @@ pv glossary deleteTerm --termGuid=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Delete Glossary Term](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/delete-glossary-term)
+Catalog Data Plane > Glossary > [Delete Glossary Term](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/delete-glossary-term)
 ```
 DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/term/{termGuid}
 ```

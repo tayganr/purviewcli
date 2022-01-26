@@ -16,7 +16,7 @@ pv scan readTrigger --dataSourceName=<val> --scanName=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Triggers > Get Trigger](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/triggers/get-trigger)
+Scanning Data Plane > Triggers > [Get Trigger](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/triggers/get-trigger)
 ```
 GET https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default
 ```

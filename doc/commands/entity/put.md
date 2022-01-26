@@ -16,7 +16,7 @@ pv entity put --guid=<val> --attrName=<val> --attrValue=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Partial Update Entity Attribute By Guid](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/partial-update-entity-attribute-by-guid)
+Catalog Data Plane > Entity > [Partial Update Entity Attribute By Guid](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/partial-update-entity-attribute-by-guid)
 ```
 PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{guid}
 ```

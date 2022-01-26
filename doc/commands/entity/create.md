@@ -16,7 +16,7 @@ pv entity create --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/create-or-update)
+Catalog Data Plane > Entity > [Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/create-or-update)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity
 ```

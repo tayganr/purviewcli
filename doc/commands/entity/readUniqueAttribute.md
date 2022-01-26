@@ -16,7 +16,7 @@ pv entity readUniqueAttribute --typeName=<val> --qualifiedName=<val> [--ignoreRe
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Get By Unique Attributes](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/get-by-unique-attributes)
+Catalog Data Plane > Entity > [Get By Unique Attributes](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/get-by-unique-attributes)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueAttribute/type/{typeName}
 ```

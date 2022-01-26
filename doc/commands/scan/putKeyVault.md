@@ -16,7 +16,7 @@ pv scan putKeyVault --keyVaultName=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Key Vault Connections > Create](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/key-vault-connections/create)
+Scanning Data Plane > Key Vault Connections > [Create](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/key-vault-connections/create)
 ```
 PUT https://{accountName}.purview.azure.com/scan/azureKeyVaults/{keyVaultName}
 ```

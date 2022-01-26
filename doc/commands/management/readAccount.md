@@ -16,7 +16,7 @@ pv management readAccount --subscriptionId=<val> --resourceGroupName=<val> --acc
 *None*
 
 ## API Mapping
-[Accounts > Get > ](https://docs.microsoft.com/en-us/rest/api/purview/accounts/get)
+Accounts > [Get](https://docs.microsoft.com/en-us/rest/api/purview/accounts/get)
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}
 ```

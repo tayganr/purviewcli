@@ -16,7 +16,7 @@ pv entity deleteClassification --guid=<val> --classificationName=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Delete Classification](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/delete-classification)
+Catalog Data Plane > Entity > [Delete Classification](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/delete-classification)
 ```
 DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{guid}/classification/{classificationName}
 ```

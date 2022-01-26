@@ -16,7 +16,7 @@ pv glossary readTerms [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > List Terms By Glossary Name](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-terms-by-glossary-name)
+Catalog Data Plane > Glossary > [List Terms By Glossary Name](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-terms-by-glossary-name)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/glossary/name/{glossaryName}/terms
 ```

@@ -16,7 +16,7 @@ pv scan deleteClassificationRule --classificationRuleName=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Classification Rules > Delete](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/classification-rules/delete)
+Scanning Data Plane > Classification Rules > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/classification-rules/delete)
 ```
 DELETE https://{accountName}.purview.azure.com/scan/classificationrules/{classificationRuleName}
 ```

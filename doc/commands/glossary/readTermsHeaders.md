@@ -16,7 +16,7 @@ pv glossary readTermsHeaders --glossaryGuid=<val> [--limit=<val> --offset=<val> 
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > List Glossary Term Headers](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-glossary-term-headers)
+Catalog Data Plane > Glossary > [List Glossary Term Headers](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-glossary-term-headers)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/{glossaryGuid}/terms/headers
 ```

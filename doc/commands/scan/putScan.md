@@ -16,7 +16,7 @@ pv scan putScan --dataSourceName=<val> --scanName=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Scans > Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scans/create-or-update)
+Scanning Data Plane > Scans > [Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scans/create-or-update)
 ```
 PUT https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/scans/{scanName}
 ```

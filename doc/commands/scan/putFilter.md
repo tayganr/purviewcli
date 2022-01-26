@@ -16,7 +16,7 @@ pv scan putFilter --dataSourceName=<val> --scanName=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Filters > Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/filters/create-or-update)
+Scanning Data Plane > Filters > [Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/filters/create-or-update)
 ```
 PUT https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/scans/{scanName}/filters/custom
 ```

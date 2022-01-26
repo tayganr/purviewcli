@@ -16,7 +16,7 @@ pv management listKeys --subscriptionId=<val> --resourceGroupName=<val> --accoun
 *None*
 
 ## API Mapping
-[Accounts > List Keys > ](https://docs.microsoft.com/en-us/rest/api/purview/accounts/list-keys)
+Accounts > [List Keys](https://docs.microsoft.com/en-us/rest/api/purview/accounts/list-keys)
 ```
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/listkeys
 ```

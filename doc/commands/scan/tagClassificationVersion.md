@@ -16,7 +16,7 @@ pv scan tagClassificationVersion --classificationRuleName=<val> --classification
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Classification Rules > Tag Classification Version](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/classification-rules/tag-classification-version)
+Scanning Data Plane > Classification Rules > [Tag Classification Version](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/classification-rules/tag-classification-version)
 ```
 POST https://{accountName}.purview.azure.com/scan/classificationrules/{classificationRuleName}/versions/{classificationRuleVersion}/:tag
 ```

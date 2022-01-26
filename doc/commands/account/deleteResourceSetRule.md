@@ -16,7 +16,7 @@ pv account deleteResourceSetRule
 *None*
 
 ## API Mapping
-[Account Data Plane > Resource Set Rules > Delete Resource Set Rule](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/resource-set-rules/delete-resource-set-rule)
+Account Data Plane > Resource Set Rules > [Delete Resource Set Rule](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/resource-set-rules/delete-resource-set-rule)
 ```
 DELETE https://{accountName}.purview.azure.com/account/resourceSetRuleConfigs/defaultResourceSetRuleConfig
 ```

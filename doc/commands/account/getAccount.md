@@ -16,7 +16,7 @@ pv account getAccount
 *None*
 
 ## API Mapping
-[Account Data Plane > Accounts > Get Account Properties](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/accounts/get-account-properties)
+Account Data Plane > Accounts > [Get Account Properties](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/accounts/get-account-properties)
 ```
 GET https://{accountName}.purview.azure.com/account/
 ```

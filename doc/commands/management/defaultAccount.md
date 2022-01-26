@@ -16,7 +16,7 @@ pv management defaultAccount --scopeTenantId=<val> --scopeType=<val> --scope=<va
 *None*
 
 ## API Mapping
-[Default Accounts > Get > ](https://docs.microsoft.com/en-us/rest/api/purview/default-accounts/get)
+Default Accounts > [Get](https://docs.microsoft.com/en-us/rest/api/purview/default-accounts/get)
 ```
 GET https://management.azure.com/providers/Microsoft.Purview/getDefaultAccount
 ```

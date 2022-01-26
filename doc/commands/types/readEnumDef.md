@@ -16,7 +16,7 @@ pv types readEnumDef (--guid=<val> | --name=<val>)
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Types > Get Enum Def By Guid](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-enum-def-by-guid)
+Catalog Data Plane > Types > [Get Enum Def By Guid](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-enum-def-by-guid)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/enumdef/guid/{guid}
 ```

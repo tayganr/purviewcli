@@ -16,7 +16,7 @@ pv glossary createTermsImport (--glossaryGuid=<val> | --glossaryName=<val>)
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Import Glossary Terms Via Csv](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/import-glossary-terms-via-csv)
+Catalog Data Plane > Glossary > [Import Glossary Terms Via Csv](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/import-glossary-terms-via-csv)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/glossary/{glossaryGuid}/terms/import
 ```

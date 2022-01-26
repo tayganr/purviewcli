@@ -16,7 +16,7 @@ pv scan readSystemScanRulesetLatest --dataSourceType=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > System Scan Rulesets > Get Latest](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/system-scan-rulesets/get-latest)
+Scanning Data Plane > System Scan Rulesets > [Get Latest](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/system-scan-rulesets/get-latest)
 ```
 GET https://{accountName}.purview.azure.com/scan/systemScanRulesets/versions/latest
 ```

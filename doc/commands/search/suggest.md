@@ -16,7 +16,7 @@ pv search suggest [--keywords=<val> --limit=<val> --filter-file=<val>]
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Discovery > Suggest](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/discovery/suggest)
+Catalog Data Plane > Discovery > [Suggest](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/discovery/suggest)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/search/suggest
 ```

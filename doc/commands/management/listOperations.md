@@ -16,7 +16,7 @@ pv management listOperations
 *None*
 
 ## API Mapping
-[Operations > List > ](https://docs.microsoft.com/en-us/rest/api/purview/operations/list)
+Operations > [List](https://docs.microsoft.com/en-us/rest/api/purview/operations/list)
 ```
 GET https://management.azure.com/providers/Microsoft.Purview/operations
 ```

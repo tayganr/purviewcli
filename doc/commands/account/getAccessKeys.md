@@ -16,7 +16,7 @@ pv account getAccessKeys
 *None*
 
 ## API Mapping
-[Account Data Plane > Accounts > Get Access Keys](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/accounts/get-access-keys)
+Account Data Plane > Accounts > [Get Access Keys](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/accounts/get-access-keys)
 ```
 POST https://{accountName}.purview.azure.com/account/listkeys
 ```

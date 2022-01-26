@@ -16,7 +16,7 @@ pv types putTypeDefs --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Types > Update Atlas Type Definitions](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/update-atlas-type-definitions)
+Catalog Data Plane > Types > [Update Atlas Type Definitions](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/update-atlas-type-definitions)
 ```
 PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
 ```

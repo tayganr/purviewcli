@@ -16,7 +16,7 @@ pv glossary readCategoryTerms --categoryGuid=<val> [--limit=<val> --offset=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > List Category Terms](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-category-terms)
+Catalog Data Plane > Glossary > [List Category Terms](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-category-terms)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/category/{categoryGuid}/terms
 ```

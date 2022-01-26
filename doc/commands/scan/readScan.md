@@ -16,7 +16,7 @@ pv scan readScan --dataSourceName=<val> --scanName=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Scans > Get](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scans/get)
+Scanning Data Plane > Scans > [Get](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scans/get)
 ```
 GET https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/scans/{scanName}
 ```

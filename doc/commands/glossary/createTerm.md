@@ -16,7 +16,7 @@ pv glossary createTerm --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Create Glossary Term](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/create-glossary-term)
+Catalog Data Plane > Glossary > [Create Glossary Term](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/create-glossary-term)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/term
 ```

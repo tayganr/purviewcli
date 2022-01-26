@@ -16,7 +16,7 @@ pv management removeDefaultAccount --scopeTenantId=<val> --scopeType=<val> --sco
 *None*
 
 ## API Mapping
-[Default Accounts > Remove > ](https://docs.microsoft.com/en-us/rest/api/purview/default-accounts/remove)
+Default Accounts > [Remove](https://docs.microsoft.com/en-us/rest/api/purview/default-accounts/remove)
 ```
 POST https://management.azure.com/providers/Microsoft.Purview/removeDefaultAccount
 ```

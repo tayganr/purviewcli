@@ -16,7 +16,7 @@ pv glossary readDetailed --glossaryGuid=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Get Detailed Glossary](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/get-detailed-glossary)
+Catalog Data Plane > Glossary > [Get Detailed Glossary](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/get-detailed-glossary)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/{glossaryGuid}/detailed
 ```

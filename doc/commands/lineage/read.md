@@ -16,7 +16,7 @@ pv lineage read --guid=<val> [--depth=<val> --width=<val> --direction=<val>]
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Lineage > Get Lineage Graph](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/lineage/get-lineage-graph)
+Catalog Data Plane > Lineage > [Get Lineage Graph](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/lineage/get-lineage-graph)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/lineage/{guid}
 ```

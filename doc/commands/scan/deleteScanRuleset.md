@@ -16,7 +16,7 @@ pv scan deleteScanRuleset --scanRulesetName=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Scan Rulesets > Delete](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scan-rulesets/delete)
+Scanning Data Plane > Scan Rulesets > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scan-rulesets/delete)
 ```
 DELETE https://{accountName}.purview.azure.com/scan/scanrulesets/{scanRulesetName}
 ```

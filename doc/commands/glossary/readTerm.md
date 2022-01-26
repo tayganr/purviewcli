@@ -16,7 +16,7 @@ pv glossary readTerm --termGuid=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Get Glossary Term](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/get-glossary-term)
+Catalog Data Plane > Glossary > [Get Glossary Term](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/get-glossary-term)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/term/{termGuid}
 ```

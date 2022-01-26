@@ -16,7 +16,7 @@ pv entity deleteUniqueAttribute --typeName=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Delete By Unique Attribute](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/delete-by-unique-attribute)
+Catalog Data Plane > Entity > [Delete By Unique Attribute](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/delete-by-unique-attribute)
 ```
 DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueAttribute/type/{typeName}
 ```

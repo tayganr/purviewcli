@@ -16,7 +16,7 @@ pv types readTypeDefsHeaders [--includeTermTemplate --type=<val>]
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Types > List Type Definition Headers](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/list-type-definition-headers)
+Catalog Data Plane > Types > [List Type Definition Headers](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/list-type-definition-headers)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/typedefs/headers
 ```

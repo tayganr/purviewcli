@@ -16,7 +16,7 @@ pv account getResourceSetRule
 *None*
 
 ## API Mapping
-[Account Data Plane > Resource Set Rules > Get Resource Set Rule](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/resource-set-rules/get-resource-set-rule)
+Account Data Plane > Resource Set Rules > [Get Resource Set Rule](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/resource-set-rules/get-resource-set-rule)
 ```
 GET https://{accountName}.purview.azure.com/account/resourceSetRuleConfigs/defaultResourceSetRuleConfig
 ```

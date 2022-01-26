@@ -16,7 +16,7 @@ pv management checkNameAvailability --subscriptionId=<val> --accountName=<val>
 *None*
 
 ## API Mapping
-[Accounts > Check Name Availability > ](https://docs.microsoft.com/en-us/rest/api/purview/accounts/check-name-availability)
+Accounts > [Check Name Availability](https://docs.microsoft.com/en-us/rest/api/purview/accounts/check-name-availability)
 ```
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Purview/checkNameAvailability
 ```

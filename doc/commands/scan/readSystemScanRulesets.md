@@ -16,7 +16,7 @@ pv scan readSystemScanRulesetVersion --version=<val> --dataSourceType=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > System Scan Rulesets > List All](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/system-scan-rulesets/list-all)
+Scanning Data Plane > System Scan Rulesets > [List All](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/system-scan-rulesets/list-all)
 ```
 GET https://{accountName}.purview.azure.com/scan/systemScanRulesets
 ```

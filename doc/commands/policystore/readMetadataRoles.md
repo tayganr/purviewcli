@@ -16,7 +16,7 @@ pv policystore readMetadataRoles
 *None*
 
 ## API Mapping
-[Metadata Policy Data Plane > Metadata Roles > List](https://docs.microsoft.com/en-us/rest/api/purview/metadatapolicydataplane/metadata-roles/list)
+Metadata Policy Data Plane > Metadata Roles > [List](https://docs.microsoft.com/en-us/rest/api/purview/metadatapolicydataplane/metadata-roles/list)
 ```
 GET https://{accountName}.purview.azure.com/policystore/metadataroles
 ```

@@ -16,7 +16,7 @@ pv glossary putCategory --categoryGuid=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Update Glossary Category](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/update-glossary-category)
+Catalog Data Plane > Glossary > [Update Glossary Category](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/update-glossary-category)
 ```
 PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/category/{categoryGuid}
 ```

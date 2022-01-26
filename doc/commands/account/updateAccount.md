@@ -16,7 +16,7 @@ pv account updateAccount --friendlyName=<val>
 *None*
 
 ## API Mapping
-[Account Data Plane > Accounts > Update Account Properties](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/accounts/update-account-properties)
+Account Data Plane > Accounts > [Update Account Properties](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/accounts/update-account-properties)
 ```
 PATCH https://{accountName}.purview.azure.com/account/
 ```

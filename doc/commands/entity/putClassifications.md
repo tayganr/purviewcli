@@ -16,7 +16,7 @@ pv entity putClassifications --guid=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Update Classifications](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/update-classifications)
+Catalog Data Plane > Entity > [Update Classifications](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/update-classifications)
 ```
 PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{guid}/classifications
 ```

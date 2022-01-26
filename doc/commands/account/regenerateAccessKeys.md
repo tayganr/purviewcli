@@ -16,7 +16,7 @@ pv account regenerateAccessKeys --keyType=<val>
 *None*
 
 ## API Mapping
-[Account Data Plane > Accounts > Regenerate Access Key](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/accounts/regenerate-access-key)
+Account Data Plane > Accounts > [Regenerate Access Key](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/accounts/regenerate-access-key)
 ```
 POST https://{accountName}.purview.azure.com/account/regeneratekeys
 ```

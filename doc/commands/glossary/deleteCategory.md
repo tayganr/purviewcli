@@ -16,7 +16,7 @@ pv glossary deleteCategory --categoryGuid=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Delete Glossary Category](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/delete-glossary-category)
+Catalog Data Plane > Glossary > [Delete Glossary Category](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/delete-glossary-category)
 ```
 DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/category/{categoryGuid}
 ```

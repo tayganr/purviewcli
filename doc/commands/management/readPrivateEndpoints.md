@@ -16,7 +16,7 @@ pv management readPrivateEndpoints --subscriptionId=<val> --resourceGroupName=<v
 *None*
 
 ## API Mapping
-[Private Endpoint Connections > List By Account > ](https://docs.microsoft.com/en-us/rest/api/purview/private-endpoint-connections/list-by-account)
+Private Endpoint Connections > [List By Account](https://docs.microsoft.com/en-us/rest/api/purview/private-endpoint-connections/list-by-account)
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateEndpointConnections
 ```

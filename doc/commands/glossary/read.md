@@ -16,7 +16,7 @@ pv glossary read [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > List Glossaries](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-glossaries)
+Catalog Data Plane > Glossary > [List Glossaries](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-glossaries)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary
 ```

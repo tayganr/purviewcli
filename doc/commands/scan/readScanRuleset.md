@@ -16,7 +16,7 @@ pv scan readScanRuleset --scanRulesetName=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Scan Rulesets > Get](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scan-rulesets/get)
+Scanning Data Plane > Scan Rulesets > [Get](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scan-rulesets/get)
 ```
 GET https://{accountName}.purview.azure.com/scan/scanrulesets/{scanRulesetName}
 ```

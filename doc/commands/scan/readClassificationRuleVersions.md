@@ -16,7 +16,7 @@ pv scan readClassificationRules
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Classification Rules > List Versions By Classification Rule Name](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/classification-rules/list-versions-by-classification-rule-name)
+Scanning Data Plane > Classification Rules > [List Versions By Classification Rule Name](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/classification-rules/list-versions-by-classification-rule-name)
 ```
 GET https://{accountName}.purview.azure.com/scan/classificationrules/{classificationRuleName}/versions
 ```

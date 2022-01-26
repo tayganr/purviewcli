@@ -16,7 +16,7 @@ pv relationship create --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Relationship > Create](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/relationship/create)
+Catalog Data Plane > Relationship > [Create](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/relationship/create)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/relationship
 ```

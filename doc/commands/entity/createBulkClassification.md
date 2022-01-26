@@ -16,7 +16,7 @@ pv entity createBulkClassification --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Add Classification](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/add-classification)
+Catalog Data Plane > Entity > [Add Classification](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/add-classification)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/bulk/classification
 ```

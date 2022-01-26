@@ -16,7 +16,7 @@ pv search query [--keywords=<val> --limit=<val> --offset=<val> --filter-file=<va
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Discovery > Query](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/discovery/query)
+Catalog Data Plane > Discovery > [Query](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/discovery/query)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/search/query
 ```

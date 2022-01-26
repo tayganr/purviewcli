@@ -16,7 +16,7 @@ pv scan deleteTrigger --dataSourceName=<val> --scanName=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Triggers > Delete Trigger](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/triggers/delete-trigger)
+Scanning Data Plane > Triggers > [Delete Trigger](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/triggers/delete-trigger)
 ```
 DELETE https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default
 ```

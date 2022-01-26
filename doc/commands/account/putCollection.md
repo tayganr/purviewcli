@@ -16,7 +16,7 @@ pv account putCollection --friendlyName=<val> --parentCollection=<val>
 *None*
 
 ## API Mapping
-[Account Data Plane > Collections > Create Or Update Collection](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/create-or-update-collection)
+Account Data Plane > Collections > [Create Or Update Collection](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/create-or-update-collection)
 ```
 PUT https://{accountName}.purview.azure.com/account/collections/{collectionName}
 ```

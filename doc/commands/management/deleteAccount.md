@@ -16,7 +16,7 @@ pv management deleteAccount --subscriptionId=<val> --resourceGroupName=<val> --a
 *None*
 
 ## API Mapping
-[Accounts > Delete > ](https://docs.microsoft.com/en-us/rest/api/purview/accounts/delete)
+Accounts > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/accounts/delete)
 ```
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}
 ```

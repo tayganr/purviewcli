@@ -16,7 +16,7 @@ pv glossary createTermsExport --glossaryGuid=<val> --termGuid=<val>...
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Export Glossary Terms As Csv](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/export-glossary-terms-as-csv)
+Catalog Data Plane > Glossary > [Export Glossary Terms As Csv](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/export-glossary-terms-as-csv)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/glossary/{glossaryGuid}/terms/export
 ```

@@ -16,7 +16,7 @@ pv entity readHeader --guid=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Get Header](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/get-header)
+Catalog Data Plane > Entity > [Get Header](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/get-header)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{guid}/header
 ```

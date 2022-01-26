@@ -16,7 +16,7 @@ pv entity createBulk --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Create Or Update Entities](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/create-or-update-entities)
+Catalog Data Plane > Entity > [Create Or Update Entities](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/create-or-update-entities)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/bulk
 ```

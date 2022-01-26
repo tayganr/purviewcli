@@ -16,7 +16,7 @@ pv search autoComplete [--keywords=<val> --limit=<val> --filter-file=<val>]
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Discovery > Auto Complete](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/discovery/auto-complete)
+Catalog Data Plane > Discovery > [Auto Complete](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/discovery/auto-complete)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/search/autocomplete
 ```

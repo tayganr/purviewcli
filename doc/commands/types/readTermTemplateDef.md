@@ -16,7 +16,7 @@ pv types readTermTemplateDef (--guid=<val> | --name=<val>)
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Types > Get Term Template Def By Guid](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-term-template-def-by-guid)
+Catalog Data Plane > Types > [Get Term Template Def By Guid](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/get-term-template-def-by-guid)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/types/termtemplatedef/guid/{guid}
 ```

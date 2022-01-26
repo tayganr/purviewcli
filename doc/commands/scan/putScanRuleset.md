@@ -16,7 +16,7 @@ pv scan putScanRuleset --scanRulesetName=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Scan Rulesets > Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scan-rulesets/create-or-update)
+Scanning Data Plane > Scan Rulesets > [Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scan-rulesets/create-or-update)
 ```
 PUT https://{accountName}.purview.azure.com/scan/scanrulesets/{scanRulesetName}
 ```

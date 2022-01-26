@@ -16,7 +16,7 @@ pv entity createBulkSetClassifications --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Set Classifications](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/set-classifications)
+Catalog Data Plane > Entity > [Set Classifications](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/set-classifications)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/bulk/setClassifications
 ```

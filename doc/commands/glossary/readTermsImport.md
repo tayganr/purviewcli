@@ -16,7 +16,7 @@ pv glossary readTermsImport --operationGuid=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Get Import Csv Operation Status](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/get-import-csv-operation-status)
+Catalog Data Plane > Glossary > [Get Import Csv Operation Status](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/get-import-csv-operation-status)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/glossary/terms/import/{operationGuid}
 ```

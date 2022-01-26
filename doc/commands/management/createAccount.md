@@ -16,7 +16,7 @@ pv management createAccount --subscriptionId=<val> --resourceGroupName=<val> --a
 *None*
 
 ## API Mapping
-[Accounts > Create Or Update > ](https://docs.microsoft.com/en-us/rest/api/purview/accounts/create-or-update)
+Accounts > [Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/accounts/create-or-update)
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}
 ```

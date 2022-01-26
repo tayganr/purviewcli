@@ -16,7 +16,7 @@ pv policystore readMetadataPolicy (--collectionName=<val> | --policyId=<val>)
 *None*
 
 ## API Mapping
-[Metadata Policy Data Plane > Metadata Policy > Get](https://docs.microsoft.com/en-us/rest/api/purview/metadatapolicydataplane/metadata-policy/get)
+Metadata Policy Data Plane > Metadata Policy > [Get](https://docs.microsoft.com/en-us/rest/api/purview/metadatapolicydataplane/metadata-policy/get)
 ```
 GET https://{accountName}.purview.azure.com/policystore/metadataPolicies/{policyId}
 ```

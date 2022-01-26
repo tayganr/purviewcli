@@ -16,7 +16,7 @@ pv glossary createTermsAssignedEntities --termGuid=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > Assign Term To Entities](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/assign-term-to-entities)
+Catalog Data Plane > Glossary > [Assign Term To Entities](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/assign-term-to-entities)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/terms/{termGuid}/assignedEntities
 ```

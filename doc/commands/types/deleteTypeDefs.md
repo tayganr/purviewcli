@@ -16,7 +16,7 @@ pv types deleteTypeDefs --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Types > Delete Type Definitions](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/delete-type-definitions)
+Catalog Data Plane > Types > [Delete Type Definitions](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/delete-type-definitions)
 ```
 DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
 ```

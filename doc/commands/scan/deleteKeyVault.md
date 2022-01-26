@@ -16,7 +16,7 @@ pv scan deleteKeyVault --keyVaultName=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Key Vault Connections > Delete](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/key-vault-connections/delete)
+Scanning Data Plane > Key Vault Connections > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/key-vault-connections/delete)
 ```
 DELETE https://{accountName}.purview.azure.com/scan/azureKeyVaults/{keyVaultName}
 ```

@@ -16,7 +16,7 @@ pv management deletePrivateEndpoint --subscriptionId=<val> --resourceGroupName=<
 *None*
 
 ## API Mapping
-[Private Endpoint Connections > Delete > ](https://docs.microsoft.com/en-us/rest/api/purview/private-endpoint-connections/delete)
+Private Endpoint Connections > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/private-endpoint-connections/delete)
 ```
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName}
 ```

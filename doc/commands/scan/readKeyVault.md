@@ -16,7 +16,7 @@ pv scan readKeyVault --keyVaultName=<val>
 *None*
 
 ## API Mapping
-[Scanning Data Plane > Key Vault Connections > Get](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/key-vault-connections/get)
+Scanning Data Plane > Key Vault Connections > [Get](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/key-vault-connections/get)
 ```
 GET https://{accountName}.purview.azure.com/scan/azureKeyVaults/{keyVaultName}
 ```

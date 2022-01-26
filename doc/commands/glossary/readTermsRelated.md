@@ -16,7 +16,7 @@ pv glossary readTermsRelated --termGuid=<val> [--limit=<val> --offset=<val> --so
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > List Related Terms](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-related-terms)
+Catalog Data Plane > Glossary > [List Related Terms](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-related-terms)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/terms/{termGuid}/related
 ```

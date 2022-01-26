@@ -16,7 +16,7 @@ pv relationship read --guid=<val> [--extendedInfo]
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Relationship > Get](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/relationship/get)
+Catalog Data Plane > Relationship > [Get](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/relationship/get)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/relationship/guid/{guid}
 ```

@@ -16,7 +16,7 @@ pv relationship delete --guid=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Relationship > Delete](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/relationship/delete)
+Catalog Data Plane > Relationship > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/relationship/delete)
 ```
 DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/relationship/guid/{guid}
 ```

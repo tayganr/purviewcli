@@ -16,7 +16,7 @@ pv management setDefaultAccount --subscriptionId=<val> --resourceGroupName=<val>
 *None*
 
 ## API Mapping
-[Default Accounts > Set > ](https://docs.microsoft.com/en-us/rest/api/purview/default-accounts/set)
+Default Accounts > [Set](https://docs.microsoft.com/en-us/rest/api/purview/default-accounts/set)
 ```
 POST https://management.azure.com/providers/Microsoft.Purview/setDefaultAccount
 ```

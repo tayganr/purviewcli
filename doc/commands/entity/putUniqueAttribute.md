@@ -16,7 +16,7 @@ pv entity putUniqueAttribute --typeName=<val> --payload-file=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Entity > Partial Update Entity By Unique Attributes](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/partial-update-entity-by-unique-attributes)
+Catalog Data Plane > Entity > [Partial Update Entity By Unique Attributes](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/partial-update-entity-by-unique-attributes)
 ```
 PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueAttribute/type/{typeName}
 ```

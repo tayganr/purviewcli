@@ -16,7 +16,7 @@ pv glossary readCategoryRelated --categoryGuid=<val>
 *None*
 
 ## API Mapping
-[Catalog Data Plane > Glossary > List Related Categories](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-related-categories)
+Catalog Data Plane > Glossary > [List Related Categories](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-related-categories)
 ```
 GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/category/{categoryGuid}/related
 ```

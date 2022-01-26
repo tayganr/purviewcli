@@ -16,7 +16,7 @@ pv account getCollection --collectionName=<val>
 *None*
 
 ## API Mapping
-[Account Data Plane > Collections > Get Collection](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/get-collection)
+Account Data Plane > Collections > [Get Collection](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/get-collection)
 ```
 GET https://{accountName}.purview.azure.com/account/collections/{collectionName}
 ```

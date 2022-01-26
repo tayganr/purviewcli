@@ -16,7 +16,7 @@ pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --a
 *None*
 
 ## API Mapping
-[Accounts > Update > ](https://docs.microsoft.com/en-us/rest/api/purview/accounts/update)
+Accounts > [Update](https://docs.microsoft.com/en-us/rest/api/purview/accounts/update)
 ```
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}
 ```
