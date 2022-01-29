@@ -14,9 +14,26 @@ pv credential read [--credentialName=<val>]
 
 ## Optional Arguments
 `--credentialName` (string)  
-Description
+The name of the credential.
+
+## API Mapping
+Get all credentials.
+```
+GET https://{accountName}.purview.azure.com/proxy/credentials
+```
+
+Get a credential by name.
+```
+GET https://{accountName}.purview.azure.com/proxy/credentials/{credentialName}
+```
 
 ## Examples
+Get all credentials.
 ```powershell
+pv credential read
+```
 
+Get a credential by name.
+```powershell
+pv credential read --credentialName "credential-SQL"
 ```
