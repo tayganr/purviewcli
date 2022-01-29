@@ -6,7 +6,7 @@ Browse entities by path or entity type.
 
 ## Syntax
 ```
-pv search browse  (--entityType=<val> | --path=<val>) [--limit=<val> --offset=<val>]
+pv search browse (--entityType=<val> | --path=<val>) [--limit=<val> --offset=<val>]
 ```
 
 ## Required Arguments
