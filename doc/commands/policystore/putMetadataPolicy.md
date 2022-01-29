@@ -10,7 +10,11 @@ pv policystore putMetadataPolicy --policyId=<val> --payload-file=<val>
 ```
 
 ## Required Arguments
-*None*
+`--policyId` (string)  
+The unique policy id.
+
+`--payload-file` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -23,5 +27,5 @@ PUT https://{accountName}.purview.azure.com/policystore/metadataPolicies/{policy
 
 ## Examples
 ```powershell
-
+ pv policystore putMetadataPolicy --policyId "67c667b7-8f1c-468f-ab3b-f19fd943de95" --payload-file "/Path/to/file.json"
 ```

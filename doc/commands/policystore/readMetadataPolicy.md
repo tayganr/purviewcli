@@ -10,7 +10,11 @@ pv policystore readMetadataPolicy (--collectionName=<val> | --policyId=<val>)
 ```
 
 ## Required Arguments
-*None*
+`--collectionName` (string)  
+This unique name of the collection.
+
+`--policyId` (string)  
+The unique policy id.
 
 ## Optional Arguments
 *None*
@@ -27,6 +31,12 @@ GET https://{accountName}.purview.azure.com/policystore/collections/{collectionN
 ```
 
 ## Examples
+Get a metadata policy by collection name.
 ```powershell
+pv policystore readMetadataPolicy --collectionName "pokuj2"
+```
 
+Get a metadata policy by policy id.
+```powershell
+pv policystore readMetadataPolicy --policyId "67c667b7-8f1c-468f-ab3b-f19fd943de95"
 ```

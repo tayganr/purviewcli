@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [policystore](./main.md) > readMetadataPolicies
 
 ## Description
-List or Get metadata policies
+List the metadata policies associated to collections.
 
 ## Syntax
 ```
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/policystore/metadataPolicies
 ```
 
 ## Examples
+Get all metadata policies.
 ```powershell
-
+pv policystore readMetadataPolicies
 ```
