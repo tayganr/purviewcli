@@ -10,7 +10,8 @@ pv account getChildCollectionNames --collectionName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--collectionName` (string)  
+This is the unique name of the collection (not the friendly name).
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,7 @@ GET https://{accountName}.purview.azure.com/account/collections/{collectionName}
 ```
 
 ## Examples
+List the child collections beneath a target collection.
 ```powershell
-
+pv account getChildCollectionNames --collectionName "pvlab-taygan2-pv"
 ```

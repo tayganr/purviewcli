@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [account](./main.md) > getAccount
 
 ## Description
-Get an account
+Get an account.
 
 ## Syntax
 ```
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/account/
 ```
 
 ## Examples
+Get account properties.
 ```powershell
-
+pv account getAccount
 ```

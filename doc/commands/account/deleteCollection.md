@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [account](./main.md) > deleteCollection
 
 ## Description
-Deletes a Collection entity.
+Deletes a collection.
 
 ## Syntax
 ```
@@ -10,7 +10,8 @@ pv account deleteCollection --collectionName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--collectionName` (string)  
+This is the unique name of the collection (not the friendly name).
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,7 @@ DELETE https://{accountName}.purview.azure.com/account/collections/{collectionNa
 ```
 
 ## Examples
+Delete a collection by name.
 ```powershell
-
+pv account deleteCollection --collectionName "tn56xt" 
 ```

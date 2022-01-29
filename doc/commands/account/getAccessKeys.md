@@ -22,6 +22,7 @@ POST https://{accountName}.purview.azure.com/account/listkeys
 ```
 
 ## Examples
+Get access keys (e.g. Atlas Kafka endpoint connection strings).
 ```powershell
-
+pv account getAccessKeys
 ```

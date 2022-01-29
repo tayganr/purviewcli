@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/account/resourceSetRuleConfigs
 ```
 
 ## Examples
+List all resource sets.
 ```powershell
-
+pv account getResourceSetRules
 ```

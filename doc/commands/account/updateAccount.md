@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [account](./main.md) > updateAccount
 
 ## Description
-Updates an account
+Updates an account.
 
 ## Syntax
 ```
@@ -10,7 +10,8 @@ pv account updateAccount --friendlyName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--friendlyName` (string)  
+The friendly name of the account.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,7 @@ PATCH https://{accountName}.purview.azure.com/account/
 ```
 
 ## Examples
+Update the friendly name of the account.
 ```powershell
-
+pv account updateAccount --friendlyName "Purview Sandbox"
 ```

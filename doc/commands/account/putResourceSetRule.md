@@ -10,7 +10,8 @@ pv account putResourceSetRule --payload-file=<val>
 ```
 
 ## Required Arguments
-*None*
+`--payload-file` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,7 @@ PUT https://{accountName}.purview.azure.com/account/resourceSetRuleConfigs/defau
 ```
 
 ## Examples
+Create or update a resource set.
 ```powershell
-
+pv account putResourceSetRule --payload-file "/Path/to/file.json"
 ```

@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/account/collections
 ```
 
 ## Examples
+List collections in the account.
 ```powershell
-
+pv account getCollections
 ```

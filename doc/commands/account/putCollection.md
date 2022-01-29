@@ -10,7 +10,11 @@ pv account putCollection --friendlyName=<val> --parentCollection=<val>
 ```
 
 ## Required Arguments
-*None*
+`--friendlyName` (string)  
+The friendly name of the collection.
+
+`--parentCollection` (string)  
+This is the unique name of the parent collection (not the friendly name).
 
 ## Optional Arguments
 *None*
@@ -22,6 +26,7 @@ PUT https://{accountName}.purview.azure.com/account/collections/{collectionName}
 ```
 
 ## Examples
+Create or update a collection.
 ```powershell
-
+pv account putCollection --friendlyName "newColl" --parentCollection "pvlab-taygan2-pv"
 ```

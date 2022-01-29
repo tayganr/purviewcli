@@ -10,7 +10,8 @@ pv account getCollectionPath --collectionName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--collectionName` (string)  
+This is the unique name of the collection (not the friendly name).
 
 ## Optional Arguments
 *None*
