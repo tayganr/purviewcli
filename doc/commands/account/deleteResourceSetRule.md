@@ -22,6 +22,7 @@ DELETE https://{accountName}.purview.azure.com/account/resourceSetRuleConfigs/de
 ```
 
 ## Examples
+Delete a resource set.
 ```powershell
 pv account deleteResourceSetRule
 ```
