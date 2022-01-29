@@ -22,6 +22,12 @@ POST https://{accountName}.purview.azure.com/account/regeneratekeys
 ```
 
 ## Examples
+Regenerate the primary Atlas Kafka authorization key.
 ```powershell
+pv account regenerateAccessKeys --keyType "PrimaryAtlasKafkaKey"
+```
 
+Regenerate the secondary Atlas Kafka authorization key.
+```powershell
+pv account regenerateAccessKeys --keyType "SecondaryAtlasKafkaKey"
 ```
