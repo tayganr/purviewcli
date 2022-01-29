@@ -24,5 +24,5 @@ GET https://{accountName}.purview.azure.com/account/collections/{collectionName}
 
 ## Examples
 ```powershell
-
+pv account getCollectionPath --collectionName "r7Wq3k"
 ```
