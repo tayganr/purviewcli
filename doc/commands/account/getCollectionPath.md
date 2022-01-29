@@ -23,6 +23,7 @@ GET https://{accountName}.purview.azure.com/account/collections/{collectionName}
 ```
 
 ## Examples
+Get the collection path (parent references) for a collection by name.
 ```powershell
 pv account getCollectionPath --collectionName "r7Wq3k"
 ```
