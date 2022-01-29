@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [account](./main.md) > putResourceSetRule
 
 ## Description
-Creates or updates an resource set config.
+Creates or updates a resource set.
 
 ## Syntax
 ```

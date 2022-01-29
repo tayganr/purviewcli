@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [account](./main.md) > deleteResourceSetRule
 
 ## Description
-Deletes a ResourceSetRuleConfig resource.
+Delete a resource set.
 
 ## Syntax
 ```

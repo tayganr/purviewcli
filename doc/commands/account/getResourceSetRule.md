@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [account](./main.md) > getResourceSetRule
 
 ## Description
-Get a resource set config service model.
+Get a resource set.
 
 ## Syntax
 ```
