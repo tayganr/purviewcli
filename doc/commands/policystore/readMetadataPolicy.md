@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [policystore](./main.md) > readMetadataPolicy
 
 ## Description
-Gets a metadata policy
+Gets a metadata policy.
 
 ## Syntax
 ```

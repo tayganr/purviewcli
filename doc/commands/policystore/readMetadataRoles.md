@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [policystore](./main.md) > readMetadataRoles
 
 ## Description
-Lists the metadata roles for an Azure Purview account.
+Lists the metadata roles.
 
 ## Syntax
 ```
@@ -22,7 +22,7 @@ GET https://{accountName}.purview.azure.com/policystore/metadataroles
 ```
 
 ## Examples
-Get all roles.
+Get all metadata roles.
 ```powershell
 pv policystore readMetadataRoles
 ```

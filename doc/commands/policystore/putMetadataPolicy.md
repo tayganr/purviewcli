@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [policystore](./main.md) > putMetadataPolicy
 
 ## Description
-Updates a metadata policy
+Updates a metadata policy.
 
 ## Syntax
 ```
@@ -26,6 +26,7 @@ PUT https://{accountName}.purview.azure.com/policystore/metadataPolicies/{policy
 ```
 
 ## Examples
+Update an existing metadata policy.
 ```powershell
  pv policystore putMetadataPolicy --policyId "67c667b7-8f1c-468f-ab3b-f19fd943de95" --payload-file "/Path/to/file.json"
 ```

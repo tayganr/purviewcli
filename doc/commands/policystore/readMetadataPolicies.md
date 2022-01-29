@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [policystore](./main.md) > readMetadataPolicies
 
 ## Description
-List the metadata policies associated to collections.
+List all metadata policies.
 
 ## Syntax
 ```
