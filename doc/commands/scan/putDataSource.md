@@ -10,7 +10,11 @@ pv scan putDataSource --dataSourceName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--dataSourceName` (string)  
+The data source name.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +26,27 @@ PUT https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}
 ```
 
 ## Examples
+Create or update a data source.
 ```powershell
+pv scan putDataSource --dataSourceName "AzureSqlDatabase-ABC" --payloadFile "/Path/to/file.json"  
+```
 
+Example payload.
+```json
+{
+    "kind": "AzureSqlDatabase",
+    "name": "AzureSqlDatabase-ABC",
+    "properties": {
+        "collection": {
+            "referenceName": "fkcbkx",
+            "type": "CollectionReference"
+        },
+        "location": "westeurope",
+        "resourceGroup": "my-rg",
+        "resourceId": "/subscriptions/abc123-9876-12ab-12ab-c0d1d2e08ca0/resourceGroups/my-rg/providers/Microsoft.Sql/servers/my-sqlsvr",
+        "resourceName": "my-sqlsvr",
+        "serverEndpoint": "my-sqlsvr.database.windows.net",
+        "subscriptionId": "abc123-9876-12ab-12ab-c0d1d2e08ca0"
+    }
+}
 ```

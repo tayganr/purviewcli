@@ -10,7 +10,11 @@ pv scan putScanRuleset --scanRulesetName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--scanRulesetName` (string)  
+The ruleset name.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +26,30 @@ PUT https://{accountName}.purview.azure.com/scan/scanrulesets/{scanRulesetName}
 ```
 
 ## Examples
+Create a scan ruleset.
 ```powershell
+pv scan putScanRuleset --scanRulesetName "my_ruleset" --payloadFile "/Path/to/file.json"
+```
 
+Example payload.
+```json
+{
+    "kind": "AdlsGen2",
+    "name": "my_ruleset",
+    "properties": {
+        "excludedSystemClassifications": [
+            "MICROSOFT.GOVERNMENT.CYPRUS.TAX.IDENTIFICATION.NUMBER",
+            "MICROSOFT.GOVERNMENT.CHILE.CDI_NUMBER",
+            "MICROSOFT.GOVERNMENT.MALTA.DRIVERS.LICENSE.NUMBER"
+        ],
+        "includedCustomClassificationRuleNames": [],
+        "scanningRule": {
+            "customFileExtensions": null,
+            "fileExtensions": [
+                "PARQUET"
+            ]
+        }
+    },
+    "scanRulesetType": "Custom"
+}
 ```

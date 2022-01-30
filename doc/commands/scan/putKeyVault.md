@@ -10,7 +10,11 @@ pv scan putKeyVault --keyVaultName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--keyVaultName` (string)  
+The key vault connection name.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +26,18 @@ PUT https://{accountName}.purview.azure.com/scan/azureKeyVaults/{keyVaultName}
 ```
 
 ## Examples
+Create a key vault connection.
 ```powershell
+pv scan putKeyVault --keyVaultName "My Key Vault" --payloadFile "/Path/to/file.json"
+```
 
+Example payload.
+```json
+{
+    "name": "My Key Vault",
+    "properties": {
+        "baseUrl": "https://mykv-keyvault.vault.azure.net/",
+        "description": ""
+    }
+}
 ```

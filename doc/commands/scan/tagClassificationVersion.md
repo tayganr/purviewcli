@@ -22,6 +22,12 @@ POST https://{accountName}.purview.azure.com/scan/classificationrules/{classific
 ```
 
 ## Examples
+Set classification action to Keep on a specific classification rule version.
 ```powershell
+pv scan tagClassificationVersion --classificationRuleName "twitter_handle_rule" --classificationRuleVersion 1 --action "Keep"         
+```
 
+Set classification action to Delete on a specific classification rule version.
+```powershell
+pv scan tagClassificationVersion --classificationRuleName "twitter_handle_rule" --classificationRuleVersion 1 --action "Delete"         
 ```
