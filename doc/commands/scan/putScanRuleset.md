@@ -28,7 +28,7 @@ PUT https://{accountName}.purview.azure.com/scan/scanrulesets/{scanRulesetName}
 ## Examples
 Create a scan ruleset.
 ```powershell
-pv scan putScanRuleset --scanRulesetName "my_ruleset" --payloadFile "/Path/to/file.json"
+pv scan putScanRuleset --scanRulesetName "my_ruleset" --payloadFile "/path/to/file.json"
 ```
 
 Example payload.

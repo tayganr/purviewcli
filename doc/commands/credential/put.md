@@ -28,5 +28,5 @@ PUT https://{accountName}.purview.azure.com/proxy/credentials/{credentialName}
 ## Examples
 Create or update a credential.
 ```powershell
-pv credential put --credentialName "credential-SQL" --payloadFile "/Path/to/file.json"
+pv credential put --credentialName "credential-SQL" --payloadFile "/path/to/file.json"
 ```

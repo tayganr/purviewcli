@@ -28,7 +28,7 @@ PUT https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}
 ## Examples
 Create or update a data source.
 ```powershell
-pv scan putDataSource --dataSourceName "AzureSqlDatabase-ABC" --payloadFile "/Path/to/file.json"  
+pv scan putDataSource --dataSourceName "AzureSqlDatabase-ABC" --payloadFile "/path/to/file.json"  
 ```
 
 Example payload.

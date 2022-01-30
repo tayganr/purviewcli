@@ -28,7 +28,7 @@ PUT https://{accountName}.purview.azure.com/scan/azureKeyVaults/{keyVaultName}
 ## Examples
 Create a key vault connection.
 ```powershell
-pv scan putKeyVault --keyVaultName "My Key Vault" --payloadFile "/Path/to/file.json"
+pv scan putKeyVault --keyVaultName "My Key Vault" --payloadFile "/path/to/file.json"
 ```
 
 Example payload.

@@ -31,7 +31,7 @@ PUT https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/sc
 ## Examples
 Create a trigger and associate it to a scan.
 ```powershell
-pv scan putTrigger --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-Qrh" --payloadFile "/Path/to/file.json"
+pv scan putTrigger --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-Qrh" --payloadFile "/path/to/file.json"
 ```
 
 Example payload.

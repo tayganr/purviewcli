@@ -25,5 +25,5 @@ PUT https://{accountName}.purview.azure.com/account/resourceSetRuleConfigs/defau
 ## Examples
 Create or update a resource set.
 ```powershell
-pv account putResourceSetRule --payloadFile "/Path/to/file.json"
+pv account putResourceSetRule --payloadFile "/path/to/file.json"
 ```

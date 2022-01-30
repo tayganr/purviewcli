@@ -31,7 +31,7 @@ PUT https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/sc
 ## Examples
 Create a scan.
 ```powershell
-pv scan putScan --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-ABC" --payloadFile "/Path/to/file.json"
+pv scan putScan --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-ABC" --payloadFile "/path/to/file.json"
 ```
 
 Example payload.
