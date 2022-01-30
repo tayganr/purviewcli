@@ -30,17 +30,17 @@ pv command sub-command --parameter1='value' --parameter2='value'
 
 ## Command Reference
 
-Apache Atlas
+Control Plane (Azure Resource Manager)
+* [pv management](./doc/commands/management/main.md)
+
+Data Plane (Apache Atlas)
 * [pv entity](./doc/commands/entity/main.md)
 * [pv glossary](./doc/commands/glossary/main.md)
 * [pv lineage](./doc/commands/lineage/main.md)
 * [pv relationship](./doc/commands/relationship/main.md)
 * [pv types](./doc/commands/types/main.md)
 
-Control Plane (Azure Resource Manager)
-* [pv management](./doc/commands/management/main.md)
-
-Data Plane (non-Atlas)
+Data Plane (Other)
 * [pv account](./doc/commands/account/main.md)
 * [pv credential](./doc/commands/credential/main.md)
 * [pv insight](./doc/commands/insight/main.md)
