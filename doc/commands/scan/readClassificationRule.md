@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/classificationrules/{classifica
 ```
 
 ## Examples
+Get a classification rule by name.
 ```powershell
-
+pv scan readClassificationRule --classificationRuleName "twitter_handle"
 ```

@@ -22,6 +22,7 @@ DELETE https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}
 ```
 
 ## Examples
+Delete a scan trigger by data source name and scan name.
 ```powershell
-
+pv scan deleteTrigger --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-xTh"
 ```

@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/sc
 ```
 
 ## Examples
+Get trigger information for a scan by data source name and scan name.
 ```powershell
-
+pv scan readTrigger --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-p1E"
 ```

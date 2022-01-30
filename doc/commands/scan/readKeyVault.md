@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/azureKeyVaults/{keyVaultName}
 ```
 
 ## Examples
+Get Azure Key Vault connection information by name.
 ```powershell
-
+pv scan readKeyVault --keyVaultName "MyKeyVault"
 ```

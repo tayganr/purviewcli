@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/scanrulesets
 ```
 
 ## Examples
+List all custom scan rulesets.
 ```powershell
-
+pv scan readScanRulesets
 ```

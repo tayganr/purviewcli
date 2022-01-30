@@ -6,7 +6,7 @@ Get a scan ruleset by version
 
 ## Syntax
 ```
-pv scan readSystemScanRulesetVersions --dataSourceType=<val>
+pv scan readSystemScanRulesetVersion --version=<val> --dataSourceType=<val>
 ```
 
 ## Required Arguments
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/systemScanRulesets/versions/{ve
 ```
 
 ## Examples
+Get a system scan ruleset by version and data source type.
 ```powershell
-
+pv scan readSystemScanRulesetVersion --version 2 --dataSourceType "AzureCosmosDb"
 ```

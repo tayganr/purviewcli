@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [scan](./main.md) > readSystemScanRuleset
 
 ## Description
-Get a system scan ruleset for a data source
+Get a system scan ruleset for a data source.
 
 ## Syntax
 ```
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/systemScanRulesets/datasources/
 ```
 
 ## Examples
+Get a system scan ruleset by data source type.
 ```powershell
-
+pv scan readSystemScanRuleset --dataSourceType "AzureCosmosDb"
 ```

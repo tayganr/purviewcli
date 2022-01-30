@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/sc
 ```
 
 ## Examples
+Get scan filters (scope) by data source name and scan name.
 ```powershell
-
+pv scan readFilters --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-p1E"
 ```

@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [scan](./main.md) > readKeyVaults
 
 ## Description
-List key vault connections in account
+List Azure Key Vault connections.
 
 ## Syntax
 ```
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/azureKeyVaults
 ```
 
 ## Examples
+List Azure Key Vault connections.
 ```powershell
-
+pv scan readKeyVaults
 ```

@@ -22,6 +22,7 @@ DELETE https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}
 ```
 
 ## Examples
+Delete a scan by data source name and scan name.
 ```powershell
-
+pv scan deleteScan --dataSourceName "AzureSqlDatabase-9ZX" --scanName "Scan-ttF"
 ```

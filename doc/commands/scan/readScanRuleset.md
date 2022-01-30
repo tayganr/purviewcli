@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/scanrulesets/{scanRulesetName}
 ```
 
 ## Examples
+Get a custom scan ruleset.
 ```powershell
-
+pv scan readScanRuleset --scanRulesetName "twitter_scan_rule_set"
 ```

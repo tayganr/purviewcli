@@ -22,6 +22,7 @@ DELETE https://{accountName}.purview.azure.com/scan/classificationrules/{classif
 ```
 
 ## Examples
+Delete a classification rule by name.
 ```powershell
-
+pv scan deleteClassificationRule --classificationRuleName "twitter_handle"
 ```

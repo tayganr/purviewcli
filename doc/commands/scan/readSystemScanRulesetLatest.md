@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/systemScanRulesets/versions/lat
 ```
 
 ## Examples
+Get the latest version of a system scan ruleset by data source type.
 ```powershell
-
+pv scan readSystemScanRulesetLatest --dataSourceType "AzureCosmosDb"
 ```

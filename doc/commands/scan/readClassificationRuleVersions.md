@@ -6,7 +6,7 @@ Lists the rule versions of a classification rule
 
 ## Syntax
 ```
-pv scan readClassificationRules
+pv scan readClassificationRuleVersions --classificationRuleName=<val>
 ```
 
 ## Required Arguments
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/classificationrules/{classifica
 ```
 
 ## Examples
+Get classification rule versions by name.
 ```powershell
-
+pv scan readClassificationRuleVersions --classificationRuleName "twitter_handle"
 ```

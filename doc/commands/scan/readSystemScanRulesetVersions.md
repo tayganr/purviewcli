@@ -6,7 +6,7 @@ List system scan ruleset versions in Data catalog
 
 ## Syntax
 ```
-pv scan readSystemScanRulesets
+pv scan readSystemScanRulesetVersions --dataSourceType=<val>
 ```
 
 ## Required Arguments
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/systemScanRulesets/versions
 ```
 
 ## Examples
+List system scan ruleset versions by data source type.
 ```powershell
-
+pv scan readSystemScanRulesetVersions --dataSourceType "AzureCosmosDb"
 ```

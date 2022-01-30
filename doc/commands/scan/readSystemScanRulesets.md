@@ -2,11 +2,11 @@
 [Command Reference](../../../README.md#command-reference) > [scan](./main.md) > readSystemScanRulesets
 
 ## Description
-List all system scan rulesets for an account
+List all system scan rulesets for an account.
 
 ## Syntax
 ```
-pv scan readSystemScanRulesetVersion --version=<val> --dataSourceType=<val>
+pv scan readSystemScanRulesets
 ```
 
 ## Required Arguments
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/systemScanRulesets
 ```
 
 ## Examples
+List all system scan rulesets.
 ```powershell
-
+pv scan readSystemScanRulesets
 ```

@@ -22,6 +22,7 @@ POST https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/s
 ```
 
 ## Examples
+Cancel a scan run by data source name, scan name, and run id.
 ```powershell
-
+pv scan cancelScan --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-p1E" --runId "4b6ee19a-33f8-4b97-92bf-71cce074ba30"
 ```

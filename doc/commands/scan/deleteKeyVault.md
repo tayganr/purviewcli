@@ -22,6 +22,7 @@ DELETE https://{accountName}.purview.azure.com/scan/azureKeyVaults/{keyVaultName
 ```
 
 ## Examples
+Delete a key vault connection by name.
 ```powershell
-
+pv scan deleteKeyVault --keyVaultName "MyKeyVault"
 ```

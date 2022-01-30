@@ -22,6 +22,7 @@ DELETE https://{accountName}.purview.azure.com/scan/scanrulesets/{scanRulesetNam
 ```
 
 ## Examples
+Delete a custom scan ruleset by name.
 ```powershell
-
+pv scan deleteScanRuleset --scanRulesetName "twitter_scan_rule_set"
 ```
