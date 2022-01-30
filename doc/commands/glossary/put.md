@@ -6,7 +6,7 @@ Update the given glossary.
 
 ## Syntax
 ```
-pv glossary put --glossaryGuid=<val> --payload-file=<val>
+pv glossary put --glossaryGuid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

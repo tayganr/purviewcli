@@ -1,15 +1,15 @@
 """
 usage: 
-    pv relationship create --payload-file=<val>
+    pv relationship create --payloadFile=<val>
     pv relationship delete --guid=<val>
-    pv relationship put --payload-file=<val>
+    pv relationship put --payloadFile=<val>
     pv relationship read --guid=<val> [--extendedInfo]
 
 options:
     --purviewName=<val>           [string]  Azure Purview account name.
     --extendedInfo                [boolean] Limits whether includes extended information [default: false].
     --guid=<val>                  [string]  The globally unique identifier of the relationship.
-    --payload-file=<val>          [string]  File path to a valid JSON document.
+    --payloadFile=<val>          [string]  File path to a valid JSON document.
 
 mapping:
 https://{account_name}.catalog.purview.azure.com

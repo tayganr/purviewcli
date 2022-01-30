@@ -109,4 +109,4 @@ class Account(Endpoint):
         self.method = 'PUT'
         self.endpoint = f"/resourceSetRuleConfigs/defaultResourceSetRuleConfig"
         self.params = {"api-version": "2019-11-01-preview"}
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')

@@ -6,7 +6,7 @@ Create glossary category in bulk.
 
 ## Syntax
 ```
-pv glossary createCategories --payload-file=<val>
+pv glossary createCategories --payloadFile=<val>
 ```
 
 ## Required Arguments

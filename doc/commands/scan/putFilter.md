@@ -6,7 +6,7 @@ Creates or updates a filter
 
 ## Syntax
 ```
-pv scan putFilter --dataSourceName=<val> --scanName=<val> --payload-file=<val>
+pv scan putFilter --dataSourceName=<val> --scanName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

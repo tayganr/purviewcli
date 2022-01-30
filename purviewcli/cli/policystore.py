@@ -3,13 +3,13 @@ usage:
     pv policystore readMetadataRoles
     pv policystore readMetadataPolicy (--collectionName=<val> | --policyId=<val>)
     pv policystore readMetadataPolicies
-    pv policystore putMetadataPolicy --policyId=<val> --payload-file=<val>
+    pv policystore putMetadataPolicy --policyId=<val> --payloadFile=<val>
 
 options:
     --purviewName=<val>           [string]  Azure Purview account name.
     --collectionName=<val>        [string]  The technical name of the Collection (e.g. friendlyName: Sales; name: afwbxs).
     --policyId=<val>              [string]  The unique policy id.
-    --payload-file=<val>          [string]  File path to a valid JSON document.
+    --payloadFile=<val>          [string]  File path to a valid JSON document.
 
 mapping:
 https://{account_name}.purview.azure.com

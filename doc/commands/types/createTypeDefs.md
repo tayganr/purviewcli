@@ -6,7 +6,7 @@ Create all atlas type definitions in bulk, only new definitions will be created.
 
 ## Syntax
 ```
-pv types createTypeDefs --payload-file=<val>
+pv types createTypeDefs --payloadFile=<val>
 ```
 
 ## Required Arguments

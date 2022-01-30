@@ -6,7 +6,7 @@ Add classifications to an existing entity represented by a GUID.
 
 ## Syntax
 ```
-pv entity createClassifications --guid=<val> --payload-file=<val>
+pv entity createClassifications --guid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

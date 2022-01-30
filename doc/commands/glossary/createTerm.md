@@ -6,7 +6,7 @@ Create a glossary term.
 
 ## Syntax
 ```
-pv glossary createTerm --payload-file=<val>
+pv glossary createTerm --payloadFile=<val>
 ```
 
 ## Required Arguments

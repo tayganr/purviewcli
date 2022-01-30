@@ -1,7 +1,7 @@
 """
 usage: 
     pv credential delete --credentialName=<val>
-    pv credential put --credentialName=<val> --payload-file=<val>
+    pv credential put --credentialName=<val> --payloadFile=<val>
     pv credential read [--credentialName=<val>]
 
 options:

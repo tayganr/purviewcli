@@ -28,4 +28,4 @@ class Policystore(Endpoint):
         self.method = 'PUT'
         self.endpoint = f'/policystore/metadataPolicies/{args["--policyId"]}'
         self.params = {"api-version": "2021-07-01"}
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')

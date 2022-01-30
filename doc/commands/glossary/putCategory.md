@@ -6,7 +6,7 @@ Update the given glossary category by its GUID.
 
 ## Syntax
 ```
-pv glossary putCategory --categoryGuid=<val> --payload-file=<val>
+pv glossary putCategory --categoryGuid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

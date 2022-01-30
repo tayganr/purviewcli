@@ -6,7 +6,7 @@ Creates an instance of a key vault connection
 
 ## Syntax
 ```
-pv scan putKeyVault --keyVaultName=<val> --payload-file=<val>
+pv scan putKeyVault --keyVaultName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

@@ -6,7 +6,7 @@ Update classifications to an existing entity represented by a guid.
 
 ## Syntax
 ```
-pv entity putClassifications --guid=<val> --payload-file=<val>
+pv entity putClassifications --guid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

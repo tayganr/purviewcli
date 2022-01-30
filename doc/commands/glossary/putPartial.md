@@ -6,7 +6,7 @@ Update the glossary partially. Some properties such as qualifiedName are not all
 
 ## Syntax
 ```
-pv glossary putPartial --glossaryGuid=<val> --payload-file=<val>
+pv glossary putPartial --glossaryGuid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

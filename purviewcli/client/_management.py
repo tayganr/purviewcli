@@ -39,7 +39,7 @@ class Management(Endpoint):
         self.method = 'PUT'
         self.endpoint = f'/subscriptions/{args["--subscriptionId"]}/resourceGroups/{args["--resourceGroupName"]}/providers/Microsoft.Purview/accounts/{args["--accountName"]}'
         self.params = {'api-version': '2020-12-01-preview'}
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
     
     @decorator
     def managementDeleteAccount(self, args):
@@ -58,7 +58,7 @@ class Management(Endpoint):
         self.method = 'PATCH'
         self.endpoint = f'/subscriptions/{args["--subscriptionId"]}/resourceGroups/{args["--resourceGroupName"]}/providers/Microsoft.Purview/accounts/{args["--accountName"]}'
         self.params = {'api-version': '2020-12-01-preview'}
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def managementDefaultAccount(self, args):
@@ -100,7 +100,7 @@ class Management(Endpoint):
         self.method = 'PUT'
         self.endpoint = f'/subscriptions/{args["--subscriptionId"]}/resourceGroups/{args["--resourceGroupName"]}/providers/Microsoft.Purview/accounts/{args["--accountName"]}/privateEndpointConnections/{args["--privateEndpointConnectionName"]}'
         self.params = {'api-version': '2020-12-01-preview'}
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
     
     @decorator
     def managementDeletePrivateEndpoint(self, args):

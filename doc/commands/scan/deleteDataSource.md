@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [scan](./main.md) > deleteDataSource
 
 ## Description
-Deletes a data source
+Deletes a data source.
 
 ## Syntax
 ```
@@ -22,6 +22,7 @@ DELETE https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}
 ```
 
 ## Examples
+Delete a data source.
 ```powershell
-
+pv scan deleteDataSource --dataSourceName "AzureSynapseAnalytics-Wke"
 ```

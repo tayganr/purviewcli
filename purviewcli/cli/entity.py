@@ -1,20 +1,20 @@
 """
 usage: 
-    pv entity create --payload-file=<val>
-    pv entity createBulk --payload-file=<val>
-    pv entity createBulkClassification --payload-file=<val>
-    pv entity createBulkSetClassifications --payload-file=<val>
-    pv entity createClassifications --guid=<val> --payload-file=<val>
-    pv entity createUniqueAttributeClassifications --typeName=<val> --payload-file=<val>
+    pv entity create --payloadFile=<val>
+    pv entity createBulk --payloadFile=<val>
+    pv entity createBulkClassification --payloadFile=<val>
+    pv entity createBulkSetClassifications --payloadFile=<val>
+    pv entity createClassifications --guid=<val> --payloadFile=<val>
+    pv entity createUniqueAttributeClassifications --typeName=<val> --payloadFile=<val>
     pv entity delete --guid=<val>
     pv entity deleteBulk --guid=<val>...
     pv entity deleteClassification --guid=<val> --classificationName=<val>
     pv entity deleteUniqueAttribute --typeName=<val>
     pv entity deleteUniqueAttributeClassification --typeName=<val> --classificationName=<val>
     pv entity put --guid=<val> --attrName=<val> --attrValue=<val>
-    pv entity putClassifications --guid=<val> --payload-file=<val>
-    pv entity putUniqueAttribute --typeName=<val> --payload-file=<val>
-    pv entity putUniqueAttributeClassifications --typeName=<val> --payload-file=<val>
+    pv entity putClassifications --guid=<val> --payloadFile=<val>
+    pv entity putUniqueAttribute --typeName=<val> --payloadFile=<val>
+    pv entity putUniqueAttributeClassifications --typeName=<val> --payloadFile=<val>
     pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
     pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]
     pv entity readBulkUniqueAttribute --typeName=<val> [--ignoreRelationships --minExtInfo]
@@ -30,7 +30,7 @@ options:
     --ignoreRelationships               [boolean] Whether to ignore relationship attributes [default: false].
     --minExtInfo                        [boolean] Whether to return minimal information for referred entities [default: false].
     --name=<val>                        [string]  The name of the attribute.
-    --payload-file=<val>                [string]  File path to a valid JSON document.
+    --payloadFile=<val>                [string]  File path to a valid JSON document.
     --qualifiedName=<val>               [string]  The qualified name of the entity.
     --typeName=<val>                    [string]  The name of the type.
 

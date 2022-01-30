@@ -15,19 +15,19 @@ class Glossary(Endpoint):
     def glossaryCreate(self, args):
         self.method = 'POST'
         self.endpoint = '/api/atlas/v2/glossary'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryCreateCategories(self, args):
         self.method = 'POST'
         self.endpoint = '/api/atlas/v2/glossary/categories'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryCreateCategory(self, args):
         self.method = 'POST'
         self.endpoint = '/api/atlas/v2/glossary/category'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryDeleteCategory(self, args):
@@ -44,13 +44,13 @@ class Glossary(Endpoint):
     def glossaryPutCategory(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/glossary/category/{args["--categoryGuid"]}'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryPutCategoryPartial(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/glossary/category/{args["--categoryGuid"]}/partial'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryReadCategoryRelated(self, args):
@@ -67,7 +67,7 @@ class Glossary(Endpoint):
     def glossaryCreateTerm(self, args):
         self.method = 'POST'
         self.endpoint = '/api/atlas/v2/glossary/term'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryDeleteTerm(self, args):
@@ -83,25 +83,25 @@ class Glossary(Endpoint):
     def glossaryPutTerm(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/glossary/term/{args["--termGuid"][0]}'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryPutTermPartial(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/glossary/term/{args["--termGuid"][0]}/partial'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryCreateTerms(self, args):
         self.method = 'POST'
         self.endpoint = '/api/atlas/v2/glossary/terms'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryDeleteTermsAssignedEntities(self, args):
         self.method = 'DELETE'
         self.endpoint = f'/api/atlas/v2/glossary/terms/{args["--termGuid"][0]}/assignedEntities'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryReadTermsAssignedEntities(self, args):
@@ -113,13 +113,13 @@ class Glossary(Endpoint):
     def glossaryCreateTermsAssignedEntities(self, args):
         self.method = 'POST'
         self.endpoint = f'/api/atlas/v2/glossary/terms/{args["--termGuid"][0]}/assignedEntities'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryPutTermsAssignedEntities(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/glossary/terms/{args["--termGuid"][0]}/assignedEntities'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryReadTermsRelated(self, args):
@@ -136,7 +136,7 @@ class Glossary(Endpoint):
     def glossaryPut(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryReadCategories(self, args):
@@ -159,7 +159,7 @@ class Glossary(Endpoint):
     def glossaryPutPartial(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/partial'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def glossaryReadTerms(self, args):
@@ -197,7 +197,7 @@ class Glossary(Endpoint):
     # def glossaryCreateTemplate(self, args):
     #     self.method = 'POST'
     #     self.endpoint = '/api/atlas/v2/glossary/import'
-    #     self.payload = get_json(args, '--payload-file')
+    #     self.payload = get_json(args, '--payloadFile')
 
     # NOT SUPPORTED IN AZURE PURVIEW
     # @decorator

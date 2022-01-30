@@ -6,7 +6,7 @@ Approves/Rejects private endpoint connection request.
 
 ## Syntax
 ```
-pv management putPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val> --payload-file=<val>
+pv management putPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

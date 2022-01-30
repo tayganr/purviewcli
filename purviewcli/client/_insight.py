@@ -11,7 +11,7 @@ class Insight(Endpoint):
         self.app = 'guardian'
         self.method = 'POST'
         self.endpoint = '/graphql'
-        self.payload = get_json(args,'--payload-file')
+        self.payload = get_json(args,'--payloadFile')
 
     @decorator
     def insightFileExtensions(self, args):

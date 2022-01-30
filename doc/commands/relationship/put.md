@@ -6,7 +6,7 @@ Update an existing relationship between entities.
 
 ## Syntax
 ```
-pv relationship put --payload-file=<val>
+pv relationship put --payloadFile=<val>
 ```
 
 ## Required Arguments

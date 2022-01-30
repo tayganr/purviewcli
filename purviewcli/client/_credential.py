@@ -15,7 +15,7 @@ class Credential(Endpoint):
     def credentialPut(self, args):
         self.method = 'PUT'
         self.endpoint = f'/credentials/{args["--credentialName"]}'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
         self.params = {"api-version": "2020-12-01-preview"}
 
     @decorator

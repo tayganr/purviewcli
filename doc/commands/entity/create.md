@@ -6,7 +6,7 @@ Create or update an entity in Atlas. Existing entity is matched using its unique
 
 ## Syntax
 ```
-pv entity create --payload-file=<val>
+pv entity create --payloadFile=<val>
 ```
 
 ## Required Arguments

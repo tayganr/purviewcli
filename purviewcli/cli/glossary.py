@@ -1,24 +1,24 @@
 """
 usage: 
-    pv glossary create --payload-file=<val>
-    pv glossary createCategories --payload-file=<val>
-    pv glossary createCategory --payload-file=<val>
-    pv glossary createTerm --payload-file=<val>
-    pv glossary createTerms --payload-file=<val>
-    pv glossary createTermsAssignedEntities --termGuid=<val> --payload-file=<val>
+    pv glossary create --payloadFile=<val>
+    pv glossary createCategories --payloadFile=<val>
+    pv glossary createCategory --payloadFile=<val>
+    pv glossary createTerm --payloadFile=<val>
+    pv glossary createTerms --payloadFile=<val>
+    pv glossary createTermsAssignedEntities --termGuid=<val> --payloadFile=<val>
     pv glossary createTermsExport --glossaryGuid=<val> --termGuid=<val>...
     pv glossary createTermsImport (--glossaryGuid=<val> | --glossaryName=<val>)
     pv glossary delete --glossaryGuid=<val>
     pv glossary deleteCategory --categoryGuid=<val>
     pv glossary deleteTerm --termGuid=<val>
-    pv glossary deleteTermsAssignedEntities --termGuid=<val> --payload-file=<val>
-    pv glossary put --glossaryGuid=<val> --payload-file=<val>
-    pv glossary putCategory --categoryGuid=<val> --payload-file=<val>
-    pv glossary putCategoryPartial --categoryGuid=<val> --payload-file=<val>
-    pv glossary putPartial --glossaryGuid=<val> --payload-file=<val>
-    pv glossary putTerm --termGuid=<val> --payload-file=<val>
-    pv glossary putTermPartial --termGuid=<val> --payload-file=<val>
-    pv glossary putTermsAssignedEntities --termGuid=<val> --payload-file=<val>
+    pv glossary deleteTermsAssignedEntities --termGuid=<val> --payloadFile=<val>
+    pv glossary put --glossaryGuid=<val> --payloadFile=<val>
+    pv glossary putCategory --categoryGuid=<val> --payloadFile=<val>
+    pv glossary putCategoryPartial --categoryGuid=<val> --payloadFile=<val>
+    pv glossary putPartial --glossaryGuid=<val> --payloadFile=<val>
+    pv glossary putTerm --termGuid=<val> --payloadFile=<val>
+    pv glossary putTermPartial --termGuid=<val> --payloadFile=<val>
+    pv glossary putTermsAssignedEntities --termGuid=<val> --payloadFile=<val>
     pv glossary read [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val>]
     pv glossary readCategories --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readCategoriesHeaders --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
@@ -43,7 +43,7 @@ options:
     --limit=<val>           [integer] The page size - by default there is no paging [default: 1000].
     --offset=<val>          [integer] Offset for pagination purpose [default: 0].
     --operationGuid=<val>   [string]  The globally unique identifier for async operation/job.
-    --payload-file=<val>    [string]  File path to a valid JSON document.
+    --payloadFile=<val>    [string]  File path to a valid JSON document.
     --sort=<val>            [string]  ASC or DESC [default: ASC].
     --termGuid=<val>        [string]  The globally unique identifier for glossary term.
 

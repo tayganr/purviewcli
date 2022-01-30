@@ -6,7 +6,7 @@ Update entity partially - Allow a subset of attributes to be updated on an entit
 
 ## Syntax
 ```
-pv entity putUniqueAttribute --typeName=<val> --payload-file=<val>
+pv entity putUniqueAttribute --typeName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

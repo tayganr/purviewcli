@@ -6,14 +6,14 @@ Create or update a credential.
 
 ## Syntax
 ```
-pv credential put --credentialName=<val> --payload-file=<val>
+pv credential put --credentialName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
 `--credentialName` (string)  
 The name of the credential.
 
-`--payload-file` (string)  
+`--payloadFile` (string)  
 File path to a valid JSON document.
 
 ## Optional Arguments
@@ -28,5 +28,5 @@ PUT https://{accountName}.purview.azure.com/proxy/credentials/{credentialName}
 ## Examples
 Create or update a credential.
 ```powershell
-pv credential put --credentialName "credential-SQL" --payload-file "/Path/to/file.json"
+pv credential put --credentialName "credential-SQL" --payloadFile "/Path/to/file.json"
 ```

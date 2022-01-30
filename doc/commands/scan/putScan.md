@@ -6,7 +6,7 @@ Creates an instance of a scan
 
 ## Syntax
 ```
-pv scan putScan --dataSourceName=<val> --scanName=<val> --payload-file=<val>
+pv scan putScan --dataSourceName=<val> --scanName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

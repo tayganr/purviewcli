@@ -6,7 +6,7 @@ Creates or Updates a scan ruleset
 
 ## Syntax
 ```
-pv scan putScanRuleset --scanRulesetName=<val> --payload-file=<val>
+pv scan putScanRuleset --scanRulesetName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

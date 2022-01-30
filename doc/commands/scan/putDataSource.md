@@ -6,7 +6,7 @@ Creates or Updates a data source
 
 ## Syntax
 ```
-pv scan putDataSource --dataSourceName=<val> --payload-file=<val>
+pv scan putDataSource --dataSourceName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

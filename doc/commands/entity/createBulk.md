@@ -6,7 +6,7 @@ Create or update entities in Atlas in bulk. Existing entity is matched using its
 
 ## Syntax
 ```
-pv entity createBulk --payload-file=<val>
+pv entity createBulk --payloadFile=<val>
 ```
 
 ## Required Arguments

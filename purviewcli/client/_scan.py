@@ -22,12 +22,12 @@ class Scan(Endpoint):
         self.endpoint = f'/classificationrules/{args["--classificationRuleName"]}/versions'
 
     @decorator
-    def scanReadDatasource(self, args):
+    def scanReadDataSource(self, args):
         self.method = 'GET'
         self.endpoint = f'/datasources/{args["--dataSourceName"]}'
 
     @decorator
-    def scanReadDatasources(self, args):
+    def scanReadDataSources(self, args):
         self.method = 'GET'
         self.endpoint = '/datasources'
 
@@ -135,25 +135,25 @@ class Scan(Endpoint):
     def scanPutClassificationRule(self, args):
         self.method = 'PUT'
         self.endpoint = f'/classificationrules/{args["--classificationRuleName"]}'
-        self.payload = get_json(args,'--payload-file')
+        self.payload = get_json(args,'--payloadFile')
 
     @decorator
     def scanPutDataSource(self, args):
         self.method = 'PUT'
         self.endpoint = f'/datasources/{args["--dataSourceName"]}'
-        self.payload = get_json(args,'--payload-file')
+        self.payload = get_json(args,'--payloadFile')
 
     @decorator
     def scanPutFilter(self, args):
         self.method = 'PUT'
         self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/filters/custom'
-        self.payload = get_json(args,'--payload-file')
+        self.payload = get_json(args,'--payloadFile')
 
     @decorator
     def scanPutKeyVault(self, args):
         self.method = 'PUT'
         self.endpoint = f'/azureKeyVaults/{args["--keyVaultName"]}'
-        self.payload = get_json(args,'--payload-file')
+        self.payload = get_json(args,'--payloadFile')
 
     @decorator
     def scanRunScan(self, args):
@@ -172,19 +172,19 @@ class Scan(Endpoint):
     def scanPutScanRuleset(self, args):
         self.method = 'PUT'
         self.endpoint = f'/scanrulesets/{args["--scanRulesetName"]}'
-        self.payload = get_json(args,'--payload-file')
+        self.payload = get_json(args,'--payloadFile')
 
     @decorator
     def scanPutScan(self, args):
         self.method = 'PUT'
         self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}'
-        self.payload = get_json(args,'--payload-file')
+        self.payload = get_json(args,'--payloadFile')
 
     @decorator
     def scanPutTrigger(self, args):
         self.method = 'PUT'
         self.endpoint = f'/datasources/{args["--dataSourceName"]}/scans/{args["--scanName"]}/triggers/default'
-        self.payload = get_json(args,'--payload-file')
+        self.payload = get_json(args,'--payloadFile')
 
     @decorator
     def scanTagClassificationVersion(self, args):

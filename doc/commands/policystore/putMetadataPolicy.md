@@ -6,14 +6,14 @@ Updates a metadata policy.
 
 ## Syntax
 ```
-pv policystore putMetadataPolicy --policyId=<val> --payload-file=<val>
+pv policystore putMetadataPolicy --policyId=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
 `--policyId` (string)  
 The unique policy id.
 
-`--payload-file` (string)  
+`--payloadFile` (string)  
 File path to a valid JSON document.
 
 ## Optional Arguments
@@ -28,5 +28,5 @@ PUT https://{accountName}.purview.azure.com/policystore/metadataPolicies/{policy
 ## Examples
 Update an existing metadata policy.
 ```powershell
- pv policystore putMetadataPolicy --policyId "67c667b7-8f1c-468f-ab3b-f19fd943de95" --payload-file "/Path/to/file.json"
+ pv policystore putMetadataPolicy --policyId "67c667b7-8f1c-468f-ab3b-f19fd943de95" --payloadFile "/Path/to/file.json"
 ```

@@ -1,12 +1,12 @@
-# pv scan readDatasources
-[Command Reference](../../../README.md#command-reference) > [scan](./main.md) > readDatasources
+# pv scan readDataSources
+[Command Reference](../../../README.md#command-reference) > [scan](./main.md) > readDataSources
 
 ## Description
-List data sources in Data catalog
+List data sources in Data catalog.
 
 ## Syntax
 ```
-pv scan readDatasources
+pv scan readDataSources
 ```
 
 ## Required Arguments
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/datasources
 ```
 
 ## Examples
+List all data sources.
 ```powershell
-
+pv scan readDataSources
 ```

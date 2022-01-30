@@ -6,7 +6,7 @@ Delete the term assignment for the given list of related objects.
 
 ## Syntax
 ```
-pv glossary putTermsAssignedEntities --termGuid=<val> --payload-file=<val>
+pv glossary putTermsAssignedEntities --termGuid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

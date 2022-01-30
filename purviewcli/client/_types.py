@@ -77,19 +77,19 @@ class Types(Endpoint):
     def typesDeleteTypeDefs(self, args):
         self.method = 'DELETE'
         self.endpoint = '/api/atlas/v2/types/typedefs'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def typesCreateTypeDefs(self, args):
         self.method = 'POST'
         self.endpoint = '/api/atlas/v2/types/typedefs'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def typesPutTypeDefs(self, args):
         self.method = 'PUT'
         self.endpoint = '/api/atlas/v2/types/typedefs'
-        self.payload = get_json(args, '--payload-file')
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def typesReadStatistics(self, args):

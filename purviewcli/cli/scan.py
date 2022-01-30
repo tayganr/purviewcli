@@ -7,18 +7,18 @@ usage:
     pv scan deleteScan --dataSourceName=<val> --scanName=<val>
     pv scan deleteScanRuleset --scanRulesetName=<val>
     pv scan deleteTrigger --dataSourceName=<val> --scanName=<val>
-    pv scan putClassificationRule --classificationRuleName=<val> --payload-file=<val>
-    pv scan putDataSource --dataSourceName=<val> --payload-file=<val>
-    pv scan putFilter --dataSourceName=<val> --scanName=<val> --payload-file=<val>
-    pv scan putKeyVault --keyVaultName=<val> --payload-file=<val>
-    pv scan putScan --dataSourceName=<val> --scanName=<val> --payload-file=<val>
-    pv scan putScanRuleset --scanRulesetName=<val> --payload-file=<val>
-    pv scan putTrigger --dataSourceName=<val> --scanName=<val> --payload-file=<val>
+    pv scan putClassificationRule --classificationRuleName=<val> --payloadFile=<val>
+    pv scan putDataSource --dataSourceName=<val> --payloadFile=<val>
+    pv scan putFilter --dataSourceName=<val> --scanName=<val> --payloadFile=<val>
+    pv scan putKeyVault --keyVaultName=<val> --payloadFile=<val>
+    pv scan putScan --dataSourceName=<val> --scanName=<val> --payloadFile=<val>
+    pv scan putScanRuleset --scanRulesetName=<val> --payloadFile=<val>
+    pv scan putTrigger --dataSourceName=<val> --scanName=<val> --payloadFile=<val>
     pv scan readClassificationRule --classificationRuleName=<val>
     pv scan readClassificationRuleVersions --classificationRuleName=<val>
     pv scan readClassificationRules
-    pv scan readDatasource --dataSourceName=<val>
-    pv scan readDatasources
+    pv scan readDataSource --dataSourceName=<val>
+    pv scan readDataSources
     pv scan readFilters --dataSourceName=<val> --scanName=<val>
     pv scan readKeyVault --keyVaultName=<val>
     pv scan readKeyVaults

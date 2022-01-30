@@ -6,7 +6,7 @@ Patches the account resource.
 
 ## Syntax
 ```
-pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
+pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

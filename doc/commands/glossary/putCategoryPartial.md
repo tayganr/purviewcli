@@ -6,7 +6,7 @@ Update the glossary category partially.
 
 ## Syntax
 ```
-pv glossary putCategoryPartial --categoryGuid=<val> --payload-file=<val>
+pv glossary putCategoryPartial --categoryGuid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

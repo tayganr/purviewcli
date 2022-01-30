@@ -6,7 +6,7 @@ Create glossary terms in bulk.
 
 ## Syntax
 ```
-pv glossary createTerms --payload-file=<val>
+pv glossary createTerms --payloadFile=<val>
 ```
 
 ## Required Arguments

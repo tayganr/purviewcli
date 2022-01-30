@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [scan](./main.md) > readScans
 
 ## Description
-List scans in data source
+List scans in data source.
 
 ## Syntax
 ```
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/sc
 ```
 
 ## Examples
+List scans in a data source.
 ```powershell
-
+pv scan readScans --dataSourceName "AzureSqlDatabase-9ZX"
 ```

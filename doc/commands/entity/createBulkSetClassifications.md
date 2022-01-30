@@ -6,7 +6,7 @@ Set classifications on entities in bulk.
 
 ## Syntax
 ```
-pv entity createBulkSetClassifications --payload-file=<val>
+pv entity createBulkSetClassifications --payloadFile=<val>
 ```
 
 ## Required Arguments

@@ -1,12 +1,12 @@
-# pv scan readDatasource
-[Command Reference](../../../README.md#command-reference) > [scan](./main.md) > readDatasource
+# pv scan readDataSource
+[Command Reference](../../../README.md#command-reference) > [scan](./main.md) > readDataSource
 
 ## Description
-Get a data source
+Get a data source.
 
 ## Syntax
 ```
-pv scan readDatasource --dataSourceName=<val>
+pv scan readDataSource --dataSourceName=<val>
 ```
 
 ## Required Arguments
@@ -22,6 +22,7 @@ GET https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}
 ```
 
 ## Examples
+Get a data source.
 ```powershell
-
+pv scan readDataSource --dataSourceName "AzureSqlDatabase-9ZX"
 ```

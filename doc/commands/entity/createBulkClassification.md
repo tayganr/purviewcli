@@ -6,7 +6,7 @@ Associate a classification to multiple entities in bulk.
 
 ## Syntax
 ```
-pv entity createBulkClassification --payload-file=<val>
+pv entity createBulkClassification --payloadFile=<val>
 ```
 
 ## Required Arguments

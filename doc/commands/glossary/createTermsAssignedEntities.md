@@ -6,7 +6,7 @@ Assign the given term to the provided list of related objects.
 
 ## Syntax
 ```
-pv glossary createTermsAssignedEntities --termGuid=<val> --payload-file=<val>
+pv glossary createTermsAssignedEntities --termGuid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

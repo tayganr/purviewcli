@@ -6,7 +6,7 @@ Update classification on an entity identified by its type and unique attributes.
 
 ## Syntax
 ```
-pv entity putUniqueAttributeClassifications --typeName=<val> --payload-file=<val>
+pv entity putUniqueAttributeClassifications --typeName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

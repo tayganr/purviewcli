@@ -1,21 +1,21 @@
 """
 usage: 
     pv management checkNameAvailability --subscriptionId=<val> --accountName=<val>
-    pv management createAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
+    pv management createAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payloadFile=<val>
     pv management defaultAccount --scopeTenantId=<val> --scopeType=<val> --scope=<val>
     pv management deleteAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
     pv management deletePrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val>
     pv management listKeys --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
     pv management listOperations
     pv management listPrivateLinkResources --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> [--groupId=<val>]
-    pv management putPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val> --payload-file=<val>
+    pv management putPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val> --payloadFile=<val>
     pv management readAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
     pv management readAccounts --subscriptionId=<val> [--resourceGroupName=<val>]
     pv management readPrivateEndpoint --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --privateEndpointConnectionName=<val>
     pv management readPrivateEndpoints --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val>
     pv management removeDefaultAccount --scopeTenantId=<val> --scopeType=<val> --scope=<val>
     pv management setDefaultAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --scopeTenantId=<val> --scopeType=<val> --scope=<val>
-    pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
+    pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payloadFile=<val>
     pv management addRootCollectionAdmin --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --objectId=<val>
 
 options:

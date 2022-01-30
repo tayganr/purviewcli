@@ -6,7 +6,7 @@ Add classification to the entity identified by its type and unique attributes.
 
 ## Syntax
 ```
-pv entity createUniqueAttributeClassifications --typeName=<val> --payload-file=<val>
+pv entity createUniqueAttributeClassifications --typeName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

@@ -21,8 +21,8 @@
 | [pv scan readClassificationRule](./readClassificationRule.md) | Get a classification rule |
 | [pv scan readClassificationRules](./readClassificationRules.md) | List classification rules in Account |
 | [pv scan readClassificationRuleVersions](./readClassificationRuleVersions.md) | Lists the rule versions of a classification rule |
-| [pv scan readDatasource](./readDatasource.md) | Get a data source |
-| [pv scan readDatasources](./readDatasources.md) | List data sources in Data catalog |
+| [pv scan readDataSource](./readDatasource.md) | Get a data source |
+| [pv scan readDataSources](./readDatasources.md) | List data sources in Data catalog |
 | [pv scan readFilters](./readFilters.md) | Get a filter |
 | [pv scan readKeyVault](./readKeyVault.md) | Gets key vault information |
 | [pv scan readKeyVaults](./readKeyVaults.md) | List key vault connections in account |

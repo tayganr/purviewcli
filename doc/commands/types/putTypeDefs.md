@@ -6,7 +6,7 @@ Update all types in bulk, changes detected in the type definitions would be pers
 
 ## Syntax
 ```
-pv types putTypeDefs --payload-file=<val>
+pv types putTypeDefs --payloadFile=<val>
 ```
 
 ## Required Arguments

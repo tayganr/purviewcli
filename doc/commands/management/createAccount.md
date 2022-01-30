@@ -6,7 +6,7 @@ Create or update an account resource
 
 ## Syntax
 ```
-pv management createAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payload-file=<val>
+pv management createAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

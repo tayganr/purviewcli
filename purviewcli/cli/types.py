@@ -1,9 +1,9 @@
 """
 usage: 
-    pv types createTypeDefs --payload-file=<val>
+    pv types createTypeDefs --payloadFile=<val>
     pv types deleteTypeDef --name=<val>
-    pv types deleteTypeDefs --payload-file=<val>
-    pv types putTypeDefs --payload-file=<val>
+    pv types deleteTypeDefs --payloadFile=<val>
+    pv types putTypeDefs --payloadFile=<val>
     pv types readClassificationDef (--guid=<val> | --name=<val>)
     pv types readEntityDef (--guid=<val> | --name=<val>)
     pv types readEnumDef (--guid=<val> | --name=<val>)
@@ -20,7 +20,7 @@ options:
   --guid=<val>            [string]  The globally unique identifier.
   --includeTermTemplate   [boolean] Whether to include termtemplatedef [default: false].
   --name=<val>            [string]  The name of the definition.
-  --payload-file=<val>    [string]  File path to a valid JSON document.
+  --payloadFile=<val>    [string]  File path to a valid JSON document.
   --type=<val>            [string]  Typedef name as search filter (classification | entity | enum | relationship | struct).
 
 mapping:

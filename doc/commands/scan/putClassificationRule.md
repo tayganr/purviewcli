@@ -6,7 +6,7 @@ Creates or Updates a classification rule
 
 ## Syntax
 ```
-pv scan putClassificationRule --classificationRuleName=<val> --payload-file=<val>
+pv scan putClassificationRule --classificationRuleName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

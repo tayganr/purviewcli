@@ -6,7 +6,7 @@ Creates an instance of a trigger
 
 ## Syntax
 ```
-pv scan putTrigger --dataSourceName=<val> --scanName=<val> --payload-file=<val>
+pv scan putTrigger --dataSourceName=<val> --scanName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

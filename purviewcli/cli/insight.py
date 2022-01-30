@@ -5,7 +5,7 @@ usage:
     pv insight fileExtensions [--numberOfDays=<val> --takeTopCount=<val>]
     pv insight fileTypeSizeTimeSeries [--numberOfDays=<val> --fileType=<val> --dataSource=<val>]
     pv insight filesWithoutResourceSet
-    pv insight graphql --payload-file=<val>
+    pv insight graphql --payloadFile=<val>
     pv insight scanStatusSummaries [--numberOfDays=<val>]
     pv insight scanStatusSummariesByTs [--numberOfDays=<val>]
     pv insight topFileTypesBySize
@@ -15,7 +15,7 @@ options:
     --dataSource=<val>           [string]  Specify a data source (Azure Blob Storage | aws | Azure Data Lake Storage Gen2).
     --fileType=<val>             [string]  Specify a file type (csv | avro | parquet | json | snappy | pptx | docx | xlsx) [default: csv].
     --numberOfDays=<val>         [integer] Trailing time period in days [default: 30].
-    --payload-file=<val>         [string]  File path to a valid JSON document.
+    --payloadFile=<val>         [string]  File path to a valid JSON document.
     --takeTopCount=<val>         [integer] Specify the maximum number of records to return [default: 10].
 
 mapping:

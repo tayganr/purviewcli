@@ -6,11 +6,11 @@ Creates or updates a resource set.
 
 ## Syntax
 ```
-pv account putResourceSetRule --payload-file=<val>
+pv account putResourceSetRule --payloadFile=<val>
 ```
 
 ## Required Arguments
-`--payload-file` (string)  
+`--payloadFile` (string)  
 File path to a valid JSON document.
 
 ## Optional Arguments
@@ -25,5 +25,5 @@ PUT https://{accountName}.purview.azure.com/account/resourceSetRuleConfigs/defau
 ## Examples
 Create or update a resource set.
 ```powershell
-pv account putResourceSetRule --payload-file "/Path/to/file.json"
+pv account putResourceSetRule --payloadFile "/Path/to/file.json"
 ```

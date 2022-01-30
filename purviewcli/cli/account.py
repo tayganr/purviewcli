@@ -11,7 +11,7 @@ usage:
     pv account getResourceSetRule
     pv account getResourceSetRules
     pv account putCollection --friendlyName=<val> --parentCollection=<val>
-    pv account putResourceSetRule --payload-file=<val>
+    pv account putResourceSetRule --payloadFile=<val>
     pv account regenerateAccessKeys --keyType=<val>
     pv account updateAccount --friendlyName=<val>
 
@@ -22,7 +22,7 @@ options:
     --keyType=<val>               [string] The access key type.
     --friendlyName=<val>          [string] The friendly name for the azure resource.
     --parentCollection=<val>      [string] Gets or sets the parent collection reference.
-    --payload-file=<val>          [string] File path to a valid JSON document.
+    --payloadFile=<val>          [string] File path to a valid JSON document.
 
 mapping:
 https://{account_name}.purview.azure.com/account

@@ -6,7 +6,7 @@ Create a new relationship between entities.
 
 ## Syntax
 ```
-pv relationship create --payload-file=<val>
+pv relationship create --payloadFile=<val>
 ```
 
 ## Required Arguments

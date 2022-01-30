@@ -6,7 +6,7 @@ Update the glossary term partially.
 
 ## Syntax
 ```
-pv glossary putTermPartial --termGuid=<val> --payload-file=<val>
+pv glossary putTermPartial --termGuid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

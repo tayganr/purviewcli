@@ -6,7 +6,7 @@ Delete API for all types in bulk.
 
 ## Syntax
 ```
-pv types deleteTypeDefs --payload-file=<val>
+pv types deleteTypeDefs --payloadFile=<val>
 ```
 
 ## Required Arguments
