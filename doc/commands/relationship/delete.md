@@ -10,7 +10,8 @@ pv relationship delete --guid=<val>
 ```
 
 ## Required Arguments
-*None*
+`--guid` (string)  
+The globally unique identifier of the relationship.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,7 @@ DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/relationship
 ```
 
 ## Examples
+Delete a relationship between entities by relationship GUID.
 ```powershell
-
+pv relationship delete --guid "90ca81c2-2d68-43f6-90cc-198a0fd07548"
 ```

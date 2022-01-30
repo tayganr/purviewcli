@@ -10,7 +10,8 @@ pv relationship create --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,7 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/relationship
 ```
 
 ## Examples
+Create a new relationship.
 ```powershell
-
+pv relationship create --payloadFile "/path/to/file.json"
 ```

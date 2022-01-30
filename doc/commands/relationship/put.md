@@ -10,7 +10,8 @@ pv relationship put --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,7 @@ PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/relationship
 ```
 
 ## Examples
+Update an existing relationship.
 ```powershell
-
+pv relationship put --payloadFile "/path/to/file.json"
 ```
