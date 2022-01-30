@@ -10,7 +10,8 @@ pv scan readScanRuleset --scanRulesetName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--scanRulesetName` (string)  
+The scan ruleset name.
 
 ## Optional Arguments
 *None*

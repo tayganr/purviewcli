@@ -10,7 +10,14 @@ pv scan tagClassificationVersion --classificationRuleName=<val> --classification
 ```
 
 ## Required Arguments
-*None*
+`--classificationRuleName` (string)  
+The name of the classification rule.
+
+`--classificationRuleVersion` (integer)  
+The classification rule version number.
+
+`--action` (string)  
+The classification action (Keep or Delete).
 
 ## Optional Arguments
 *None*

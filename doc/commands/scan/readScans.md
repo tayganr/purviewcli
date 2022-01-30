@@ -10,7 +10,8 @@ pv scan readScans --dataSourceName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--dataSourceName` (string)  
+The data source name.
 
 ## Optional Arguments
 *None*

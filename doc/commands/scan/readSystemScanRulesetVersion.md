@@ -10,7 +10,11 @@ pv scan readSystemScanRulesetVersion --version=<val> --dataSourceType=<val>
 ```
 
 ## Required Arguments
-*None*
+`--version` (integer)  
+A system scan ruleset version number.
+
+`--dataSourceType` (string)  
+A valid data source type.
 
 ## Optional Arguments
 *None*

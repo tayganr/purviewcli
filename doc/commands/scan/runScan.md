@@ -10,10 +10,15 @@ pv scan runScan --dataSourceName=<val> --scanName=<val> [--scanLevel=<val>]
 ```
 
 ## Required Arguments
-*None*
+`--dataSourceName` (string)  
+The data source name.
+
+`--scanName` (string)  
+The scan name.
 
 ## Optional Arguments
-*None*
+`--scanLevel` (string)  
+The scan level type (Full or Incremental).
 
 ## API Mapping
 Scanning Data Plane > Scan Result > [Run Scan](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/scan-result/run-scan)

@@ -10,7 +10,8 @@ pv scan readClassificationRule --classificationRuleName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--classificationRuleName` (string)  
+The name of the classification rule.
 
 ## Optional Arguments
 *None*

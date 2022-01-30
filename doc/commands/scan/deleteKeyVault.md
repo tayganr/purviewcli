@@ -10,7 +10,8 @@ pv scan deleteKeyVault --keyVaultName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--keyVaultName` (string)  
+The data source name.
 
 ## Optional Arguments
 *None*

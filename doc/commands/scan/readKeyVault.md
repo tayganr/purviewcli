@@ -10,7 +10,8 @@ pv scan readKeyVault --keyVaultName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--keyVaultName` (string)  
+The name of the key vault connection.
 
 ## Optional Arguments
 *None*

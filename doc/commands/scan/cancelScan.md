@@ -10,7 +10,14 @@ pv scan cancelScan --dataSourceName=<val> --scanName=<val> --runId=<val>
 ```
 
 ## Required Arguments
-*None*
+`--dataSourceName` (string)  
+The data source name.
+
+`--scanName` (string)  
+The scan name.
+
+`--runId` (string)  
+The unique ID of the scan run.
 
 ## Optional Arguments
 *None*
