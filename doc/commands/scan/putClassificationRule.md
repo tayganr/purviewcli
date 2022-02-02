@@ -31,7 +31,7 @@ Create or update a classification rule.
 pv scan putClassificationRule --classificationRuleName "my_rule" --payloadFile "/path/to/file.json"
 ```
 
-Example payload.
+Regular Expression based Classification Rule.
 ```json
 {
     "kind": "Custom",
@@ -49,6 +49,26 @@ Example payload.
         "description": "",
         "minimumDistinctMatchCount": null,
         "minimumPercentageMatch": 60.0
+    }
+}
+```
+
+Dictionary based Classification Rule.
+```json
+{
+    "name":"my_rule",
+    "kind":"Custom",
+    "properties": {
+        "description":"",
+        "classificationName":"Twitter_Handle",
+        "columnPatterns":[],
+        "dataPatterns":[],
+        "minimumPercentageMatch":60,
+        "classificationRuleBloomFilter": {
+            "sourceFileName":"dictionary.csv",
+            "cookedBloomFilter":"sQPxegwAAAABBwgAAAAAAAYAAAAOAAAAFQAAAAAAAACN3Af9UPI7AkpL4RHZO4cIMGVXnTVGQSV07TARgE35QWHFVBaaYZwDr9WZlVdGKmc=",
+            "bloomFilterName":null
+        }
     }
 }
 ```
