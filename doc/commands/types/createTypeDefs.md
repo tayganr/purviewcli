@@ -10,7 +10,8 @@ pv types createTypeDefs --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,37 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
 ```
 
 ## Examples
+Create type definitions in bulk.
 ```powershell
-
+pv types createTypeDefs --payloadFile "/path/to/file.json"
 ```
+
+<details><summary>Example payload: Create type definitions in bulk (e.g. new classifications).</summary>
+<p>
+
+```json
+{
+    "classificationDefs": [
+        {
+            "category": "CLASSIFICATION",
+            "name": "CUSTOM.PII.PATIENT.IDENTITY.CARD",
+            "options": {
+                "displayName": "Patient Identity Card Number"
+            }
+        },
+        {
+            "category": "CLASSIFICATION",
+            "name": "CUSTOM.PII.PATIENT.POLICY.NUMBER",
+            "options": {
+                "displayName": "Patient Policy Number"
+            }
+        }
+    ],
+    "entityDefs": [],
+    "enumDefs": [],
+    "relationshipDefs": [],
+    "structDefs": []
+}
+```
+</p>
+</details>

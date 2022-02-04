@@ -10,7 +10,8 @@ pv types deleteTypeDefs --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,31 @@ DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/typede
 ```
 
 ## Examples
+Delete type definitions in bulk.
 ```powershell
-
+pv types deleteTypeDefs --payloadFile "/path/to/file.json"
 ```
+
+<details><summary>Example payload: Delete type definitions in bulk (e.g. delete two existing classifications).</summary>
+<p>
+
+```json
+{
+    "classificationDefs": [
+        {
+            "category": "CLASSIFICATION",
+            "name": "CUSTOM.PII.PATIENT.IDENTITY.CARD"
+        },
+        {
+            "category": "CLASSIFICATION",
+            "name": "CUSTOM.PII.PATIENT.POLICY.NUMBER"
+        }
+    ],
+    "entityDefs": [],
+    "enumDefs": [],
+    "relationshipDefs": [],
+    "structDefs": []
+}
+```
+</p>
+</details>
