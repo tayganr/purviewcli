@@ -31,6 +31,50 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/classific
 ```
 
 ## Examples
+Get classification definition by name.
 ```powershell
+pv types readClassificationDef --name "MICROSOFT.GOVERNMENT.CANADA.DRIVERS_LICENSE_NUMBER"
+```
 
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "attributeDefs": [],
+    "category": "RELATIONSHIP",
+    "createTime": 1615887114341,
+    "createdBy": "admin",
+    "description": "bigquery_dataset_tables",
+    "endDef1": {
+        "cardinality": "SET",
+        "isContainer": true,
+        "isLegacyAttribute": false,
+        "name": "tables",
+        "type": "bigquery_dataset"
+    },
+    "endDef2": {
+        "cardinality": "SINGLE",
+        "isContainer": false,
+        "isLegacyAttribute": false,
+        "name": "dataset",
+        "type": "bigquery_table"
+    },
+    "guid": "94dced37-45a9-7660-f63d-fd2ab949da82",
+    "lastModifiedTS": "1",
+    "name": "bigquery_dataset_tables",
+    "propagateTags": "NONE",
+    "relationshipCategory": "COMPOSITION",
+    "serviceType": "Google BigQuery",
+    "typeVersion": "1.0",
+    "updateTime": 1615887114341,
+    "updatedBy": "admin",
+    "version": 1
+}
+</p>
+</details>
+
+Get classification definition by guid.
+```powershell
+pv types readClassificationDef --guid "324fd07d-327a-3c0a-5f74-ee9310936782"
 ```
