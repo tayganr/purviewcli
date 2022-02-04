@@ -31,12 +31,52 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/enumdef/n
 ```
 
 ## Examples
-Get
+Get enum definition by name.
 ```powershell
-pv types readEntityDef --name "azure_sql_table"
+pv types readEnumDef --name "blob_type"
 ```
 
-Get 
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "category": "ENUM",
+    "createTime": 1615787945788,
+    "createdBy": "admin",
+    "description": "blob_type",
+    "elementDefs": [
+        {
+            "ordinal": 0,
+            "value": "Unspecified"
+        },
+        {
+            "ordinal": 1,
+            "value": "PageBlob"
+        },
+        {
+            "ordinal": 2,
+            "value": "BlockBlob"
+        },
+        {
+            "ordinal": 3,
+            "value": "AppendBlob"
+        }
+    ],
+    "guid": "171bba26-3a17-3f5c-50f2-1e313c87d473",
+    "lastModifiedTS": "1",
+    "name": "blob_type",
+    "serviceType": "Azure Blob Storage",
+    "typeVersion": "1.0",
+    "updateTime": 1615787945788,
+    "updatedBy": "admin",
+    "version": 1
+}
+```
+</p>
+</details>
+
+Get enum definition by guid.
 ```powershell
-pv types readEntityDef --guid "7d92a449-f7e8-812f-5fc8-ca6127ba90bd"
+pv types readEnumDef --guid "171bba26-3a17-3f5c-50f2-1e313c87d473"
 ```
