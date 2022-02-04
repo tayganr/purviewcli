@@ -23,6 +23,7 @@ DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/typede
 ```
 
 ## Examples
+Delete a type definition.
 ```powershell
 pv types deleteTypeDef --name "My Custom Term Template"
 ```
