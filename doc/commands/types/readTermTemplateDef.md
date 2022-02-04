@@ -36,11 +36,6 @@ Get term template definition by name.
 pv types readTermTemplateDef --name "My Custom Term Template"
 ```
 
-Get term template definition by guid.
-```powershell
-pv types readTermTemplateDef --guid "71ee745e-5a99-3b0f-9e46-ed75b67c224d"
-```
-
 <details><summary>Sample response.</summary>
 <p>
 
@@ -74,5 +69,11 @@ pv types readTermTemplateDef --guid "71ee745e-5a99-3b0f-9e46-ed75b67c224d"
     "updatedBy": "095354ff-cae8-44ff-8120-22ec5a941b40",
     "version": 1
 }
+```
 </p>
 </details>
+
+Get term template definition by guid.
+```powershell
+pv types readTermTemplateDef --guid "71ee745e-5a99-3b0f-9e46-ed75b67c224d"
+```
