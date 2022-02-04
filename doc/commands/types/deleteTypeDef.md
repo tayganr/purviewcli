@@ -10,7 +10,8 @@ pv types deleteTypeDef --name=<val>
 ```
 
 ## Required Arguments
-*None*
+`--name` (string)  
+The name of the type.
 
 ## Optional Arguments
 *None*
@@ -23,5 +24,5 @@ DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/typede
 
 ## Examples
 ```powershell
-
+pv types deleteTypeDef --name "My Custom Term Template"
 ```
