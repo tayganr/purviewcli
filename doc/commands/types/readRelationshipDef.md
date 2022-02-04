@@ -71,6 +71,7 @@ pv types readRelationshipDef --name "bigquery_dataset_tables"
     "updatedBy": "admin",
     "version": 1
 }
+```
 </p>
 </details>
 
