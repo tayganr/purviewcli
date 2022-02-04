@@ -10,7 +10,11 @@ pv types readEnumDef (--guid=<val> | --name=<val>)
 ```
 
 ## Required Arguments
-*None*
+`--guid` (string)  
+The globally unique identifier of the enum.
+
+`--name` (string)  
+The name of the enum.
 
 ## Optional Arguments
 *None*
@@ -27,6 +31,12 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/enumdef/n
 ```
 
 ## Examples
+Get
 ```powershell
+pv types readEntityDef --name "azure_sql_table"
+```
 
+Get 
+```powershell
+pv types readEntityDef --guid "7d92a449-f7e8-812f-5fc8-ca6127ba90bd"
 ```

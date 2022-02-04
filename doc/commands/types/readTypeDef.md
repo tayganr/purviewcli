@@ -10,7 +10,11 @@ pv types readTypeDef (--guid=<val> | --name=<val>)
 ```
 
 ## Required Arguments
-*None*
+`--guid` (string)  
+The globally unique identifier of the type.
+
+`--name` (string)  
+The name of the type.
 
 ## Optional Arguments
 *None*

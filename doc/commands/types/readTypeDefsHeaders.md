@@ -13,7 +13,11 @@ pv types readTypeDefsHeaders [--includeTermTemplate --type=<val>]
 *None*
 
 ## Optional Arguments
-*None*
+`--includeTermTemplate` (boolean)  
+Whether to include termtemplatedef when returning all typedefs. Default: false.
+
+`--type` (string)  
+Restrict results to a specific type of type definition (classification | entity | enum | relationship | struct | term_template).
 
 ## API Mapping
 Catalog Data Plane > Types > [List Type Definition Headers](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/types/list-type-definition-headers)

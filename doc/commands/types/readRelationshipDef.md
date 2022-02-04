@@ -10,7 +10,11 @@ pv types readRelationshipDef (--guid=<val> | --name=<val>)
 ```
 
 ## Required Arguments
-*None*
+`--guid` (string)  
+The globally unique identifier of the relationship.
+
+`--name` (string)  
+The name of the relationship.
 
 ## Optional Arguments
 *None*

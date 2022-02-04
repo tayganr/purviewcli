@@ -10,7 +10,11 @@ pv types readStructDef (--guid=<val> | --name=<val>)
 ```
 
 ## Required Arguments
-*None*
+`--guid` (string)  
+The globally unique identifier of the struct.
+
+`--name` (string)  
+The name of the struct.
 
 ## Optional Arguments
 *None*

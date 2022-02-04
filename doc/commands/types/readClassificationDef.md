@@ -10,7 +10,11 @@ pv types readClassificationDef (--guid=<val> | --name=<val>)
 ```
 
 ## Required Arguments
-*None*
+`--guid` (string)  
+The globally unique identifier of the classification.
+
+`--name` (string)  
+The name of the classification.
 
 ## Optional Arguments
 *None*
