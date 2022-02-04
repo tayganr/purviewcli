@@ -26,7 +26,7 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/typedefs
 ```
 
 ## Examples
-Get all enum type definitions.
+Get all type definitions for a particular type.
 ```powershell
 pv types readTypeDefs --type "enum"
 ```
