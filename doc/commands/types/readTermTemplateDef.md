@@ -31,6 +31,48 @@ GET https://{accountName}.purview.azure.com/catalog/api/types/termtemplatedef/na
 ```
 
 ## Examples
+Get term template definition by name.
 ```powershell
-
+pv types readTermTemplateDef --name "My Custom Term Template"
 ```
+
+Get term template definition by guid.
+```powershell
+pv types readTermTemplateDef --guid "71ee745e-5a99-3b0f-9e46-ed75b67c224d"
+```
+
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "attributeDefs": [
+        {
+            "cardinality": "SINGLE",
+            "includeInNotification": false,
+            "isIndexable": false,
+            "isOptional": true,
+            "isUnique": false,
+            "name": "Department",
+            "options": {
+                "isDisabled": "false"
+            },
+            "typeName": "TERM_TEMPLATE_ENUM_6dc2fde0_c41a_4dfa_b77e_5d20275decc5",
+            "valuesMaxCount": 1,
+            "valuesMinCount": 0
+        }
+    ],
+    "category": "TERM_TEMPLATE",
+    "createTime": 1643991602788,
+    "createdBy": "095354ff-cae8-44ff-8120-22ec5a941b40",
+    "description": "This is a long description.",
+    "guid": "71ee745e-5a99-3b0f-9e46-ed75b67c224d",
+    "lastModifiedTS": "1",
+    "name": "My Custom Term Template",
+    "typeVersion": "1.0",
+    "updateTime": 1643991602788,
+    "updatedBy": "095354ff-cae8-44ff-8120-22ec5a941b40",
+    "version": 1
+}
+</p>
+</details>
