@@ -27,3 +27,25 @@ Create a new relationship.
 ```powershell
 pv relationship create --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Create a relationship between two entities (Azure SQL Schema <--> Azure SQL Table).</summary>
+<p>
+
+```json
+{
+    "end1": {
+        "typeName": "azure_sql_schema",
+        "uniqueAttributes": {
+            "qualifiedName": "mssql://pvdemofngxi-sqlsvr.database.windows.net/pvdemofngxi-sqldb/SalesLT"
+        }
+    },
+    "end2": {
+        "typeName": "azure_sql_table",
+        "uniqueAttributes": {
+            "qualifiedName": "mssql://pvdemofngxi-sqlsvr.database.windows.net/pvdemofngxi-sqldb/SalesLT/Customer"
+        }
+    },
+    "typeName": "azure_sql_schema_tables"
+}
+```
+</p>
+</details>
