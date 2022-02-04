@@ -34,7 +34,8 @@ Get lineage information for a particular entity.
 ```powershell
 pv lineage read --guid "c15f00b1-bf72-4413-9e95-565be22d18ed"
 ```
-Sample response.
+<details><summary>Sample response.</summary>
+<p>
 ```json
 {
     "baseEntityGuid": "c15f00b1-bf72-4413-9e95-565be22d18ed",
@@ -219,3 +220,5 @@ Sample response.
     }
 }
 ```
+</p>
+</details>
