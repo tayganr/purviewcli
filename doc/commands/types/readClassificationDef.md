@@ -42,32 +42,20 @@ pv types readClassificationDef --name "MICROSOFT.GOVERNMENT.CANADA.DRIVERS_LICEN
 ```json
 {
     "attributeDefs": [],
-    "category": "RELATIONSHIP",
-    "createTime": 1615887114341,
+    "category": "CLASSIFICATION",
+    "createTime": 1615787943724,
     "createdBy": "admin",
-    "description": "bigquery_dataset_tables",
-    "endDef1": {
-        "cardinality": "SET",
-        "isContainer": true,
-        "isLegacyAttribute": false,
-        "name": "tables",
-        "type": "bigquery_dataset"
+    "description": "Canada Driver's License Number",
+    "entityTypes": [],
+    "guid": "324fd07d-327a-3c0a-5f74-ee9310936782",
+    "name": "MICROSOFT.GOVERNMENT.CANADA.DRIVERS_LICENSE_NUMBER",
+    "options": {
+        "displayName": "Canada Driver's License Number"
     },
-    "endDef2": {
-        "cardinality": "SINGLE",
-        "isContainer": false,
-        "isLegacyAttribute": false,
-        "name": "dataset",
-        "type": "bigquery_table"
-    },
-    "guid": "94dced37-45a9-7660-f63d-fd2ab949da82",
-    "lastModifiedTS": "1",
-    "name": "bigquery_dataset_tables",
-    "propagateTags": "NONE",
-    "relationshipCategory": "COMPOSITION",
-    "serviceType": "Google BigQuery",
+    "subTypes": [],
+    "superTypes": [],
     "typeVersion": "1.0",
-    "updateTime": 1615887114341,
+    "updateTime": 1615787943724,
     "updatedBy": "admin",
     "version": 1
 }
