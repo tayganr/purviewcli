@@ -10,7 +10,8 @@ pv glossary readCategoryRelated --categoryGuid=<val>
 ```
 
 ## Required Arguments
-*None*
+`--categoryGuid` (string)  
+The globally unique identifier of the category.
 
 ## Optional Arguments
 *None*
