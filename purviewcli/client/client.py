@@ -70,6 +70,7 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
 
         try:
             response = requests.request(method, uri, params=params, json=payload, headers=headers)
+            print(response.url)
         except requests.exceptions.HTTPError as errh:
             print ("[HTTP ERROR]",errh)
         except requests.exceptions.ConnectionError as errc:

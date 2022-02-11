@@ -78,11 +78,13 @@ class Glossary(Endpoint):
     def glossaryReadTerm(self, args):
         self.method = 'GET'
         self.endpoint = f'/api/atlas/v2/glossary/term/{args["--termGuid"][0]}'
+        self.params = {'includeTermHierarchy': args['--includeTermHierarchy']}
 
     @decorator
     def glossaryPutTerm(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/glossary/term/{args["--termGuid"][0]}'
+        self.params = {'includeTermHierarchy': args['--includeTermHierarchy']}
         self.payload = get_json(args, '--payloadFile')
 
     @decorator
