@@ -6,7 +6,7 @@ Get a specific glossary term by its GUID.
 
 ## Syntax
 ```
-pv glossary readTerm --termGuid=<val>
+pv glossary readTerm --termGuid=<val> [--includeTermHierarchy]
 ```
 
 ## Required Arguments

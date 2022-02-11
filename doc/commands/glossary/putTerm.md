@@ -6,7 +6,7 @@ Update the given glossary term by its GUID.
 
 ## Syntax
 ```
-pv glossary putTerm --termGuid=<val> --payloadFile=<val>
+pv glossary putTerm --termGuid=<val> --payloadFile=<val> [--includeTermHierarchy]
 ```
 
 ## Required Arguments
