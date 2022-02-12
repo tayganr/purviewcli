@@ -59,8 +59,7 @@ pv glossary read --ignoreTermsAndCategories
 ]
 ```
 </p>
-</details>
-
+</details>  
 
 Get all glossaries.
 ```powershell
@@ -98,8 +97,7 @@ pv glossary read
 ]
 ```
 </p>
-</details>
-
+</details>  
 
 Get a specific glossary.
 ```powershell
