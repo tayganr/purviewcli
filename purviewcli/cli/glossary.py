@@ -19,7 +19,7 @@ usage:
     pv glossary putTerm --termGuid=<val> --payloadFile=<val> [--includeTermHierarchy]
     pv glossary putTermPartial --termGuid=<val> --payloadFile=<val>
     pv glossary putTermsAssignedEntities --termGuid=<val> --payloadFile=<val>
-    pv glossary read [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val>]
+    pv glossary read [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val> --ignoreTermsAndCategories]
     pv glossary readCategories --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readCategoriesHeaders --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readCategory --categoryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
@@ -34,18 +34,19 @@ usage:
     pv glossary readTermsRelated --termGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
 
 options:
-    --purviewName=<val>     [string]  Azure Purview account name.
-    --categoryGuid=<val>    [string]  The globally unique identifier of the category.
-    --extInfo               [boolean] extInfo [defaul: false]
-    --glossaryGuid=<val>    [string]  The globally unique identifier for glossary.
-    --glossaryName=<val>    [string]  The name of the glossary.
-    --includeTermHierarchy  [boolean] Include term template references [default: false]
-    --limit=<val>           [integer] The page size - by default there is no paging [default: 1000].
-    --offset=<val>          [integer] Offset for pagination purpose [default: 0].
-    --operationGuid=<val>   [string]  The globally unique identifier for async operation/job.
-    --payloadFile=<val>    [string]  File path to a valid JSON document.
-    --sort=<val>            [string]  ASC or DESC [default: ASC].
-    --termGuid=<val>        [string]  The globally unique identifier for glossary term.
+    --purviewName=<val>         [string]  Azure Purview account name.
+    --categoryGuid=<val>        [string]  The globally unique identifier of the category.
+    --extInfo                   [boolean] extInfo [defaul: false]
+    --glossaryGuid=<val>        [string]  The globally unique identifier for glossary.
+    --glossaryName=<val>        [string]  The name of the glossary.
+    --includeTermHierarchy      [boolean] Include term template references [default: false].
+    --ignoreTermsAndCategories  [boolean] Whether to ignore terms and categories [default: false].
+    --limit=<val>               [integer] The page size - by default there is no paging [default: 1000].
+    --offset=<val>              [integer] Offset for pagination purpose [default: 0].
+    --operationGuid=<val>       [string]  The globally unique identifier for async operation/job.
+    --payloadFile=<val>         [string]  File path to a valid JSON document.
+    --sort=<val>                [string]  ASC or DESC [default: ASC].
+    --termGuid=<val>            [string]  The globally unique identifier for glossary term.
 
 mapping:
 https://{account_name}.catalog.purview.azure.com

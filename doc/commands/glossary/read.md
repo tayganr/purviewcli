@@ -6,7 +6,7 @@ Get all glossaries registered with Atlas.
 
 ## Syntax
 ```
-pv glossary read [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val>]
+pv glossary read [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val> --ignoreTermsAndCategories]
 ```
 
 ## Required Arguments
@@ -25,6 +25,9 @@ Offset for pagination purpose [default: 0].
 `--sort` (string)  
 The sort order - ASC or DESC [default: ASC].
 
+`--ignoreTermsAndCategories` (boolean)  
+Whether to ignore terms and categories [default: false].
+
 ## API Mapping
 Catalog Data Plane > Glossary > [List Glossaries](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-glossaries)
 ```
@@ -37,6 +40,27 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/{gloss
 ```
 
 ## Examples
+Get all glossaries (without terms and categories).
+```powershell
+pv glossary read --ignoreTermsAndCategories
+```
+
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+[
+    {
+        "guid": "f2307f48-5834-4709-be85-02f3aea5d149",
+        "lastModifiedTS": "1",
+        "name": "Glossary",
+        "qualifiedName": "Glossary"
+    }
+]
+```
+</p>
+</details>
+
 Get all glossaries.
 ```powershell
 pv glossary read

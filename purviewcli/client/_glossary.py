@@ -9,7 +9,7 @@ class Glossary(Endpoint):
     def glossaryRead(self, args):
         self.method = 'GET'
         self.endpoint = '/api/atlas/v2/glossary' if args["--glossaryGuid"] is None else f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}'
-        self.params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort']}
+        self.params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort'], 'ignoreTermsAndCategories': args['--ignoreTermsAndCategories']}
 
     @decorator
     def glossaryCreate(self, args):
