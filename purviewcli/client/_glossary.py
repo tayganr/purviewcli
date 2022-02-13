@@ -157,6 +157,7 @@ class Glossary(Endpoint):
     def glossaryReadDetailed(self, args):
         self.method = 'GET'
         self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/detailed'
+        self.params = {'includeTermHierarchy': args['--includeTermHierarchy']}
 
     @decorator
     def glossaryPutPartial(self, args):

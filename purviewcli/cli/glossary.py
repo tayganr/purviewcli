@@ -25,7 +25,7 @@ usage:
     pv glossary readCategory --categoryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
     pv glossary readCategoryRelated --categoryGuid=<val>
     pv glossary readCategoryTerms --categoryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]
-    pv glossary readDetailed --glossaryGuid=<val>
+    pv glossary readDetailed --glossaryGuid=<val> [--includeTermHierarchy]
     pv glossary readTerm --termGuid=<val> [--includeTermHierarchy]
     pv glossary readTerms [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val> --extInfo --includeTermHierarchy]
     pv glossary readTermsAssignedEntities --termGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]

@@ -6,7 +6,7 @@ Get a specific glossary with detailed information.
 
 ## Syntax
 ```
-pv glossary readDetailed --glossaryGuid=<val>
+pv glossary readDetailed --glossaryGuid=<val> [--includeTermHierarchy]
 ```
 
 ## Required Arguments
@@ -14,7 +14,8 @@ pv glossary readDetailed --glossaryGuid=<val>
 The globally unique identifier for glossary.
 
 ## Optional Arguments
-*None*
+`--includeTermHierarchy` (boolean)  
+Whether to include the term hierarchy.
 
 ## API Mapping
 Catalog Data Plane > Glossary > [Get Detailed Glossary](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/get-detailed-glossary)
