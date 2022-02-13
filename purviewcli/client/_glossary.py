@@ -91,6 +91,7 @@ class Glossary(Endpoint):
     def glossaryPutTermPartial(self, args):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/glossary/term/{args["--termGuid"][0]}/partial'
+        self.params = {'includeTermHierarchy': args['--includeTermHierarchy']}
         self.payload = get_json(args, '--payloadFile')
 
     @decorator

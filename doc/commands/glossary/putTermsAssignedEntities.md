@@ -10,7 +10,11 @@ pv glossary putTermsAssignedEntities --termGuid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--termGuid` (string)  
+The globally unique identifier for glossary term.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -23,5 +27,5 @@ PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/terms/
 
 ## Examples
 ```powershell
-
+pv glossary putTermsAssignedEntities --termGuid "919e8f87-d5b2-4dde-9f6e-1bbd738536a1" --payloadFile "/path/to/file.json"
 ```

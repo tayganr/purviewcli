@@ -17,7 +17,7 @@ usage:
     pv glossary putCategoryPartial --categoryGuid=<val> --payloadFile=<val>
     pv glossary putPartial --glossaryGuid=<val> --payloadFile=<val>
     pv glossary putTerm --termGuid=<val> --payloadFile=<val> [--includeTermHierarchy]
-    pv glossary putTermPartial --termGuid=<val> --payloadFile=<val>
+    pv glossary putTermPartial --termGuid=<val> --payloadFile=<val> [--includeTermHierarchy]
     pv glossary putTermsAssignedEntities --termGuid=<val> --payloadFile=<val>
     pv glossary read [--glossaryGuid=<val> --limit=<val> --offset=<val> --sort=<val> --ignoreTermsAndCategories]
     pv glossary readCategories --glossaryGuid=<val> [--limit=<val> --offset=<val> --sort=<val>]

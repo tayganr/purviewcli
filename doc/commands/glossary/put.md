@@ -10,7 +10,11 @@ pv glossary put --glossaryGuid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--glossaryGuid` (string)  
+The globally unique identifier for glossary.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -23,5 +27,5 @@ PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/{gloss
 
 ## Examples
 ```powershell
-
+pv glossary put --glossaryGuid "f2307f48-5834-4709-be85-02f3aea5d149" --payloadFile "/path/to/file.json"
 ```
