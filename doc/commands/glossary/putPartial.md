@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [glossary](./main.md) > putPartial
 
 ## Description
-Update the glossary partially. Some properties such as qualifiedName are not allowed to be updated.
+Update the glossary partially.
 
 ## Syntax
 ```
@@ -26,6 +26,17 @@ PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/{gloss
 ```
 
 ## Examples
+Update an existing glossary.
 ```powershell
 pv glossary putPartial --glossaryGuid "f2307f48-5834-4709-be85-02f3aea5d149" --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Update an existing glossary.</summary>
+<p>
+
+```json
+{
+    "longDescription": "This is a long description!"
+}
+```
+</p>
+</details>
