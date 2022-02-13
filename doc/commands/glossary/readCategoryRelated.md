@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [glossary](./main.md) > readCategoryRelated
 
 ## Description
-Get all related categories (parent and children). Limit, offset, and sort parameters are currently not being enabled and won't work even they are passed.
+Get all related categories (parent and children).
 
 ## Syntax
 ```
@@ -24,5 +24,5 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/catego
 
 ## Examples
 ```powershell
-
+pv glossary readCategoryRelated --categoryGuid "c856ecef-21e6-4e92-8607-9493d8432e78"
 ```

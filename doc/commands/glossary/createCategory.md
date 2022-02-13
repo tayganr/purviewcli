@@ -10,7 +10,8 @@ pv glossary createCategory --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,20 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/categ
 ```
 
 ## Examples
+Create a new category.
 ```powershell
-
+pv glossary createCategory --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Create a new category.</summary>
+<p>
+
+```json
+{
+    "anchor": {
+        "glossaryGuid": "f2307f48-5834-4709-be85-02f3aea5d149"
+    },
+    "name": "MyCategory"
+}
+```
+</p>
+</details>

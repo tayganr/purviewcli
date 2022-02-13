@@ -31,5 +31,22 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/catego
 
 ## Examples
 ```powershell
-
+pv glossary readCategory --categoryGuid "c856ecef-21e6-4e92-8607-9493d8432e78"
 ```
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "anchor": {
+        "glossaryGuid": "f2307f48-5834-4709-be85-02f3aea5d149",
+        "relationGuid": "02a36a2f-e240-40ea-b884-c5ec159d5688"
+    },
+    "guid": "c856ecef-21e6-4e92-8607-9493d8432e78",
+    "lastModifiedTS": "1",
+    "name": "MyCategory",
+    "qualifiedName": "MyCategory@Glossary"
+}
+```
+</p>
+</details>

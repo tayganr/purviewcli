@@ -10,7 +10,8 @@ pv glossary deleteCategory --categoryGuid=<val>
 ```
 
 ## Required Arguments
-*None*
+`--categoryGuid` (string)  
+The globally unique identifier of the category.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,7 @@ DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/cat
 ```
 
 ## Examples
+Delete a category.
 ```powershell
-
+pv glossary deleteCategory --categoryGuid "bba73040-db31-4025-8e03-a8eb27fc0822"
 ```

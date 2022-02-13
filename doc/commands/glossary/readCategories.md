@@ -30,7 +30,36 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/{gloss
 ```
 
 ## Examples
-Get the categories belonging to a specific glossary.
+Get all categories belonging to a specific glossary.
 ```powershell
 pv glossary readCategories --glossaryGuid "f2307f48-5834-4709-be85-02f3aea5d149" 
 ```
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+[
+    {
+        "anchor": {
+            "glossaryGuid": "f2307f48-5834-4709-be85-02f3aea5d149",
+            "relationGuid": "20f62759-22e8-4acf-8757-1da8f12d8eb3"
+        },
+        "guid": "5a5a79b4-52eb-4540-ba1a-001458e5d257",
+        "lastModifiedTS": "1",
+        "name": "Category1",
+        "qualifiedName": "Category1@Glossary"
+    },
+    {
+        "anchor": {
+            "glossaryGuid": "f2307f48-5834-4709-be85-02f3aea5d149",
+            "relationGuid": "02a36a2f-e240-40ea-b884-c5ec159d5688"
+        },
+        "guid": "c856ecef-21e6-4e92-8607-9493d8432e78",
+        "lastModifiedTS": "1",
+        "name": "MyCategory",
+        "qualifiedName": "MyCategory@Glossary"
+    }
+]
+```
+</p>
+</details><br />

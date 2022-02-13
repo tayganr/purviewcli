@@ -30,6 +30,31 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/catego
 ```
 
 ## Examples
+Get all terms associated with a category.
 ```powershell
-
+pv glossary readCategoryTerms --categoryGuid "c856ecef-21e6-4e92-8607-9493d8432e78"
 ```
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+[
+    {
+        "displayText": "Workplace Analytics_Organization",
+        "relationGuid": "80384c75-8c29-45bc-9f7c-9bb3b1218320",
+        "termGuid": "d99523b1-9b89-4748-8455-c00d76fd823a"
+    },
+    {
+        "displayText": "Workplace Analytics_Pseudonymized",
+        "relationGuid": "6a33dccf-4af8-4889-bd7d-a1c2034c5297",
+        "termGuid": "06276c6f-aab7-46f3-980c-e92ad541f333"
+    },
+    {
+        "displayText": "Workplace Analytics_Working hours",
+        "relationGuid": "f68e9257-d2b5-4742-b40f-4d35ba86d6d8",
+        "termGuid": "2796d276-75a0-46c0-9920-1d9e75c25842"
+    }
+]
+```
+</p>
+</details>
