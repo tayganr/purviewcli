@@ -14,7 +14,8 @@ pv glossary readTerm --termGuid=<val> [--includeTermHierarchy]
 The globally unique identifier for glossary term.
 
 ## Optional Arguments
-*None*
+`--includeTermHierarchy` (boolean)  
+Whether to include the term hierarchy [default: false].
 
 ## API Mapping
 Catalog Data Plane > Glossary > [Get Glossary Term](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/get-glossary-term)

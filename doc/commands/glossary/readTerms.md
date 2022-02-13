@@ -29,7 +29,7 @@ The sort order - ASC or DESC [default: ASC].
 extInfo [defaul: false].
 
 `--includeTermHierarchy` (boolean)  
-Whether include term hierarchy [default: false].
+Whether to include the term hierarchy [default: false].
 
 ## API Mapping
 Catalog Data Plane > Glossary > [List Terms By Glossary Name](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/list-terms-by-glossary-name)
@@ -89,7 +89,7 @@ pv glossary readTerms
 ]
 ```
 </p>
-</details>
+</details><br />
 
 Get all terms (including term hierarchy).
 ```powershell
