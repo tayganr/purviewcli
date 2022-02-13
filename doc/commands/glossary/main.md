@@ -7,7 +7,7 @@
 | [pv glossary create](./create.md) | Create a glossary. |
 | [pv glossary delete](./delete.md) | Delete a glossary. |
 | [pv glossary put](./put.md) | Update the given glossary. |
-| [pv glossary putPartial](./putPartial.md) | Update the glossary partially. Some properties such as qualifiedName are not allowed to be updated. |
+| [pv glossary putPartial](./putPartial.md) | Update the glossary partially. |
 | [pv glossary read](./read.md) | Get glossaries registered with Atlas. |
 | [pv glossary readDetailed](./readDetailed.md) | Get a specific glossary with detailed information. |
 
