@@ -33,16 +33,16 @@ pv glossary createCategories --payloadFile "/path/to/file.json"
 ```json
 [
     {
-    "anchor": {
-        "glossaryGuid": "f2307f48-5834-4709-be85-02f3aea5d149"
-    },
-    "name": "Category1"
+        "anchor": {
+            "glossaryGuid": "f2307f48-5834-4709-be85-02f3aea5d149"
+        },
+        "name": "Category1"
     },
     {
-    "anchor": {
-        "glossaryGuid": "f2307f48-5834-4709-be85-02f3aea5d149"
-    },
-    "name": "Category2"
+        "anchor": {
+            "glossaryGuid": "f2307f48-5834-4709-be85-02f3aea5d149"
+        },
+        "name": "Category2"
     }
 ]
 ```
