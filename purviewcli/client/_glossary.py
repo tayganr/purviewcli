@@ -186,11 +186,10 @@ class Glossary(Endpoint):
     @decorator
     def glossaryCreateTermsImport(self, args):
         self.method = 'POST'
-        if args["--glossaryName"] is None:
-            self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/terms/import'
-        else:
-            self.endpoint = f'/api/atlas/v2/glossary/name/{args["--glossaryName"]}/terms/import'
-
+        self.endpoint = f'/api/glossary/{args["--glossaryGuid"]}/terms/import'
+        self.files = {'file': open(args["--glossaryFile"], 'rb')}
+        self.params = {"api-version": "2021-05-01-preview"}
+        
     @decorator
     def glossaryReadTermsImport(self, args):
         self.method = 'GET'

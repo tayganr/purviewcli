@@ -7,7 +7,7 @@ usage:
     pv glossary createTerms --payloadFile=<val>
     pv glossary createTermsAssignedEntities --termGuid=<val> --payloadFile=<val>
     pv glossary createTermsExport --glossaryGuid=<val> --termGuid=<val>...
-    pv glossary createTermsImport (--glossaryGuid=<val> | --glossaryName=<val>)
+    pv glossary createTermsImport --glossaryGuid=<val> --glossaryFile=<val> [--includeTermHierarchy]
     pv glossary delete --glossaryGuid=<val>
     pv glossary deleteCategory --categoryGuid=<val>
     pv glossary deleteTerm --termGuid=<val>
