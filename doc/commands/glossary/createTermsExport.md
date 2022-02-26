@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [glossary](./main.md) > createTermsExport
 
 ## Description
-Export Glossary Terms as csv file
+Export glossary terms to a csv file.
 
 ## Syntax
 ```

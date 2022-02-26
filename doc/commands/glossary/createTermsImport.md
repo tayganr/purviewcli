@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [glossary](./main.md) > createTermsImport
 
 ## Description
-Import Glossary Terms from local csv file
+Import glossary terms from local csv file.
 
 ## Syntax
 ```
