@@ -22,6 +22,7 @@ DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/{gl
 ```
 
 ## Examples
+Delete a glossary.
 ```powershell
-
+pv glossary delete --glossaryGuid "ac6ddb6d-d53f-4df7-b6d8-a4c29aca1447"
 ```

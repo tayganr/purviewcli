@@ -10,7 +10,8 @@ pv glossary create --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -23,5 +24,16 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary
 
 ## Examples
 ```powershell
-
+pv glossary create --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Update an existing category.</summary>
+<p>
+
+```json
+{
+    "name": "MyGlossary",
+    "qualifiedName": "MyGlossary"
+}
+```
+</p>
+</details>
