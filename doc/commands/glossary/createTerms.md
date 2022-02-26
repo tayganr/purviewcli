@@ -10,7 +10,8 @@ pv glossary createTerms --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,37 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/terms
 ```
 
 ## Examples
+Create terms in bulk.
 ```powershell
-
+pv glossary createTerms --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Create terms in bulk.</summary>
+<p>
+
+```json
+[
+    {
+        "anchor": {
+            "glossaryGuid": "125e2575-5823-4887-89f0-ff03a70f7c3a"
+        },
+        "longDescription": "This is a definition for Term1.",
+        "name": "Term1"
+    },
+    {
+        "anchor": {
+            "glossaryGuid": "125e2575-5823-4887-89f0-ff03a70f7c3a"
+        },
+        "longDescription": "This is a definition for Term2.",
+        "name": "Term2"
+    },
+    {
+        "anchor": {
+            "glossaryGuid": "125e2575-5823-4887-89f0-ff03a70f7c3a"
+        },
+        "longDescription": "This is a definition for Term3.",
+        "name": "Term3"
+    }    
+]
+```
+</p>
+</details>
