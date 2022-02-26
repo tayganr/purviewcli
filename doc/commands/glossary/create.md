@@ -23,10 +23,11 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary
 ```
 
 ## Examples
+Create a glossary.
 ```powershell
 pv glossary create --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Update an existing category.</summary>
+<details><summary>Example payload: Create a new glossary.</summary>
 <p>
 
 ```json
