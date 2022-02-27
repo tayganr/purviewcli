@@ -30,23 +30,26 @@ Create or update a data source.
 ```powershell
 pv scan putDataSource --dataSourceName "AzureSqlDatabase-ABC" --payloadFile "/path/to/file.json"  
 ```
+<details><summary>Example payload: Create an Azure SQL Database data source.</summary>
+<p>
 
-Example payload.
 ```json
 {
     "kind": "AzureSqlDatabase",
     "name": "AzureSqlDatabase-ABC",
     "properties": {
-        "collection": {
-            "referenceName": "fkcbkx",
-            "type": "CollectionReference"
-        },
-        "location": "westeurope",
-        "resourceGroup": "my-rg",
-        "resourceId": "/subscriptions/abc123-9876-12ab-12ab-c0d1d2e08ca0/resourceGroups/my-rg/providers/Microsoft.Sql/servers/my-sqlsvr",
-        "resourceName": "my-sqlsvr",
         "serverEndpoint": "my-sqlsvr.database.windows.net",
-        "subscriptionId": "abc123-9876-12ab-12ab-c0d1d2e08ca0"
+        "subscriptionId": "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0",
+        "resourceGroup": "pvlab-taygan",
+        "location": "westeurope",
+        "resourceName": "my-sqlsvr",
+        "resourceId": "/subscriptions/2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0/resourceGroups/pvlab-taygan/providers/Microsoft.Sql/servers/pvlab-e2c824-sqlsvr",
+        "collection": {
+            "type": "CollectionReference",
+            "referenceName": "esg-26fa7f24-pv"
+        }
     }
 }
 ```
+</p>
+</details>
