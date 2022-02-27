@@ -25,5 +25,68 @@ GET https://{accountName}.purview.azure.com/scan/systemScanRulesets/versions
 ## Examples
 List system scan ruleset versions by data source type.
 ```powershell
-pv scan readSystemScanRulesetVersions --dataSourceType "AzureCosmosDb"
+pv scan readSystemScanRulesetVersions --dataSourceType "AmazonMySql" 
 ```
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "count": 3,
+    "value": [
+        {
+            "id": "systemscanrulesets/AmazonMySql",
+            "kind": "AmazonMySql",
+            "name": "AmazonMySql",
+            "properties": {
+                "collection": null,
+                "createdAt": "2021-12-02T09:24:49.8617837Z",
+                "description": "Microsoft default scan rule set that includes all supported system classification rules",
+                "excludedSystemClassifications": [],
+                "includedCustomClassificationRuleNames": [],
+                "lastModifiedAt": "2021-12-02T09:24:49.8617837Z",
+                "temporaryResourceFilters": null
+            },
+            "scanRulesetType": "System",
+            "status": "Enabled",
+            "version": 3
+        },
+        {
+            "id": "systemscanrulesets/AmazonMySql",
+            "kind": "AmazonMySql",
+            "name": "AmazonMySql",
+            "properties": {
+                "collection": null,
+                "createdAt": "2021-12-02T08:33:29.8537365Z",
+                "description": "Microsoft default scan rule set that includes all supported system classification rules",
+                "excludedSystemClassifications": [],
+                "includedCustomClassificationRuleNames": [],
+                "lastModifiedAt": "2021-12-02T08:33:29.8537365Z",
+                "temporaryResourceFilters": null
+            },
+            "scanRulesetType": "System",
+            "status": "Enabled",
+            "version": 2
+        },
+        {
+            "id": "systemscanrulesets/AmazonMySql",
+            "kind": "AmazonMySql",
+            "name": "AmazonMySql",
+            "properties": {
+                "collection": null,
+                "createdAt": "2021-07-18T10:09:24.1602619Z",
+                "description": "Microsoft default scan rule set that includes all supported system classification rules",
+                "excludedSystemClassifications": [],
+                "includedCustomClassificationRuleNames": [],
+                "lastModifiedAt": "2021-07-18T10:09:24.1602619Z",
+                "temporaryResourceFilters": null
+            },
+            "scanRulesetType": "System",
+            "status": "Enabled",
+            "version": 1
+        }
+    ]
+}
+```
+</p>
+</details>

@@ -28,5 +28,29 @@ GET https://{accountName}.purview.azure.com/scan/systemScanRulesets/versions/{ve
 ## Examples
 Get a system scan ruleset by version and data source type.
 ```powershell
-pv scan readSystemScanRulesetVersion --version 2 --dataSourceType "AzureCosmosDb"
+pv scan readSystemScanRulesetVersion --dataSourceType "AmazonMySql" --version 2
 ```
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "id": "systemscanrulesets/AmazonMySql",
+    "kind": "AmazonMySql",
+    "name": "AmazonMySql",
+    "properties": {
+        "collection": null,
+        "createdAt": "2021-12-02T08:33:29.8537365Z",
+        "description": "Microsoft default scan rule set that includes all supported system classification rules",
+        "excludedSystemClassifications": [],
+        "includedCustomClassificationRuleNames": [],
+        "lastModifiedAt": "2021-12-02T08:33:29.8537365Z",
+        "temporaryResourceFilters": null
+    },
+    "scanRulesetType": "System",
+    "status": "Enabled",
+    "version": 2
+}
+```
+</p>
+</details>
