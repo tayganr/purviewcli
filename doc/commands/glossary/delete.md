@@ -10,7 +10,8 @@ pv glossary delete --glossaryGuid=<val>
 ```
 
 ## Required Arguments
-*None*
+`--glossaryGuid` (string)  
+The globally unique identifier for glossary.
 
 ## Optional Arguments
 *None*
