@@ -29,5 +29,19 @@ PUT https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/sc
 ## Examples
 Run a scan by data source name and scan name.
 ```powershell
-pv scan runScan --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-p1E"
+pv scan runScan --dataSourceName "AzureDataLakeStorage-Gbm" --scanName "Scan-Xei"  
 ```
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "endTime": null,
+    "error": null,
+    "scanResultId": "7b8fd6fa-3ff5-457a-8689-718c9716689e",
+    "startTime": "2022-02-27T21:10:39.2802905Z",
+    "status": "Accepted"
+}
+```
+</p>
+</details>

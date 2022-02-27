@@ -31,17 +31,17 @@ PUT https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/sc
 ## Examples
 Create a scan.
 ```powershell
-pv scan putScan --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-ABC" --payloadFile "/path/to/file.json"
+pv scan putScan --dataSourceName "AzureDataLakeStorage-Gbm" --scanName "Scan-ABC" --payloadFile "/path/to/file.json"
 ```
-
-Example payload.
+<details><summary>Example payload: Create a scan.</summary>
+<p>
 ```json
 {
     "kind": "AdlsGen2Msi",
     "name": "Scan-ABC",
     "properties": {
         "collection": {
-            "referenceName": "fkcbkx",
+            "referenceName": "esg-26fa7f24-pv",
             "type": "CollectionReference"
         },
         "scanRulesetName": "AdlsGen2",
@@ -49,3 +49,5 @@ Example payload.
     }
 }
 ```
+</p>
+</details>
