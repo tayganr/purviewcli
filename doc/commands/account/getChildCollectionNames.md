@@ -25,5 +25,30 @@ GET https://{accountName}.purview.azure.com/account/collections/{collectionName}
 ## Examples
 List the child collections beneath a target collection.
 ```powershell
-pv account getChildCollectionNames --collectionName "pvlab-taygan2-pv"
+pv account getChildCollectionNames --collectionName "esg-26fa7f24-pv"
 ```
+
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "count": 3,
+    "value": [
+        {
+            "friendlyName": "Environment",
+            "name": "g7qe97"
+        },
+        {
+            "friendlyName": "Social",
+            "name": "6b93rz"
+        },
+        {
+            "friendlyName": "Governance",
+            "name": "bfgnyg"
+        }
+    ]
+}
+```
+</p>
+</details>

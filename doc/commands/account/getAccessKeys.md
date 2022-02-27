@@ -26,3 +26,15 @@ Get access keys (e.g. Atlas Kafka endpoint connection strings).
 ```powershell
 pv account getAccessKeys
 ```
+
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "atlasKafkaPrimaryEndpoint": "Endpoint=sb://atlas-YOUR_ENDPOINT.servicebus.windows.net/;SharedAccessKeyName=AlternateSharedAccessKey;SharedAccessKey=YOUR_KEY",
+    "atlasKafkaSecondaryEndpoint": "Endpoint=sb://atlas-YOUR_ENDPOINT.servicebus.windows.net/;SharedAccessKeyName=AlternateSharedAccessKey;SharedAccessKey=YOUR_KEY"
+}
+```
+</p>
+</details>

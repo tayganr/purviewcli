@@ -27,6 +27,18 @@ Regenerate the primary Atlas Kafka authorization key.
 pv account regenerateAccessKeys --keyType "PrimaryAtlasKafkaKey"
 ```
 
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "atlasKafkaPrimaryEndpoint": "Endpoint=sb://YOUR_ENDPOINT.servicebus.windows.net/;SharedAccessKeyName=AlternateSharedAccessKey;SharedAccessKey=YOUR_NEW_KEY",
+    "atlasKafkaSecondaryEndpoint": "Endpoint=sb://YOUR_ENDPOINT.servicebus.windows.net/;SharedAccessKeyName=AlternateSharedAccessKey;SharedAccessKey=YOUR_NEW_KEY"
+}
+```
+</p>
+</details>
+
 Regenerate the secondary Atlas Kafka authorization key.
 ```powershell
 pv account regenerateAccessKeys --keyType "SecondaryAtlasKafkaKey"
