@@ -10,8 +10,8 @@ pv glossary createTermsImport --glossaryGuid=<val> --glossaryFile=<val> [--inclu
 ```
 
 ## Required Arguments
-`--payloadFile` (string)  
-File path to a valid JSON document.
+`--glossaryGuid` (string)  
+The globally unique identifier for glossary.
 
 `--glossaryFile` (string)  
 File path to a valid JSON document.
