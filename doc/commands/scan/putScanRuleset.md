@@ -30,8 +30,9 @@ Create a scan ruleset.
 ```powershell
 pv scan putScanRuleset --scanRulesetName "my_ruleset" --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Create a scan ruleset.</summary>
+<p>
 
-Example payload.
 ```json
 {
     "kind": "AdlsGen2",
@@ -53,3 +54,5 @@ Example payload.
     "scanRulesetType": "Custom"
 }
 ```
+</p>
+</details>
