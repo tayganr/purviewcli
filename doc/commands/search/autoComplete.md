@@ -33,3 +33,59 @@ Auto complete options with keywords.
 ```powershell
 pv search autoComplete --keywords "a"
 ```
+
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "value": [
+        {
+            "queryPlusText": "A",
+            "text": "A"
+        },
+        {
+            "queryPlusText": "a",
+            "text": "a"
+        },
+        {
+            "queryPlusText": "Annual employee survey",
+            "text": "Annual employee survey"
+        },
+        {
+            "queryPlusText": "A less attrition",
+            "text": "A less attrition"
+        },
+        {
+            "queryPlusText": "A during a",
+            "text": "A during a"
+        },
+        {
+            "queryPlusText": "Attrition the number",
+            "text": "Attrition the number"
+        },
+        {
+            "queryPlusText": "Annual Percent Attrition",
+            "text": "Annual Percent Attrition"
+        },
+        {
+            "queryPlusText": "a part of",
+            "text": "a part of"
+        },
+        {
+            "queryPlusText": "AtlasGlossaryTerm",
+            "text": "AtlasGlossaryTerm"
+        },
+        {
+            "queryPlusText": "A plus changes",
+            "text": "A plus changes"
+        },
+        {
+            "queryPlusText": "an annual employee",
+            "text": "an annual employee"
+        }
+    ]
+}
+```
+</p>
+</details>

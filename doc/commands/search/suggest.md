@@ -33,3 +33,30 @@ Search suggestions by keywords.
 ```powershell
 pv search suggest --keywords "Sta"
 ```
+
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "value": [
+        {
+            "@search.score": 5.925384,
+            "@search.text": "Growth <em>Stage</em> of Company",
+            "assetType": null,
+            "classification": [],
+            "collectionId": null,
+            "description": null,
+            "entityType": "AtlasGlossaryTerm",
+            "id": "39cd231f-9571-4dee-afff-5c2841938945",
+            "label": [],
+            "name": "Growth Stage of Company",
+            "owner": null,
+            "qualifiedName": "General_Growth Stage of Company@Glossary",
+            "term": []
+        }
+    ]
+}
+```
+</p>
+</details>
