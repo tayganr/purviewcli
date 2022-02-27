@@ -28,5 +28,29 @@ GET https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/sc
 ## Examples
 Get scan filters (scope) by data source name and scan name.
 ```powershell
-pv scan readFilters --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-p1E"
+pv scan readFilters --dataSourceName "AzureDataLakeStorage-Gbm" --scanName "Scan-5Jc"
 ```
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "id": "datasources/AzureDataLakeStorage-Gbm/scans/Scan-5Jc/filters/custom",
+    "name": "custom",
+    "properties": {
+        "excludeRegexes": null,
+        "excludeUriPrefixes": [
+            "https://esg26fa7f24adls.dfs.core.windows.net/01-bronze",
+            "https://esg26fa7f24adls.dfs.core.windows.net/02-silver",
+            "https://esg26fa7f24adls.dfs.core.windows.net/esg26fa7f24fs"
+        ],
+        "includeRegexes": null,
+        "includeUriPrefixes": [
+            "https://esg26fa7f24adls.dfs.core.windows.net/",
+            "https://esg26fa7f24adls.dfs.core.windows.net/03-gold"
+        ]
+    }
+}
+```
+</p>
+</details>

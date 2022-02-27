@@ -33,8 +33,9 @@ Create or update a scan filter.
 ```powershell
 pv scan putFilter --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-Qrh" --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Create a scan trigger with a monthly recurrence.</summary>
+<p>
 
-Example payload.
 ```json
 {
     "name": "custom",
@@ -50,3 +51,5 @@ Example payload.
     }
 }
 ```
+</p>
+</details>
