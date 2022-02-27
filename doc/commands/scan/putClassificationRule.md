@@ -30,8 +30,9 @@ Create or update a classification rule.
 ```powershell
 pv scan putClassificationRule --classificationRuleName "my_rule" --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Regular Expression based Classification Rule.</summary>
+<p>
 
-Regular Expression based Classification Rule.
 ```json
 {
     "kind": "Custom",
@@ -52,8 +53,12 @@ Regular Expression based Classification Rule.
     }
 }
 ```
+</p>
+</details><br />
 
-Dictionary based Classification Rule.
+<details><summary>Example payload: Dictionary based Classification Rule..</summary>
+<p>
+
 ```json
 {
     "name":"my_rule",
@@ -72,3 +77,5 @@ Dictionary based Classification Rule.
     }
 }
 ```
+</p>
+</details>
