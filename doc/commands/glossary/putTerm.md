@@ -27,6 +27,23 @@ PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/glossary/term/{
 ```
 
 ## Examples
+Update an existing glossary term.
 ```powershell
 pv glossary putTerm --termGuid "919e8f87-d5b2-4dde-9f6e-1bbd738536a1" --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Update an existing glossary term.</summary>
+<p>
+
+```json
+{
+    "anchor": {
+        "glossaryGuid": "125e2575-5823-4887-89f0-ff03a70f7c3a"
+    },
+    "name": "My Term",
+    "qualifiedName": "My Term@Glossary",
+    "longDescription": "Hello World!",
+    "status": "Approved"
+}
+```
+</p>
+</details>
