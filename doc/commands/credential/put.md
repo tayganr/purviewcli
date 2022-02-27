@@ -28,5 +28,30 @@ PUT https://{accountName}.purview.azure.com/proxy/credentials/{credentialName}
 ## Examples
 Create or update a credential.
 ```powershell
-pv credential put --credentialName "credential-SQL" --payloadFile "/path/to/file.json"
+pv credential put --credentialName "my_new_sql_credential"  --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Create a new Azure Purview credential based on SQL Authentication.</summary>
+<p>
+
+```json
+{
+    "name": "my_new_sql_credential",
+    "properties": {
+        "type": "SqlAuth",
+        "typeProperties": {
+            "password": {
+                "secretName": "sql-secret-name",
+                "secretVersion": "",
+                "store": {
+                    "referenceName": "my_key_vault",
+                    "type": "LinkedServiceReference"
+                },
+                "type": "AzureKeyVaultSecret"
+            },
+            "user": "sql-user-name"
+        }
+    }
+}
+```
+</p>
+</details>
