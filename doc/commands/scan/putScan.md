@@ -33,7 +33,7 @@ Create a scan.
 ```powershell
 pv scan putScan --dataSourceName "AzureDataLakeStorage-Gbm" --scanName "Scan-ABC" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a scan trigger with a monthly recurrence.</summary>
+<details><summary>Example payload: Create a scan.</summary>
 <p>
 
 ```json
