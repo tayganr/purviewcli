@@ -28,5 +28,39 @@ GET https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}/sc
 ## Examples
 Get trigger information for a scan by data source name and scan name.
 ```powershell
-pv scan readTrigger --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-p1E"
+pv scan readTrigger --dataSourceName "AzureDataLakeStorage-Gbm" --scanName "Scan-5Jc"
 ```
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{   
+    "id": "datasources/AzureDataLakeStorage-Gbm/scans/Scan-5Jc/triggers/default",
+    "name": "default",
+    "properties": {
+        "createdAt": "2022-02-27T20:26:52.086397Z",
+        "lastModifiedAt": "2022-02-27T20:26:52.086397Z",
+        "lastScheduled": null,
+        "recurrence": {
+            "endTime": null,
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "hours": null,
+                "minutes": null,
+                "monthDays": [
+                    15
+                ],
+                "monthlyOccurrences": null,
+                "weekDays": null
+            },
+            "startTime": "2022-02-27T20:25:00Z",
+            "timezone": "UTC"
+        },
+        "recurrenceInterval": null,
+        "scanLevel": "Incremental"
+    }
+}
+```
+</p>
+</details>
