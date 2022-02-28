@@ -29,10 +29,11 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueA
 ```
 
 ## Examples
+Associate an entity to multiple classifications via a unique attribute (e.g. qualifiedName).
 ```powershell
 pv entity createUniqueAttributeClassifications --typeName "azure_datalake_gen2_filesystem" --qualifiedName  "https://esg26fa7f24adls.dfs.core.windows.net/02-silver" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a ....</summary>
+<details><summary>Example payload: Associate an entity to multiple classifications via a unique attribute (e.g. qualifiedName).</summary>
 <p>
 
 ```json

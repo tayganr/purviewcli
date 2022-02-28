@@ -26,6 +26,7 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{g
 ```
 
 ## Examples
+Associate an entity to multiple classifications.
 ```powershell
 pv entity createClassifications --guid "04f2bb30-91db-404b-a8e1-d65e45338929" --payloadFile "/path/to/file.json"
 ```

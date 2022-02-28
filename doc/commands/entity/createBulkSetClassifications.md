@@ -23,6 +23,7 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/bulk/se
 ```
 
 ## Examples
+Associate sets of classifications to entities in bulk.
 ```powershell
 pv entity createBulkSetClassifications --payloadFile "/path/to/file.json"
 ```
