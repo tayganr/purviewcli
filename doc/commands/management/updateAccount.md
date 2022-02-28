@@ -10,7 +10,17 @@ pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --a
 ```
 
 ## Required Arguments
-*None*
+`--subscriptionId` (string)  
+The subscription identifier.
+
+`--resourceGroupName` (string)  
+The resource group name.
+
+`--accountName` (string)  
+The name of the account.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -23,5 +33,5 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 
 ## Examples
 ```powershell
-
+pv management createAccount --subscriptionId "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0" --resourceGroupName "synapse" --accountName "taygan-26fa7f24-pv" --payloadFile "/path/to/file.json"
 ```

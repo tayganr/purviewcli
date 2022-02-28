@@ -38,8 +38,9 @@ class Management(Endpoint):
     def managementCreateAccount(self, args):
         self.method = 'PUT'
         self.endpoint = f'/subscriptions/{args["--subscriptionId"]}/resourceGroups/{args["--resourceGroupName"]}/providers/Microsoft.Purview/accounts/{args["--accountName"]}'
-        self.params = {'api-version': '2020-12-01-preview'}
+        self.params = {'api-version': '2021-07-01'}
         self.payload = get_json(args, '--payloadFile')
+        print(self.endpoint)
     
     @decorator
     def managementDeleteAccount(self, args):

@@ -10,7 +10,14 @@ pv management defaultAccount --scopeTenantId=<val> --scopeType=<val> --scope=<va
 ```
 
 ## Required Arguments
-*None*
+`--scopeTenantId` (string)  
+The tenant ID.
+
+`--scopeType` (string)  
+The scope for the default account (Subscription OR Tenant).
+
+`--scope` (string)  
+The Id of the scope object, for example if the scope is "Subscription" then it is the ID of that subscription.
 
 ## Optional Arguments
 *None*
@@ -23,5 +30,14 @@ GET https://management.azure.com/providers/Microsoft.Purview/getDefaultAccount
 
 ## Examples
 ```powershell
+pv management defaultAccount --scopeTenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" --scopeType "Subscription" --scope "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0"
+```
+
+<details><summary>Sample response.</summary>
+<p>
+
+```json
 
 ```
+</p>
+</details>

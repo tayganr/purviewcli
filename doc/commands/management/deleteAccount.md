@@ -10,7 +10,14 @@ pv management deleteAccount --subscriptionId=<val> --resourceGroupName=<val> --a
 ```
 
 ## Required Arguments
-*None*
+`--subscriptionId` (string)  
+The subscription identifier.
+
+`--resourceGroupName` (string)  
+The resource group name.
+
+`--accountName` (string)  
+The name of the account.
 
 ## Optional Arguments
 *None*
@@ -23,5 +30,5 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## Examples
 ```powershell
-
+pv management deleteAccount --subscriptionId "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0" --resourceGroupName "esg" --accountName "esg-26fa7f24-pv"
 ```

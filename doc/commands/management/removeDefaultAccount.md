@@ -10,7 +10,14 @@ pv management removeDefaultAccount --scopeTenantId=<val> --scopeType=<val> --sco
 ```
 
 ## Required Arguments
-*None*
+`--scopeTenantId` (string)  
+The tenant ID.
+
+`--scopeType` (string)  
+The scope for the default account (Subscription OR Tenant).
+
+`--scope` (string)  
+The Id of the scope object, for example if the scope is "Subscription" then it is the ID of that subscription.
 
 ## Optional Arguments
 *None*
