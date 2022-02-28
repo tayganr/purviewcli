@@ -10,7 +10,11 @@ pv entity readClassification --guid=<val> --classificationName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--guid` (string)  
+The globally unique identifier of the entity.
+
+`--classificationName` (string)  
+The name of the classification.
 
 ## Optional Arguments
 *None*
@@ -22,6 +26,24 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{gu
 ```
 
 ## Examples
+Get a classification assigned to a particular entity via the entity GUID and classification name.
 ```powershell
-
+pv entity readClassification --guid "c6a7811a-0699-44d0-b0be-68babe560ab2" --classificationName "MICROSOFT.GOVERNMENT.AUSTRALIA.COMPANY.NUMBER"
 ```
+
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{
+    "attributes": {
+        "confidence": null
+    },
+    "entityGuid": "c6a7811a-0699-44d0-b0be-68babe560ab2",
+    "entityStatus": "ACTIVE",
+    "lastModifiedTS": "1",
+    "typeName": "MICROSOFT.GOVERNMENT.AUSTRALIA.COMPANY.NUMBER"
+}
+```
+</p>
+</details>

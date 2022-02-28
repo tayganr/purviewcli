@@ -25,3 +25,12 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{gu
 ```powershell
 
 ```
+
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+
+```
+</p>
+</details>
