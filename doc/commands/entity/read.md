@@ -218,7 +218,7 @@ pv entity read --guid "c6a7811a-0699-44d0-b0be-68babe560ab2"
 </p>
 </details><br />
 
-Get the complete definition of an existing entity via the entities GUID - ignoring relationships.
+Get the complete definition of an existing entity via the entities GUID (ignoring relationships).
 ```powershell
 pv entity read --guid "c6a7811a-0699-44d0-b0be-68babe560ab2" --ignoreRelationships
 ```
