@@ -6,11 +6,18 @@ Add classification to the entity identified by its type and unique attributes.
 
 ## Syntax
 ```
-pv entity createUniqueAttributeClassifications --typeName=<val> --payloadFile=<val>
+pv entity createUniqueAttributeClassifications --typeName=<val> --qualifiedName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--typeName` (string)  
+The name of the type.
+
+`--qualifiedName` (string)  
+The qualified name of the entity.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -23,5 +30,20 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueA
 
 ## Examples
 ```powershell
-
+pv entity createUniqueAttributeClassifications --typeName "azure_datalake_gen2_filesystem" --qualifiedName  "https://esg26fa7f24adls.dfs.core.windows.net/02-silver" --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Create a ....</summary>
+<p>
+
+```json
+[
+    {
+        "typeName": "MICROSOFT.FINANCIAL.US.ABA_ROUTING_NUMBER"
+    },
+    {
+        "typeName": "MICROSOFT.FINANCIAL.CREDIT_CARD_NUMBER"
+    }
+]
+```
+</p>
+</details>

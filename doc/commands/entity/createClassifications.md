@@ -10,7 +10,11 @@ pv entity createClassifications --guid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--guid` (string)  
+The globally unique identifier of the entity.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -23,5 +27,20 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{g
 
 ## Examples
 ```powershell
-
+pv entity createClassifications --guid "04f2bb30-91db-404b-a8e1-d65e45338929" --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Associate an entity to multiple classifications.</summary>
+<p>
+
+```json
+[
+    {
+        "typeName": "MICROSOFT.FINANCIAL.US.ABA_ROUTING_NUMBER"
+    },
+    {
+        "typeName": "MICROSOFT.FINANCIAL.CREDIT_CARD_NUMBER"
+    }
+]
+```
+</p>
+</details>

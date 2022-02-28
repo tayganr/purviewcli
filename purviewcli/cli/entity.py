@@ -5,7 +5,7 @@ usage:
     pv entity createBulkClassification --payloadFile=<val>
     pv entity createBulkSetClassifications --payloadFile=<val>
     pv entity createClassifications --guid=<val> --payloadFile=<val>
-    pv entity createUniqueAttributeClassifications --typeName=<val> --payloadFile=<val>
+    pv entity createUniqueAttributeClassifications --typeName=<val> --qualifiedName=<val> --payloadFile=<val>
     pv entity delete --guid=<val>
     pv entity deleteBulk --guid=<val>...
     pv entity deleteClassification --guid=<val> --classificationName=<val>

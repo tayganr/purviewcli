@@ -127,6 +127,7 @@ class Entity(Endpoint):
         self.method = 'POST'
         self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/classifications'
         self.payload = get_json(args, '--payloadFile')
+        self.params = { 'attr:qualifiedName': args["--qualifiedName"]}
 
     @decorator
     def entityPutUniqueAttributeClassifications(self, args):
