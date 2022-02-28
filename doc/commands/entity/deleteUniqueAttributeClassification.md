@@ -6,11 +6,18 @@ Delete a given classification from an entity identified by its type and unique a
 
 ## Syntax
 ```
-pv entity deleteUniqueAttributeClassification --typeName=<val> --classificationName=<val>
+pv entity deleteUniqueAttributeClassification --typeName=<val> --qualifiedName=<val> --classificationName=<val>
 ```
 
 ## Required Arguments
-*None*
+`--typeName` (string)  
+The name of the type.
+
+`--qualifiedName` (string)  
+The qualified name of the entity.
+
+`--classificationName` (string)  
+The name of the classification.
 
 ## Optional Arguments
 *None*
@@ -22,6 +29,7 @@ DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqu
 ```
 
 ## Examples
+Remove a classification from an entity via the entities qualified name.
 ```powershell
-
+pv entity deleteUniqueAttributeClassification --typeName "azure_datalake_gen2_filesystem" --qualifiedName "https://esg26fa7f24adls.dfs.core.windows.net/02-silver" --classificationName "MICROSOFT.FINANCIAL.US.ABA_ROUTING_NUMBER"
 ```
