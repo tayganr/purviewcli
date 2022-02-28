@@ -23,7 +23,7 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{gu
 ```
 
 ## Examples
-Get a list of all classification assigned to a particular entity via the entity GUID and classification name.
+Get a list of all classifications assigned to a particular entity via the entity GUID and classification name.
 ```powershell
 pv entity readClassifications --guid "c6a7811a-0699-44d0-b0be-68babe560ab2"
 ```
