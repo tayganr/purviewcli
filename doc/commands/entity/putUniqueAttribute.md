@@ -6,11 +6,18 @@ Update entity partially - Allow a subset of attributes to be updated on an entit
 
 ## Syntax
 ```
-pv entity putUniqueAttribute --typeName=<val> --payloadFile=<val>
+pv entity putUniqueAttribute --typeName=<val> --qualifiedName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--typeName` (string)  
+The name of the type.
+
+`--qualifiedName` (string)  
+The qualified name of the entity.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +29,25 @@ PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueAt
 ```
 
 ## Examples
+Update an existing entity by referring to the entities type name and qualified name.
 ```powershell
-
+pv entity putUniqueAttribute --typeName "azure_datalake_gen2_path" --qualifiedName "https://esg26fa7f24adls.dfs.core.windows.net/01-bronze/esg/myfile01.csv" --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload.</summary>
+<p>
+
+```json
+{
+    "entity": {
+      "status": "ACTIVE",
+      "attributes": {
+        "qualifiedName": "https://esg26fa7f24adls.dfs.core.windows.net/01-bronze/esg/myfile01.csv",
+        "name": "ExampleNewName",
+        "description": "This is a long description."
+      },
+      "typeName": "azure_storage_account"
+    }
+  }
+```
+</p>
+</details>

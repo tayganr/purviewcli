@@ -116,6 +116,7 @@ class Entity(Endpoint):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}'
         self.payload = get_json(args, '--payloadFile')
+        self.params = { 'attr:qualifiedName': args["--qualifiedName"]}
 
     @decorator
     def entityDeleteUniqueAttributeClassification(self, args):

@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > create
 
 ## Description
-Create or update an entity in Atlas. Existing entity is matched using its unique guid if supplied or by its unique attributes eg: qualifiedName. Map and array of collections are not well supported. E.g., array<array>, array<map<string, int>>.
+Create or update an entity in Atlas. Existing entity is matched using its unique guid if supplied or by its unique attributes eg: qualifiedName.
 
 ## Syntax
 ```
@@ -10,7 +10,8 @@ pv entity create --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,26 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity
 ```
 
 ## Examples
+Create or update an entity.
 ```powershell
-
+pv entity create --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload.</summary>
+<p>
+
+```json
+{
+    "entity": {
+        "attributes": {
+            "description": "This is a long description.",
+            "name": "myfile.csv",
+            "qualifiedName": "https://esg26fa7f24adls.dfs.core.windows.net/01-bronze/esg/myfile.csv",
+            "isFile": true
+        },
+        "collectionId": "esg-26fa7f24-pv",
+        "typeName": "azure_datalake_gen2_path"
+    }
+}
+```
+</p>
+</details>
