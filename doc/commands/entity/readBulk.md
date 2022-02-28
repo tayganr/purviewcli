@@ -13,14 +13,12 @@ pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]
 `--guid` (string)  
 The globally unique identifier of the entity.
 
+## Optional Arguments
 `--ignoreRelationships` (boolean)  
 Whether to ignore relationship attributes.
 
 `--minExtInfo` (boolean)  
 Whether to return minimal information for referred entities.
-
-## Optional Arguments
-*None*
 
 ## API Mapping
 Catalog Data Plane > Entity > [List By Guids](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/list-by-guids)

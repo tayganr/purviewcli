@@ -17,7 +17,7 @@ usage:
     pv entity putUniqueAttributeClassifications --typeName=<val> --qualifiedName=<val> --payloadFile=<val>
     pv entity read --guid=<val> [--ignoreRelationships --minExtInfo]
     pv entity readBulk --guid=<val>... [--ignoreRelationships --minExtInfo]
-    pv entity readBulkUniqueAttribute --typeName=<val> [--ignoreRelationships --minExtInfo]
+    pv entity readBulkUniqueAttribute --typeName=<val> --qualifiedName=<val>... [--ignoreRelationships --minExtInfo]
     pv entity readClassification --guid=<val> --classificationName=<val>
     pv entity readClassifications --guid=<val>
     pv entity readHeader --guid=<val>

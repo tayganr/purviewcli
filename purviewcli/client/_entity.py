@@ -99,6 +99,12 @@ class Entity(Endpoint):
         self.method = 'GET'
         self.endpoint = f'/api/atlas/v2/entity/bulk/uniqueAttribute/type/{args["--typeName"]}'
         self.params = {'ignoreRelationships': str(args['--ignoreRelationships']).lower(), 'minExtInfo': str(args['--minExtInfo']).lower()}
+        counter = 0
+        self.params = {}
+        for qualifiedName in args['--qualifiedName']:
+            self.params[f"attr_{str(counter)}:qualifiedName"] = qualifiedName
+            counter += 1
+
 
     @decorator
     def entityReadUniqueAttribute(self, args):
