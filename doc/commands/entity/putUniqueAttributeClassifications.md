@@ -10,7 +10,14 @@ pv entity putUniqueAttributeClassifications --typeName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--typeName` (string)  
+The name of the type.
+
+`--qualifiedName` (string)  
+The qualified name of the entity.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -25,3 +32,11 @@ PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueAt
 ```powershell
 
 ```
+<details><summary>Example payload: Create a ...</summary>
+<p>
+
+```json
+
+```
+</p>
+</details>

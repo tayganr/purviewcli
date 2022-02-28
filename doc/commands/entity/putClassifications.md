@@ -10,7 +10,11 @@ pv entity putClassifications --guid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+`--guid` (string)  
+The globally unique identifier of the entity.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -22,6 +26,23 @@ PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{gu
 ```
 
 ## Examples
+Update existing classifications to an existing entity via the entity GUID.
 ```powershell
-
+pv entity putClassifications --guid "bbb9ff1d-f880-435e-ac87-d6fd5676d8f0" --payloadFile "/path/to/file.json"
 ```
+<details><summary>Example payload: Create a ...</summary>
+<p>
+
+```json
+[
+
+    {
+        "typeName": "MICROSOFT.FINANCIAL.CREDIT_CARD_NUMBER",
+        "attributes": {
+            "confidence": 2
+        }
+    }
+]
+```
+</p>
+</details>

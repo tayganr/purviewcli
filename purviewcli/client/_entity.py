@@ -135,6 +135,7 @@ class Entity(Endpoint):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}/classifications'
         self.payload = get_json(args, '--payloadFile')
+        self.params = { 'attr:qualifiedName': args["--qualifiedName"]}
 
     # NOT SUPPORTED IN AZURE PURVIEW
     # @decorator
