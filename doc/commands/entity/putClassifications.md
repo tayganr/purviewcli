@@ -30,7 +30,7 @@ Update existing classifications to an existing entity via the entity GUID.
 ```powershell
 pv entity putClassifications --guid "bbb9ff1d-f880-435e-ac87-d6fd5676d8f0" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a ...</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

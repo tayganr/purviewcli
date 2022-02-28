@@ -30,13 +30,20 @@ PUT https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/uniqueAt
 
 ## Examples
 ```powershell
-
+pv entity putUniqueAttributeClassifications --typeName "azure_datalake_gen2_filesystem" --qualifiedName "https://esg26fa7f24adls.dfs.core.windows.net/02-silver" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a ...</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json
-
+[
+    {
+        "typeName": "MICROSOFT.FINANCIAL.CREDIT_CARD_NUMBER",
+        "attributes": {
+            "confidence": 7
+        }
+    }
+]
 ```
 </p>
 </details>
