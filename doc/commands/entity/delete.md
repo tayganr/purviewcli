@@ -10,7 +10,8 @@ pv entity delete --guid=<val>
 ```
 
 ## Required Arguments
-*None*
+`--guid` (string)  
+The globally unique identifier of the entity.
 
 ## Optional Arguments
 *None*
@@ -22,6 +23,7 @@ DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/
 ```
 
 ## Examples
+Delete an existing entity by its GUID.
 ```powershell
-
+pv entity delete --guid "d3a5df04-8067-4558-a4bc-01f6ddc5aef8"
 ```

@@ -116,6 +116,7 @@ class Entity(Endpoint):
     def entityDeleteUniqueAttribute(self, args):
         self.method = 'DELETE'
         self.endpoint = f'/api/atlas/v2/entity/uniqueAttribute/type/{args["--typeName"]}'
+        self.params = { 'attr:qualifiedName': args["--qualifiedName"]}
 
     @decorator
     def entityPutUniqueAttribute(self, args):

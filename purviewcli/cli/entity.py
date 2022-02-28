@@ -9,7 +9,7 @@ usage:
     pv entity delete --guid=<val>
     pv entity deleteBulk --guid=<val>...
     pv entity deleteClassification --guid=<val> --classificationName=<val>
-    pv entity deleteUniqueAttribute --typeName=<val>
+    pv entity deleteUniqueAttribute --typeName=<val> --qualifiedName=<val>
     pv entity deleteUniqueAttributeClassification --typeName=<val> --qualifiedName=<val> --classificationName=<val>
     pv entity put --guid=<val> --attrName=<val> --attrValue=<val>
     pv entity putClassifications --guid=<val> --payloadFile=<val>
