@@ -32,12 +32,3 @@ GET https://management.azure.com/providers/Microsoft.Purview/getDefaultAccount
 ```powershell
 pv management defaultAccount --scopeTenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" --scopeType "Subscription" --scope "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0"
 ```
-
-<details><summary>Sample response.</summary>
-<p>
-
-```json
-
-```
-</p>
-</details>
