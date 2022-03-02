@@ -10,7 +10,17 @@ pv management addRootCollectionAdmin --subscriptionId=<val> --resourceGroupName=
 ```
 
 ## Required Arguments
-*None*
+`--subscriptionId` (string)  
+The subscription identifier.
+
+`--resourceGroupName` (string)  
+The resource group name.
+
+`--accountName` (string)  
+The name of the account.
+
+`--objectId` (string)  
+The object identifier of the admin.
 
 ## Optional Arguments
 *None*
@@ -22,6 +32,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ```
 
 ## Examples
+Assign the collection administrator role to a user via their Azure AD object identifier at the root collection of the Azure Purview account.
 ```powershell
-
+pv management addRootCollectionAdmin --subscriptionId "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0" --resourceGroupName "myrg" --accountName "my-purview-account" --objectId "ac2b4099-7d5a-4d71-b9e4-65325a82c487"
 ```

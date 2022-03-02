@@ -10,7 +10,14 @@ pv management listKeys --subscriptionId=<val> --resourceGroupName=<val> --accoun
 ```
 
 ## Required Arguments
-*None*
+`--subscriptionId` (string)  
+The subscription identifier.
+
+`--resourceGroupName` (string)  
+The resource group name.
+
+`--accountName` (string)  
+The name of the account.
 
 ## Optional Arguments
 *None*
@@ -22,6 +29,19 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ```
 
 ## Examples
+List the keys associated to an existing Azure Purview account.
 ```powershell
-
+pv management listKeys --subscriptionId "2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0" --resourceGroupName "myrg" --accountName "my-purview-account"
 ```
+
+<details><summary>Sample response.</summary>
+<p>
+
+```json
+{  
+    "atlasKafkaPrimaryEndpoint": "Endpoint=sb://ATLAS_ENDPOINT.servicebus.windows.net/;SharedAccessKeyName=AlternateSharedAccessKey;SharedAccessKey=YOUR_SHARED_ACCESS_KEY",
+    "atlasKafkaSecondaryEndpoint": "Endpoint=sb://ATLAS_ENDPOINT.servicebus.windows.net/;SharedAccessKeyName=AlternateSharedAccessKey;SharedAccessKey=YOUR_SHARED_ACCESS_KEY"
+}
+```
+</p>
+</details>
