@@ -187,8 +187,9 @@ class Glossary(Endpoint):
 
     @decorator
     def glossaryCreateTermsImport(self, args):
+        glossaryName = 'Glossary'
         self.method = 'POST'
-        self.endpoint = f'/api/glossary/{args["--glossaryGuid"]}/terms/import'
+        self.endpoint = f'/api/glossary/{args["--glossaryGuid"]}/terms/import' if args['--glossaryGuid'] else f'/api/glossary/name/{glossaryName}/terms/import'
         self.files = {'file': open(args["--glossaryFile"], 'rb')}
         self.params = {"api-version": "2021-05-01-preview"}
         

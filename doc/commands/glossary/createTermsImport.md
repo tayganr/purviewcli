@@ -6,17 +6,17 @@ Import glossary terms from local csv file.
 
 ## Syntax
 ```
-pv glossary createTermsImport --glossaryGuid=<val> --glossaryFile=<val> [--includeTermHierarchy]
+pv glossary createTermsImport --glossaryFile=<val> [--glossaryGuid=<val> --includeTermHierarchy]
 ```
 
 ## Required Arguments
-`--glossaryGuid` (string)  
-The globally unique identifier for glossary.
-
 `--glossaryFile` (string)  
 File path to a valid JSON document.
 
 ## Optional Arguments
+`--glossaryGuid` (string)  
+The globally unique identifier for glossary.
+
 `--includeTermHierarchy` (boolean)  
 Whether to include the term hierarchy.
 
@@ -24,6 +24,11 @@ Whether to include the term hierarchy.
 Catalog Data Plane > Glossary > [Import Glossary Terms Via Csv](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/import-glossary-terms-via-csv)
 ```
 POST https://{accountName}.purview.azure.com/catalog/api/glossary/{glossaryGuid}/terms/import
+```
+
+Catalog Data Plane > Glossary > [Import Glossary Terms from local csv file by glossaryName](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/import-glossary-terms-via-csv-by-glossary-name)
+```
+POST https://{accountName}.purview.azure.com/catalog/api/glossary/name/{glossaryName}/terms/import
 ```
 
 ## Examples
