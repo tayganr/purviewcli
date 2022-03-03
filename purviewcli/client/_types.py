@@ -10,7 +10,8 @@ class Types(Endpoint):
         self.method = 'GET'
         typeDefKey = 'guid' if args['--name'] is None else 'name'
         typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
-        self.endpoint = f'/api/atlas/v2/types/termtemplatedef/{typeDefKey}/{typeDefVal}'
+        self.endpoint = f'/api/types/termtemplatedef/{typeDefKey}/{typeDefVal}'
+        self.params = {'api-version': '2021-05-01-preview'}
 
     @decorator
     def typesReadClassificationDef(self, args):

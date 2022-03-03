@@ -22,12 +22,13 @@ class Lineage(Endpoint):
     @decorator
     def lineageReadNext(self, args):
         self.method = 'GET'
-        self.endpoint = f'/api/atlas/v2/lineage/{args["--guid"]}/next/'
+        self.endpoint = f'/api/lineage/{args["--guid"]}/next/'
         self.params = {
           'direction': args['--direction'],
           'getDerivedLineage': 'true',
           'offset': args['--offset'],
           'limit': args['--limit'],
+          'api-version': '2021-05-01-preview'
         }
 
     # NOT SUPPORTED IN AZURE PURVIEW

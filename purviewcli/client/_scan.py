@@ -79,12 +79,14 @@ class Scan(Endpoint):
     @decorator
     def scanReadSystemScanRulesetVersion(self, args):
         self.method = 'GET'
-        self.endpoint = f'/systemScanRulesets/versions/{args["--version"]}?dataSourceType={args["--dataSourceType"]}'
+        self.endpoint = f'/systemScanRulesets/versions/{args["--version"]}'
+        self.params = {'dataSourceType': args["--dataSourceType"]}
 
     @decorator
     def scanReadSystemScanRulesetLatest(self, args):
         self.method = 'GET'
-        self.endpoint = f'/systemScanRulesets/versions/latest?dataSourceType={args["--dataSourceType"]}'
+        self.endpoint = f'/systemScanRulesets/versions/latest'
+        self.params = {'dataSourceType': args["--dataSourceType"]}
 
     @decorator
     def scanReadSystemScanRulesets(self, args):
@@ -94,7 +96,8 @@ class Scan(Endpoint):
     @decorator
     def scanReadSystemScanRulesetVersions(self, args):
         self.method = 'GET'
-        self.endpoint = f'/systemScanRulesets/versions?dataSourceType={args["--dataSourceType"]}'
+        self.endpoint = f'/systemScanRulesets/versions'
+        self.params = {'dataSourceType': args["--dataSourceType"]}
 
     @decorator
     def scanReadTrigger(self, args):

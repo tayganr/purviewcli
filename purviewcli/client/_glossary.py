@@ -167,8 +167,9 @@ class Glossary(Endpoint):
 
     @decorator
     def glossaryReadTerms(self, args):
+        glossaryName = 'Glossary'
         self.method = 'GET'
-        self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/terms' if args['--glossaryGuid'] else f'/api/atlas/v2/glossary/name/Glossary/terms'
+        self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/terms' if args['--glossaryGuid'] else f'/api/glossary/name/{glossaryName}/terms'
         self.params = {'limit': args['--limit'], 'offset': args['--offset'], 'sort': args['--sort'], 'extInfo': args['--extInfo'], 'includeTermHierarchy': args['--includeTermHierarchy'], 'api-version': '2021-05-01-preview'}
 
     @decorator
@@ -181,7 +182,8 @@ class Glossary(Endpoint):
     def glossaryCreateTermsExport(self, args):
         self.method = 'POST'
         self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/terms/export'
-        self.payload = args['--termGuid']        
+        self.payload = args['--termGuid']
+        self.params = {'api-version': '2021-05-01-preview'}
 
     @decorator
     def glossaryCreateTermsImport(self, args):
@@ -193,7 +195,9 @@ class Glossary(Endpoint):
     @decorator
     def glossaryReadTermsImport(self, args):
         self.method = 'GET'
-        self.endpoint = f'/api/atlas/v2/glossary/terms/import/{args["--operationGuid"]}'
+        self.endpoint = f'/api/glossary/terms/import/{args["--operationGuid"]}'
+        self.params = {'api-version': '2021-05-01-preview'}
+
 
     # NOT SUPPORTED IN AZURE PURVIEW
     # @decorator
