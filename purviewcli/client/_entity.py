@@ -145,6 +145,9 @@ class Entity(Endpoint):
         self.payload = get_json(args, '--payloadFile')
         self.params = { 'attr:qualifiedName': args["--qualifiedName"]}
 
+    # @decorator
+    # def entityMove
+
     # NOT SUPPORTED IN AZURE PURVIEW
     # @decorator
     # def entityCreateBusinessMetadataTemplate(self, args):
