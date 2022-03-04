@@ -6,7 +6,7 @@ Get auto complete options.
 
 ## Syntax
 ```
-pv search autoComplete [--keywords=<val> --limit=<val> --filter-file=<val>]
+pv search autoComplete [--keywords=<val> --limit=<val> --filterFile=<val>]
 ```
 
 ## Required Arguments
@@ -19,7 +19,7 @@ The keywords applied to all fields that support autocomplete operation. It must 
 `--limit` (integer)  
 The number of autocomplete results we hope to return. The default value is 50. The value must be a number between 1 and 100.
 
-`--filter-file` (string)  
+`--filterFile` (string)  
 The filter for the search.
 
 ## API Mapping

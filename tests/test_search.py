@@ -10,7 +10,7 @@ class TestSearch(unittest.TestCase):
             '--keywords': '*',
             '--limit': None,
             '--offset': None,
-            '--filter-file': None,
+            '--filterFile': None,
             '--facets-file': None,
             '--purviewName': self.PURVIEW_NAME
         }

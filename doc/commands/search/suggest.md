@@ -6,7 +6,7 @@ Get search suggestions by query criteria.
 
 ## Syntax
 ```
-pv search suggest [--keywords=<val> --limit=<val> --filter-file=<val>]
+pv search suggest [--keywords=<val> --limit=<val> --filterFile=<val>]
 ```
 
 ## Required Arguments
@@ -19,7 +19,7 @@ The keywords applied to all fields that support suggest operation. It must be at
 `--limit` (integer)  
 The number of suggestions we hope to return. The default value is 5. The value must be a number between 1 and 100.
 
-`--filter-file` (string)  
+`--filterFile` (string)  
 The filter for the search.
 
 ## API Mapping

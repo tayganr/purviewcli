@@ -6,7 +6,7 @@ Gets data using search.
 
 ## Syntax
 ```
-pv search query [--keywords=<val> --limit=<val> --offset=<val> --filter-file=<val> --facets-file=<val>]
+pv search query [--keywords=<val> --limit=<val> --offset=<val> --filterFile=<val> --facets-file=<val>]
 ```
 
 ## Required Arguments
@@ -22,7 +22,7 @@ The limit of the number of the search result. default value is 50; maximum value
 `--offset` (integer)  
 The offset. The default value is 0. The maximum value is 100000.
 
-`--filter-file` (string)  
+`--filterFile` (string)  
 The filter for the search.
 
 `--facets-file` (string)  

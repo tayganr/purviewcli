@@ -14,7 +14,7 @@ class Search(Endpoint):
             'keywords': args['--keywords'],
             'limit': args['--limit'],
             'offset': args['--offset'],
-            'filter': get_json(args,'--filter-file'),
+            'filter': get_json(args,'--filterFile'),
             'facets': get_json(args,'--facets-file')
         }
     
@@ -25,7 +25,7 @@ class Search(Endpoint):
         self.params = {"api-version": "2021-05-01-preview"}
         self.payload = {
             "keywords": args['--keywords'],
-            "filter": get_json(args,'--filter-file'),
+            "filter": get_json(args,'--filterFile'),
             "limit": args['--limit']
         }
 
@@ -36,7 +36,7 @@ class Search(Endpoint):
         self.params = {"api-version": "2021-05-01-preview"}
         self.payload = {
             "keywords": args['--keywords'],
-            "filter": get_json(args,'--filter-file'),
+            "filter": get_json(args,'--filterFile'),
             "limit": args['--limit']
         }
     
