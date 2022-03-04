@@ -9,7 +9,7 @@
 | [pv policystore readMetadataPolicy](./readMetadataPolicy.md) | Gets a metadata policy. |
 | [pv policystore readMetadataRoles](./readMetadataRoles.md) | Lists roles for Purview Account. |
 
-## Metadata Policies
+## Data Policies
 | Command | Description |
 | --- | --- |
 |[pv policystore deleteDataPolicy](./deleteDataPolicy.md) | Delete a data policy.|
