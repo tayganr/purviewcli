@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 class Insight(Endpoint):
     def __init__(self):
         Endpoint.__init__(self)
-        self.app = 'base'
+        self.app = 'mapanddiscover'
 
     @decorator
     def insightGraphql(self, args):
@@ -32,23 +32,23 @@ class Insight(Endpoint):
     @decorator
     def insightAssetDistribution(self, args):
         self.method = 'GET'
-        self.endpoint = '/mapanddiscover/reports/asset2/assetDistribution/getSnapshot'
+        self.endpoint = '/reports/serverless/asset2/assetDistribution/getSnapshot'
 
     @decorator
     def insightAssetDataSources(self, args):
         self.method = 'POST'
-        self.endpoint = '/mapanddiscover/reports/asset2/dataSources'
+        self.endpoint = '/reports/asset2/dataSources'
         self.payload = {"registeredSourceGroup":""}
 
     @decorator
     def insightFilesWithoutResourceSet(self, args):
         self.method = 'GET'
-        self.endpoint = '/mapanddiscover/reports/asset2/filesWithoutResourceSet/getSnapshot'
+        self.endpoint = '/reports/asset2/filesWithoutResourceSet/getSnapshot'
 
     @decorator
     def insightFileTypeSizeTimeSeries(self, args):
         self.method = 'POST'
-        self.endpoint = '/mapanddiscover/reports/asset2/fileTypeSizeTimeSeries'
+        self.endpoint = '/reports/asset2/fileTypeSizeTimeSeries'
         self.payload = {
             "window": f"{args['--numberOfDays']}d",
             "fileType": args['--fileType'],
@@ -59,17 +59,17 @@ class Insight(Endpoint):
     @decorator
     def insightTopFileTypesBySize(self, args):
         self.method = 'POST'
-        self.endpoint = '/mapanddiscover/reports/asset2/topFileTypesBySize'
+        self.endpoint = '/reports/asset2/topFileTypesBySize'
         self.payload = {"dataSource":"","registeredSourceGroup":""}
 
     @decorator
     def insightScanStatusSummaries(self, args):
         self.method = 'GET'
-        self.endpoint = '/mapanddiscover/reports/scanstatus2/summaries'
+        self.endpoint = '/reports/scanstatus2/summaries'
         self.params = { 'window': args['--numberOfDays'] }
 
     @decorator
     def insightScanStatusSummariesByTs(self, args):
         self.method = 'GET'
-        self.endpoint = '/mapanddiscover/reports/scanstatus2/summariesbyts'
+        self.endpoint = '/reports/scanstatus2/summariesbyts'
         self.params = { 'window': args['--numberOfDays'] }

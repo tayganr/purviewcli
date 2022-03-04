@@ -54,14 +54,20 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
         return self.access_token
 
     def http_get(self, app, method, endpoint, params, payload, files, headers):
-        if app == "management":
-            uri = f"https://{app}.azure.com{endpoint}"
-        elif app == 'base':
-            uri = f"https://{self.account_name}.purview.azure.com{endpoint}"
-        elif app == 'guardian':
-            uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
+        if app == 'management':
+            uri = f"https://management.azure.com{endpoint}"
+        elif app == 'catalog':
+            uri = f"https://{self.account_name}.purview.azure.com/catalog{endpoint}"
+        elif app == 'scan':
+            uri = f"https://{self.account_name}.purview.azure.com/scan{endpoint}"
         elif app == 'account':
             uri = f"https://{self.account_name}.purview.azure.com/account{endpoint}"
+        elif app == 'policystore':
+            uri = f"https://{self.account_name}.purview.azure.com/policystore{endpoint}"
+        elif app == 'mapanddiscover':
+            uri = f"https://{self.account_name}.purview.azure.com/mapanddiscover{endpoint}"
+        elif app == 'guardian':
+            uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
         else:
             uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
 
