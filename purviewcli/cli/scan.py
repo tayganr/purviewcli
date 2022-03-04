@@ -35,6 +35,9 @@ usage:
     pv scan readTrigger --dataSourceName=<val> --scanName=<val>
     pv scan runScan --dataSourceName=<val> --scanName=<val> [--scanLevel=<val>]
     pv scan tagClassificationVersion --classificationRuleName=<val> --classificationRuleVersion=<val> --action=<val>
+    pv scan deleteCredential --credentialName=<val>
+    pv scan putCredential --credentialName=<val> --payloadFile=<val>
+    pv scan readCredential [--credentialName=<val>]
 
 options:
     --purviewName=<val>                 [string]  Azure Purview account name.
@@ -49,6 +52,7 @@ options:
     --dataSourceType=<val>              [string]  Type of data source.
     --scanLevel=<val>                   [string]  Allowed values: Full or Incremental [default: Full].
     --collectionName=<val>              [string]  The unique collection name.
+    --credentialName=<val>              [string]  The name of the credential.
 
 """
 from docopt import docopt

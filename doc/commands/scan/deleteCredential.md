@@ -6,7 +6,7 @@ Delete a credential.
 
 ## Syntax
 ```
-pv credential delete --credentialName=<val>
+pv scan deleteCredential --credentialName=<val>
 ```
 
 ## Required Arguments
@@ -19,10 +19,10 @@ The name of the credential.
 ## API Mapping
 Create or update a credential.
 ```
-DELETE https://{accountName}.purview.azure.com/proxy/credentials/{credentialName}
+DELETE https://{accountName}.purview.azure.com/scan/credentials/{credentialName}
 ```
 
 ## Examples
 ```powershell
-pv credential delete --credentialName "credential-SQL"
+pv scan deleteCredential --credentialName "credential-SQL"
 ```

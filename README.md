@@ -42,7 +42,6 @@ Data Plane (Apache Atlas)
 
 Data Plane (Other)
 * [pv account](./doc/commands/account/main.md)
-* [pv credential](./doc/commands/credential/main.md)
 * [pv insight](./doc/commands/insight/main.md)
 * [pv policystore](./doc/commands/policystore/main.md)
 * [pv scan](./doc/commands/scan/main.md)

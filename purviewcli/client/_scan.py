@@ -198,3 +198,23 @@ class Scan(Endpoint):
             "action": f"{args['--action']}",
             "api-version": "2018-12-01-preview"
         }
+
+    # Credential
+    @decorator
+    def scanReadCredential(self, args):
+        self.method = 'GET'
+        self.endpoint = '/credentials' if args["--credentialName"] is None else f'/credentials/{args["--credentialName"]}'
+        self.params = {"api-version": "2018-12-01-preview"}
+
+    @decorator
+    def scanPutCredential(self, args):
+        self.method = 'PUT'
+        self.endpoint = f'/credentials/{args["--credentialName"]}'
+        self.payload = get_json(args, '--payloadFile')
+        self.params = {"api-version": "2018-12-01-preview"}
+
+    @decorator
+    def scanDeleteCredential(self, args):
+        self.method = 'DELETE'
+        self.endpoint = f'/credentials/{args["--credentialName"]}'
+        self.params = {"api-version": "2018-12-01-preview"}

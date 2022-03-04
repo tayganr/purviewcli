@@ -11,6 +11,13 @@
 | [pv scan readClassificationRuleVersions](./readClassificationRuleVersions.md) | Lists the rule versions of a classification rule |
 | [pv scan tagClassificationVersion](./tagClassificationVersion.md) | Sets Classification Action on a specific classification rule version |
 
+## Credential
+| Command | Description |
+| --- | --- |
+| [pv credential delete](./delete.md) | Delete a credential. |
+| [pv credential put](./put.md) | Create or update a credential. |
+| [pv credential read](./read.md) | Get a credential. |
+
 ## Data Source
 | Command | Description |
 | --- | --- |

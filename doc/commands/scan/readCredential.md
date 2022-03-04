@@ -6,7 +6,7 @@ Get a credential.
 
 ## Syntax
 ```
-pv credential read [--credentialName=<val>]
+pv scan readCredential [--credentialName=<val>]
 ```
 
 ## Required Arguments
@@ -19,18 +19,18 @@ The name of the credential.
 ## API Mapping
 Get all credentials.
 ```
-GET https://{accountName}.purview.azure.com/proxy/credentials
+GET https://{accountName}.purview.azure.com/scan/credentials
 ```
 
 Get a credential by name.
 ```
-GET https://{accountName}.purview.azure.com/proxy/credentials/{credentialName}
+GET https://{accountName}.purview.azure.com/scan/credentials/{credentialName}
 ```
 
 ## Examples
 Get all credentials.
 ```powershell
-pv credential read
+pv scan readCredential
 ```
 
 <details><summary>Sample response.</summary>
