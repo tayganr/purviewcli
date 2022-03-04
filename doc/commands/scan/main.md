@@ -14,9 +14,9 @@
 ## Credential
 | Command | Description |
 | --- | --- |
-| [pv credential delete](./delete.md) | Delete a credential. |
-| [pv credential put](./put.md) | Create or update a credential. |
-| [pv credential read](./read.md) | Get a credential. |
+| [pv scan deleteCredential](./delete.md) | Delete a credential. |
+| [pv scan putCredential](./put.md) | Create or update a credential. |
+| [pv scan readCredential](./read.md) | Get a credential. |
 
 ## Data Source
 | Command | Description |
