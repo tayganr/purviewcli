@@ -30,3 +30,6 @@
 | [pv entity readBulkUniqueAttribute](./readBulkUniqueAttribute.md) | Bulk API to retrieve list of entities identified by its unique attributes. |
 | [pv entity readHeader](./readHeader.md) | Get entity header given its GUID. |
 | [pv entity readUniqueAttribute](./readUniqueAttribute.md) | Get complete definition of an entity given its type and unique attribute. |
+| [pv entity createOrUpdateCollection](./createOrUpdateCollection.md) | Creates or updates an entity to a collection. |
+| [pv entity createOrUpdateCollectionBulk](./createOrUpdateCollectionBulk.md) | Creates or updates entities in bulk to a collection. |
+| [pv entity changeCollection](./changeCollection.md) | Move existing entities to the target collection. |

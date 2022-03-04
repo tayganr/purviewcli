@@ -145,8 +145,29 @@ class Entity(Endpoint):
         self.payload = get_json(args, '--payloadFile')
         self.params = { 'attr:qualifiedName': args["--qualifiedName"]}
 
-    # @decorator
-    # def entityMove
+    @decorator
+    def entityCreateOrUpdateCollection(self, args):
+        collection = args['--collection']
+        self.method = 'POST'
+        self.endpoint = f'/api/collections/{collection}/entity'
+        self.payload = get_json(args, '--payloadFile')
+        self.params = {'api-version':'2021-05-01-preview'}
+
+    @decorator
+    def entityCreateOrUpdateCollectionBulk(self, args):
+        collection = args['--collection']
+        self.method = 'POST'
+        self.endpoint = f'/api/collections/{collection}/entity/bulk'
+        self.payload = get_json(args, '--payloadFile')
+        self.params = {'api-version':'2021-05-01-preview'}
+
+    @decorator
+    def entityChangeCollection(self, args):
+        collection = args['--collection']
+        self.method = 'POST'
+        self.endpoint = f'/api/collections/{collection}/entity/moveHere'
+        self.payload = get_json(args, '--payloadFile')
+        self.params = {'api-version':'2021-05-01-preview'}
 
     # NOT SUPPORTED IN AZURE PURVIEW
     # @decorator

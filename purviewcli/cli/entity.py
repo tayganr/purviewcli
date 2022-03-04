@@ -22,6 +22,9 @@ usage:
     pv entity readClassifications --guid=<val>
     pv entity readHeader --guid=<val>
     pv entity readUniqueAttribute --typeName=<val> --qualifiedName=<val> [--ignoreRelationships --minExtInfo]
+    pv entity createOrUpdateCollection --collection=<val> --payloadFile=<val>
+    pv entity createOrUpdateCollectionBulk --collection=<val> --payloadFile=<val>
+    pv entity changeCollection --collection=<val> --payloadFile=<val>
     
 options:
     --purviewName=<val>                 [string]  Azure Purview account name.
@@ -30,9 +33,10 @@ options:
     --ignoreRelationships               [boolean] Whether to ignore relationship attributes [default: false].
     --minExtInfo                        [boolean] Whether to return minimal information for referred entities [default: false].
     --name=<val>                        [string]  The name of the attribute.
-    --payloadFile=<val>                [string]  File path to a valid JSON document.
+    --payloadFile=<val>                 [string]  File path to a valid JSON document.
     --qualifiedName=<val>               [string]  The qualified name of the entity.
     --typeName=<val>                    [string]  The name of the type.
+    --collection=<val>                  [string]  The collection unique name
 
 mapping:
 https://{account_name}.catalog.purview.azure.com
