@@ -22,7 +22,7 @@ The name of the data source.
 ## API Mapping
 Delete a scope associated to an existing data policy.
 ```
-DELETE https://{accountName}.purview.azure.com/policystore/dataPolicies/{policyName}/scopes/{scopeName}
+DELETE https://{accountName}.purview.azure.com/policystore/dataPolicies/{policyName}/scopes/{datasource}
 ```
 
 ## Examples

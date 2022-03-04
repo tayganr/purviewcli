@@ -65,9 +65,9 @@ class Policystore(Endpoint):
     @decorator
     def policystoreDeleteDataPolicyScope(self, args):
         policyName = args['--policyName']
-        scopeName = args['--scopeName']
+        datasource = args['--datasource']
         self.method = 'DELETE'
-        self.endpoint = f'/policystore/dataPolicies/{policyName}/scopes/{scopeName}'
+        self.endpoint = f'/policystore/dataPolicies/{policyName}/scopes/{datasource}'
         self.params = {'api-version': '2021-01-01-preview'}
 
     @decorator
