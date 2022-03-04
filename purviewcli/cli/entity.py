@@ -38,35 +38,6 @@ options:
     --typeName=<val>                    [string]  The name of the type.
     --collection=<val>                  [string]  The collection unique name
 
-mapping:
-https://{account_name}.catalog.purview.azure.com
-+--------------------------------------+--------+-------------------------------------------------------------------------------------------+
-| Command                              | Method | Path                                                                                      |
-+--------------------------------------+--------+-------------------------------------------------------------------------------------------+
-| create                               | POST   | /api/atlas/v2/entity                                                                      |
-| createBulk                           | POST   | /api/atlas/v2/entity/bulk                                                                 |
-| createBulkClassification             | POST   | /api/atlas/v2/entity/bulk/classification                                                  |
-| createBulkSetClassifications         | POST   | /api/atlas/v2/entity/bulk/setClassifications                                              |
-| createClassifications                | POST   | /api/atlas/v2/entity/guid/{guid}/classifications                                          |
-| createUniqueAttributeClassifications | POST   | /api/atlas/v2/entity/uniqueAttribute/type/{typeName}/classifications                      |
-| delete                               | DELETE | /api/atlas/v2/entity/guid/{guid}                                                          |
-| deleteBulk                           | DELETE | /api/atlas/v2/entity/bulk                                                                 |
-| deleteClassification                 | DELETE | /api/atlas/v2/entity/guid/{guid}/classification/{classificationName}                      |
-| deleteUniqueAttribute                | DELETE | /api/atlas/v2/entity/uniqueAttribute/type/{typeName}                                      |
-| deleteUniqueAttributeClassification  | DELETE | /api/atlas/v2/entity/uniqueAttribute/type/{typeName}/classification/{classificationName}  |
-| put                                  | PUT    | /api/atlas/v2/entity/guid/{guid}                                                          |
-| putClassifications                   | PUT    | /api/atlas/v2/entity/guid/{guid}/classifications                                          |
-| putUniqueAttribute                   | PUT    | /api/atlas/v2/entity/uniqueAttribute/type/{typeName}                                      |
-| putUniqueAttributeClassifications    | PUT    | /api/atlas/v2/entity/uniqueAttribute/type/{typeName}/classifications                      |
-| read                                 | GET    | /api/atlas/v2/entity/guid/{guid}                                                          |
-| readBulk                             | GET    | /api/atlas/v2/entity/bulk                                                                 |
-| readBulkUniqueAttribute              | GET    | /api/atlas/v2/entity/bulk/uniqueAttribute/type/{typeName}                                 |
-| readClassification                   | GET    | /api/atlas/v2/entity/guid/{guid}/classification/{classificationName}                      |
-| readClassifications                  | GET    | /api/atlas/v2/entity/guid/{guid}/classifications                                          |
-| readHeader                           | GET    | /api/atlas/v2/entity/guid/{guid}/header                                                   |
-| readUniqueAttribute                  | GET    | /api/atlas/v2/entity/uniqueAttribute/type/{typeName}                                      |
-+---------------------------------------+---------+-----------------------------------------------------------------------------------------+
-
 """
 from docopt import docopt
 

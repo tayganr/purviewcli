@@ -9,18 +9,7 @@ options:
     --purviewName=<val>           [string]  Azure Purview account name.
     --extendedInfo                [boolean] Limits whether includes extended information [default: false].
     --guid=<val>                  [string]  The globally unique identifier of the relationship.
-    --payloadFile=<val>          [string]  File path to a valid JSON document.
-
-mapping:
-https://{account_name}.catalog.purview.azure.com
-+---------+--------+----------------------------------------+
-| Command | Method | Path                                   |
-+---------+--------+----------------------------------------+
-| create  | POST   | /api/atlas/v2/relationship             |
-| delete  | DELETE | /api/atlas/v2/relationship/guid/{guid} |
-| put     | PUT    | /api/atlas/v2/relationship             |
-| read    | GET    | /api/atlas/v2/relationship/guid/{guid} |
-+---------+--------+----------------------------------------+
+    --payloadFile=<val>           [string]  File path to a valid JSON document.
 
 """
 from docopt import docopt

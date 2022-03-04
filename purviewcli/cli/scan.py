@@ -18,7 +18,7 @@ usage:
     pv scan readClassificationRuleVersions --classificationRuleName=<val>
     pv scan readClassificationRules
     pv scan readDataSource --dataSourceName=<val>
-    pv scan readDataSources
+    pv scan readDataSources [--collectionName=<val>]
     pv scan readFilters --dataSourceName=<val> --scanName=<val>
     pv scan readKeyVault --keyVaultName=<val>
     pv scan readKeyVaults
@@ -48,47 +48,7 @@ options:
     --runId=<val>                       [string]  The unique identifier of the run.
     --dataSourceType=<val>              [string]  Type of data source.
     --scanLevel=<val>                   [string]  Allowed values: Full or Incremental [default: Full].
-
-mapping:
-https://{account_name}.scan.purview.azure.com
-+--------------------------------+--------+------------------------------------------------------------------------+
-| Command                        | Method | Path                                                                   |
-+--------------------------------+--------+------------------------------------------------------------------------+
-| cancelScan                     | POST   | /datasources/{dataSourceName}/scans/{scanName}/runs/{runId}/:cancel    |
-| deleteClassificationRule       | DELETE | /classificationrules/{classificationRuleName}                          |
-| deleteDataSource               | DELETE | /datasources/{dataSourceName}                                          |
-| deleteKeyVault                 | DELETE | /azureKeyVaults/{keyVaultName}                                         |
-| deleteScan                     | DELETE | /datasources/{dataSourceName}/scans/{scanName}                         |
-| deleteScanRuleset              | DELETE | /scanrulesets/{scanRulesetName}                                        |
-| deleteTrigger                  | DELETE | /datasources/{dataSourceName}/scans/{scanName}/triggers/default        |
-| putClassificationRule          | PUT    | /classificationrules/{classificationRuleName}                          |
-| putDataSource                  | PUT    | /datasources/{dataSourceName}                                          |
-| putFilter                      | PUT    | /datasources/{dataSourceName}/scans/{scanName}/filters/custom          |
-| putKeyVault                    | PUT    | /azureKeyVaults/{keyVaultName}                                         |
-| putScan                        | PUT    | /datasources/{dataSourceName}/scans/{scanName}                         |
-| putScanRuleset                 | PUT    | /scanrulesets/{scanRulesetName}                                        |
-| putTrigger                     | PUT    | /datasources/{dataSourceName}/scans/{scanName}/triggers/default        |
-| readClassificationRule         | GET    | /classificationrules/{classificationRuleName}                          |
-| readClassificationRuleVersions | GET    | /classificationrules/{classificationRuleName}/versions                 |
-| readClassificationRules        | GET    | /classificationrules                                                   |
-| readDatasource                 | GET    | /datasources/{dataSourceName}                                          |
-| readDatasources                | GET    | /datasources                                                           |
-| readFilters                    | GET    | /datasources/{dataSourceName}/scans/{scanName}/filters/custom          |
-| readKeyVault                   | GET    | /azureKeyVaults/{keyVaultName}                                         |
-| readKeyVaults                  | GET    | /azureKeyVaults                                                        |
-| readScan                       | GET    | /datasources/{dataSourceName}/scans/{scanName}                         |
-| readScanHistory                | GET    | /datasources/{dataSourceName}/scans/{scanName}/runs                    |
-| readScanRuleset                | GET    | /scanrulesets/{scanRulesetName}                                        |
-| readScanRulesets               | GET    | /scanrulesets                                                          |
-| readScans                      | GET    | /datasources/{dataSourceName}/scans                                    |
-| readSystemScanRuleset          | GET    | /systemScanRulesets/datasources/{dataSourceType}                       |
-| readSystemScanRulesetLatest    | GET    | /systemScanRulesets/versions/latest?dataSourceType={dataSourceType}    |
-| readSystemScanRulesetVersion   | GET    | /systemScanRulesets/versions/{version}?dataSourceType={dataSourceType} |
-| readSystemScanRulesetVersions  | GET    | /systemScanRulesets/versions?dataSourceType={dataSourceType}           |
-| readSystemScanRulesets         | GET    | /systemScanRulesets                                                    |
-| readTrigger                    | GET    | /datasources/{dataSourceName}/scans/{scanName}/triggers/default        |
-| runScan                        | PUT    | /datasources/{dataSourceName}/scans/{scanName}/runs/{uuid}             |
-+--------------------------------+--------+------------------------------------------------------------------------+
+    --collectionName=<val>              [string]  The unique collection name.
 
 """
 from docopt import docopt

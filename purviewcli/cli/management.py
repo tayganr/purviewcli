@@ -29,30 +29,6 @@ options:
     --privateEndpointConnectionName=<val>   [string]  The name of the private endpoint connection.
     --objectId=<val>                        [string]  Gets or sets the object identifier of the admin.
 
-mapping:
-https://management.azure.com
-+--------------------------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Command                  | Method | Path                                                                                                                                                                             |
-+--------------------------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| checkNameAvailability    | POST   | /subscriptions/{subscriptionId}/providers/Microsoft.Purview/checkNameAvailability                                                                                                |
-| createAccount            | PUT    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}                                                            |
-| defaultAccount           | GET    | /providers/Microsoft.Purview/getDefaultAccount                                                                                                                                   |
-| deleteAccount            | DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}                                                            |
-| deletePrivateEndpoint    | DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName} |
-| listKeys                 | POST   | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/listkeys                                                   |
-| listOperations           | GET    | /providers/Microsoft.Purview/operations                                                                                                                                          |
-| listPrivateLinkResources | GET    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateLinkResources/{groupId}                             |
-| putPrivateEndpoint       | PUT    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName} |
-| readAccount              | GET    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}                                                            |
-| readAccounts             | GET    | /subscriptions/{subscriptionId}/providers/Microsoft.Purview/accounts                                                                                                             |
-| readPrivateEndpoint      | GET    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName} |
-| readPrivateEndpoints     | GET    | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateEndpointConnections                                 |
-| removeDefaultAccount     | POST   | /providers/Microsoft.Purview/removeDefaultAccount                                                                                                                                |
-| setDefaultAccount        | POST   | /providers/Microsoft.Purview/setDefaultAccount                                                                                                                                   |
-| updateAccount            | PATCH  | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}                                                            |
-| addRootCollectionAdmin   | POST   | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin                                     |
-+--------------------------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
 """
 from docopt import docopt
 

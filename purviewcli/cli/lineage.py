@@ -12,15 +12,6 @@ options:
     --offset=<val>                    [integer] Offset for pagination purpose [default: 0].
     --width=<width>                   [integer] The number of max expanding width in lineage [default: 6].
 
-mapping:
-https://{account_name}.catalog.purview.azure.com
-+----------+--------+------------------------------------+
-| Command  | Method | Path                               |
-+----------+--------+------------------------------------+
-| read     | GET    | /api/atlas/v2/lineage/{guid}       |
-| readNext | GET    | /api/atlas/v2/lineage/{guid}/next/ |
-+----------+--------+------------------------------------+
-
 """
 from docopt import docopt
 

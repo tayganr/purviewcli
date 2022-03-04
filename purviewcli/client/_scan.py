@@ -28,8 +28,9 @@ class Scan(Endpoint):
 
     @decorator
     def scanReadDataSources(self, args):
+        collectionName = args['--collectionName']
         self.method = 'GET'
-        self.endpoint = '/datasources'
+        self.endpoint = f'/collections/{collectionName}/listDataSources' if args['--collectionName'] else '/datasources'
 
     @decorator
     def scanReadFilters(self, args):
