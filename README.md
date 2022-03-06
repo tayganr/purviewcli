@@ -34,15 +34,15 @@ Control Plane (Azure Resource Manager)
 * [pv management](./doc/commands/management/main.md)
 
 Data Plane (Apache Atlas)
-* [pv entity](./doc/commands/entity/main.md) (`Classification`, `Entity`)
-* [pv glossary](./doc/commands/glossary/main.md)
-* [pv lineage](./doc/commands/lineage/main.md)
-* [pv relationship](./doc/commands/relationship/main.md)
-* [pv types](./doc/commands/types/main.md)
+* [pv entity](./doc/commands/entity/main.md) `Classification`, `Entity`
+* [pv glossary](./doc/commands/glossary/main.md) `Glossary`, `Terms`, `Categories`
+* [pv lineage](./doc/commands/lineage/main.md) `Lineage`
+* [pv relationship](./doc/commands/relationship/main.md) `Relationship`
+* [pv types](./doc/commands/types/main.md) `Type Definitions` (Classification, Entity, Enum, Relationship, Struct, and Term Template)
 
 Data Plane (Other)
-* [pv account](./doc/commands/account/main.md)
-* [pv insight](./doc/commands/insight/main.md)
-* [pv policystore](./doc/commands/policystore/main.md)
-* [pv scan](./doc/commands/scan/main.md)
-* [pv search](./doc/commands/search/main.md)
+* [pv account](./doc/commands/account/main.md) `Account`, `Collection`, `Resource Set Rule`
+* [pv insight](./doc/commands/insight/main.md) `Asset`, `Scan`
+* [pv policystore](./doc/commands/policystore/main.md) `Metadata`, `Data`
+* [pv scan](./doc/commands/scan/main.md) `Classification Rule`, `Credential`, `Data Source`, `Scan`, `Scan Filter`, `Scan Ruleset`, `Scan Trigger`
+* [pv search](./doc/commands/search/main.md) `Search`
