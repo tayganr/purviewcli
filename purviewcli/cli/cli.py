@@ -14,7 +14,6 @@ The most commonly used pv commands are:
    pv relationship     [Atlas] Relationships describe connections between two entities.
    pv types            [Atlas] A Type in Atlas is a definition of how a particular object type is stored and accessed.
    pv account          [Other] Azure Purview account data plane.
-   pv credential       [Other] Azure Purview credentials.
    pv insight          [Other] Azure Purview insights.
    pv management       [Other] Azure Purview control plane operations (Account, Private Endpoint, Private Link, etc).
    pv policystore      [Other] Azure Purview Metadata Policies.
@@ -54,7 +53,7 @@ def main():
     command = args['<command>']
 
     # Init sub-docopt
-    if command in ['entity', 'relationship', 'lineage', 'glossary', 'types', 'scan', 'insight', 'search', 'credential', 'management', 'policystore', 'account']:
+    if command in ['entity', 'relationship', 'lineage', 'glossary', 'types', 'scan', 'insight', 'search', 'management', 'policystore', 'account']:
         globals()[command] = importlib.import_module('purviewcli.cli.' + command)
         command_args = docopt(eval(command).__doc__, argv=argv)
     else:
