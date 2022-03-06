@@ -3,10 +3,10 @@ usage:
     pv glossary create --payloadFile=<val>
     pv glossary createCategories --payloadFile=<val>
     pv glossary createCategory --payloadFile=<val>
-    pv glossary createTerm --payloadFile=<val>
-    pv glossary createTerms --payloadFile=<val>
+    pv glossary createTerm --payloadFile=<val> [--includeTermHierarchy]
+    pv glossary createTerms --payloadFile=<val> [--includeTermHierarchy]
     pv glossary createTermsAssignedEntities --termGuid=<val> --payloadFile=<val>
-    pv glossary createTermsExport --glossaryGuid=<val> --termGuid=<val>...
+    pv glossary createTermsExport --glossaryGuid=<val> --termGuid=<val>... [--includeTermHierarchy]
     pv glossary createTermsImport --glossaryFile=<val> [--glossaryGuid=<val> --includeTermHierarchy]
     pv glossary delete --glossaryGuid=<val>
     pv glossary deleteCategory --categoryGuid=<val>
@@ -15,7 +15,7 @@ usage:
     pv glossary put --glossaryGuid=<val> --payloadFile=<val>
     pv glossary putCategory --categoryGuid=<val> --payloadFile=<val>
     pv glossary putCategoryPartial --categoryGuid=<val> --payloadFile=<val>
-    pv glossary putPartial --glossaryGuid=<val> --payloadFile=<val>
+    pv glossary putPartial --glossaryGuid=<val> --payloadFile=<val> [--includeTermHierarchy]
     pv glossary putTerm --termGuid=<val> --payloadFile=<val> [--includeTermHierarchy]
     pv glossary putTermPartial --termGuid=<val> --payloadFile=<val> [--includeTermHierarchy]
     pv glossary putTermsAssignedEntities --termGuid=<val> --payloadFile=<val>

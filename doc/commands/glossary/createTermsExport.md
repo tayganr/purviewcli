@@ -6,7 +6,7 @@ Export glossary terms to a csv file.
 
 ## Syntax
 ```
-pv glossary createTermsExport --glossaryGuid=<val> --termGuid=<val>...
+pv glossary createTermsExport --glossaryGuid=<val> --termGuid=<val>... [--includeTermHierarchy]
 ```
 
 ## Required Arguments
@@ -17,7 +17,8 @@ The globally unique identifier for glossary.
 The globally unique identifier for glossary term.
 
 ## Optional Arguments
-*None*
+`--includeTermHierarchy` (boolean)  
+Whether to include the term hierarchy [default: false].
 
 ## API Mapping
 Catalog Data Plane > Glossary > [Export Glossary Terms As Csv](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/export-glossary-terms-as-csv)

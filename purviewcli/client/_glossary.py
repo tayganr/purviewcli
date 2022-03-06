@@ -68,6 +68,7 @@ class Glossary(Endpoint):
         self.method = 'POST'
         self.endpoint = '/api/atlas/v2/glossary/term'
         self.payload = get_json(args, '--payloadFile')
+        self.params = {'includeTermHierarchy': args['--includeTermHierarchy']}
 
     @decorator
     def glossaryDeleteTerm(self, args):
@@ -99,6 +100,7 @@ class Glossary(Endpoint):
         self.method = 'POST'
         self.endpoint = '/api/atlas/v2/glossary/terms'
         self.payload = get_json(args, '--payloadFile')
+        self.params = {'includeTermHierarchy': args['--includeTermHierarchy']}
 
     @decorator
     def glossaryDeleteTermsAssignedEntities(self, args):
@@ -164,6 +166,7 @@ class Glossary(Endpoint):
         self.method = 'PUT'
         self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/partial'
         self.payload = get_json(args, '--payloadFile')
+        self.params = {'includeTermHierarchy': args['--includeTermHierarchy']}
 
     @decorator
     def glossaryReadTerms(self, args):
@@ -183,7 +186,10 @@ class Glossary(Endpoint):
         self.method = 'POST'
         self.endpoint = f'/api/atlas/v2/glossary/{args["--glossaryGuid"]}/terms/export'
         self.payload = args['--termGuid']
-        self.params = {'api-version': '2021-05-01-preview'}
+        self.params = {
+            'api-version': '2021-05-01-preview',
+            'includeTermHierarchy': args['--includeTermHierarchy']
+            }
 
     @decorator
     def glossaryCreateTermsImport(self, args):

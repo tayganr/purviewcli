@@ -6,7 +6,7 @@ Create a glossary term.
 
 ## Syntax
 ```
-pv glossary createTerm --payloadFile=<val>
+pv glossary createTerm --payloadFile=<val> [--includeTermHierarchy]
 ```
 
 ## Required Arguments
@@ -14,7 +14,8 @@ pv glossary createTerm --payloadFile=<val>
 File path to a valid JSON document.
 
 ## Optional Arguments
-*None*
+`--includeTermHierarchy` (boolean)  
+Whether to include the term hierarchy [default: false].
 
 ## API Mapping
 Catalog Data Plane > Glossary > [Create Glossary Term](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/create-glossary-term)

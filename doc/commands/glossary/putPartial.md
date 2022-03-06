@@ -6,7 +6,7 @@ Update the glossary partially.
 
 ## Syntax
 ```
-pv glossary putPartial --glossaryGuid=<val> --payloadFile=<val>
+pv glossary putPartial --glossaryGuid=<val> --payloadFile=<val> [--includeTermHierarchy]
 ```
 
 ## Required Arguments
@@ -17,7 +17,8 @@ The globally unique identifier for glossary.
 File path to a valid JSON document.
 
 ## Optional Arguments
-*None*
+`--includeTermHierarchy` (boolean)  
+Whether to include the term hierarchy [default: false].
 
 ## API Mapping
 Catalog Data Plane > Glossary > [Partial Update Glossary](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/glossary/partial-update-glossary)
