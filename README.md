@@ -37,6 +37,7 @@ Control Plane (Azure Resource Manager)
 | [pv management](./doc/commands/management/main.md) | `Account`, `Private Endpoint`, `Other` |
 
 Data Plane (Apache Atlas)
+
 | Command | Surface Area |
 | --- | --- |
 | [pv entity](./doc/commands/entity/main.md) | `Classification`, `Entity` |
@@ -46,6 +47,7 @@ Data Plane (Apache Atlas)
 | [pv types](./doc/commands/types/main.md) | `Classification`, `Entity`, `Enum`, `Relationship`, `Struct`,  `Term Template` |
 
 Data Plane (Other)
+
 | Command | Surface Area |
 | --- | --- |
 | [pv account](./doc/commands/account/main.md) | `Account`, `Collection`, `Resource Set Rule` |
