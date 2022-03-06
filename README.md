@@ -34,7 +34,7 @@ Control Plane (Azure Resource Manager)
 * [pv management](./doc/commands/management/main.md)
 
 Data Plane (Apache Atlas)
-* [pv entity](./doc/commands/entity/main.md)
+* [pv entity](./doc/commands/entity/main.md) (`Classification`, `Entity`)
 * [pv glossary](./doc/commands/glossary/main.md)
 * [pv lineage](./doc/commands/lineage/main.md)
 * [pv relationship](./doc/commands/relationship/main.md)
