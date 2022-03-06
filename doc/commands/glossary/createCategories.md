@@ -27,7 +27,7 @@ Create categories in bulk.
 ```powershell
 pv glossary createCategories --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create categories in bulk.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

@@ -30,7 +30,7 @@ Updated simple attributes of a category.
 ```powershell
 pv glossary putCategoryPartial --categoryGuid "c856ecef-21e6-4e92-8607-9493d8432e78" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Update simple attributes of a category.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

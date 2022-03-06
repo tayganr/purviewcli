@@ -27,7 +27,7 @@ Associate sets of classifications to entities in bulk.
 ```powershell
 pv entity createBulkSetClassifications --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Associate sets of classifications to entities in bulk.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

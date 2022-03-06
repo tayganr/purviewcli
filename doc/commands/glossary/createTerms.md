@@ -27,7 +27,7 @@ Create terms in bulk.
 ```powershell
 pv glossary createTerms --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create terms in bulk.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

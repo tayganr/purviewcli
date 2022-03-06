@@ -27,7 +27,7 @@ Create a new category.
 ```powershell
 pv glossary createCategory --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a new category.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

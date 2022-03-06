@@ -33,7 +33,7 @@ Associate an entity to multiple classifications via a unique attribute (e.g. qua
 ```powershell
 pv entity createUniqueAttributeClassifications --typeName "azure_datalake_gen2_filesystem" --qualifiedName  "https://esg26fa7f24adls.dfs.core.windows.net/02-silver" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Associate an entity to multiple classifications via a unique attribute (e.g. qualifiedName).</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

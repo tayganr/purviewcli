@@ -27,7 +27,7 @@ Create a term.
 ```powershell
 pv glossary createTerm --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a term.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

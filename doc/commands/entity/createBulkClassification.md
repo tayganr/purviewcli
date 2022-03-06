@@ -27,7 +27,7 @@ Associate a classification to multiple entities.
 ```powershell
 pv entity createBulkClassification --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Associate a classification to multiple entities.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

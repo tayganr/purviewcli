@@ -28,7 +28,7 @@ Create type definitions in bulk.
 pv types createTypeDefs --payloadFile "/path/to/file.json"
 ```
 
-<details><summary>Example payload: Create type definitions in bulk (e.g. new classifications).</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

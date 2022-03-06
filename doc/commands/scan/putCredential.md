@@ -30,7 +30,7 @@ Create or update a credential.
 ```powershell
 pv scan putCredential --credentialName "my_new_sql_credential"  --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a new Azure Purview credential based on SQL Authentication.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

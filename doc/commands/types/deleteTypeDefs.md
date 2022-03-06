@@ -28,7 +28,7 @@ Delete type definitions in bulk.
 pv types deleteTypeDefs --payloadFile "/path/to/file.json"
 ```
 
-<details><summary>Example payload: Delete type definitions in bulk (e.g. delete two existing classifications).</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

@@ -30,7 +30,7 @@ Remove term assignments in bulk.
 ```powershell
 pv glossary deleteTermsAssignedEntities --termGuid "bcf9fa54-9c28-4e8d-8775-ccb60785aab9" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Remove term assignments in bulk.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

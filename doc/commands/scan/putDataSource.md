@@ -30,7 +30,7 @@ Create or update a data source.
 ```powershell
 pv scan putDataSource --dataSourceName "AzureSqlDatabase-ABC" --payloadFile "/path/to/file.json"  
 ```
-<details><summary>Example payload: Create an Azure SQL Database data source.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

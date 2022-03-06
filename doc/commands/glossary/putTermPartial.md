@@ -31,7 +31,7 @@ Update a basic attribute of an existing glossary term.
 ```powershell
 pv glossary putTermPartial --termGuid "919e8f87-d5b2-4dde-9f6e-1bbd738536a1" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Update a basic attribute of an existing glossary term.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

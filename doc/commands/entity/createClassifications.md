@@ -30,7 +30,7 @@ Associate an entity to multiple classifications.
 ```powershell
 pv entity createClassifications --guid "04f2bb30-91db-404b-a8e1-d65e45338929" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Associate an entity to multiple classifications.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

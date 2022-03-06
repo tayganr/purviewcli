@@ -30,7 +30,7 @@ Update an existing glossary.
 ```powershell
 pv glossary put --glossaryGuid "f2307f48-5834-4709-be85-02f3aea5d149" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Update an existing glossary.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

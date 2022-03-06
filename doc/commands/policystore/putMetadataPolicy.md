@@ -30,7 +30,7 @@ Update an existing metadata policy.
 ```powershell
  pv policystore putMetadataPolicy --policyId "67c667b7-8f1c-468f-ab3b-f19fd943de95" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Add an identity to the Data Source Administrator role.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

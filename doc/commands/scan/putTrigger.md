@@ -33,7 +33,7 @@ Create a trigger and associate it to a scan.
 ```powershell
 pv scan putTrigger --dataSourceName "AzureDataLakeStorage-EqK" --scanName "Scan-Qrh" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a scan trigger with a monthly recurrence.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

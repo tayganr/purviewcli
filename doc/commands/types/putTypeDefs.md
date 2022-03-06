@@ -28,7 +28,7 @@ Update type definitions in bulk.
 pv types putTypeDefs --payloadFile "/path/to/file.json"
 ```
 
-<details><summary>Example payload: Update type definitions in bulk (e.g. update existing classifications with new descriptions).</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

@@ -27,7 +27,7 @@ Create a glossary.
 ```powershell
 pv glossary create --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a new glossary.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

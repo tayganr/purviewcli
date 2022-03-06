@@ -30,7 +30,7 @@ Create a key vault connection.
 ```powershell
 pv scan putKeyVault --keyVaultName "My Key Vault" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a key vault connection.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

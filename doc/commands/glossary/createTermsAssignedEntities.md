@@ -30,7 +30,7 @@ Assign a term to one or more entities.
 ```powershell
 pv glossary createTermsAssignedEntities --termGuid "4ba01c1e-5ef8-4457-87b4-37e2054b1cb9" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Assign a term to multiple entities.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

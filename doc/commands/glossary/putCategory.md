@@ -30,7 +30,7 @@ Update an existing category.
 ```powershell
 pv glossary putCategory --categoryGuid "c856ecef-21e6-4e92-8607-9493d8432e78" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Update an existing category.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

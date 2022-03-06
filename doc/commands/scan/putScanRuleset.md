@@ -30,7 +30,7 @@ Create a scan ruleset.
 ```powershell
 pv scan putScanRuleset --scanRulesetName "my_ruleset" --payloadFile "/path/to/file.json"
 ```
-<details><summary>Example payload: Create a scan ruleset.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json
