@@ -6,70 +6,41 @@ class Insight(Endpoint):
         Endpoint.__init__(self)
         self.app = 'mapanddiscover'
 
-    @decorator
-    def insightGraphql(self, args):
-        self.app = 'guardian'
-        self.method = 'POST'
-        self.endpoint = '/graphql'
-        self.payload = get_json(args,'--payloadFile')
-
-    @decorator
-    def insightFileExtensions(self, args):
-        self.app = 'guardian'
-        self.method = 'POST'
-        self.endpoint = '/reports/fileExtensions'
-        startDateTime = (datetime.now() - timedelta(days=int(args['--numberOfDays']))).strftime('%Y-%m-%dT%H:%M:00.000Z')
-        endDateTime = datetime.now().strftime('%Y-%m-%dT%H:%M:00.000Z')
-        self.payload = {
-            "Query":{
-                "StartTime": startDateTime,
-                "EndTime": endDateTime,
-                "takeTopCount": args['--takeTopCount'],
-                "assetTypes":[]
-            }
-        }
-
+    # Asset
     @decorator
     def insightAssetDistribution(self, args):
         self.method = 'GET'
         self.endpoint = '/reports/serverless/asset2/assetDistribution/getSnapshot'
 
     @decorator
-    def insightAssetDataSources(self, args):
-        self.method = 'POST'
-        self.endpoint = '/reports/asset2/dataSources'
-        self.payload = {"registeredSourceGroup":""}
-
-    @decorator
     def insightFilesWithoutResourceSet(self, args):
         self.method = 'GET'
-        self.endpoint = '/reports/asset2/filesWithoutResourceSet/getSnapshot'
+        self.endpoint = '/reports/serverless/asset2/filesWithoutResourceSet/getSnapshot'
 
     @decorator
-    def insightFileTypeSizeTimeSeries(self, args):
-        self.method = 'POST'
-        self.endpoint = '/reports/asset2/fileTypeSizeTimeSeries'
-        self.payload = {
-            "window": f"{args['--numberOfDays']}d",
-            "fileType": args['--fileType'],
-            "dataSource": args['--dataSource'],
-            "registeredSourceGroup":""
-        }
+    def insightFilesAggregation(self, args):
+        self.method = 'GET'
+        self.endpoint = '/reports/serverless/asset2/filesAggregation/getSnapshot'
 
     @decorator
-    def insightTopFileTypesBySize(self, args):
-        self.method = 'POST'
-        self.endpoint = '/reports/asset2/topFileTypesBySize'
-        self.payload = {"dataSource":"","registeredSourceGroup":""}
+    def insightTags(self, args):
+        self.method = 'GET'
+        self.endpoint = '/reports/serverless/asset2/tags/getSnapshot'
 
     @decorator
-    def insightScanStatusSummaries(self, args):
+    def insightTagsTimeSeries(self, args):
+        self.method = 'GET'
+        self.endpoint = '/reports/serverless/asset2/tags/timeSeries'
+
+    # Scan
+    @decorator
+    def insightScanStatusSummary(self, args):
         self.method = 'GET'
         self.endpoint = '/reports/scanstatus2/summaries'
         self.params = { 'window': args['--numberOfDays'] }
 
     @decorator
-    def insightScanStatusSummariesByTs(self, args):
+    def insightScanStatusSummaryByTs(self, args):
         self.method = 'GET'
         self.endpoint = '/reports/scanstatus2/summariesbyts'
         self.params = { 'window': args['--numberOfDays'] }
