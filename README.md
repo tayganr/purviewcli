@@ -43,7 +43,7 @@ Data Plane (Apache Atlas)
 | [pv glossary](./doc/commands/glossary/main.md) | `Glossary`, `Terms`, `Categories` |
 | [pv lineage](./doc/commands/lineage/main.md) | `Lineage` |
 | [pv relationship](./doc/commands/relationship/main.md) | `Relationship` |
-| [pv types](./doc/commands/types/main.md) | `Type Definitions` (Classification, Entity, Enum, Relationship, Struct, and Term Template) |
+| [pv types](./doc/commands/types/main.md) | `ClassificationDef`, `EntityDef`, `EnumDef`, `RelationshipDef`, `StructDef`,  `TermTemplateDef` |
 
 Data Plane (Other)
 | Command | Surface Area |
