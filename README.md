@@ -31,18 +31,25 @@ pv command sub-command --parameter1='value' --parameter2='value'
 ## Command Reference
 
 Control Plane (Azure Resource Manager)
-* [pv management](./doc/commands/management/main.md)
+
+| Command | Surface Area |
+| --- | --- |
+| [pv management](./doc/commands/management/main.md) | `Account`, `Private Endpoint`, `Other` |
 
 Data Plane (Apache Atlas)
-* [pv entity](./doc/commands/entity/main.md) `Classification`, `Entity`
-* [pv glossary](./doc/commands/glossary/main.md) `Glossary`, `Terms`, `Categories`
-* [pv lineage](./doc/commands/lineage/main.md) `Lineage`
-* [pv relationship](./doc/commands/relationship/main.md) `Relationship`
-* [pv types](./doc/commands/types/main.md) `Type Definitions` (Classification, Entity, Enum, Relationship, Struct, and Term Template)
+| Command | Surface Area |
+| --- | --- |
+| [pv entity](./doc/commands/entity/main.md) | `Classification`, `Entity` |
+| [pv glossary](./doc/commands/glossary/main.md) | `Glossary`, `Terms`, `Categories` |
+| [pv lineage](./doc/commands/lineage/main.md) | `Lineage` |
+| [pv relationship](./doc/commands/relationship/main.md) | `Relationship` |
+| [pv types](./doc/commands/types/main.md) | `Type Definitions` (Classification, Entity, Enum, Relationship, Struct, and Term Template) |
 
 Data Plane (Other)
-* [pv account](./doc/commands/account/main.md) `Account`, `Collection`, `Resource Set Rule`
-* [pv insight](./doc/commands/insight/main.md) `Asset`, `Scan`
-* [pv policystore](./doc/commands/policystore/main.md) `Metadata`, `Data`
-* [pv scan](./doc/commands/scan/main.md) `Classification Rule`, `Credential`, `Data Source`, `Scan`, `Scan Filter`, `Scan Ruleset`, `Scan Trigger`
-* [pv search](./doc/commands/search/main.md) `Search`
+| Command | Surface Area |
+| --- | --- |
+| [pv account](./doc/commands/account/main.md) | `Account`, `Collection`, `Resource Set Rule` |
+| [pv insight](./doc/commands/insight/main.md) | `Asset`, `Scan` |
+| [pv policystore](./doc/commands/policystore/main.md) | `Metadata Policies`, `Data Policies` |
+| [pv scan](./doc/commands/scan/main.md) | `Classification Rule`, `Credential`, `Data Source`, `Scan`, `Scan Filter`, `Scan Ruleset`, `Scan Trigger` |
+| [pv search](./doc/commands/search/main.md) | `Search` |
