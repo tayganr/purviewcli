@@ -57,4 +57,57 @@ pv glossary createTerms --payloadFile "/path/to/file.json"
 ]
 ```
 </p>
+</details><br/>
+
+Create terms in bulk with a custom term template. Note: The payload has the additional "attributes" property.
+```powershell
+pv glossary createTerms --payloadFile "/path/to/file.json"
+```
+<details><summary>Example payload.</summary>
+<p>
+
+```json
+[
+    {
+        "anchor": {
+            "glossaryGuid": "9a799256-4992-4571-9c39-1d7e3ff61470"
+        },
+        "attributes": {
+            "My Custom Term Template": {
+                "Custom Attribute 01": "Hello World",
+                "Custom Attribute 02": "Hello World"
+            }
+        },
+        "longDescription": "This is a definition for Term1.",
+        "name": "Term1"
+    },
+    {
+        "anchor": {
+            "glossaryGuid": "9a799256-4992-4571-9c39-1d7e3ff61470"
+        },
+        "attributes": {
+            "My Custom Term Template": {
+                "Custom Attribute 01": "Hello World",
+                "Custom Attribute 02": "Hello World"
+            }
+        },
+        "longDescription": "This is a definition for Term2.",
+        "name": "Term2"
+    },
+    {
+        "anchor": {
+            "glossaryGuid": "9a799256-4992-4571-9c39-1d7e3ff61470"
+        },
+        "attributes": {
+            "My Custom Term Template": {
+                "Custom Attribute 01": "Hello World",
+                "Custom Attribute 02": "Hello World"
+            }
+        },
+        "longDescription": "This is a definition for Term3.",
+        "name": "Term3"
+    }    
+]
+```
+</p>
 </details>
