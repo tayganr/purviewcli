@@ -53,5 +53,5 @@ Data Plane (Other)
 | [pv account](./doc/commands/account/main.md) | `Account`, `Collection`, `Resource Set Rule` |
 | [pv insight](./doc/commands/insight/main.md) | `Asset`, `Scan` |
 | [pv policystore](./doc/commands/policystore/main.md) | `Metadata Policies`, `Data Policies` |
-| [pv scan](./doc/commands/scan/main.md) | `Classification Rule`, `Credential`, `Data Source`, `Scan`, `Scan Filter`, `Scan Ruleset`, `Scan Trigger` |
+| [pv scan](./doc/commands/scan/main.md) | `Classification Rule`, `Credential`, `Source`, `Scan`, `Filter`, `Ruleset`, `Trigger` |
 | [pv search](./doc/commands/search/main.md) | `Search` |
