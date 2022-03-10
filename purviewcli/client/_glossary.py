@@ -197,7 +197,10 @@ class Glossary(Endpoint):
         self.method = 'POST'
         self.endpoint = f'/api/glossary/{args["--glossaryGuid"]}/terms/import' if args['--glossaryGuid'] else f'/api/glossary/name/{glossaryName}/terms/import'
         self.files = {'file': open(args["--glossaryFile"], 'rb')}
-        self.params = {"api-version": "2021-05-01-preview"}
+        self.params = {
+            "api-version": "2021-05-01-preview",
+            'includeTermHierarchy': args['--includeTermHierarchy']
+        }
         
     @decorator
     def glossaryReadTermsImport(self, args):
