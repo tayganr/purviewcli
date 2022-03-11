@@ -2,12 +2,14 @@
 usage: 
     pv scan cancelScan --dataSourceName=<val> --scanName=<val> --runId=<val>
     pv scan deleteClassificationRule --classificationRuleName=<val>
+    pv scan deleteCredential --credentialName=<val>
     pv scan deleteDataSource --dataSourceName=<val>
     pv scan deleteKeyVault --keyVaultName=<val>
     pv scan deleteScan --dataSourceName=<val> --scanName=<val>
     pv scan deleteScanRuleset --scanRulesetName=<val>
     pv scan deleteTrigger --dataSourceName=<val> --scanName=<val>
     pv scan putClassificationRule --classificationRuleName=<val> --payloadFile=<val>
+    pv scan putCredential --credentialName=<val> --payloadFile=<val>
     pv scan putDataSource --dataSourceName=<val> --payloadFile=<val>
     pv scan putFilter --dataSourceName=<val> --scanName=<val> --payloadFile=<val>
     pv scan putKeyVault --keyVaultName=<val> --payloadFile=<val>
@@ -17,6 +19,7 @@ usage:
     pv scan readClassificationRule --classificationRuleName=<val>
     pv scan readClassificationRuleVersions --classificationRuleName=<val>
     pv scan readClassificationRules
+    pv scan readCredential [--credentialName=<val>]
     pv scan readDataSource --dataSourceName=<val>
     pv scan readDataSources [--collectionName=<val>]
     pv scan readFilters --dataSourceName=<val> --scanName=<val>
@@ -35,9 +38,6 @@ usage:
     pv scan readTrigger --dataSourceName=<val> --scanName=<val>
     pv scan runScan --dataSourceName=<val> --scanName=<val> [--scanLevel=<val>]
     pv scan tagClassificationVersion --classificationRuleName=<val> --classificationRuleVersion=<val> --action=<val>
-    pv scan deleteCredential --credentialName=<val>
-    pv scan putCredential --credentialName=<val> --payloadFile=<val>
-    pv scan readCredential [--credentialName=<val>]
 
 options:
     --purviewName=<val>                 [string]  Azure Purview account name.
