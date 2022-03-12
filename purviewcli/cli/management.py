@@ -1,5 +1,6 @@
 """
 usage: 
+    pv management addRootCollectionAdmin --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --objectId=<val>
     pv management checkNameAvailability --subscriptionId=<val> --accountName=<val>
     pv management createAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payloadFile=<val>
     pv management defaultAccount --scopeTenantId=<val> --scopeType=<val> --scope=<val>
@@ -16,7 +17,6 @@ usage:
     pv management removeDefaultAccount --scopeTenantId=<val> --scopeType=<val> --scope=<val>
     pv management setDefaultAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --scopeTenantId=<val> --scopeType=<val> --scope=<val>
     pv management updateAccount --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --payloadFile=<val>
-    pv management addRootCollectionAdmin --subscriptionId=<val> --resourceGroupName=<val> --accountName=<val> --objectId=<val>
 
 options:
     --subscriptionId=<val>                  [string]  The subscription ID.

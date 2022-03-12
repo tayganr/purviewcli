@@ -1,10 +1,13 @@
 """
 usage: 
+    pv entity changeCollection --collection=<val> --payloadFile=<val>
     pv entity create --payloadFile=<val>
     pv entity createBulk --payloadFile=<val>
     pv entity createBulkClassification --payloadFile=<val>
     pv entity createBulkSetClassifications --payloadFile=<val>
     pv entity createClassifications --guid=<val> --payloadFile=<val>
+    pv entity createOrUpdateCollection --collection=<val> --payloadFile=<val>
+    pv entity createOrUpdateCollectionBulk --collection=<val> --payloadFile=<val>
     pv entity createUniqueAttributeClassifications --typeName=<val> --qualifiedName=<val> --payloadFile=<val>
     pv entity delete --guid=<val>
     pv entity deleteBulk --guid=<val>...
@@ -22,9 +25,6 @@ usage:
     pv entity readClassifications --guid=<val>
     pv entity readHeader --guid=<val>
     pv entity readUniqueAttribute --typeName=<val> --qualifiedName=<val> [--ignoreRelationships --minExtInfo]
-    pv entity createOrUpdateCollection --collection=<val> --payloadFile=<val>
-    pv entity createOrUpdateCollectionBulk --collection=<val> --payloadFile=<val>
-    pv entity changeCollection --collection=<val> --payloadFile=<val>
     
 options:
     --purviewName=<val>                 [string]  Azure Purview account name.
