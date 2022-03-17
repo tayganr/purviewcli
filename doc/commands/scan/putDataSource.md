@@ -26,7 +26,7 @@ PUT https://{accountName}.purview.azure.com/scan/datasources/{dataSourceName}
 ```
 
 ## Examples
-Create or update a data source.
+Create or update a data source - Azure SQL Database.
 ```powershell
 pv scan putDataSource --dataSourceName "AzureSqlDatabase-ABC" --payloadFile "/path/to/file.json"  
 ```
@@ -47,6 +47,29 @@ pv scan putDataSource --dataSourceName "AzureSqlDatabase-ABC" --payloadFile "/pa
         "collection": {
             "type": "CollectionReference",
             "referenceName": "esg-26fa7f24-pv"
+        }
+    }
+}
+```
+</p>
+</details><br />
+
+Create or update a data source - SQL Server.
+```powershell
+pv scan putDataSource --dataSourceName "YOUR_DS_NAME" --payloadFile "/path/to/file.json"  
+```
+<details><summary>Example payload.</summary>
+<p>
+
+```json
+{
+    "kind": "SqlServerDatabase",
+    "name": "YOUR_DS_NAME",
+    "properties": {
+        "serverEndpoint": "YOUR_SQL_ENDPOINT",
+        "collection": {
+            "type": "CollectionReference",
+            "referenceName": "hqzywr"
         }
     }
 }
