@@ -10,6 +10,7 @@ usage:
     pv types readRelationshipDef (--guid=<val> | --name=<val>)
     pv types readStatistics
     pv types readStructDef (--guid=<val> | --name=<val>)
+    pv types readBusinessMetadataDef (--guid=<val> | --name=<val>)
     pv types readTermTemplateDef (--guid=<val> | --name=<val>)
     pv types readTypeDef (--guid=<val> | --name=<val>)
     pv types readTypeDefs [--includeTermTemplate --type=<val>]

@@ -55,6 +55,14 @@ class Types(Endpoint):
         typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
         self.endpoint = f'/api/atlas/v2/types/typedef/{typeDefKey}/{typeDefVal}'
 
+
+    @decorator
+    def typesReadBusinessMetadataDef(self, args):
+        self.method = 'GET'
+        typeDefKey = 'guid' if args['--name'] is None else 'name'
+        typeDefVal = args['--guid'] if args['--name'] is None else args['--name']
+        self.endpoint = f'/api/atlas/v2/types/businessmetadatadef/{typeDefKey}/{typeDefVal}'
+
     @decorator
     def typesReadTypeDefs(self, args):
         self.method = 'GET'

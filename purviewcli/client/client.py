@@ -122,6 +122,14 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
                     'status_code': response.status_code,
                     'export': filepath
                 }
+            elif response.headers['Content-Type'] == 'application/octet-stream':
+                filepath = os.path.join(os.getcwd(),'export.csv')
+                with open(filepath, 'wb') as f:
+                    f.write(response.content)
+                data = {
+                    'status_code': response.status_code,
+                    'export': filepath
+                }
             else:
                 try:
                     data = response.json()
