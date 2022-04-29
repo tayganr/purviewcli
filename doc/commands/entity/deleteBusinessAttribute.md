@@ -6,15 +6,18 @@ Delete business metadata from an entity.
 
 ## Syntax
 ```
-pv entity deleteBusinessAttribute --guid=<val> --bmName=<val>
+pv entity deleteBusinessAttribute --guid=<val> --bmName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-`guid` (string)
-DESC.
+`--guid` (string)  
+The globally unique identifier of the entity.
 
-`bmName` (string)
-DESC.
+`--bmName` (string)  
+The name of the business metadata.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
@@ -26,15 +29,17 @@ DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/
 ```
 
 ## Examples
-DESCRIBE_EXAMPLE.
+Delete business metadata from an entity.
 ```powershell
-EXAMPLE_COMMAND
+pv entity deleteBusinessAttribute --guid "0e945784-4bc3-40bb-a541-e8d1f7c9bf50" --bmName "myBizMetadata1" --payloadFile "/path/to/file.json"
 ```
 <details><summary>Example payload.</summary>
 <p>
 
 ```json
-PASTE_JSON_HERE
+{
+    "bizAttr1": "bizAttr1"
+}
 ```
 </p>
 </details>

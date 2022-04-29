@@ -219,6 +219,7 @@ class Entity(Endpoint):
         self.method = 'DELETE'
         self.endpoint = f'/api/atlas/v2/entity/guid/{guid}/businessmetadata/{bmName}'
         self.params = {'api-version':'2022-03-01-preview'}
+        self.payload = get_json(args, '--payloadFile')
 
     # Labels
     @decorator
