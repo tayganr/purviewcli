@@ -40,7 +40,7 @@ Data Plane (Apache Atlas)
 
 | Command | Surface Area |
 | --- | --- |
-| [pv entity](./doc/commands/entity/main.md) | `Classification`, `Entity` |
+| [pv entity](./doc/commands/entity/main.md) | `Business Attribute`, `Business Metadata`, `Label`, `Classification`, `Entity` |
 | [pv glossary](./doc/commands/glossary/main.md) | `Glossary`, `Terms`, `Categories` |
 | [pv lineage](./doc/commands/lineage/main.md) | `Lineage` |
 | [pv relationship](./doc/commands/relationship/main.md) | `Relationship` |
