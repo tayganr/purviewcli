@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > deleteLabelsByUniqueAttribute
 
 ## Description
-Delete Labels By Unique Attribute
+Delete label(s) from an entity identified by its type and unique attributes.
 
 ## Syntax
 ```

@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > getBusinessMetadataTemplate
 
 ## Description
-Get the sample Template for uploading/creating bulk BusinessMetaData.
+Get a sample template for uploading/creating business metadata in bulk.
 
 ## Syntax
 ```

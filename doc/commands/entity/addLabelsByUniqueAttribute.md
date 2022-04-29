@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > addLabelsByUniqueAttribute
 
 ## Description
-Add Labels By Unique Attribute
+Append labels to an entity identified by its type and unique attributes.
 
 ## Syntax
 ```

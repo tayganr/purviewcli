@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [types](./main.md) > readBusinessMetadataDef
 
 ## Description
-Get Business Metadata Def By Name
+Get the business metadata definition by GUID or its name (unique).
 
 ## Syntax
 ```

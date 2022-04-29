@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > addLabels
 
 ## Description
-Add Label
+Append labels to an entity.
 
 ## Syntax
 ```

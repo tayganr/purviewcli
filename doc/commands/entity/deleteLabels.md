@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > deleteLabels
 
 ## Description
-Delete Labels
+Delete label(s) from an entity.
 
 ## Syntax
 ```

@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > setLabels
 
 ## Description
-Set Labels
+Overwrite labels for an entity.
 
 ## Syntax
 ```

@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > addOrUpdateBusinessAttribute
 
 ## Description
-Add or update business attributes.
+Add or update business attributes to an entity.
 
 ## Syntax
 ```

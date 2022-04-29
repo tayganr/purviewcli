@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > importBusinessMetadata
 
 ## Description
-Upload the file for creating Business Metadata in BULK.
+ Import business metadata in bulk.
 
 ## Syntax
 ```

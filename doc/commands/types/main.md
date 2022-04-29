@@ -5,6 +5,7 @@
 | Command | Description |
 | --- | --- |
 | [pv types deleteTypeDef](./deleteTypeDef.md) | Delete API for type identified by its name. |
+| [pv types readBusinessMetadataDef](./readBusinessMetadataDef.md) | Get the business metadata definition by GUID or its name (unique). |
 | [pv types readClassificationDef](./readClassificationDef.md) | Get the classification definition by GUID or its name (unique). |
 | [pv types readEntityDef](./readEntityDef.md) | Get the Entity definition by GUID or its name (unique). |
 | [pv types readEnumDef](./readEnumDef.md) | Get the enum definition by GUID or its name (unique). |

@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > setLabelsByUniqueAttribute
 
 ## Description
-Set Labels By Unique Attribute
+Overwrite labels for an entity identified by its type and unique attributes.
 
 ## Syntax
 ```

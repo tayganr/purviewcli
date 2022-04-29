@@ -50,10 +50,10 @@
 | [pv entity getBusinessMetadataTemplate](./getBusinessMetadataTemplate.md) | Get a sample template for uploading/creating business metadata in bulk. |
 | [pv entity importBusinessMetadata](./importBusinessMetadata.md) | Import business metadata in bulk. |
 | [pv entity deleteBusinessMetadata](./deleteBusinessMetadata.md) | Delete business metadata from an entity. |
-| [pv entity addOrUpdateBusinessMetadata](./addOrUpdateBusinessMetadata.md) | Add or overwrite business metadata to an entity. |
+| [pv entity addOrUpdateBusinessMetadata](./addOrUpdateBusinessMetadata.md) | Add or update business metadata to an entity. |
 
 ## Business Attribute
 | Command | Description |
 | --- | --- |
-| [pv entity addOrUpdateBusinessAttribute](./addOrUpdateBusinessAttribute.md) | Add or overwrite business attributes to an entity. |
+| [pv entity addOrUpdateBusinessAttribute](./addOrUpdateBusinessAttribute.md) | Add or update business attributes to an entity. |
 | [pv entity deleteBusinessAttribute](./**deleteBusinessAttribute**.md) | Delete business attributes from an entity. |

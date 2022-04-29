@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > addOrUpdateBusinessMetadata
 
 ## Description
-Add business metadata to an entity.
+Add or update business metadata to an entity.
 
 ## Syntax
 ```
