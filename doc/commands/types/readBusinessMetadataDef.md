@@ -10,11 +10,12 @@ pv types readBusinessMetadataDef (--guid=<val> | --name=<val>)
 ```
 
 ## Required Arguments
-`guid` (string)
-DESC.
+`--guid` (string)  
+The globally unique identifier of the business metadata definition.
 
-`name` (string)
-DESC.
+
+`--name` (string)  
+The name of the business metadata definition
 
 ## Optional Arguments
 *None*
@@ -26,15 +27,44 @@ GET https://{accountName}.purview.azure.com/catalog/api/atlas/v2/types/businessm
 ```
 
 ## Examples
-DESCRIBE_EXAMPLE.
+Get business metadata definition by name.
 ```powershell
-EXAMPLE_COMMAND
+pv types readBusinessMetadataDef --name "myBizMetadata1"
 ```
-<details><summary>Example payload.</summary>
+<details><summary>Sample response.</summary>
 <p>
 
 ```json
-PASTE_JSON_HERE
+{
+    "attributeDefs": [
+        {
+            "cardinality": "SINGLE",
+            "includeInNotification": false,
+            "isIndexable": true,
+            "isOptional": true,
+            "isUnique": false,
+            "name": "bizAttr1",
+            "options": {
+                "applicableEntityTypes": "[\"DataSet\"]",
+                "maxStrLength": "50"
+            },
+            "typeName": "string",
+            "valuesMaxCount": 1,
+            "valuesMinCount": 0
+        }
+    ],
+    "category": "BUSINESS_METADATA",
+    "createTime": 1651150688682,
+    "createdBy": "095354ff-cae8-44ff-8120-22ec5a941b40",
+    "description": "myBizMetadata1",
+    "guid": "8937eb7d-53e3-ce0a-b508-4db55062ed71",
+    "lastModifiedTS": "1",
+    "name": "myBizMetadata1",
+    "typeVersion": "1.0",
+    "updateTime": 1651150688682,
+    "updatedBy": "095354ff-cae8-44ff-8120-22ec5a941b40",
+    "version": 1
+}
 ```
 </p>
 </details>
