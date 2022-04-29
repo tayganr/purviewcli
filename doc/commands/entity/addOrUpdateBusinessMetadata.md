@@ -27,15 +27,19 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/{g
 ```
 
 ## Examples
-DESCRIBE_EXAMPLE.
+Add or update business metadata to an entity.
 ```powershell
-EXAMPLE_COMMAND
+pv entity addOrUpdateBusinessMetadata --guid "0e945784-4bc3-40bb-a541-e8d1f7c9bf50" --payloadFile "/path/to/file.json"
 ```
 <details><summary>Example payload.</summary>
 <p>
 
 ```json
-PASTE_JSON_HERE
+{
+    "myBizMetadata1": {
+        "bizAttr1": "myBizMetaData1.bizAttr1"
+    }
+}
 ```
 </p>
 </details>
