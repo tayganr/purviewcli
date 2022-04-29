@@ -10,11 +10,11 @@ pv entity addLabels --guid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-`guid` (string)
-DESC.
+`--guid` (string)  
+The globally unique identifier of the entity.
 
-`payloadFile` (string)
-DESC.
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*

@@ -6,15 +6,18 @@ Delete label(s) from an entity identified by its type and unique attributes.
 
 ## Syntax
 ```
-pv entity deleteLabelsByUniqueAttribute --typeName=<val> --qualifiedName=<val>
+pv entity deleteLabelsByUniqueAttribute --typeName=<val> --qualifiedName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-`typeName` (string)
-DESC.
+`--typeName` (string)  
+The name of the type.
 
-`qualifiedName` (string)
-DESC.
+`--qualifiedName` (string)  
+The qualified name of the entity.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*

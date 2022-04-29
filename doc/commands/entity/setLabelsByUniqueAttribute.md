@@ -10,14 +10,14 @@ pv entity setLabelsByUniqueAttribute --typeName=<val> --qualifiedName=<val> --pa
 ```
 
 ## Required Arguments
-`typeName` (string)
-DESC.
+`--typeName` (string)  
+The name of the type.
 
-`qualifiedName` (string)
-DESC.
+`--qualifiedName` (string)  
+The qualified name of the entity.
 
-`payloadFile` (string)
-DESC.
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*

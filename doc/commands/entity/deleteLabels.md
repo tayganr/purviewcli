@@ -6,12 +6,15 @@ Delete label(s) from an entity.
 
 ## Syntax
 ```
-pv entity deleteLabels --guid=<val>
+pv entity deleteLabels --guid=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-`guid` (string)
-DESC.
+`--guid` (string)  
+The globally unique identifier of the entity.
+
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
 *None*
