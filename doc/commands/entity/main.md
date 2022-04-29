@@ -33,3 +33,27 @@
 | [pv entity createOrUpdateCollection](./createOrUpdateCollection.md) | Creates or updates an entity to a collection. |
 | [pv entity createOrUpdateCollectionBulk](./createOrUpdateCollectionBulk.md) | Creates or updates entities in bulk to a collection. |
 | [pv entity changeCollection](./changeCollection.md) | Move existing entities to the target collection. |
+
+## Label
+| Command | Description |
+| --- | --- |
+| [pv entity addLabels](./addLabels.md) | Append labels to an entity. |
+| [pv entity deleteLabels](./deleteLabels.md) | Delete label(s) from an entity. |
+| [pv entity setLabels](./setLabels.md) | Overwrite labels for an entity. |
+| [pv entity addLabelsByUniqueAttribute](./addLabelsByUniqueAttribute.md) | Append labels to an entity identified by its type and unique attributes. |
+| [pv entity deleteLabelsByUniqueAttribute](./deleteLabelsByUniqueAttribute.md) | Delete label(s) from an entity identified by its type and unique attributes. |
+| [pv entity setLabelsByUniqueAttribute](./setLabelsByUniqueAttribute.md) | Overwrite labels for an entity identified by its type and unique attributes. |
+
+## Business Metadata
+| Command | Description |
+| --- | --- |
+| [pv entity getBusinessMetadataTemplate](./getBusinessMetadataTemplate.md) | Get a sample template for uploading/creating business metadata in bulk. |
+| [pv entity importBusinessMetadata](./importBusinessMetadata.md) | Import business metadata in bulk. |
+| [pv entity deleteBusinessMetadata](./deleteBusinessMetadata.md) | Delete business metadata from an entity. |
+| [pv entity addOrUpdateBusinessMetadata](./addOrUpdateBusinessMetadata.md) | Add or overwrite business metadata to an entity. |
+
+## Business Attribute
+| Command | Description |
+| --- | --- |
+| [pv entity addOrUpdateBusinessAttribute](./addOrUpdateBusinessAttribute.md) | Add or overwrite business attributes to an entity. |
+| [pv entity deleteBusinessAttribute](./**deleteBusinessAttribute**.md) | Delete business attributes from an entity. |

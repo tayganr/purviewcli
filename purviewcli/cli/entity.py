@@ -2,7 +2,7 @@
 usage: 
     pv entity addLabels --guid=<val> --payloadFile=<val>
     pv entity addLabelsByUniqueAttribute --typeName=<val> --qualifiedName=<val> --payloadFile=<val>
-    pv entity addOrUpdateBusinessAttribute --guid=<val> --payloadFile=<val> --bmName=<val>
+    pv entity addOrUpdateBusinessAttribute --guid=<val> --bmName=<val> --payloadFile=<val>
     pv entity addOrUpdateBusinessMetadata --guid=<val> --payloadFile=<val> [--isOverwrite]
     pv entity changeCollection --collection=<val> --payloadFile=<val>
     pv entity create --payloadFile=<val>

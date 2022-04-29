@@ -12,3 +12,4 @@ build/
 .output/
 testing.ipynb
 sandbox/
+doc/boilerplate/temp
