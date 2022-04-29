@@ -45,4 +45,30 @@ pv entity create --payloadFile "/path/to/file.json"
 }
 ```
 </p>
-</details>
+</details><br />
+Create an entity with custom attributes.
+```powershell
+pv entity create --payloadFile "/path/to/file.json"
+```
+<details><summary>Example payload.</summary>
+<p>
+
+```json
+{
+    "entity": {
+        "attributes": {
+            "description": "This is a long description.",
+            "name": "myfile.csv",
+            "qualifiedName": "https://storage_account.dfs.core.windows.net/01-bronze/folder/file.csv",
+            "isFile": true
+        },
+        "customAttributes": {
+            "custAttr1": "hello",
+            "custAttr2": "world"
+        },
+        "collectionId": "rqbhvc",
+        "typeName": "azure_datalake_gen2_path"
+    }
+}
+```
+</p>
