@@ -10,15 +10,15 @@ pv entity addOrUpdateBusinessMetadata --guid=<val> --payloadFile=<val> [--isOver
 ```
 
 ## Required Arguments
-`guid` (string)
-DESC.
+`--guid` (string)  
+The globally unique identifier of the entity.
 
-`payloadFile` (string)
-DESC.
+`--payloadFile` (string)  
+File path to a valid JSON document.
 
 ## Optional Arguments
-`isOverwrite` (string)
-DESC.
+`--isOverwrite` (boolean)  
+Whether to overwrite the existing business metadata on the entity or not [default: false].
 
 ## API Mapping
 Catalog Data Plane > Entity > [Add Or Update Business Metadata](https://docs.microsoft.com/en-us/rest/api/purview/catalogdataplane/entity/add-or-update-business-metadata)

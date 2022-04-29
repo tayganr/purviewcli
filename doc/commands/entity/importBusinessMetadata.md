@@ -2,7 +2,7 @@
 [Command Reference](../../../README.md#command-reference) > [entity](./main.md) > importBusinessMetadata
 
 ## Description
- Import business metadata in bulk.
+Import business metadata in bulk from a CSV file.
 
 ## Syntax
 ```
@@ -10,8 +10,8 @@ pv entity importBusinessMetadata --bmFile=<val>
 ```
 
 ## Required Arguments
-`bmFile` (string)
-DESC.
+`--bmFile` (string)  
+File path to a valid business metadata template CSV file.
 
 ## Optional Arguments
 *None*
@@ -23,15 +23,16 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/busines
 ```
 
 ## Examples
-DESCRIBE_EXAMPLE.
+Import business metadata in bulk from a CSV file.
 ```powershell
-EXAMPLE_COMMAND
+pv entity importBusinessMetadata --bmFile "/path/to/template.csv"
 ```
-<details><summary>Example payload.</summary>
+<details><summary>Example CSV.</summary>
 <p>
 
-```json
-PASTE_JSON_HERE
+```csv
+EntityType,EntityUniqueAttributeValue,BusinessAttributeName,BusinessAttributeValue,EntityUniqueAttributeName[optional]
+azure_datalake_gen2_path,https://STORAGE_ACCOUNT.dfs.core.windows.net/bing/data/merged.parquet,myBizMetadata1.bizAttr1,hello,
 ```
 </p>
 </details>

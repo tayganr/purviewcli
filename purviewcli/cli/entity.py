@@ -16,7 +16,7 @@ usage:
     pv entity delete --guid=<val>
     pv entity deleteBulk --guid=<val>...
     pv entity deleteBusinessAttribute --guid=<val> --bmName=<val>
-    pv entity deleteBusinessMetadata --guid=<val>
+    pv entity deleteBusinessMetadata --guid=<val> --payloadFile=<val>
     pv entity deleteClassification --guid=<val> --classificationName=<val>
     pv entity deleteLabels --guid=<val> --payloadFile=<val>
     pv entity deleteLabelsByUniqueAttribute --typeName=<val> --qualifiedName=<val> --payloadFile=<val>
