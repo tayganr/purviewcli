@@ -56,4 +56,4 @@
 | Command | Description |
 | --- | --- |
 | [pv entity addOrUpdateBusinessAttribute](./addOrUpdateBusinessAttribute.md) | Add or update business attributes to an entity. |
-| [pv entity deleteBusinessAttribute](./**deleteBusinessAttribute**.md) | Delete business attributes from an entity. |
+| [pv entity deleteBusinessAttribute](./deleteBusinessAttribute.md) | Delete business attributes from an entity. |
