@@ -47,7 +47,7 @@ with open('./doc/boilerplate/boilerplate.csv') as file:
             if required_args is not None:
                 for arg in required_args:
                     arg_name = arg.split('=<val>')[0]
-                    markdown_required_args += f"`{arg_name}` (string)\nDESC.\n\n"
+                    markdown_required_args += f"`--{arg_name}` (string)  \nDESC.\n\n"
                 markdown_required_args = markdown_required_args[:-2]
             else:
                 markdown_required_args = f"*None*"
@@ -56,7 +56,7 @@ with open('./doc/boilerplate/boilerplate.csv') as file:
             if optional_args is not None:
                 for arg in optional_args:
                     arg_name = arg.split('=<val>')[0]
-                    markdown_optional_args += f"`{arg_name}` (string)\nDESC.\n\n"
+                    markdown_optional_args += f"`--{arg_name}` (string)  \nDESC.\n\n"
                 markdown_optional_args = markdown_optional_args[:-2]
             else:
                 markdown_optional_args = f"*None*"
