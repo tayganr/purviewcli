@@ -24,6 +24,7 @@ POST https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity
 
 ## Examples
 Create or update an entity.
+
 ```powershell
 pv entity create --payloadFile "/path/to/file.json"
 ```
@@ -47,6 +48,7 @@ pv entity create --payloadFile "/path/to/file.json"
 </p>
 </details><br />
 Create an entity with custom attributes.
+
 ```powershell
 pv entity create --payloadFile "/path/to/file.json"
 ```
