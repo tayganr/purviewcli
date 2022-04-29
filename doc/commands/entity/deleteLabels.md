@@ -23,15 +23,18 @@ DELETE https://{accountName}.purview.azure.com/catalog/api/atlas/v2/entity/guid/
 ```
 
 ## Examples
-DESCRIBE_EXAMPLE.
+Delete labels from an existing entity.
 ```powershell
-EXAMPLE_COMMAND
+pv entity deleteLabels --guid "7738b5c7-7977-4261-9871-7d00e11cabe8" --payloadFile "/path/to/file.json"
 ```
 <details><summary>Example payload.</summary>
 <p>
 
 ```json
-PASTE_JSON_HERE
+[
+    "a",
+    "c"
+]
 ```
 </p>
 </details>
