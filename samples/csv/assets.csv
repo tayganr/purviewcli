@@ -1,0 +1,13 @@
+﻿guid,qualifiedName
+6284874d-d8f6-4d4e-8295-1496f4abbde6,https://pvdemoxv2huadls.dfs.core.windows.net/bing/data/merged.parquet
+3b5a142d-0302-42a4-9f3b-c1ad031488d5,https://pvdemoxv2huadls.dfs.core.windows.net/bing/data/{N}/QueriesByState_{Year}-{Month}-{Day}_{N}-{N}-{N}.tsv
+1a978d08-bfb9-4816-be39-b04f201b62cd,https://pvdemoxv2huadls.dfs.core.windows.net/bing/data/{N}/QueriesByCountry_{Year}-{Month}-{Day}_{N}-{N}-{N}.tsv
+52534d92-7b4e-470f-8992-1df6f6f60000,mssql://pvdemoxv2hu-sqlsvr.database.windows.net/pvdemoxv2hu-sqldb/SalesLT/Address
+99403f06-e1a9-4e90-924a-fff6f6f60000,mssql://pvdemoxv2hu-sqlsvr.database.windows.net/pvdemoxv2hu-sqldb/SalesLT/Customer
+5af84c16-4af2-41d0-9913-5cefdc02136d,https://pvdemoxv2huadls.dfs.core.windows.net/bing/README.md
+9fdd9cc9-4d5d-4399-bf09-ff4bd9bf0d60,https://pvdemoxv2huadls.dfs.core.windows.net/bing/SECURITY.md
+1d9f9853-5689-4c2b-bf77-69b3138546db,https://pvdemoxv2huadls.dfs.core.windows.net/bing/CODE_OF_CONDUCT.md
+b15f6dce-b9e5-465a-85e9-267c3e80e017,https://pvdemoxv2huadls.dfs.core.windows.net/bing/LICENSE
+91be9185-bd7c-4255-a9b4-32f6f6f60000,mssql://pvdemoxv2hu-sqlsvr.database.windows.net/pvdemoxv2hu-sqldb/SalesLT/ProductDescription
+b04d1d31-fbd8-4e93-88c7-16f6f6f60000,mssql://pvdemoxv2hu-sqlsvr.database.windows.net/pvdemoxv2hu-sqldb/SalesLT/vProductAndDescription
+212adf04-a06c-4712-8875-43f6f6f60000,mssql://pvdemoxv2hu-sqlsvr.database.windows.net/pvdemoxv2hu-sqldb/SalesLT/ProductCategory
