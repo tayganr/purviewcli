@@ -1,0 +1,4 @@
+﻿guid,qualifiedName,termFormalName
+c30f71d4-8321-42fa-98c0-2cf6f6f60003,mssql://pvdemoxv2hu-sqlsvr.database.windows.net/pvdemoxv2hu-sqldb/SalesLT/ProductModel#CatalogDescription,Workplace Analytics_Adjusted meeting hours_Child Term
+c30f71d4-8321-42fa-98c0-2cf6f6f60005,mssql://pvdemoxv2hu-sqlsvr.database.windows.net/pvdemoxv2hu-sqldb/SalesLT/ProductModel#ModifiedDate,Workplace Analytics_Collaborator group
+c30f71d4-8321-42fa-98c0-2cf6f6f60001,mssql://pvdemoxv2hu-sqlsvr.database.windows.net/pvdemoxv2hu-sqldb/SalesLT/ProductModel#ProductModelID,Workplace Analytics_Adjusted meeting hours_Child Term
