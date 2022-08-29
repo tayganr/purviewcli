@@ -72,7 +72,8 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
             uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
 
         auth = {"Authorization": "Bearer {0}".format(self.access_token)}
-        headers = dict(**headers, **auth)
+        useragent = {"User-Agent": "purviewcli {0}".format(requests.utils.default_headers().get("User-Agent"))}
+        headers = dict(**headers, **auth, **useragent)
 
         try:
             response = requests.request(method, uri, params=params, json=payload, files=files, headers=headers)
