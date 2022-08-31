@@ -7,6 +7,7 @@ from http.client import responses
 from azure.identity import DefaultAzureCredential
 from azure.core.exceptions import ClientAuthenticationError
 from . import settings
+from .. import __version__
 
 logging.getLogger("azure.identity").setLevel(logging.ERROR)
 
@@ -72,7 +73,8 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
             uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
 
         auth = {"Authorization": "Bearer {0}".format(self.access_token)}
-        headers = dict(**headers, **auth)
+        useragent = {"User-Agent": "purviewcli/{0} {1}".format(__version__, requests.utils.default_headers().get("User-Agent"))}
+        headers = dict(**headers, **auth, **useragent)
 
         try:
             response = requests.request(method, uri, params=params, json=payload, files=files, headers=headers)
