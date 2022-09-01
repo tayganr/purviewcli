@@ -27,6 +27,7 @@ List all sent shares in a given Microsoft Purview account.
 pv share listSentShares
 ```
 
+
 <details><summary>Sample response.</summary>
 <p>
 

@@ -24,11 +24,11 @@ PUT https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}
 ## Examples
 Description
 ```powershell
-pv share _EXAMPLE_
+pv share createSentShare --sentShareName "NewShare" --payloadFile "/path/to/file.json"
 ```
 
 
-<details><summary>Sample response.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json
