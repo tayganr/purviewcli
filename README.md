@@ -1,6 +1,6 @@
-# Azure Purview CLI
+# Microsoft Purview CLI
 
-This package provides a command line interface to Azure Purview's REST API.  
+This package provides a command line interface to Microsoft Purview's REST API.  
 ![purviewcli](./doc/image/purviewcli_example.png)
 
 ## Getting Started
@@ -55,3 +55,4 @@ Data Plane (Other)
 | [pv policystore](./doc/commands/policystore/main.md) | `Metadata Policies`, `Data Policies` |
 | [pv scan](./doc/commands/scan/main.md) | `Classification Rule`, `Credential`, `Source`, `Scan`, `Filter`, `Ruleset`, `Trigger` |
 | [pv search](./doc/commands/search/main.md) | `Search` |
+| [pv share](./doc/commands/share/main.md) | `Shares`, `Invitations`, `Mappings`, `Assets` |
