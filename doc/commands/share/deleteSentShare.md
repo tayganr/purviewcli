@@ -1,5 +1,5 @@
-# pv share getSentShare
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > getSentShare
+# pv share deleteSentShare
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) > deleteSentShare
 
 ## Description
 Deletes a sent share.

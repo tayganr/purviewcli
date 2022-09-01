@@ -1,5 +1,5 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share getSentShare
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) > getSentShare
 
 ## Description
 Get a sent share in the given Purview account.
