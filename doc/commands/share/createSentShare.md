@@ -33,7 +33,14 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+   "shareKind":"InPlace",
+   "properties":{
+      "description":"This is a description.",
+      "collection":{
+         "referenceName":"qrzdyx",
+         "type":"CollectionReference"
+      }
+   }
 }
 ```
 </p>

@@ -33,7 +33,21 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+   "name":"assetName",
+   "type":"Microsoft.Purview/Share/assets",
+   "id":"",
+   "kind":"BlobAccount",
+   "properties":{
+      "storageAccountResourceId":"/subscriptions/YOUR_AZURE_SUBSCRIPTION_ID/resourceGroups/YOUR_RESOURCE_GROUP/providers/Microsoft.Storage/storageAccounts/YOUR_STORAGE_ACCOUNT",
+      "receiverAssetName":"assetName",
+      "paths":[
+         {
+            "containerName":"products",
+            "senderPath":"products.csv",
+            "receiverPath":"products.csv"
+         }
+      ]
+   }
 }
 ```
 </p>

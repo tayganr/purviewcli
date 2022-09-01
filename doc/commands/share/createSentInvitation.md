@@ -33,7 +33,13 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+   "name":"7543515465d5676285972198ef4cdc1dd3a0f711",
+   "type":"Microsoft.Purview/Share/Invitations",
+   "id":"",
+   "invitationKind":"User",
+   "properties":{
+      "targetEmail":"tarifat@microsoft.com"
+   }
 }
 ```
 </p>
