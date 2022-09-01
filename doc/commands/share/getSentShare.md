@@ -16,7 +16,7 @@ pv share getSentShare --sentShareName=<val>
 *None*
 
 ## API Mapping
-Share Data Plane > Sent Shares > [Get](LINK)
+Share Data Plane > Sent Shares > [Get](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/sent-shares/get)
 ```
 GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}
 ```

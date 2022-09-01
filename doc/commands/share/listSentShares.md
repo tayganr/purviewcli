@@ -16,7 +16,7 @@ pv share listSentShares [--skipToken=<val> --filter=<val> --orderBy=<val>]
 *None*
 
 ## API Mapping
-Share Data Plane > Sent Shares > [List](LINK)
+Share Data Plane > Sent Shares > [List](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/sent-shares/list)
 ```
 GET https://{accountName}.purview.azure.com/share/sentShares
 ```

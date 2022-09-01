@@ -16,7 +16,7 @@ pv share deleteSentShare --sentShareName=<val>
 *None*
 
 ## API Mapping
-Share Data Plane > Sent Shares > [Delete](LINK)
+Share Data Plane > Sent Shares > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/sent-shares/delete)
 ```
 DELETE https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}
 ```

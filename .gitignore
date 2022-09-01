@@ -13,3 +13,4 @@ build/
 testing.ipynb
 sandbox/
 doc/boilerplate/temp
+~*.xlsx
