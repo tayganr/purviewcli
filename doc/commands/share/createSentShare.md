@@ -6,7 +6,7 @@ Create a sent share in the given Purview account.
 
 ## Syntax
 ```
-pv share createSentShare --sentShareName=<val>
+pv share createSentShare --sentShareName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments

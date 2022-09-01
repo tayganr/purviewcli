@@ -224,6 +224,7 @@ class Share(Endpoint):
         self.params = {"api-version": "2021-09-01-preview"}
         self.method = "PUT"
         self.endpoint = f"/sentShares/{sentShareName}"
+        self.payload = get_json(args, '--payloadFile')
 
     @decorator
     def shareDeleteSentShare(self, args):

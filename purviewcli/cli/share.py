@@ -28,7 +28,7 @@ usage:
     pv share deleteSentInvitation --sentShareName=<val> --invitationName=<val>
     pv share getSentInvitation --sentShareName=<val> --invitationName=<val>
     pv share listSentShares [--skipToken=<val> --filter=<val> --orderBy=<val>]
-    pv share createSentShare --sentShareName=<val>
+    pv share createSentShare --sentShareName=<val> --payloadFile=<val>
     pv share deleteSentShare --sentShareName=<val>
     pv share getSentShare --sentShareName=<val>
 
