@@ -65,6 +65,8 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
             uri = f"https://{self.account_name}.purview.azure.com/account{endpoint}"
         elif app == 'policystore':
             uri = f"https://{self.account_name}.purview.azure.com/policystore{endpoint}"
+        elif app == 'share':
+            uri = f"https://{self.account_name}.purview.azure.com/share{endpoint}"
         elif app == 'mapanddiscover':
             uri = f"https://{self.account_name}.purview.azure.com/mapanddiscover{endpoint}"
         elif app == 'guardian':
