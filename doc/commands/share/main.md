@@ -185,4 +185,30 @@ erDiagram
         string receiverPaths "['products.csv']"
         string type "receivedShares/receivedAssets"
     }
+    sentShareInvitations {
+        string id "/sentShares/NewShare/sentShareInvitations/607c8df07dc82107ccab50bd1b8c792279b1d9fc"
+        string invitationKind "User"
+        string name "607c8df07dc82107ccab50bd1b8c792279b1d9fc"
+        string invitationId "47d63726-9373-417e-94a2-85afad2edd3e"
+        string invitationStatus "Pending"
+        string provisioningState "Succeeded"
+        string senderEmail "tarifat@microsoft.com"
+        string senderName "Taygan Rifat"
+        string senderTenantName "Microsoft"
+        string sentAt "2022-09-02T13:31:32.6057188Z"
+        string shareKind "InPlace"
+        string targetEmail "taygan.rifat@microsoft.com"
+        string type "sentShares/sentShareInvitations"
+    }
+    assets {
+        string id "/sentShares/NewShare/assets/assetName"
+        string kind "BlobAccount"
+        string name "assetName"
+        string location "uksouth"
+        string paths "[{'containerName':'products','receiverPath':'products.csv','senderPath':'products.csv'}]"
+        string provisioningState "Succeeded"
+        string receiverAssetName "assetName"
+        string storageAccountResourceId "/subscriptions/2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0/resourceGroups/pv-7643-rg/providers/Microsoft.Storage/storageAccounts/storagedatashare01"
+        string type "sentShares/assets"
+    }
 ```
