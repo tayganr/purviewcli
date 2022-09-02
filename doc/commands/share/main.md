@@ -68,10 +68,10 @@
 
 ```mermaid
 erDiagram
-    ACCOUNT ||--o{ COLLECTION : has
-    ACCOUNT ||--o{ receivedInvitations : has
-    COLLECTION ||--o{ sentShares : has
-    COLLECTION ||--o{ receivedShares : has
+    purviewAccount ||--o{ collections : has
+    purviewAccount ||--o{ receivedInvitations : has
+    collections ||--o{ sentShares : has
+    collections ||--o{ receivedShares : has
     receivedShares ||--o{ assetMappings : has
     receivedShares ||--o{ receivedAssets : has
     sentShares || --o{ assets : has
@@ -81,10 +81,10 @@ erDiagram
 
 ```mermaid
 erDiagram
-    ACCOUNT ||--o{ COLLECTION : has
-    ACCOUNT ||--o{ receivedInvitations : has
-    COLLECTION ||--o{ sentShares : has
-    COLLECTION ||--o{ receivedShares : has
+    purviewAccount ||--o{ collections : has
+    purviewAccount ||--o{ receivedInvitations : has
+    collections ||--o{ sentShares : has
+    collections ||--o{ receivedShares : has
     receivedShares ||--o{ assetMappings : has
     receivedShares ||--o{ receivedAssets : has
     sentShares || --o{ assets : has
