@@ -33,7 +33,7 @@ GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}
 
 Description
 ```powershell
-pv share _EXAMPLE_
+pv share getSentShare --sentShareName "NewShare"
 ```
 
 
@@ -42,7 +42,22 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+   "id":"/sentShares/NewShare",
+   "name":"NewShare",
+   "properties":{
+      "collection":{
+         "referenceName":"qrzdyx",
+         "type":"CollectionReference"
+      },
+      "createdAt":"2022-09-01T16:48:25.0489591Z",
+      "description":"This is a description.",
+      "provisioningState":"Succeeded",
+      "senderEmail":"tarifat@microsoft.com",
+      "senderName":"Taygan Rifat",
+      "senderTenantName":"Microsoft"
+   },
+   "shareKind":"InPlace",
+   "type":"sentShares"
 }
 ```
 </p>

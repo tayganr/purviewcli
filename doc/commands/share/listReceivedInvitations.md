@@ -43,7 +43,7 @@ GET https://{accountName}.purview.azure.com/share/receivedInvitations
 
 Description
 ```powershell
-pv share _EXAMPLE_
+pv share listReceivedInvitations
 ```
 
 
@@ -52,7 +52,29 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+   "value":[
+      {
+         "id":"/receivedInvitations/0acdde01-bdbd-49e1-b3d8-275d62b9b9bc",
+         "invitationKind":"User",
+         "name":"0acdde01-bdbd-49e1-b3d8-275d62b9b9bc",
+         "properties":{
+            "description":"This is a description.",
+            "invitationStatus":"Pending",
+            "location":"northeurope",
+            "receiverEmail":"tarifat@microsoft.com",
+            "receiverName":null,
+            "receiverTenantName":null,
+            "senderEmail":"tarifat@microsoft.com",
+            "senderName":"Taygan Rifat",
+            "senderTenantName":"Microsoft",
+            "sentAt":"2022-09-02T13:38:29.3185176Z",
+            "sentShareName":"NewShare",
+            "shareKind":"InPlace",
+            "targetEmail":"tarifat@microsoft.com"
+         },
+         "type":"receivedInvitations"
+      }
+   ]
 }
 ```
 </p>

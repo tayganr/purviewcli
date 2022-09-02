@@ -37,7 +37,7 @@ GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/ass
 
 Description
 ```powershell
-pv share _EXAMPLE_
+pv share getAsset --sentShareName "NewShare" --assetName "assetName"
 ```
 
 
@@ -46,7 +46,23 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+   "id":"/sentShares/NewShare/assets/assetName",
+   "kind":"BlobAccount",
+   "name":"assetName",
+   "properties":{
+      "location":"uksouth",
+      "paths":[
+         {
+            "containerName":"products",
+            "receiverPath":"products.csv",
+            "senderPath":"products.csv"
+         }
+      ],
+      "provisioningState":"Succeeded",
+      "receiverAssetName":"assetName",
+      "storageAccountResourceId":"/subscriptions/2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0/resourceGroups/pv-7643-rg/providers/Microsoft.Storage/storageAccounts/storagedatashare01"
+   },
+   "type":"sentShares/assets"
 }
 ```
 </p>

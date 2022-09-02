@@ -43,7 +43,7 @@ GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/sen
 
 Description
 ```powershell
-pv share _EXAMPLE_
+pv share listSentInvitations --sentShareName "NewShare"
 ```
 
 
@@ -52,7 +52,25 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+   "value":[
+      {
+         "id":"/sentShares/NewShare/sentShareInvitations/607c8df07dc82107ccab50bd1b8c792279b1d9fc",
+         "invitationKind":"User",
+         "name":"607c8df07dc82107ccab50bd1b8c792279b1d9fc",
+         "properties":{
+            "invitationId":"47d63726-9373-417e-94a2-85afad2edd3e",
+            "invitationStatus":"Pending",
+            "provisioningState":"Succeeded",
+            "senderEmail":"tarifat@microsoft.com",
+            "senderName":"Taygan Rifat",
+            "senderTenantName":"Microsoft",
+            "sentAt":"2022-09-02T13:31:32.6057188Z",
+            "shareKind":"InPlace",
+            "targetEmail":"taygan.rifat@microsoft.com"
+         },
+         "type":"sentShares/sentShareInvitations"
+      }
+   ]
 }
 ```
 </p>

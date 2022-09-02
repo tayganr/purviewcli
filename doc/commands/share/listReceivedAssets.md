@@ -35,7 +35,7 @@ GET https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareN
 
 Description
 ```powershell
-pv share _EXAMPLE_
+pv share listReceivedAssets --receivedShareName "NewShare"
 ```
 
 
@@ -44,7 +44,21 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+   "value":[
+      {
+         "id":"/receivedShares/NewShare/receivedAssets/6408e9cb-273a-49c7-8e2d-c89e928fd197",
+         "kind":"BlobAccount",
+         "name":"6408e9cb-273a-49c7-8e2d-c89e928fd197",
+         "properties":{
+            "location":"uksouth",
+            "receiverAssetName":"assetName",
+            "receiverPaths":[
+               "products.csv"
+            ]
+         },
+         "type":"receivedShares/receivedAssets"
+      }
+   ]
 }
 ```
 </p>

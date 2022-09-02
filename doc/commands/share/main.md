@@ -33,7 +33,6 @@
 | [pv share createReceivedShare](./createReceivedShare.md) | Create a received share in the given account. |
 | [pv share deleteReceivedShare](./deleteReceivedShare.md) | Deletes a received share. |
 | [pv share getReceivedShare](./getReceivedShare.md) | Get a received share by name. |
-| [pv share listReceivedAssets](./listReceivedAssets.md) | List source asset of a received share. |
 
 ## Received Invitations
 | Command | Description |
@@ -57,6 +56,7 @@
 | [pv share createAsset](./createAsset.md) | Adds a new asset to an existing share. |
 | [pv share deleteAsset](./deleteAsset.md) | Delete asset in a sentShare. |
 | [pv share getAsset](./getAsset.md) | Get asset in a sentShare. |
+| [pv share listReceivedAssets](./listReceivedAssets.md) | List source asset of a received share. |
 
 ## Email Registration
 | Command | Description |
