@@ -78,3 +78,29 @@ erDiagram
     sentShares || --o{ sentShareInvitations : has
     sentShares ||--o{ acceptedSentShares : has
 ```
+
+```mermaid
+erDiagram
+
+    receivedInvitations
+
+    receivedInvitations {
+        string id "/receivedInvitations/0acdde01-bdbd-49e1-b3d8-275d62b9b9bc"
+        string invitationKind "User"
+        string name "0acdde01-bdbd-49e1-b3d8-275d62b9b9bc"
+        string description "This is a description."
+        string invitationStatus "Pending"
+        string location "northeurope"
+        string receiverEmail "tarifat@microsoft.com"
+        string receiverName "Taygan Rifat"
+        string receiverTenantName
+        string senderEmail "tarifat@microsoft.com"
+        string senderName "Taygan Rifat"
+        string senderTenantName "Microsoft"
+        date sentAt "2022-09-02T13:38:29.3185176Z"
+        string sentShareName "NewShare"
+        string shareKind "InPlace"
+        string targetEmail "tarifat@microsoft.com"
+        string type "receivedInvitations"
+    }
+```
