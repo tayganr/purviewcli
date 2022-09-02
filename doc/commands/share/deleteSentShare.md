@@ -33,17 +33,5 @@ DELETE https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}
 
 Description
 ```powershell
-pv share _EXAMPLE_
+pv share deleteSentShare --sentShareName "NewShare"
 ```
-
-
-<details><summary>Sample response.</summary>
-<p>
-
-```json
-{
-    "key": "value"
-}
-```
-</p>
-</details>
