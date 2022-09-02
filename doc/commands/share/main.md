@@ -81,6 +81,15 @@ erDiagram
 
 ```mermaid
 erDiagram
+    ACCOUNT ||--o{ COLLECTION : has
+    ACCOUNT ||--o{ receivedInvitations : has
+    COLLECTION ||--o{ sentShares : has
+    COLLECTION ||--o{ receivedShares : has
+    receivedShares ||--o{ assetMappings : has
+    receivedShares ||--o{ receivedAssets : has
+    sentShares || --o{ assets : has
+    sentShares || --o{ sentShareInvitations : has
+    sentShares ||--o{ acceptedSentShares : has
     receivedInvitations {
         string id "/receivedInvitations/0acdde01-bdbd-49e1-b3d8-275d62b9b9bc"
         string invitationKind "User"
@@ -152,5 +161,19 @@ erDiagram
         string sharedAt "2022-09-01T16:48:25.7585096Z"
         string shareKind "InPlace"
         string type "receivedShares"
+    }
+    assetMappings {
+        string id "/receivedShares/MyShare/assetMappings/storagedatashare01"
+        string kind "BlobAccount"
+        string name "storagedatashare01"
+        string assetId "f4a4d0f9-d3db-4c80-944e-fe692705f27f"
+        string assetMappingStatus "Broken"
+        string containerName "customer"
+        string folder "helloWorld"
+        string location "uksouth"
+        string mountPath ""
+        string provisioningState "Succeeded"
+        string storageAccountResourceId "/subscriptions/2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0/resourceGroups/pv-7643-rg/providers/Microsoft.Storage/storageAccounts/storagedatashare01"
+        string type "receivedShares/assetMappings"
     }
 ```
