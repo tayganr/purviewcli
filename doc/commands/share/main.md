@@ -81,9 +81,6 @@ erDiagram
 
 ```mermaid
 erDiagram
-
-    receivedInvitations
-
     receivedInvitations {
         string id "/receivedInvitations/0acdde01-bdbd-49e1-b3d8-275d62b9b9bc"
         string invitationKind "User"
@@ -92,7 +89,7 @@ erDiagram
         string invitationStatus "Pending"
         string location "northeurope"
         string receiverEmail "tarifat@microsoft.com"
-        string receiverName "Taygan Rifat"
+        string receiverName
         string receiverTenantName
         string senderEmail "tarifat@microsoft.com"
         string senderName "Taygan Rifat"
@@ -102,5 +99,58 @@ erDiagram
         string shareKind "InPlace"
         string targetEmail "tarifat@microsoft.com"
         string type "receivedInvitations"
+    }
+    sentShares {
+        string id "/sentShares/NewShare"
+        string name "NewShare"
+        string collection_referenceName "qrzdyx"
+        string collection_type "CollectionReference"
+        date createdAt "2022-09-01T16:48:25.0489591Z"
+        string description "This is a description."
+        string provisioningState "Succeeded"
+        string senderEmail "tarifat@microsoft.com"
+        string senderName "Taygan Rifat"
+        string senderTenantName "Microsoft"
+        string shareKind "InPlace"
+        string type "sentShares"
+    }
+    acceptedSentShares {
+        string id "/sentShares/NewShare/acceptedSentShares/be2c3f1d-ac06-4aca-a5f8-28b44cad17ef"
+        string name "be2c3f1d-ac06-4aca-a5f8-28b44cad17ef"
+        string createdAt "2022-09-02T13:28:13.1922869Z"
+        string expirationDate "null"
+        string receivedShareStatus "Active"
+        string receiverEmail "tarifat@microsoft.com"
+        string receiverName "Taygan Rifat"
+        string receiverTargetObjectId "095354ff-cae8-44ff-8120-22ec5a941b40"
+        string receiverTenantName "Microsoft"
+        string senderEmail "tarifat@microsoft.com"
+        string senderName "Taygan Rifat"
+        string senderTenantName "Microsoft"
+        string sharedAt "2022-09-01T16:48:25.7585096Z"
+        string shareKind "InPlace"
+        string type "sentShares/acceptedSentShares"
+    }
+    receivedShares {
+        string id "/receivedShares/NewShare"
+        string name "NewShare"
+        string collection_referenceName "pvdemo52dg4-pv"
+        string collection_type "CollectionReference"
+        string createdAt "2022-09-02T13:28:13.1922869Z"
+        string invitationId "037ac95e-98a4-4b6a-aba7-7f915ab72497"
+        string provisioningState "Succeeded"
+        string receivedShareStatus "Active"
+        string receiverEmail "tarifat@microsoft.com"
+        string receiverName "Taygan Rifat"
+        string receiverTenantName "Microsoft"
+        string senderEmail "tarifat@microsoft.com"
+        string senderName "Taygan Rifat"
+        string senderTenantName "Microsoft"
+        string sentShareDescription "This is a description."
+        string sentShareLocation "northeurope"
+        string shareName "NewShare"
+        string sharedAt "2022-09-01T16:48:25.7585096Z"
+        string shareKind "InPlace"
+        string type "receivedShares"
     }
 ```
