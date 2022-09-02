@@ -1,27 +1,40 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share revokeAcceptedShare
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  revokeAcceptedShare
 
 ## Description
-_DESCRIPTION_
+
+Revoke an accepted sent share's access
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share revokeAcceptedShare --sentShareName=<val> --acceptedSentShareName=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+
+The name of the sent share.
+
+`--acceptedSentShareName` (string)
+
+The name of the accepted sent share.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Accepted Sent Shares > [Revoke](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/accepted-sent-shares/revoke)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+POST https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/acceptedSentShares/{acceptedSentShareName}:revoke
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

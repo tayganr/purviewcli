@@ -1,27 +1,40 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share rejectReceivedInvitation
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  rejectReceivedInvitation
 
 ## Description
-_DESCRIPTION_
+
+Rejects the received invitation identified by name
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share rejectReceivedInvitation --invitationName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--invitationName` (string)
+
+Name of the invitation.
+
+`--payloadFile` (string)
+
+File path to a valid JSON document.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Received Invitations > [Reject](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/received-invitations/reject)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+POST https://{accountName}.purview.azure.com/share/receivedInvitations/{receivedInvitationName}:reject
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

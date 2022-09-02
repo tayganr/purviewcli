@@ -1,27 +1,36 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share getReceivedInvitation
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  getReceivedInvitation
 
 ## Description
-_DESCRIPTION_
+
+Gets the received invitation identified by name.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share getReceivedInvitation --invitationName=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--invitationName` (string)
+
+Name of the invitation.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Received Invitations > [Get](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/received-invitations/get)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+GET https://{accountName}.purview.azure.com/share/receivedInvitations/{receivedInvitationName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

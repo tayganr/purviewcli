@@ -1,44 +1,37 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share activateEmail
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  activateEmail
 
 ## Description
-_DESCRIPTION_
+
+Activates the tenant and email combination using the activation code received.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share activateEmail --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--payloadFile` (string)
+
+File path to a valid JSON document.
 
 ## Optional Arguments
-*None*
 
-## API Mapping# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
-
-## Description
-_DESCRIPTION_
-
-## Syntax
-```
-pv share _COMMAND__ARGS_
-```
-
-## Required Arguments
-*None*
-
-## Optional Arguments
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Email Registration > [Activate](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/email-registration/activate)
+
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+POST https://{accountName}.purview.azure.com/share/activateEmail
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_
@@ -55,13 +48,3 @@ pv share _EXAMPLE_
 ```
 </p>
 </details>
-
-```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
-```
-
-## Examples
-Description
-```powershell
-pv share _EXAMPLE_
-```

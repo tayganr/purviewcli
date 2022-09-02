@@ -1,27 +1,38 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share listAcceptedShares
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  listAcceptedShares
 
 ## Description
-_DESCRIPTION_
+
+List of accepted shares for the current sent share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share listAcceptedShares --sentShareName=<val> [--skipToken=<val>]
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+
+The name of the sent share.
 
 ## Optional Arguments
-*None*
+
+`--skipToken` (string)
+
+The continuation token to list the next page.
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Accepted Sent Shares > [List](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/accepted-sent-shares/list)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/acceptedSentShares
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

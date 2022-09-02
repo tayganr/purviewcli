@@ -1,27 +1,40 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share deleteSentInvitation
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  deleteSentInvitation
 
 ## Description
-_DESCRIPTION_
+
+Delete Invitation in a share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share deleteSentInvitation --sentShareName=<val> --invitationName=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+
+The name of the sent share.
+
+`--invitationName` (string)
+
+Name of the invitation.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Sent Share Invitations > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/sent-share-invitations/delete)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+DELETE https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/sentShareInvitations/{sentShareInvitationName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

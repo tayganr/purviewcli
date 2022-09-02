@@ -1,27 +1,38 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share deleteAsset
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  deleteAsset
 
 ## Description
-_DESCRIPTION_
+
+Delete asset in a sentShare.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share deleteAsset --sentShareName=<val> --assetName=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+The name of the sent share.
+
+`--assetName` (string)
+The name of the asset.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Assets > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/assets/delete)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+DELETE https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/assets/{assetName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

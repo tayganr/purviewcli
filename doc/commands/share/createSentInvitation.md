@@ -1,27 +1,44 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share createSentInvitation
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  createSentInvitation
 
 ## Description
-_DESCRIPTION_
+
+Create/Update a sent share invitation in the given account.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share createSentInvitation --sentShareName=<val> --invitationName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+
+The name of the sent share.
+
+`--invitationName` (string)
+
+Name of the invitation.
+
+`--payloadFile` (string)
+
+File path to a valid JSON document.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Sent Share Invitations > [Create Or Update](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/sent-share-invitations/create-or-update)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+PUT https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/sentShareInvitations/{sentShareInvitationName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_
@@ -33,13 +50,7 @@ pv share _EXAMPLE_
 
 ```json
 {
-   "name":"7543515465d5676285972198ef4cdc1dd3a0f711",
-   "type":"Microsoft.Purview/Share/Invitations",
-   "id":"",
-   "invitationKind":"User",
-   "properties":{
-      "targetEmail":"tarifat@microsoft.com"
-   }
+    "key": "value"
 }
 ```
 </p>

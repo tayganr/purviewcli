@@ -1,27 +1,40 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share getAsset
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  getAsset
 
 ## Description
-_DESCRIPTION_
+
+Get asset in a sentShare.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share getAsset --sentShareName=<val> --assetName=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+
+The name of the sent share.
+
+`--assetName` (string)
+
+The name of the asset.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Assets > [Get](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/assets/get)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/assets/{assetName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

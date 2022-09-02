@@ -1,27 +1,37 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share getAssetMapping
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  getAssetMapping
 
 ## Description
-_DESCRIPTION_
+
+Get AssetMapping in a receivedShare.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share getAssetMapping --receivedShareName=<val> --assetMappingName=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--receivedShareName` (string)
+The name of the received share.
+
+`--assetMappingName` (string)
+The name of the asset mapping.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+Share Data Plane > Asset Mappings > [Get](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/asset-mappings/get)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+GET https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareName}/assetMappings/{assetMappingName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

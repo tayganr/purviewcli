@@ -1,27 +1,46 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share listReceivedInvitations
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  listReceivedInvitations
 
 ## Description
-_DESCRIPTION_
+
+Lists the received invitations.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share listReceivedInvitations [--skipToken=<val> --filter=<val> --orderBy=<val>]
 ```
 
 ## Required Arguments
-*None*
+
+`--receivedShareName` (string)
+
+The name of the received share.
 
 ## Optional Arguments
-*None*
+
+`--skipToken` (string)
+
+The continuation token to list the next page.
+
+`--filter` (string)
+
+Filters the results using OData syntax.
+
+`--orderBy` (string)
+
+Sorts the results using OData syntax.
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Received Invitations > [List](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/received-invitations/list)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+GET https://{accountName}.purview.azure.com/share/receivedInvitations
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

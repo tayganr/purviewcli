@@ -1,27 +1,44 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share createAsset
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  createAsset
 
 ## Description
-_DESCRIPTION_
+
+Adds a new asset to an existing share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share createAsset --sentShareName=<val> --assetName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+
+The name of the sent share.
+
+`--assetName` (string)
+
+The name of the asset.
+
+`--payloadFile` (string)
+
+File path to a valid JSON document.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Assets > [Create](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/assets/create)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+PUT https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/assets/{assetName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_
@@ -33,21 +50,7 @@ pv share _EXAMPLE_
 
 ```json
 {
-   "name":"assetName",
-   "type":"Microsoft.Purview/Share/assets",
-   "id":"",
-   "kind":"BlobAccount",
-   "properties":{
-      "storageAccountResourceId":"/subscriptions/YOUR_AZURE_SUBSCRIPTION_ID/resourceGroups/YOUR_RESOURCE_GROUP/providers/Microsoft.Storage/storageAccounts/YOUR_STORAGE_ACCOUNT",
-      "receiverAssetName":"assetName",
-      "paths":[
-         {
-            "containerName":"products",
-            "senderPath":"products.csv",
-            "receiverPath":"products.csv"
-         }
-      ]
-   }
+    "key": "value"
 }
 ```
 </p>

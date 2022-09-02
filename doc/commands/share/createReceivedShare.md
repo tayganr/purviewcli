@@ -1,27 +1,40 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share createReceivedShare
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  createReceivedShare
 
 ## Description
-_DESCRIPTION_
+
+Create a received share in the given account.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share createReceivedShare --receivedShareName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--receivedShareName` (string)
+
+The name of the received share.
+
+`--payloadFile` (string)
+
+File path to a valid JSON document.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Received Shares > [Create](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/received-shares/create)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+PUT https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

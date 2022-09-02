@@ -1,27 +1,46 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share listAssetMappings
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  listAssetMappings
 
 ## Description
-_DESCRIPTION_
+
+List AssetMappings in a received share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share listAssetMappings --receivedShareName=<val> [--skipToken=<val> --filter=<val> --orderBy=<val>]
 ```
 
 ## Required Arguments
-*None*
+
+`--receivedShareName` (string)
+
+The name of the received share.
 
 ## Optional Arguments
-*None*
+
+`--skipToken` (string)
+
+The continuation token to list the next page.
+
+`--filter` (string)
+
+Filters the results using OData syntax.
+
+`--orderBy` (string)
+
+Sorts the results using OData syntax.
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Asset Mappings > [List](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/asset-mappings/list)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+GET https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareName}/assetMappings
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

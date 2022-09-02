@@ -1,27 +1,40 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share getSentInvitation
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  getSentInvitation
 
 ## Description
-_DESCRIPTION_
+
+Get Invitation for a given share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share getSentInvitation --sentShareName=<val> --invitationName=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+
+The name of the sent share.
+
+`--invitationName` (string)
+
+Name of the invitation.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Sent Share Invitations > [Get](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/sent-share-invitations/get)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/sentShareInvitations/{sentShareInvitationName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

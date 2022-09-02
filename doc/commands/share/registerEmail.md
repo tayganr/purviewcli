@@ -1,27 +1,36 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share registerEmail
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  registerEmail
 
 ## Description
-_DESCRIPTION_
+
+Registers the tenant and email combination for activation.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share registerEmail
 ```
 
 ## Required Arguments
-*None*
+
+`--payloadFile` (string)
+
+File path to a valid JSON document.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Email Registration > [Register](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/email-registration/register)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+POST https://{accountName}.purview.azure.com/share/registerEmail
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

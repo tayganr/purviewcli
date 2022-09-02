@@ -1,27 +1,44 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share updateExpirationAcceptedShare
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  updateExpirationAcceptedShare
 
 ## Description
-_DESCRIPTION_
+
+Update the expiration date of an active accepted sent share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share updateExpirationAcceptedShare --sentShareName=<val> --acceptedSentShareName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+
+The name of the sent share.
+
+`--acceptedSentShareName` (string)
+
+The name of the accepted sent share.
+
+`--payloadFile` (string)
+
+File path to a valid JSON document.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Accepted Sent Shares > [Update Expiration](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/accepted-sent-shares/update-expiration)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+POST https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/acceptedSentShares/{acceptedSentShareName}:update-expiration
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

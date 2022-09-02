@@ -1,27 +1,38 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share listReceivedAssets
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  listReceivedAssets
 
 ## Description
-_DESCRIPTION_
+
+List source asset of a received share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share listReceivedAssets --receivedShareName=<val> [--skipToken=<val>]
 ```
 
 ## Required Arguments
-*None*
+
+`--receivedShareName` (string)
+
+The name of the received share.
 
 ## Optional Arguments
-*None*
+
+`--skipToken` (string)
+
+The continuation token to list the next page.
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Received Assets > [List](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/received-assets/list)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+GET https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareName}/receivedAssets
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

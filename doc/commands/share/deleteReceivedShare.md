@@ -1,27 +1,35 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share deleteReceivedShare
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  deleteReceivedShare
 
 ## Description
-_DESCRIPTION_
+
+Deletes a received share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share deleteReceivedShare --receivedShareName=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--receivedShareName` (string)
+The name of the received share.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Received Shares > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/received-shares/delete)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+DELETE https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

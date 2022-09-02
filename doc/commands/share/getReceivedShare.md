@@ -1,27 +1,36 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share getReceivedShare
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  getReceivedShare
 
 ## Description
-_DESCRIPTION_
+
+Get a received share by name.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share getReceivedShare --receivedShareName=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--receivedShareName` (string)
+
+The name of the received share.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Received Shares > [Get](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/received-shares/get)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+GET https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

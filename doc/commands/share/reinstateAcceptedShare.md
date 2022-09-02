@@ -1,27 +1,44 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share reinstateAcceptedShare
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  reinstateAcceptedShare
 
 ## Description
-_DESCRIPTION_
+
+Reinstate a revoked accepted sent share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share reinstateAcceptedShare --sentShareName=<val> --acceptedSentShareName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+
+The name of the sent share.
+
+`--acceptedSentShareName` (string)
+
+The name of the accepted sent share.
+
+`--payloadFile` (string)
+
+File path to a valid JSON document.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Accepted Sent Shares > [Reinstate](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/accepted-sent-shares/reinstate)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+POST https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/acceptedSentShares/{acceptedSentShareName}:reinstate
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

@@ -1,27 +1,44 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share createAssetMapping
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  createAssetMapping
 
 ## Description
-_DESCRIPTION_
+
+Maps a source asset in the sent share to a destination asset in the received share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share createAssetMapping --receivedShareName=<val> --assetMappingName=<val> --payloadFile=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--receivedShareName` (string)
+
+The name of the received share.
+
+`--assetMappingName` (string)
+
+The name of the asset mapping.
+
+`--payloadFile` (string)
+
+File path to a valid JSON document.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Asset Mappings > [Create](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/asset-mappings/create)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+PUT https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareName}/assetMappings/{assetMappingName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

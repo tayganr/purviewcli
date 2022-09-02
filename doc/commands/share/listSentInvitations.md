@@ -1,27 +1,46 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share listSentInvitations
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  listSentInvitations
 
 ## Description
-_DESCRIPTION_
+
+List all Invitations in a share.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share listSentInvitations --sentShareName=<val> [--skipToken=<val> --filter=<val> --orderBy=<val>]
 ```
 
 ## Required Arguments
-*None*
+
+`--sentShareName` (string)
+
+The name of the sent share.
 
 ## Optional Arguments
-*None*
+
+`--skipToken` (string)
+
+The continuation token to list the next page.
+
+`--filter` (string)
+
+Filters the results using OData syntax.
+
+`--orderBy` (string)
+
+Sorts the results using OData syntax.
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Sent Share Invitations > [List](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/sent-share-invitations/list)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/sentShareInvitations
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_

@@ -1,27 +1,38 @@
-# pv share _COMMAND_
-[Command Reference](../../../README.md#command-reference) > [share](./main.md) > _COMMAND_
+# pv share deleteAssetMapping
+
+[Command Reference](../../../README.md#command-reference) > [share](./main.md) >  deleteAssetMapping
 
 ## Description
-_DESCRIPTION_
+
+Delete AssetMapping in a receivedShare.
 
 ## Syntax
+
 ```
-pv share _COMMAND__ARGS_
+pv share deleteAssetMapping --receivedShareName=<val> --assetMappingName=<val>
 ```
 
 ## Required Arguments
-*None*
+
+`--receivedShareName` (string)
+The name of the received share.
+
+`--assetMappingName` (string)
+The name of the asset mapping.
 
 ## Optional Arguments
+
 *None*
 
 ## API Mapping
-Share Data Plane > H2 > [H3](LINK)
+
+Share Data Plane > Asset Mappings > [Delete](https://docs.microsoft.com/en-us/rest/api/purview/sharedataplane/asset-mappings/delete)
 ```
-METHOD https://{accountName}.purview.azure.com/share/endpoint
+DELETE https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareName}/assetMappings/{assetMappingName}
 ```
 
 ## Examples
+
 Description
 ```powershell
 pv share _EXAMPLE_
