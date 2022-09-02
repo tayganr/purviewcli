@@ -176,4 +176,13 @@ erDiagram
         string storageAccountResourceId "/subscriptions/2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0/resourceGroups/pv-7643-rg/providers/Microsoft.Storage/storageAccounts/storagedatashare01"
         string type "receivedShares/assetMappings"
     }
+    receivedAssets {
+        string id "/receivedShares/NewShare/receivedAssets/6408e9cb-273a-49c7-8e2d-c89e928fd197"
+        string kind "BlobAccount"
+        string name "6408e9cb-273a-49c7-8e2d-c89e928fd197"
+        string location "uksouth"
+        string receiverAssetName "assetName"
+        string receiverPaths "['products.csv']"
+        string type "receivedShares/receivedAssets"
+    }
 ```
