@@ -31,19 +31,8 @@ POST https://{accountName}.purview.azure.com/share/registerEmail
 
 ## Examples
 
-Description
+Registers the tenant and email combination for activation.
+
 ```powershell
-pv share _EXAMPLE_
+pv share registerEmail
 ```
-
-
-<details><summary>Sample response.</summary>
-<p>
-
-```json
-{
-    "key": "value"
-}
-```
-</p>
-</details>

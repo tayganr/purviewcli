@@ -32,9 +32,10 @@ POST https://{accountName}.purview.azure.com/share/activateEmail
 
 ## Examples
 
-Description
+Activates the tenant and email combination using the activation code received.
+
 ```powershell
-pv share _EXAMPLE_
+pv share activateEmail --payloadFile "/path/to/file.json"
 ```
 
 
@@ -43,7 +44,9 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+   "properties":{
+      "activationCode":"15ee7153fe0df5a3a449a897d6cec836"
+   }
 }
 ```
 </p>
