@@ -64,7 +64,7 @@
 | [pv share activateEmail](./activateEmail.md) | Activates the tenant and email combination using the activation code received. |
 | [pv share registerEmail](./registerEmail.md) | Registers the tenant and email combination for activation. |
 
-## ER Diagram
+## ER Diagram #1
 
 ```mermaid
 erDiagram
@@ -78,6 +78,10 @@ erDiagram
     sentShares || --o{ sentShareInvitations : has
     sentShares ||--o{ acceptedSentShares : has
 ```
+
+## ER Diagram #2
+
+*Includes properties, data types, and example values.*
 
 ```mermaid
 erDiagram
