@@ -46,7 +46,7 @@ pv share createAsset --sentShareName "MyNewSentShare" --assetName "MyAssetName" 
 ```
 
 
-<details><summary>Sample response.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json
