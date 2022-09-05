@@ -45,7 +45,8 @@ GET https://{accountName}.purview.azure.com/share/sentShares
 
 ## Examples
 
-Description
+Get a list of sent shares.
+
 ```powershell
 pv share listSentShares
 ```

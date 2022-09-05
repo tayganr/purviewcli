@@ -31,7 +31,8 @@ DELETE https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}
 
 ## Examples
 
-Description
+Delete a sent share.
+
 ```powershell
 pv share deleteSentShare --sentShareName "NewShare"
 ```

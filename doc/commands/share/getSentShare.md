@@ -31,7 +31,8 @@ GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}
 
 ## Examples
 
-Description
+Get a sent share.
+
 ```powershell
 pv share getSentShare --sentShareName "NewShare"
 ```
