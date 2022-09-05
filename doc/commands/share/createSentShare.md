@@ -35,18 +35,26 @@ PUT https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}
 
 ## Examples
 
-Description
+Create a sent share.
+
 ```powershell
-pv share _EXAMPLE_
+pv share createSentShare --sentShareName "MyNewSentShare" --payloadFile "/path/to/file.json"
 ```
 
 
-<details><summary>Sample response.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json
 {
-    "key": "value"
+    "properties": {
+        "description": "This is a friendly description.",
+        "collection": {
+            "referenceName": "pvdemo52dg4-pv",
+            "type": "CollectionReference"
+        }
+    },
+    "shareKind": "InPlace"
 }
 ```
 </p>

@@ -1,0 +1,10 @@
+{
+    "properties": {
+        "description": "This is a friendly description.",
+        "collection": {
+            "referenceName": "pvdemo52dg4-pv",
+            "type": "CollectionReference"
+        }
+    },
+    "shareKind": "InPlace"
+}
