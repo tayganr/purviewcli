@@ -33,7 +33,8 @@ GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/acc
 
 ## Examples
 
-Description
+List accepted shares for a particular sent share.
+
 ```powershell
 pv share listAcceptedShares --sentShareName "NewShare"
 ```

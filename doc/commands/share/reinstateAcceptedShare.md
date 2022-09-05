@@ -39,18 +39,22 @@ POST https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/ac
 
 ## Examples
 
-Description
+Reinstate a revoked accepted share.
+
 ```powershell
-pv share _EXAMPLE_
+pv share reinstateAcceptedShare --sentShareName "MyNewSentShare" --acceptedSentShareName "4f5e1b4b-44f8-42c1-a783-b6c2265e49f5" --payloadFile "/path/to/file.json"
 ```
 
 
-<details><summary>Sample response.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json
 {
-    "key": "value"
+    "shareKind": "InPlace",
+    "properties": {
+        "expirationDate": "2023-02-24T21:02:24.695Z"
+    }
 }
 ```
 </p>

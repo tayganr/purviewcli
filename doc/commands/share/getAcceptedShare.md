@@ -35,7 +35,8 @@ GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/acc
 
 ## Examples
 
-Description
+Get an accepted share for a particular sent share.
+
 ```powershell
 pv share getAcceptedShare --sentShareName "NewShare" --acceptedSentShareName "be2c3f1d-ac06-4aca-a5f8-28b44cad17ef"
 ```
