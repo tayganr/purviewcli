@@ -39,18 +39,26 @@ PUT https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareN
 
 ## Examples
 
-Description
+Delete an asset mapping for a particular received share.
+
 ```powershell
-pv share _EXAMPLE_
+pv share createAssetMapping --receivedShareName "MyNewReceivedShare" --assetMappingName "MyAssetMappingName" --payloadFile "/path/to/file.json"
 ```
 
 
-<details><summary>Sample response.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json
 {
-    "key": "value"
+  "kind": "BlobAccount",
+  "properties": {
+    "assetId": "8c3538ba-e787-4823-83ab-f01de6c18289",
+    "storageAccountResourceId": "/subscriptions/2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0/resourceGroups/pv-7643-rg/providers/Microsoft.Storage/storageAccounts/storagedatashare01",
+    "containerName": "customer",
+    "folder": "helloWorld",
+    "mountPath": ""
+  }
 }
 ```
 </p>

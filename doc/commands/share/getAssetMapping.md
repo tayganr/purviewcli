@@ -32,7 +32,8 @@ GET https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareN
 
 ## Examples
 
-Description
+Get an asset mapping for a particular received share.
+
 ```powershell
 pv share getAssetMapping --receivedShareName "MyShare" --assetMappingName "storagedatashare01"
 ```

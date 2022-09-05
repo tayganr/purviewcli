@@ -33,7 +33,8 @@ DELETE https://{accountName}.purview.azure.com/share/receivedShares/{receivedSha
 
 ## Examples
 
-Description
+Delete an asset mapping for a particular received share.
+
 ```powershell
 pv share deleteAssetMapping --receivedShareName "NewShare" --assetMappingName "assetName"
 ```
