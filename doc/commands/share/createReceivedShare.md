@@ -35,9 +35,10 @@ PUT https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareN
 
 ## Examples
 
-Description
+Accept a sent share by creating a received share.
+
 ```powershell
-pv share _EXAMPLE_
+pv share createReceivedShare --receivedShareName "MyNewReceivedShare" --payloadFile "/path/to/file.json"
 ```
 
 
@@ -46,7 +47,15 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+    "properties": {
+        "sentShareLocation": "northeurope",
+        "invitationId": "71d43cbe-5e44-40a5-b747-4140752fce62",
+        "collection": {
+            "referenceName": "pvdemo52dg4-pv",
+            "type": "CollectionReference"
+        }
+    },
+    "shareKind": "InPlace"
 }
 ```
 </p>

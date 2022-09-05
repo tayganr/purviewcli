@@ -30,7 +30,8 @@ DELETE https://{accountName}.purview.azure.com/share/receivedShares/{receivedSha
 
 ## Examples
 
-Description
+Delete a received share.
+
 ```powershell
 pv share deleteReceivedShare --receivedShareName "NewShare"
 ```

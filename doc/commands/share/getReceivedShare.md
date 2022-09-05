@@ -31,7 +31,8 @@ GET https://{accountName}.purview.azure.com/share/receivedShares/{receivedShareN
 
 ## Examples
 
-Description
+Get a received share.
+
 ```powershell
 pv share getReceivedShare --receivedShareName "NewShare"
 ```
