@@ -31,7 +31,8 @@ GET https://{accountName}.purview.azure.com/share/receivedInvitations/{receivedI
 
 ## Examples
 
-Description
+Get a received invitation.
+
 ```powershell
 pv share getReceivedInvitation --invitationName "0acdde01-bdbd-49e1-b3d8-275d62b9b9bc"
 ```

@@ -35,9 +35,10 @@ POST https://{accountName}.purview.azure.com/share/receivedInvitations/{received
 
 ## Examples
 
-Description
+Reject a received invitation.
+
 ```powershell
-pv share _EXAMPLE_
+pv share rejectReceivedInvitation --invitationName "955af42b-b08d-4a00-ba58-aaf31afcd53a" --payloadFile "/path/to/file.json"
 ```
 
 
@@ -46,7 +47,12 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+    "invitationKind": "User",
+    "properties": {
+        "targetActiveDirectoryId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "targetObjectId": "095354ff-cae8-44ff-8120-22ec5a941b40",
+        "targetEmail": "tarifat@microsoft.com"
+    }
 }
 ```
 </p>

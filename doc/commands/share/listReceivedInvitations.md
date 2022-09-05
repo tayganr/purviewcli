@@ -4,7 +4,7 @@
 
 ## Description
 
-Lists the received invitations.
+Lists received invitations.
 
 ## Syntax
 
