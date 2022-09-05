@@ -42,7 +42,7 @@ pv share createReceivedShare --receivedShareName "MyNewReceivedShare" --payloadF
 ```
 
 
-<details><summary>Sample response.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json

@@ -46,7 +46,7 @@ pv share createSentInvitation --sentShareName "MyNewSentShare" --invitationName 
 ```
 
 
-<details><summary>Sample response.</summary>
+<details><summary>Example payload.</summary>
 <p>
 
 ```json
