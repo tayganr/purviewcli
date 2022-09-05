@@ -35,7 +35,8 @@ GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/ass
 
 ## Examples
 
-Description
+Get asset from a sent share.
+
 ```powershell
 pv share getAsset --sentShareName "NewShare" --assetName "assetName"
 ```

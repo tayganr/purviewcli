@@ -33,19 +33,8 @@ DELETE https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/
 
 ## Examples
 
-Description
+Delete asset from a sent share.
+
 ```powershell
-pv share _EXAMPLE_
+pv share deleteAsset --sentShareName "MyNewSentShare" --assetName "MyAssetName"
 ```
-
-
-<details><summary>Sample response.</summary>
-<p>
-
-```json
-{
-    "key": "value"
-}
-```
-</p>
-</details>

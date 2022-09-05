@@ -1,0 +1,14 @@
+{
+    "kind": "BlobAccount",
+    "properties": {
+        "storageAccountResourceId": "/subscriptions/2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0/resourceGroups/pv-7643-rg/providers/Microsoft.Storage/storageAccounts/storagedatashare01",
+        "receiverAssetName": "MyAssetName",
+        "paths": [
+            {
+                "containerName": "products",
+                "senderPath": "products.csv",
+                "receiverPath": "products.csv"
+            }
+        ]
+    }
+}

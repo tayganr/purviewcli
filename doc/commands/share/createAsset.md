@@ -39,9 +39,10 @@ PUT https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/ass
 
 ## Examples
 
-Description
+Add an asset to an existing sent share.
+
 ```powershell
-pv share _EXAMPLE_
+pv share createAsset --sentShareName "MyNewSentShare" --assetName "MyAssetName" --payloadFile "/path/to/file.json"
 ```
 
 
@@ -50,7 +51,18 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+    "kind": "BlobAccount",
+    "properties": {
+        "storageAccountResourceId": "/subscriptions/2c334b6c-e556-40ac-a4c0-c0d1d2e08ca0/resourceGroups/pv-7643-rg/providers/Microsoft.Storage/storageAccounts/storagedatashare01",
+        "receiverAssetName": "MyAssetName",
+        "paths": [
+            {
+                "containerName": "products",
+                "senderPath": "products.csv",
+                "receiverPath": "products.csv"
+            }
+        ]
+    }
 }
 ```
 </p>
