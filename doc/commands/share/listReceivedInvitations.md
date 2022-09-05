@@ -41,7 +41,8 @@ GET https://{accountName}.purview.azure.com/share/receivedInvitations
 
 ## Examples
 
-Description
+Get a list of received invitations.
+
 ```powershell
 pv share listReceivedInvitations
 ```
