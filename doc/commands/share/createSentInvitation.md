@@ -39,9 +39,10 @@ PUT https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/sen
 
 ## Examples
 
-Description
+Create a sent invitation from a sent share.
+
 ```powershell
-pv share _EXAMPLE_
+pv share createSentInvitation --sentShareName "MyNewSentShare" --invitationName "650f1292-9c84-44c9-9339-342b88940dbc" --payloadFile "/path/to/file.json"
 ```
 
 
@@ -50,7 +51,12 @@ pv share _EXAMPLE_
 
 ```json
 {
-    "key": "value"
+    "invitationKind": "User",
+    "properties": {
+        "targetActiveDirectoryId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "targetObjectId": "095354ff-cae8-44ff-8120-22ec5a941b40",
+        "targetEmail": "tarifat@microsoft.com"
+    }
 }
 ```
 </p>

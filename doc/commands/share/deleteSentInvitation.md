@@ -35,7 +35,8 @@ DELETE https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/
 
 ## Examples
 
-Description
+Delete a sent invitation for a sent share.
+
 ```powershell
 pv share deleteSentInvitation --sentShareName "NewShare" --invitationName "7543515465d5676285972198ef4cdc1dd3a0f711"
 ```

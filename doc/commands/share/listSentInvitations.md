@@ -41,7 +41,8 @@ GET https://{accountName}.purview.azure.com/share/sentShares/{sentShareName}/sen
 
 ## Examples
 
-Description
+List all sent invitations for a sent share.
+
 ```powershell
 pv share listSentInvitations --sentShareName "NewShare"
 ```

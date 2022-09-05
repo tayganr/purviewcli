@@ -1,0 +1,8 @@
+{
+    "invitationKind": "User",
+    "properties": {
+        "targetActiveDirectoryId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "targetObjectId": "095354ff-cae8-44ff-8120-22ec5a941b40",
+        "targetEmail": "tarifat@microsoft.com"
+    }
+}
