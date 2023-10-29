@@ -24,7 +24,7 @@ class PurviewClient():
         if self.azure_region is None:
             self.management_endpoint= "https://management.azure.com"
             self.purview_endpoint = "purview.azure.com"
-        elif self.azure_region == "china":
+        elif self.azure_region.lower() == "china":
             self.management_endpoint= "https://management.chinacloudapi.cn"
             self.purview_endpoint = "purview.azure.cn"
         else:
