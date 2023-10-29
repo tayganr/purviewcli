@@ -23,7 +23,7 @@ class PurviewClient():
         self.azure_region = os.environ.get("AZURE_REGION")        
         if self.azure_region is None:
             self.management_endpoint= "https://management.azure.com"
-            self.purview_endpoint = "purview.azure.net"
+            self.purview_endpoint = "purview.azure.com"
         elif self.azure_region == "china":
             self.management_endpoint= "https://management.chinacloudapi.cn"
             self.purview_endpoint = "purview.azure.cn"
@@ -52,11 +52,12 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
 
     def set_token(self, app):
         if self.azure_region == "china":
-            credential = DefaultAzureCredential(authority="https://login.partner.microsoftonline.cn",exclude_shared_token_cache_credential=True)
-        else: credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
+            credential = DefaultAzureCredential(authority="https://login.partner.microsoftonline.cn",exclude_shared_token_cache_credential=True)            
+        else: 
+            credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)         
 
         if app == "management":
-            resource = self.management_endpoint + "/.default"            
+            resource = self.management_endpoint + "/.default"                     
         else:
             resource = "https://purview.azure.net/.default"              
 
@@ -97,7 +98,7 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
 
         try:
             response = requests.request(method, uri, params=params, json=payload, files=files, headers=headers)
-            # DEBUG
+            #DEBUG
             # print(f"Method:\t\t{method}")
             # print(f"Body:\t\t{payload}")
             # print(f"Headers:\t\t{headers}")
