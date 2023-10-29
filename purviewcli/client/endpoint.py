@@ -14,6 +14,7 @@ class Endpoint:
 
 def get_data(http_dict):
     client = PurviewClient()
+    client.set_region(http_dict['app'])
     client.set_account(http_dict['app'])
     client.set_token(http_dict['app'])
     data = client.http_get(http_dict['app'], http_dict['method'], http_dict['endpoint'], http_dict['params'], http_dict['payload'], http_dict['files'], http_dict['headers'])
