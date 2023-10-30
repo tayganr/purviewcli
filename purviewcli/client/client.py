@@ -51,7 +51,7 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
                 sys.exit()       
 
     def set_token(self, app):
-        if self.azure_region == "china":
+        if self.azure_region.lower() == "china":
             credential = DefaultAzureCredential(authority="https://login.partner.microsoftonline.cn",exclude_shared_token_cache_credential=True)            
         else: 
             credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)         
