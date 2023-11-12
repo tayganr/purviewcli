@@ -15,8 +15,23 @@ class PurviewClient():
     def __init__(self):
         self.access_token = None
         self.account_name = None
+        self.azure_region = None
+        self.management_endpoint = None
+        self.purview_endpoint = None
 
-    def set_account(self, app):
+    def set_region(self,app):
+        self.azure_region = os.environ.get("AZURE_REGION")        
+        if self.azure_region is None:
+            self.management_endpoint= "https://management.azure.com"
+            self.purview_endpoint = "purview.azure.com"
+        elif self.azure_region.lower() == "china":
+            self.management_endpoint= "https://management.chinacloudapi.cn"
+            self.purview_endpoint = "purview.azure.cn"
+        else:
+            print("[ERROR] Environment variable AZURE_REGION is not set correctly. Please remove this variable if Purview is provisioned on Public Azure.")
+            sys.exit()        
+
+    def set_account(self, app):        
         if app == "management":
             self.account_name = None
         else:
@@ -29,19 +44,22 @@ Please configure the PURVIEW_NAME environment variable. Setting environment vari
 \tmacOS (Terminal):\t\texport PURVIEW_NAME=value
 \tPython:\t\t\t\tos.environ["PURVIEW_NAME"] = "value"
 \tPowerShell:\t\t\t$env:PURVIEW_NAME = "value"
-\tJupyter Notebook:\t\t%env PURVIEW_NAME=value
+\tJupyter Notebook:\t\t%env PURVIEW_NAME=value 
 
 Alternatively, an Azure Purview account name can be provided by appending --purviewName=<val> at the end of your command.
 """)
-                sys.exit()
+                sys.exit()       
 
     def set_token(self, app):
-        credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
+        if self.azure_region.lower() == "china":
+            credential = DefaultAzureCredential(authority="https://login.partner.microsoftonline.cn",exclude_shared_token_cache_credential=True)            
+        else: 
+            credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)         
 
         if app == "management":
-            resource = "https://management.azure.com/.default"
+            resource = self.management_endpoint + "/.default"                     
         else:
-            resource = "https://purview.azure.net/.default"
+            resource = "https://purview.azure.net/.default"              
 
         try:
             token = credential.get_token(f'{resource}')
@@ -56,23 +74,23 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
 
     def http_get(self, app, method, endpoint, params, payload, files, headers):
         if app == 'management':
-            uri = f"https://management.azure.com{endpoint}"
+            uri = f"{self.management_endpoint}{endpoint}"
         elif app == 'catalog':
-            uri = f"https://{self.account_name}.purview.azure.com/catalog{endpoint}"
+            uri = f"https://{self.account_name}.{self.purview_endpoint}/catalog{endpoint}"
         elif app == 'scan':
-            uri = f"https://{self.account_name}.purview.azure.com/scan{endpoint}"
+            uri = f"https://{self.account_name}.{self.purview_endpoint}/scan{endpoint}"
         elif app == 'account':
-            uri = f"https://{self.account_name}.purview.azure.com/account{endpoint}"
+            uri = f"https://{self.account_name}.{self.purview_endpoint}/account{endpoint}"
         elif app == 'policystore':
-            uri = f"https://{self.account_name}.purview.azure.com/policystore{endpoint}"
+            uri = f"https://{self.account_name}.{self.purview_endpoint}policystore{endpoint}"
         elif app == 'share':
-            uri = f"https://{self.account_name}.purview.azure.com/share{endpoint}"
+            uri = f"https://{self.account_name}.{self.purview_endpoint}/share{endpoint}"
         elif app == 'mapanddiscover':
-            uri = f"https://{self.account_name}.purview.azure.com/mapanddiscover{endpoint}"
+            uri = f"https://{self.account_name}.{self.purview_endpoint}/mapanddiscover{endpoint}"
         elif app == 'guardian':
-            uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
+            uri = f"https://{self.account_name}.{app}.{self.purview_endpoint}{endpoint}"
         else:
-            uri = f"https://{self.account_name}.{app}.purview.azure.com{endpoint}"
+            uri = f"https://{self.account_name}.{app}.{self.purview_endpoint}{endpoint}"
 
         auth = {"Authorization": "Bearer {0}".format(self.access_token)}
         useragent = {"User-Agent": "purviewcli/{0} {1}".format(__version__, requests.utils.default_headers().get("User-Agent"))}
@@ -80,7 +98,7 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
 
         try:
             response = requests.request(method, uri, params=params, json=payload, files=files, headers=headers)
-            # DEBUG
+            #DEBUG
             # print(f"Method:\t\t{method}")
             # print(f"Body:\t\t{payload}")
             # print(f"Headers:\t\t{headers}")
