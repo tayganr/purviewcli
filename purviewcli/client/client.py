@@ -6,6 +6,7 @@ import requests
 from http.client import responses
 from azure.identity import DefaultAzureCredential
 from azure.core.exceptions import ClientAuthenticationError
+from azure.identity import AzureAuthorityHosts
 from . import settings
 from .. import __version__
 
@@ -27,6 +28,9 @@ class PurviewClient():
         elif self.azure_region is not None and self.azure_region.lower() == "china":
             self.management_endpoint= "https://management.chinacloudapi.cn"
             self.purview_endpoint = "purview.azure.cn"
+        elif self.azure_region is not None and self.azure_region.lower() == "usgov":
+            self.management_endpoint= "https://management.usgovcloudapi.net"
+            self.purview_endpoint = "purview.azure.us"
         else:
             print("[ERROR] Environment variable AZURE_REGION is not set correctly. Please remove this variable if Purview is provisioned on Public Azure.")
             sys.exit()        
@@ -52,7 +56,10 @@ Alternatively, an Azure Purview account name can be provided by appending --purv
 
     def set_token(self, app):
         if self.azure_region is not None and self.azure_region.lower() == "china":
-            credential = DefaultAzureCredential(authority="https://login.partner.microsoftonline.cn",exclude_shared_token_cache_credential=True)            
+            credential = DefaultAzureCredential(authority="https://login.partner.microsoftonline.cn",exclude_shared_token_cache_credential=True)
+        elif self.azure_region is not None and self.azure_region.lower() == "usgov":
+            credential = DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_GOVERNMENT)
+#DefaultAzureCredential(authority="https://login.partner.microsoftonline.us",exclude_shared_token_cache_credential=True)             
         else: 
             credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)         
 
